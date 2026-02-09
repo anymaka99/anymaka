@@ -360,7 +360,11 @@
     text-align: right; }
     @media only screen and (min-width: 768px) {
       .flickity-custom-navigation-wrapper {
-        padding: 0 64px 64px 0; } }
+        padding: 0 0px 64px 0; 
+        max-width: max-content;
+        left: auto;
+        right: 0;
+      } }
     @media only screen and (min-width: 1799px) {
       .full-width-row .flickity-custom-navigation-wrapper {
         padding-right: 0; } }
