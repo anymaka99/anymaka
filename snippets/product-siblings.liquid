@@ -14,7 +14,6 @@
     assign show_siblings = true
   endif
 
-  assign color_picker_size = block.settings.color_picker_size | default: 'regular'
 -%}
 
 {%- if show_siblings -%}
@@ -48,7 +47,7 @@
       endcase
     -%}
     {%- if sibs_collection -%}
-      <fieldset class="product-form__input product-form__input--siblings product-form__input--siblings--{{ color_picker_size }}" style="--siblings-margin:{{ block.settings.margin_bottom | append: 'px' }}">
+      <fieldset class="product-form__input product-form__input--siblings" style="--siblings-margin:{{ block.settings.margin_bottom | append: 'px' }}">
         <div class="form__label">{{ 'products.product.siblings.label' | t }}: {% if sibling_color != blank -%}<span class="form__label__value">{{ sibling_color }}</span>{%- endif -%}</div>
 
         {%- for sib_product in sibs_collection limit: 50 -%}

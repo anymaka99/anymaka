@@ -1,23 +1,81 @@
-{%- liquid
-  assign full_width = section.settings.full_width
--%}
-<div class="row {% if full_width %}full-width-row-full{% endif %}">
-	<div class="small-12 columns">
-    {{ section.settings.custom_liquid }}
+
+<div class="{% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+  <div class="rich-text text-width-{{ section.settings.text_width }}">
+    <div class=" rich-text__inner">
+      {{ section.settings.custom_liquid }}
+    </div>
   </div>
 </div>
 {% schema %}
 {
   "name": "Custom liquid",
   "tag": "section",
-  "class": "section-custom-liquid",
+  "class": "spaced-section",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Make section full width",
-      "default": true
-    },
+      "type": "select",
+      "id": "content_for_tab",
+      "options": [
+          {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "detail",
+          "label": "Detail"
+        },
+        {
+          "value": "tech",
+          "label": "Tech Specs"
+        },
+        {
+          "value": "review",
+          "label": "Reviews"
+        },
+        {
+          "value": "faqs",
+          "label": "FAQs"
+        },
+        {
+          "value": "installation",
+          "label": "Installation"
+        } 
+      ],
+      "default": "",
+      "label": "In which product tab is the content displayed?"
+    }, 
+    {
+        "type": "select",
+        "id": "text_width",
+        "label": "Content width",
+        "options": [
+            {
+                "value": "small",
+                "label": "Small"
+            },
+            {
+                "value": "medium",
+                "label": "Medium"
+            },
+            {
+                "value": "large",
+                "label": "Large"
+            },
+            {
+                "value": "xlarge",
+                "label": "Extra large"
+            },
+            {
+                "value": "grid",
+                "label": "Grid"
+            },
+            {
+                "value": "full_width",
+                "label": "Full Width"
+            }          
+        ],
+        "default": "full_width"
+    },    
     {
       "type": "liquid",
       "id": "custom_liquid",
@@ -29,12 +87,6 @@
     {
       "name": "Custom liquid"
     }
-  ],
-  "enabled_on": {
-    "templates": ["*"],
-    "groups": [
-      "header", "footer"
-    ]
-  }
+  ]
 }
 {% endschema %}

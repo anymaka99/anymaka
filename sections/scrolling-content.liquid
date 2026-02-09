@@ -19,9 +19,11 @@
 	if color_body_bg == color_bg or color_bg == 'transparent' or color_bg == 'rgba(0,0,0,0)'
 		assign has_bg = false
 	endif
+
+    assign text_width = section.settings.text_width
 -%}
-<scrolling-content class="scrolling-content section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
-	<div class="scrolling-content--inner {% if has_bg -%}scrolling-content--has-bg{% endif %}" style="--color-bg: {{ color_bg }}; --color-heading: {{ color_heading }}; --color-body: {{ color_text }}; --color-accent: {{ color_links }};">
+<scrolling-content class="scrolling-content section-spacing{% if text_width != blank %} rich-text text-width-{{ text_width }}{% endif %} {% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+	<div class="scrolling-content--inner {% if text_width != blank %} rich-text__inner {% endif %} {% if has_bg -%}scrolling-content--has-bg{% endif %}" style="--color-bg: {{ color_bg }}; --color-heading: {{ color_heading }}; --color-body: {{ color_text }}; --color-accent: {{ color_links }};">
 		<div class="scrolling-content--container {{ desktop_layout }}{% if mobile_swipe %} swipe-on-mobile{% endif %}">
 			{%- capture pagination_dots -%}
 			<div class="scrolling-content--dots">
@@ -52,9 +54,9 @@
 							-%}
 							{%- render 'responsive-image', image: image, sizes: width -%}
 						{% else %}
-							{% assign index = forloop.index | modulo: 3 | plus: 1 %}
+							{% assign index = forloop.index | modulo: 2 | plus: 1 %}
 							<div class="thb-placeholder">
-								{{ 'blog-apparel-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
+								{{ 'collection-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
 							</div>
 						{% endif %}
 					</div>
@@ -86,9 +88,6 @@
 								<span class="inline-badge">{{ block.settings.badge }}</span>
 							</div>
 						{% endif %}
-						{% if block.settings.subheading != blank %}
-							<p class="subheading">{{ block.settings.subheading }}</p>
-						{% endif %}
 						{% if block.settings.heading %}
 						{%- liquid
 							assign marker_style = block.settings.marker_style
@@ -119,6 +118,70 @@
     "name": "Scrolling content",
 		"class": "section-scrolling-content",
     "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          } 
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },      
+      {
+          "type": "select",
+          "id": "text_width",
+          "label": "Content width",
+          "options": [
+              {
+                  "value": "small",
+                  "label": "Small"
+              },
+              {
+                  "value": "medium",
+                  "label": "Medium"
+              },
+              {
+                  "value": "large",
+                  "label": "Large"
+              },
+              {
+                  "value": "xlarge",
+                  "label": "Extra large"
+              },
+              {
+                  "value": "grid",
+                  "label": "Grid"
+              },
+              {
+                  "value": "",
+                  "label": "default"
+              }            
+          ],
+          "default": ""
+      },      
 			{
 	      "type": "select",
 	      "id": "desktop_layout",
@@ -279,19 +342,19 @@
 						"label": "Size",
 						"options": [
 							{
-								"value": "h2",
-								"label": "Large"
+								"value": "small",
+								"label": "Small"
 							},
 							{
-								"value": "h3",
+								"value": "medium",
 								"label": "Medium"
 							},
 							{
-								"value": "h4",
-								"label": "Small"
+								"value": "large",
+								"label": "Large"
 							}
 						],
-						"default": "h3"
+						"default": "medium"
 					},
           {
             "id": "button_text",
@@ -345,12 +408,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

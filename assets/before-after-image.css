@@ -8,19 +8,43 @@
 
 .before-after-image {
   display: flex;
-  gap: 30px;
+  grid-gap: 30px;
   flex-direction: column; }
   @media only screen and (min-width: 1068px) {
     .before-after-image {
-      gap: 60px; } }
+      grid-gap: 60px; 
+    }
+
+    .before-after-image.no-spacing{
+      grid-gap: 0;
+    }
+    .before-after-image--text,.before-after-image--container{
+      width: 50%!important;
+    }
+    .before-after-image--text{
+      padding: 0 70px;
+    }
+  }
   @media only screen and (min-width: 1068px) {
     .before-after-image.image-position--image_first {
       flex-direction: row-reverse;
-      align-items: center; } }
+      align-items: center; 
+    } 
+  }
+  @media only screen and (max-width: 767px) {
+    .before-after-image.mobile-image-position--image_first .before-after-image--text{
+      order: 1;
+    }
+  }
   @media only screen and (min-width: 1068px) {
     .before-after-image.image-position--text_first {
       flex-direction: row;
       align-items: center; } }
+  @media only screen and (max-width: 767px) {
+    .before-after-image.mobile-image-position--text_first .before-after-image--container{
+      order: 1;
+    }
+  }
   .before-after-image--text {
     width: 100%; }
     .before-after-image--text > *:last-child,

@@ -8,12 +8,12 @@
 .page-header--tags a {
   display: inline-flex;
   white-space: nowrap;
-  font-size: 0.8125rem;
+  font-size: 0.85rem;
   padding: 5px 15px;
   height: 31px;
   border-radius: var(--button-border-radius, 6px);
   align-items: center;
-  font-weight: var(--font-body-medium-weight, 500);
+  font-weight: 500;
   margin: 0 2px 2px 0;
   line-height: 1;
   background: rgba(var(--color-body-rgb), 0.05);

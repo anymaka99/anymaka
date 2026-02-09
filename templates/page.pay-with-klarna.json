@@ -1,0 +1,414 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_xdU6UF": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_YQ3yRk": {
+          "type": "heading",
+          "settings": {
+            "text": "Pay with Klarna",
+            "heading_size": "h1-xlarge"
+          }
+        },
+        "text_NmNCAq": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>You can easily and securely complete your shopping payments using Klarna. Klarna offers a variety of flexible payment options, allowing you to choose the one that best suits your needs.</p>",
+            "description_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YQ3yRk",
+        "text_NmNCAq"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "image": "shopify://shop_images/3.7-Pay_with_klarna_banner-pc.webp",
+        "mobile_image": "shopify://shop_images/3.7-Pay_with_klarna_banner.webp",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-450",
+        "full_width": true,
+        "content_width": "large",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1661619382b4020fa2": {
+      "type": "rich-text",
+      "blocks": {
+        "166161938159ca8988-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Shop Now, Pay Later",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "166161938159ca8988-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>anymaka partners with Klarna for more flexible payment options. Split your purchase into equal payments so you can spread the cost of your purchase over time.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "166161938159ca8988-1",
+        "166161938159ca8988-2"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_m7UFXA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XBdT4N": {
+          "type": "heading",
+          "settings": {
+            "text": "What is Klarna?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_qWypDf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Partner with over 170,000 online stores and has more than 70 million users globally, Klarna is a global payment solutions provider that works with retailers to provide customers with the smoothest online shopping experience. Klarna provides <strong>buy now, pay later </strong>(BNPL) service that allows users to make purchases from online retailers and physical stores without paying the entire amount upfront.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XBdT4N",
+        "text_qWypDf"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_X4BHcb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PKW38Q": {
+          "type": "heading",
+          "settings": {
+            "text": "How to Checkout with Klarna?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PKW38Q"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_hgE9cP": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 25,
+        "spacer_desktop": 50,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "text_with_icons_rwqBB6": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_THAhhG": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/1_949a61c3-a179-4c72-9c08-e444f13a291b.webp",
+            "heading": "Add your favorite items to the cart and proceed to checkout.",
+            "text": ""
+          }
+        },
+        "icon_YnqdD7": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/2_b9054bbe-8517-4456-aae5-a02b859078bf.webp",
+            "heading": "Select Klarna as your payment method and complete your order.",
+            "text": "<p>If you are using Klarna for the first time, a few steps for signing up might be required and future Klarna purchase can be completed with just a single click.</p>"
+          }
+        },
+        "icon_hrBTQX": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/3_a1366905-434b-46e3-85cd-0c54f3782b95.webp",
+            "heading": "Receive your order and pay the following instalment.",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_THAhhG",
+        "icon_YnqdD7",
+        "icon_hrBTQX"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_row": false,
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true,
+        "block_heading_font": "",
+        "block_description_font": ""
+      }
+    },
+    "rich_text_KPNY9n": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HiBQtk": {
+          "type": "heading",
+          "settings": {
+            "text": "Any Requirements for Paying with Klarna?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_wReX79": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Klarna is simple to use but there are still a couple of requirements that you need to follow:</p><p></p><p></p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HiBQtk",
+        "text_wReX79"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_rqT6Pj": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 25,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "text_with_icons_EXVHV9": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_XJPXUk": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/4_32c57630-2485-4c70-abe3-8d2182dbeae5.webp",
+            "heading": "Be a resident of the United States or its territories.",
+            "text": ""
+          }
+        },
+        "icon_txgw3w": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/5_5f66b95f-5ba4-4871-ac77-b470377fdad7.webp",
+            "heading": "Be at least 18.",
+            "text": ""
+          }
+        },
+        "icon_FxUXE4": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/6_935f51cb-c347-4c5b-9165-a0c8632e59ce.webp",
+            "heading": "Have a positive credit history.",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_XJPXUk",
+        "icon_txgw3w",
+        "icon_FxUXE4"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_row": false,
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true,
+        "block_heading_font": "",
+        "block_description_font": ""
+      }
+    },
+    "rich_text_Bc4mYk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QYbin3": {
+          "type": "heading",
+          "settings": {
+            "text": "What Happens to My Payments If I Return My Purchase?",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_GJknh6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you return your goods, Klarna will automatically reduce the amount you owe. Please note that returnings are subjected to our <a href=\"/pages/return-policy\" title=\"Return Policy\"><span style=\"text-decoration:underline\"><strong>return policy</strong></span></a> pages. If you already paid for a refunded order, Klarna will refund the balance back to your original payment method.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QYbin3",
+        "text_GJknh6"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_DazN6W": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_f8FqkQ": {
+          "type": "heading",
+          "settings": {
+            "text": "Frequenctly Asked Questions",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_E6tUVy": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "size": "text-size-regular"
+          }
+        },
+        "text_nW6w7J": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Will I be notified about my installments?</h6><p>Klarna notifies customers with payment reminders via SMS and email before each payment is due.</p><h6>Can I pay off my Klarna installments early?</h6><p>Sure! You can log in to Klarna's official website and then choose the order you wish to pay off early on Customer Portal.</p><h6>Is there a fee to use Pay 4 interest-free installments?</h6><p>There are no fees when you follow the payment schedule. Please review product terms for applicable fees.</p><h6>More info about Klarna</h6><p>For any more info for Klarna, just click <a href=\"https://www.klarna.com/us/what-is-klarna/?ref=4wbpxkla5r\" target=\"_blank\">here</a>.</p><h6></h6><h6>How can I contact Klarna customer service?</h6><p>You can contact Klarna customer service <a href=\"https://www.klarna.com/us/customer-service/?ref=4wbpxkla5r\" target=\"_blank\">here</a>.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "heading_f8FqkQ",
+        "text_E6tUVy",
+        "text_nW6w7J"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_xdU6UF",
+    "1661619382b4020fa2",
+    "rich_text_m7UFXA",
+    "rich_text_X4BHcb",
+    "spacer_hgE9cP",
+    "text_with_icons_rwqBB6",
+    "rich_text_KPNY9n",
+    "spacer_rqT6Pj",
+    "text_with_icons_EXVHV9",
+    "rich_text_Bc4mYk",
+    "rich_text_DazN6W"
+  ]
+}

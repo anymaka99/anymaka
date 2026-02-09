@@ -41,7 +41,7 @@
 							{%- if use_video -%}
 								{%- if video_hosted != blank -%}
 								<div class="media-with-tabs--media--video">
-									{{ video_hosted | video_tag: autoplay: video_autoplay, loop: true, controls: false, muted: true }}
+									{{ video_hosted | video_tag: autoplay: video_autoplay, loop: true, controls: false, muted: video_autoplay }}
 								</div>
 								{%- endif -%}
 							{%- elsif image != blank -%}
@@ -50,12 +50,8 @@
 									assign mid_height = image.src.height | times: '1280' | divided_by: image.src.width
 									assign master_width = image.src.width | append: 'x' | append: image.src.height
 									assign width = '690x' | append: small_height | append: ',' | append: '1280x' | append: mid_height | append: ',' | append: master_width
-									assign priority = 'auto'
 
-									if forloop.index > 1 
-										assign priority = 'low'
-									endif
-									render 'responsive-image', image: image, sizes: width, priority: priority
+									render 'responsive-image', image: image, sizes: width
 								-%}
 							{%- else -%}
 								{{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
@@ -69,7 +65,7 @@
 				{%- for block in section.blocks -%}
 					{%- case block.type -%}
 						{%- when 'badge' -%}
-							<div {{ block.shopify_attributes }}>
+							<div>
 								<span class="inline-badge" style="--badge-bg: {{ block.settings.color_bg }};--badge-text: {{ block.settings.color_text }}">{{ block.settings.text }}</span>
 							</div>
 						{%- when 'subheading' -%}
@@ -573,12 +569,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

@@ -21,6 +21,8 @@
   .gallery--item {
     position: relative;
     overflow: hidden; }
+    .gallery--item .thb-placeholder svg {
+      padding: 30px; }
     .gallery--item figure {
       position: relative;
       width: 100%;
@@ -48,19 +50,22 @@
     .gallery--item-content {
       position: absolute;
       top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       z-index: 20;
       display: flex;
       padding: 25px;
-      color: #fff; }
+      color: #fff; 
+      max-width: 1280px;
+      transform: translateX(-50%);
+      left: 50%;
+    }
       @media only screen and (min-width: 1068px) {
         .gallery--item-content {
-          padding: 35px; } }
+          padding: 35px 0; } }
       @media only screen and (min-width: 1440px) {
         .gallery--item-content {
-          padding: 45px; } }
+          padding: 45px 0; } }
       .gallery--item-content.content-top-left {
         justify-content: flex-start;
         align-items: flex-start; }
@@ -125,9 +130,9 @@
   @media only screen and (max-width: 767px) {
     .gallery.swipe-on-mobile .gallery--inner {
       grid-auto-flow: column;
-      grid-auto-columns: minmax(var(--mobile-swipe-width), 1fr);
+      grid-auto-columns: minmax(calc(90vw - 15px), 1fr);
       overflow-x: auto;
-      grid-template-columns: repeat(auto-fill, minmax(var(--mobile-swipe-width), 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(calc(90vw - 15px), 1fr));
       scroll-snap-type: x mandatory;
       scrollbar-width: none; }
       .gallery.swipe-on-mobile .gallery--inner::-webkit-scrollbar {
@@ -138,3 +143,35 @@
       .row .gallery.swipe-on-mobile .gallery--inner {
         margin: 0 -15px;
         width: calc(100% + 30px); } }
+.gallery-image--mobile {
+  display: block; }
+  @media only screen and (min-width: 768px) {
+    .gallery-image--mobile {
+      display: none; } }
+
+.gallery-image--desktop {
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .gallery-image--desktop {
+      display: block; 
+    } 
+}
+.desc_position--top-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+}
+.desc_position--middle-center{
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, -50%);
+      
+}
+.desc_position--bottom-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+}

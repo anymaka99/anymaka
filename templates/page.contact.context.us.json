@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.contact.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "rich_text_NhdxVz": {
+      "settings": {},
+      "blocks": {
+        "text_68bT7E": {
+          "settings": {
+            "text": "<p>Email: <a href=\"mailto:hi@anymaka.com\" target=\"_blank\">hi@anymaka.com</a></p><p>ANYMAKA LIMITED</p><p>HK: FLAT 721, 7/F, LIVEN HOUSE, NO.61-63 KING YIP STREET, KWUN TONG, KOWLOON ,HK</p><p>US: 6547 N Academy Blvd, Colorado Springs</p>"
+          }
+        }
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@
     "main-cart": {
       "type": "main-cart",
       "settings": {
-        "cart_notes_enable": true
+        "cart_notes_enable": false
       }
     },
     "product-recommendations": {
@@ -41,23 +41,12 @@
         "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }
-    },
-    "recently_viewed_products_iUUEiK": {
-      "type": "recently-viewed-products",
-      "settings": {
-        "heading": "Recently viewed products",
-        "description": "<p>Describe your recently viewed products here</p>",
-        "mobile_swipe": true,
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false
-      }
     }
   },
   "order": [
     "breadcrumbs",
     "template-header",
     "main-cart",
-    "product-recommendations",
-    "recently_viewed_products_iUUEiK"
+    "product-recommendations"
   ]
 }

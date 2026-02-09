@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "/* styles.css */.post-title h1 {display: none;}",
+        " /* styles.css */#cf_ram_guest_heading {font-size: 34px;}",
+        " /* styles.css */.cf_ram_submit_wrapper {display: flex; flex-direction: column; align-items: flex-start;}",
+        ".cf_ram_guest_input_container {margin-bottom: 10px;}",
+        ".cf_ram_guest_input_container,.cf_ram_guest_submit_button_container {border-radius: 0;}",
+        ".cf_ram_user_input_container,.cf_ram_user_input_field,.cf_ram_user_copy_button,.cf_ram_user_form,.cf_ram_user_submit_button_container input {border-radius: 0 !important;}"
+      ],
+      "settings": {}
+    },
+    "image_with_text_overlay_FckbtE": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_p4DikB": {
+          "type": "heading",
+          "settings": {
+            "text": "See What Customers Think",
+            "heading_size": "h1"
+          }
+        },
+        "text_yyrWxk": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "description_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_p4DikB",
+        "text_yyrWxk"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "image": "shopify://shop_images/review_banner-pc.webp",
+        "mobile_image": "shopify://shop_images/review_banner.webp",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-450",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "middle-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "17219890105164d4f0": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_all_reviews_page_atG9Ni": {
+          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_page/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_all_reviews_page_atG9Ni"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_FckbtE",
+    "17219890105164d4f0"
+  ]
+}

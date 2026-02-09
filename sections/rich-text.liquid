@@ -24,7 +24,7 @@
 		assign transparent = true
 	endif
 -%}
-<div class="row">
+<div class="row {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
 	<div class="small-12 columns">
 		<div class="rich-text rich-text--transparent-{{ transparent }} text-{{ text_alignment }} text-position-{{ text_position }} text-width-{{ text_width }} section-spacing-padding{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-bg: {{ color_bg }}; --color-heading: {{ color_heading }}; --color-text: {{ color_text }}; --solid-button-background: {{ color_text }}; --bg-body: {{ color_bg }}; --color-accent: {{ color_links }}; --color-accent-rgb: {{ color_links.rgb | replace: ' ' , ',' }};">
 			<div class="rich-text__inner">
@@ -56,20 +56,15 @@
 							-%}
 							<h3 class="{{ block.settings.size }} {{ heading_class }}" {{ block.shopify_attributes }}>{% render 'animated-marker-heading', heading: text, style: marker_style, color: marker_color %}</h3>
 						{%- when 'text' -%}
-							<div class="rte {{ block.settings.size }}" {{ block.shopify_attributes }}>
-								{{ block.settings.text }}
-								{{ block.settings.custom_liquid }}
-							</div>
+							<div class="rte {{ block.settings.size }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 						{%- when 'button' -%}
 						{% if block.settings.link_label != blank %}
 							<a class="button"{% if block.settings.link_label == blank %} aria-disabled="true"{% else %} href="{{ block.settings.link }}"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.link_label }}</a>
 						{% endif %}
 						{%- when 'text-button' -%}
-							{% if block.settings.link_label != blank %}
-								{% render 'text-button', url: block.settings.link, title: block.settings.link_label %}
-							{% endif %}
-						{%- when 'custom_liquid' -%}
-    					{{ block.settings.custom_liquid }}
+						{% if block.settings.link_label != blank %}
+							{% render 'text-button', url: block.settings.link, title: block.settings.link_label %}
+						{% endif %}
 					{%- endcase -%}
 				{% endfor %}
 			</div>
@@ -80,8 +75,39 @@
 {% schema %}
   {
     "name": "Rich text",
-		"class": "section-rich-text",
     "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          } 
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },      
 			{
 				"type": "select",
 				"id": "text_width",
@@ -325,12 +351,6 @@
 						"default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
 					},
 					{
-						"type": "liquid",
-						"id": "custom_liquid",
-						"label": "Custom liquid",
-						"info": "Add app snippets or other Liquid code to create advanced customizations."
-					},
-					{
 		        "type": "select",
 		        "id": "size",
 		        "label": "Size",
@@ -387,19 +407,7 @@
 						"label": "Link"
 					}
         ]
-      },
-			{
-				"type": "custom_liquid",
-				"name": "Custom liquid",
-				"settings": [
-					{
-						"type": "liquid",
-						"id": "custom_liquid",
-						"label": "Custom liquid",
-						"info": "Add app snippets or other Liquid code to create advanced customizations."
-					}
-				]
-			}
+      }
     ],
     "presets": [
       {
@@ -419,12 +427,6 @@
 	        }
 	      ]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.shipping-returns.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "rich_text_GEYbQC": {
+      "settings": {},
+      "blocks": {
+        "text_6hRcWg": {
+          "settings": {
+            "text": "<p>We want you to receive your <strong>Anymaka</strong> products quickly and reliably — no matter where you are. Below you’ll find shipping details tailored to each of our supported markets: the <strong>United States</strong>, <strong>United Kingdom</strong>, <strong>Canada</strong>, and <strong>Australia</strong>.</p><p></p><p>*<strong>Please allow 1 to 3 business days for us to dispatch your order</strong> (please note: shipping times may vary due to uncontrollable factors such as political events, changes in climate, and so forth). We do not process orders or shipping on weekends or holidays.</p><p></p>"
+          }
+        }
+      }
+    },
+    "custom_liquid_7LyGTb": {
+      "settings": {
+        "custom_liquid": "<style>\n  .custom-table {\n    width: 100%;\n    font-family: \"swiss\";\n    font-size: 16px; /* 字体大小 */\n    letter-spacing: 0; /* 字间距 */\n    line-height: 1.5; /* 行间距 */\n    margin-left: auto;\n    margin-right: auto;\n    table-layout: fixed;\n  }\n  .custom-table th,\n  .custom-table td {\n    padding: 15px; /* 左右内边距 */\n    text-align: left;\n  }\n  .custom-table tr:nth-child(even) {\n    background-color: #FFFFFF;\n  }\n  .custom-table tr:nth-child(odd) {\n    background-color: #EEEEEE;\n  }\n</style>\n\n<table class=\"custom-table\">\n  <tr>\n    <th>Shipping Service</th>\n    <th>Qualifications</th>\n    <th>Timeline</th>\n    <th>Cost</th>\n  </tr>\n  <tr>\n    <td>Standard</td>\n    <td>Contiguous U.S. orders $149 and up</td>\n    <td>3-7 business days</td>\n    <td>$10</td>\n  </tr>\n  <tr>\n    <td>Standard</td>\n    <td>Contiguous U.S. orders under $149</td>\n    <td>3-7 business days</td>\n    <td>$12</td>\n  </tr>\n  <tr>\n    <td>Standard</td>\n    <td>Orders to Alaska and Hawaii</td>\n    <td>3-7 business days</td>\n    <td>Calculated at checkout</td>\n  </tr>\n  <tr>\n</table>"
+      },
+      "blocks": {}
+    }
+  }
+}

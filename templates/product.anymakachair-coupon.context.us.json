@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "us"
+  },
+  "parent": "product.anymakachair-coupon.json",
+  "sections": {
+    "slideshow_mJGUYF": {
+      "settings": {},
+      "blocks": {
+        "slide_CnBmeQ": {
+          "settings": {
+            "image": "shopify://shop_images/pc_dce58246-1ca5-4c82-924f-a42e2efbc3de.webp",
+            "mobile_image": "shopify://shop_images/426eae158b0cd428875a79202db847a4_e9582e81-6322-40eb-aef5-22b4f75aef30.webp"
+          }
+        }
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "spacer_PRmVwi",
+    "main-product",
+    "product_tabbed_content_7qa6fd",
+    "slideshow_mJGUYF",
+    "slideshow_W4wXxV",
+    "collapsible_content_iGTwXj",
+    "image_with_text_YMJ3Lc",
+    "image_with_text_Bgt8ie",
+    "image_with_text_EeptJw",
+    "image_with_text_xrP6Dd",
+    "custom_liquid_RLFwAf",
+    "custom_liquid_W9WLcP",
+    "product-recommendations",
+    "before_after_image_KbUKf7",
+    "custom_liquid_74W9AP",
+    "text_with_icons_XFzkNR",
+    "single_image_Lqk6tq",
+    "video_cEmTPq",
+    "slideshow_wqbYaG",
+    "slideshow_YNca4V",
+    "slideshow_nXH6Rh",
+    "slideshow_Jj9Afw",
+    "spacer_XbhfBU",
+    "image_with_text_fqbnAH"
+  ]
+}

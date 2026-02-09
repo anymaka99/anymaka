@@ -151,7 +151,7 @@
           </label>
         </div>
 
-        <label class="form__label recipient-form-field-label recipient-form-field-label--space-between max-characters">
+        <label class="form__label recipient-form-field-label recipient-form-field-label--space-between">
           <span>{{ max_chars_message_rendered }}</span>
         </label>
 
@@ -168,41 +168,6 @@
 	            {%- endif -%}
 	          </span>
 					</div>
-        </div>
-      </div>
-      <div class="recipient-fields__field">
-        <div class="field">
-          <input
-            class="field__input full"
-            autocomplete="send_on"
-            type="date"
-            id="Recipient-send-on-{{ section.id }}"
-            name="properties[Send on]"
-            placeholder="{{ 'recipient.form.send_on' | t }}"
-            pattern="\d{4}-\d{2}-\d{2}"
-            value="{{ form.send_on }}"
-            {% if form.errors contains 'send_on' %}
-              aria-invalid="true"
-              aria-describedby="RecipientForm-send_on-error-{{ section.id }}"
-            {% endif %}
-          >
-          <label class="form__label field__label" for="Recipient-send-on-{{ section.id }}">
-            {{ 'recipient.form.send_on_label' | t }}
-          </label>
-        </div>
-
-        <div
-          id="RecipientForm-send_on-error-{{ section.id }}"
-          class="form__message{% unless form.errors contains 'send_on' %} hidden{% endunless %}"
-        >
-          <div class="form-notification error">
-	          {% render 'svg-icons' with 'thb-error' %}
-            <span class="error-message">
-              {%- if form.errors contains 'send_on' -%}
-                {{ form.errors.messages.send_on }}.
-              {%- endif -%}
-            </span>
-          </div>
         </div>
       </div>
     </div>

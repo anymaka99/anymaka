@@ -1,0 +1,1161 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "spacer_PRmVwi": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 15,
+        "spacer_desktop": 0,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "2b609eea-6cce-4efe-b447-c5560de1d797": {
+          "type": "label",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false,
+            "title_top_position": false,
+            "product_title_font": "swisBold",
+            "sub_product_title_font": "swisBold"
+          }
+        },
+        "0b3e272b-c86a-4dba-946c-c6912251371c": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "product_description_font": "swiss"
+          }
+        },
+        "icon_list_iBqfEW": {
+          "type": "icon_list",
+          "disabled": true,
+          "settings": {
+            "icon_label_font": "swisBold",
+            "icon_1_icon": "none",
+            "icon_1_image": "shopify://shop_images/icon-07_ac879df1-608a-41d7-8323-34cf43ab658e.webp",
+            "icon_1_text": "Sets up within 3 seconds",
+            "icon_2_icon": "none",
+            "icon_2_image": "shopify://shop_images/icon-08_463c4c36-fc6c-468c-abe1-1ea90275170e.webp",
+            "icon_2_text": "Fits in any car trunk",
+            "icon_3_icon": "none",
+            "icon_3_image": "shopify://shop_images/icon-09_3d2f88cf-a054-4107-b9ed-8ac0e98fd7f3.webp",
+            "icon_3_text": "Lounge & chair mode in one",
+            "icon_4_icon": "none",
+            "icon_4_image": "shopify://shop_images/4_c2ff4f4b-f824-4ddd-9535-a94b57437fcf.webp",
+            "icon_4_text": "Stable on any terrain",
+            "icon_5_icon": "washing",
+            "icon_5_image": "shopify://shop_images/5_c26b6948-932f-43d9-9bd6-d852a286b042.webp",
+            "icon_5_text": "Adjustable to fit any hammock"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker": true,
+            "variant_is_disabled": true,
+            "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
+            "sizing_guide_icon": "ruler",
+            "sizing_guide_page": ""
+          }
+        },
+        "custom_option_HWfehA": {
+          "type": "custom_option",
+          "disabled": true,
+          "settings": {
+            "type": "multiple",
+            "label": "Choice Hammock Color:",
+            "text_required": true,
+            "text_placeholder": "Enter your text here",
+            "checkbox_checked_value": "Yes",
+            "checkbox_unchecked_value": "No",
+            "multiple_style": "dropdown",
+            "multiple_options": "Forest Green\nOcean Blue\nSunset Yellow"
+          }
+        },
+        "quantity": {
+          "type": "quantity",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "cart_checkout_line": false,
+            "enable_cart_color": false,
+            "cart_button_bg": "#222222",
+            "cart_button_txt_color": "#ffffff",
+            "cart_button_hover_bg": "#2b1559",
+            "cart_button_hover_txt_color": "#ffffff"
+          }
+        },
+        "d56924f2-0137-4e3b-8c33-49b1f28391c6": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Items Included",
+            "heading_font": "",
+            "open": false,
+            "content": "<p>1 x anymaka Hammock Stand</p><p>1 x anymaka Travel Bag</p><p>1 x Webbing Strap with Buckle</p>",
+            "content_font": "",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "collapsible_tab_YY39UD": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Fast Shipping",
+            "heading_font": "",
+            "open": false,
+            "content": "",
+            "content_font": "",
+            "page": "",
+            "custom_liquid": "<style>\n/* 强制文本显示下划线 */\n.u-underline {\n  text-decoration: underline;\n}\n\n/* 样式化超链接 */\n.u-underline a {\n  text-decoration: none; /* 移除默认的超链接样式 */\n  color: inherit; /* 继承父元素的文字颜色 */\n}\n\n.bold-text {\n  font-weight: bold;\n}\n</style>\n\n<p>Orders with <strong class=\"bold-text\">Standard Shipping</strong> typically deliver in 3-7 business days within the contiguous United States, while orders with <strong class=\"bold-text\">2-Day Shipping</strong> deliver in 2-3 business days. <span class=\"u-underline\"><a href=\"https://anymaka.myshopify.com/pages/shipping-returns\">Learn More</a></span></p>"
+          }
+        },
+        "collapsible_tab_XXHwQ7": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "30 Days Return",
+            "heading_font": "",
+            "open": false,
+            "content": "",
+            "content_font": "",
+            "page": "",
+            "custom_liquid": "<p>In the event that you are not completely satisfied with your purchase, you can return the items within 30 days of original purchase. <span class=\"u-underline\"><a href=\"https://anymaka.myshopify.com/pages/return-policy\">Learn More</a></span></p>"
+          }
+        },
+        "386f7e4a-6127-4141-928b-9cb4614ee18c": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Lifetime Warranty",
+            "heading_font": "",
+            "open": false,
+            "content": "",
+            "content_font": "",
+            "page": "",
+            "custom_liquid": "<p>If, during the period of lifetime after your purchase, your anymaka hammock stand stops working or has any defects, we will do our best to repair or replace any manufacturing defect on all of our products free of charge with proof of purchase. <span class=\"u-underline\"><a href=\"https://anymaka.myshopify.com/pages/warranty\">Learn More</a></span></p>"
+          }
+        },
+        "fc6da228-45eb-4a6e-aa68-d6ec477bec34": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "Pairs well with",
+            "product_list_limit": 6
+          }
+        }
+      },
+      "block_order": [
+        "2b609eea-6cce-4efe-b447-c5560de1d797",
+        "title",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "icon_list_iBqfEW",
+        "variant_picker",
+        "custom_option_HWfehA",
+        "quantity",
+        "buy_buttons",
+        "d56924f2-0137-4e3b-8c33-49b1f28391c6",
+        "collapsible_tab_YY39UD",
+        "collapsible_tab_XXHwQ7",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "fc6da228-45eb-4a6e-aa68-d6ec477bec34"
+      ],
+      "custom_css": [
+        "/* 调整价格中原价的字体大小 */.price del .amount {font-size: 18px; /* 修改原价的字体大小为 14 像素 */}",
+        " /* 将星星的颜色设置为黄色 */.jdgm-star {color: #ffd700; /* 将星星颜色设置为黄色 */}",
+        ".form__label-custom-title {display: none;}",
+        "#MediaGallery-template--22323345129754__main-product {max-width: 80%; /* 设置产品画廊容器的最大宽度为页面宽度的50% */ margin: 0 auto; /* 将产品画廊容器右侧外边距设置为自动，使其靠左 */}"
+      ],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "bottom",
+        "media_aspect_ratio": "square",
+        "display_captions": true,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1706342186ad67cfde": {
+      "type": "apps",
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "spacer_nFrUwd": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 5,
+        "spacer_desktop": 40,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "product_tabbed_content_6nnM98": {
+      "type": "product-tabbed-content",
+      "blocks": {
+        "tab_RHaVcr": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Details",
+            "icon": "none",
+            "text": "",
+            "text_columns": "1",
+            "page": ""
+          }
+        },
+        "tab_MKVhkK": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Specs",
+            "icon": "none",
+            "text": "",
+            "text_columns": "1",
+            "page": ""
+          }
+        },
+        "tab_FaT8a6": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Installation",
+            "icon": "none",
+            "text": "",
+            "text_columns": "1",
+            "page": ""
+          }
+        },
+        "tab_i9aPxk": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Reviews",
+            "icon": "none",
+            "text": "",
+            "text_columns": "1",
+            "page": ""
+          }
+        },
+        "tab_k4LeMi": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "FAQs",
+            "icon": "none",
+            "text": "",
+            "text_columns": "1",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_RHaVcr",
+        "tab_MKVhkK",
+        "tab_FaT8a6",
+        "tab_i9aPxk",
+        "tab_k4LeMi"
+      ],
+      "settings": {
+        "product_tabs": true,
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "text_size": "regular",
+        "tab_alignment": "center",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_tabs": "#2c2d2e",
+        "color_text": "#2c2d2e",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "slideshow_ynULtY": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_z7BDLL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Relax_anywhere_anytime.png",
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/3月14日详情页banner.mp4",
+            "video_hosted_mobile": "shopify://files/videos/移动端banner.mp4",
+            "content_width": 1000,
+            "content_width_mobile": 150,
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Unwind Anywhere, Hammocking Made Easy.",
+            "heading_size": "h2",
+            "heading_size_mobile": 28,
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "large",
+            "color_slidebg": "#6f6f6f",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#1a1c1d",
+            "overlay_opacity": 0,
+            "overlay_gradient": "radial-gradient(rgba(26, 28, 29, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_z7BDLL"
+      ],
+      "settings": {
+        "content_for_tab": "detail",
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-400",
+        "full_width": true,
+        "scale_clip": false,
+        "autoplay": false,
+        "autoplay_length": 5,
+        "transition": "zoom",
+        "controls": "arrows-with-numbers",
+        "slide_arrow": false,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false,
+        "block_badge_font": "",
+        "block_subheading_font": "",
+        "block_heading_font": "",
+        "block_description_font": "",
+        "block_link_font": ""
+      }
+    },
+    "image_with_text_YMJ3Lc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XtYhUU": {
+          "type": "heading",
+          "settings": {
+            "text": "Fast Assembly in Seconds",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_N7hdLr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A simple snap to enjoy views unrestricted by trees. Featuring a patent-pending Snap-Fold design, the anymaka hammock stand saves you time from wrestling with the stand or straps.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XtYhUU",
+        "text_N7hdLr"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "detail",
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/3s setup.mp4",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "before_after_image_KJVPtW": {
+      "type": "before-after-image",
+      "blocks": {
+        "image_UYcgji": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/8_0416fd83-e55f-4267-894c-1ad3e58758dc.png",
+            "title": "Chair Mode",
+            "heading_size": "h3",
+            "heading_position": "top",
+            "text_bg": "#ffffff",
+            "text_color": "#2c2d2e",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_EKgnCc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3.15.webp",
+            "title": "Lounge Mode",
+            "heading_size": "h3",
+            "heading_position": "top",
+            "text_bg": "#ffffff",
+            "text_color": "#2c2d2e",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_UYcgji",
+        "image_EKgnCc"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "detail",
+        "column_spacing": true,
+        "heading": "Quick Adjustment for Different Modes",
+        "marker_style": "style1",
+        "heading_size": "h3",
+        "description": "<p>From relaxed lounging to sitting upright, quickly slide and lock into the perfect hang with the 8-level tension adjustment system on each arm. </p><p></p>",
+        "description_max_width": 500,
+        "badge_text": "",
+        "image_position": "image_first",
+        "mobile_image_position": "image_first",
+        "desktop_height": "desktop-height-image",
+        "mobile_height": "mobile-height-image",
+        "initial_position": 50,
+        "marker_color": "#fd6262",
+        "line_color": "#3f72e5",
+        "color_bg_badge": "#f4f2e9",
+        "color_badge": "#f4f2e9",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_overlay_NbmJAa": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_7TNWLA": {
+          "type": "heading",
+          "settings": {
+            "text": "Portability for Adventures",
+            "heading_size": "h2"
+          }
+        },
+        "text_RXnqzj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Folded into a truck-friendly traveling bag, it offers car campers and tailgaters alike the ultimate mobility for hammocking on the go.</p>",
+            "description_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7TNWLA",
+        "text_RXnqzj"
+      ],
+      "settings": {
+        "content_for_tab": "detail",
+        "image": "shopify://shop_images/PC_Portability.png",
+        "mobile_image": "shopify://shop_images/20240129-143223.jpg",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "full_width": false,
+        "content_width": "small",
+        "content_position": "top-left",
+        "text_alignment": "left",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "image_with_text_fE8a7i": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_CPTk9B": {
+          "type": "heading",
+          "settings": {
+            "text": "Built for Life Outdoors",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_AdrWED": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With an aircraft-grade aluminum frame and rust-proof finish, it enhances portability while maintaining remarkable strength and corrosion-resistant durability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CPTk9B",
+        "text_AdrWED"
+      ],
+      "settings": {
+        "content_for_tab": "detail",
+        "image": "shopify://shop_images/7_17299ce6-fa23-425e-aa4d-75e1a136b988.png",
+        "use_video": false,
+        "video": "",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "image_with_text_CaAabm": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_ykhLrn": {
+          "type": "heading",
+          "settings": {
+            "text": "Balance for Any Terrain",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_CegtBE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be ready for adventures in different environments. The anymaka hammock stand's feet are made with anti-slip materials, ensuring a large contact area for enhanced grip and stability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ykhLrn",
+        "text_CegtBE"
+      ],
+      "settings": {
+        "content_for_tab": "detail",
+        "image": "shopify://shop_images/4_f0e5954b-744c-4d4d-9acc-02cab261ef78.png",
+        "use_video": true,
+        "video": "",
+        "video_hosted": "shopify://files/videos/产品详情页-多地形稳定.mp4",
+        "video_autoplay": true,
+        "height": "large",
+        "desktop_image_width": "medium",
+        "full_width": false,
+        "layout": "image_first",
+        "content_position": "text-left",
+        "column_spacing": "",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "shop_the_look_eT3hWk": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product_CKUcWK": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "show_custom_image": true,
+            "image": "shopify://shop_images/2_c5aed55a-5753-4a27-a36d-1929ee03e324.webp",
+            "heading": "Teacup Sliders",
+            "description": "<p>8 adjustable hook points on each arm, slide and lock for preferred hanging.</p>",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "x_position": 91,
+            "y_position": 10,
+            "x_size_mobile": 15,
+            "x_position_mobile": 89,
+            "y_position_mobile": 4
+          }
+        },
+        "product_WAx6qB": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "show_custom_image": true,
+            "image": "shopify://shop_images/4_6cbeb395-79d4-4209-8f8a-c8ddc207b36f.webp",
+            "heading": "Central Hub",
+            "description": "<p>Engineered for adventures with impact resistance and a 550lbs weight capacity.</p>",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "x_position": 41,
+            "y_position": 50,
+            "x_size_mobile": 15,
+            "x_position_mobile": 39,
+            "y_position_mobile": 50
+          }
+        },
+        "product_iVHahf": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "show_custom_image": true,
+            "image": "shopify://shop_images/5_ba341ca5-259d-43f2-a0d8-dadb2e9e0ad4.webp",
+            "heading": "Anti-slip Feet",
+            "description": "<p>Rustproof finish with anti-slip materials, stable on any terrain.</p>",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "x_position": 4,
+            "y_position": 62,
+            "x_size_mobile": 15,
+            "x_position_mobile": 3,
+            "y_position_mobile": 61
+          }
+        },
+        "product_BiJdCN": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "show_custom_image": true,
+            "image": "shopify://shop_images/3_0ebef4c5-d168-4a5b-8b17-35fbe6f458e9.webp",
+            "heading": "Arm Pins",
+            "description": "<p>Slide and lock to switch between Chair Mode and Lounge Mode.</p>",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "x_position": 64,
+            "y_position": 41,
+            "x_size_mobile": 15,
+            "x_position_mobile": 63,
+            "y_position_mobile": 42
+          }
+        },
+        "product_z3RVhc": {
+          "type": "product",
+          "settings": {
+            "product_handle": "",
+            "show_custom_image": true,
+            "image": "shopify://shop_images/1_c817c3ca-e439-4261-82b3-3d03bb91ae47.webp",
+            "heading": "U-shaped Cradle",
+            "description": "<p>Designed to secure gathered-end hammocks and adjustable canopy. Wrap excess material around the frame ends if the hammock is too long.</p>",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "x_position": 14,
+            "y_position": 12,
+            "x_size_mobile": 15,
+            "x_position_mobile": 14,
+            "y_position_mobile": 12
+          }
+        }
+      },
+      "block_order": [
+        "product_CKUcWK",
+        "product_WAx6qB",
+        "product_iVHahf",
+        "product_BiJdCN",
+        "product_z3RVhc"
+      ],
+      "settings": {
+        "content_for_tab": "tech",
+        "content_max_width": 980,
+        "image": "shopify://shop_images/222.webp",
+        "full_width": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "custom_liquid_QWz8kP": {
+      "type": "custom-liquid",
+      "settings": {
+        "content_for_tab": "tech",
+        "text_width": "full_width",
+        "custom_liquid": "<!--L-{number} 表示层级关系，相同层级可以换顺序 -->\n\n<!-- L-1 Title -->\n<div class=\"section-header\" style=\"justify-content: center;\">\n  <div class=\"section-header--content\">\n    <h3 class=\"section-header--title text-center\" style=\"color: var(--color-accent);\">\n      Tech Specs\n    </h3>\n  </div>\n</div>\n<!-- End Title-->\n\n<!-- L-1: start Column 1 Row -->\n<div class=\"row\">\n\n  <div class=\"small-12 columns\">\n    <div class=\"\">\n      <h5 class=\"h5\">Hammock Stand</h5>\n\n      <table class=\"table tech-table no-borders stripes\">\n        <tbody>\n          <tr>\n            <th>Stand Weight</th>\n            <td class=\"text-right\">23 lbs (10.4 kg)</td>\n            <th>Adjustable Points Per Arms</th>\n            <td>8</td>\n          </tr>     \n          <tr>\n            <th>Frame Materials</th>\n            <td class=\"text-right\">Aircraft Grade Aluminum Alloy</td>\n            <th>Folded Dimensions</th>\n            <td>40’’ × 7.5’’ × 9.5’’ (103 cm × 19 cm × 25 cm)</td>            \n          </tr>\n          <tr>\n            <th>Packed Dimensions</th>\n            <td class=\"text-right\">41’’ × 8’’ × 10’’ (104 cm × 20 cm × 26 cm)</td>\n            <th>Total Packed Weight</th>\n            <td>25.3 lbs (10.4 kg)</td>            \n          </tr>\n\n          <tr>\n            <th>Travel Bag Materials</th>\n            <td colspan=\"3\">900D PVC Oxford & 5 mm Foam & 38 mm Polyester Webbing</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n<!-- End Column 1 Row-->\n\n<!-- L-1: start Column 2 Row -->\n<div class=\"row\">\n  \n  <!-- L-2 -->\n  <div class=\"small-12 medium-6 columns\">\n    <div style=\"background: #eee;\">\n      <h5 class=\"h5\" style=\"padding: 10px;margin-bottom: 0;\">Chair Mode</h5>\n      <table class=\"table no-borders\">\n        <tbody>\n          <tr>\n            <th>Ridgeline</th>\n            <td>85’’ (216 cm)</td>\n          </tr>\n\n          <tr>\n            <th>Height</th>\n            <td>44’’ (112 cm)</td>\n          </tr>\n\n          <tr>\n            <th>Footprint</th>\n            <td>62’’ × 44’’ (158 cm × 113 cm)</td>\n          </tr>\n\n          <tr>\n            <th>Max Weight Capacity</th>\n            <td>550 lbs (250 kg)</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>        \n  </div>\n  <!-- End L-2 -->\n  <!-- L-2 -->\n  <div class=\"small-12 medium-6 columns\">\n    <div style=\"background: #eee;\">\n      <h5 class=\"h5\" style=\"padding: 10px;margin-bottom: 0;\">Lounge Mode</h5>    \n      <table class=\"table no-borders\">\n        <tbody>\n          <tr>\n            <th>Ridgeline</th>\n            <td>105’’ (265 cm)</td>\n          </tr>\n          <tr>\n            <th>Height</th>\n            <td>46’’ (116 cm)</td>\n          </tr>\n\n          <tr>\n            <th>Footprint</th>\n            <td>62’’ × 44’’ (158 cm × 113 cm)</td>\n          </tr>\n          <tr>\n            <th>Max Weight Capacity</th>\n            <td>550 lbs (250 kg)</td>\n          </tr>\n        </tbody>\n      </table>    \n    </div>\n  </div>\n  <!-- End L-2 -->\n</div>\n<!-- L-1: start Column 2 Row -->"
+      }
+    },
+    "reviews_new_EKdRbw": {
+      "type": "reviews-new",
+      "blocks": {
+        "review_KDw44n": {
+          "type": "review",
+          "settings": {
+            "stars": "5",
+            "heading": "Good quality, very quick to set up.",
+            "text": "It arrived a day before my planned seven-day trip to the beach. Great quality and just as advertised. Very quick and easy to set up and break down.",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/review-1.png",
+            "author_image_mobile": "shopify://shop_images/1_d16c2d81-1ac3-40d8-b1fa-c8fd66237690.webp"
+          }
+        },
+        "review_HgBpUr": {
+          "type": "review",
+          "settings": {
+            "stars": "5",
+            "heading": "Very solid and it fits my old travel hammock.",
+            "text": "This feels very solid, especially given the weight of the stand. Setup was as easy as shown in the videos, and I was able to adjust it to fit my old travel hammock with no problems.",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/3_2c312de3-a529-4648-abdb-c368ba4155e7.webp",
+            "author_image_mobile": "shopify://shop_images/3_2c312de3-a529-4648-abdb-c368ba4155e7.webp"
+          }
+        },
+        "review_zqfk3q": {
+          "type": "review",
+          "settings": {
+            "stars": "5",
+            "heading": "Love mine, packed for my next trip!",
+            "text": "I love mine! It's super simple to use. Already packed it in the RV for the next trip! Thanks, anymaka!",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/Untitled-design-_62.webp",
+            "author_image_mobile": "shopify://shop_images/Untitled-design-_62.webp"
+          }
+        },
+        "review_tQhHbR": {
+          "type": "review",
+          "settings": {
+            "stars": "4.5",
+            "heading": "Awesome, this thing is absolutely traveling with me!",
+            "text": "This thing is definitely coming with me on shorter trips or to places without trees. Also, I'm 6'3\" and fit in the frame just fine.",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/Untitled-design-_65.webp",
+            "author_image_mobile": "shopify://shop_images/Untitled-design-_65.webp"
+          }
+        },
+        "review_CCP7QP": {
+          "type": "review",
+          "settings": {
+            "stars": "4.5",
+            "heading": "Really happy with this product!",
+            "text": "It's really easy to set up, and I'm really happy with this product.",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/Untitled_design_61.png",
+            "author_image_mobile": "shopify://shop_images/Untitled_design_61.png"
+          }
+        },
+        "review_AXGXX4": {
+          "type": "review",
+          "settings": {
+            "stars": "4.5",
+            "heading": "I'm really enjoying it!",
+            "text": "My first camping trip with my anymaka! It's super simple to set up, and I'm really enjoying it!",
+            "author": "Kickstarter Backer",
+            "author_image": "shopify://shop_images/4_df722c94-463a-46b3-932e-8b9d5b8b5239.webp",
+            "author_image_mobile": "shopify://shop_images/4_df722c94-463a-46b3-932e-8b9d5b8b5239.webp"
+          }
+        }
+      },
+      "block_order": [
+        "review_KDw44n",
+        "review_HgBpUr",
+        "review_zqfk3q",
+        "review_tQhHbR",
+        "review_CCP7QP",
+        "review_AXGXX4"
+      ],
+      "settings": {
+        "content_for_tab": "review",
+        "heading": "",
+        "description": "",
+        "columns": 4,
+        "show_nav_mobile": false,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "color_bg": "#f5f5f5",
+        "review_color_bg": "#f5f5f5",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true,
+        "block_heading_font": "",
+        "block_description_font": "",
+        "block_name_font": ""
+      }
+    },
+    "section_product_review_t43pB7": {
+      "type": "section-product-review",
+      "settings": {
+        "content_for_tab": "review",
+        "color_bg": "#ffffff",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "slideshow_FdMCtm": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_89KUA9": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/2-打开&手折安装.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Setup and Folding",
+            "heading_size": "h1",
+            "heading_size_mobile": 28,
+            "content": "",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "slide_Dr4J3C": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/2-松紧调整.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Hammock Installation & Tension Adjustment",
+            "heading_size": "h1",
+            "heading_size_mobile": 29,
+            "content": "*Hammock needs to be purchased separately",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "slide_Jy4K3g": {
+          "type": "slide",
+          "settings": {
+            "slide_link": "",
+            "video_background": true,
+            "video_hosted": "shopify://files/videos/2-模式调整.mp4",
+            "badge_text": "",
+            "subheading": "",
+            "heading": "Chair/Lounge Mode Switching",
+            "heading_size": "h1",
+            "heading_size_mobile": 29,
+            "content": "*Hammock needs to be purchased separately.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "rgba(0,0,0,0)",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#ffffff",
+            "color_badge_bg": "#3f72e5",
+            "color_badge_text": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
+            "button_1_text": "",
+            "button_1_color": "accent",
+            "button_1_link": "",
+            "use_text_button_1": false,
+            "button_2_text": "",
+            "button_2_color": "white",
+            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_89KUA9",
+        "slide_Dr4J3C",
+        "slide_Jy4K3g"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "installation",
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-400",
+        "full_width": false,
+        "scale_clip": false,
+        "autoplay": true,
+        "autoplay_length": 7,
+        "transition": "slide",
+        "controls": "arrows",
+        "slide_arrow": false,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false,
+        "block_badge_font": "",
+        "block_subheading_font": "",
+        "block_heading_font": "",
+        "block_description_font": "",
+        "block_link_font": ""
+      }
+    },
+    "video_X6atXb": {
+      "type": "video",
+      "settings": {
+        "content_for_tab": "installation",
+        "heading": "Canopy Kit Installation",
+        "marker_style": "style1",
+        "description": "",
+        "full_width": false,
+        "video": "https://www.youtube.com/watch?v=dcmu0xRKMdk",
+        "video_hosted": "shopify://files/videos/2.23-canopy-install-guide.mp4",
+        "video_autoplay": false,
+        "aspect_ratio": "16-9",
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1663667029efc274af": {
+      "type": "collapsible-content",
+      "blocks": {
+        "5586f39f-c9cc-41a5-9c79-494141a820e1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How is the compatibility of anymaka hammock stand? Is it compatible with my own hammock?",
+            "open": false,
+            "content": "<p>anymaka portable hammock stand works with traditional gathered-end hammocks up to 12 feet. If the hammock is excessively long, usually due to excess rope, it can be securely fastened by wrapping the excess around the ends of the frame. If the hammock is too short, there are a couple of options available. It can be adjusted to a chair mode position, alternatively, the length of the hammock can be extended by using additional ropes.</p>",
+            "page": ""
+          }
+        },
+        "6ca4af54-3f47-4d4d-9060-0ff238ab6d1a": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Will this hammock stand fit my height?",
+            "open": false,
+            "content": "<p>Our hammock stand has 8 adjustable points on each arm and a 105\" / 265 cm ridgeline. It can fit a majority of people's height.</p>",
+            "page": ""
+          }
+        },
+        "cd3d35fb-4237-4e0c-b360-523aae405e51": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How much does it weigh? Is it really portable?",
+            "open": false,
+            "content": "<p>When it comes to weight, we have taken great care in designing our product to prioritize portability. It weighs approximately 10.4 kg / 23 pounds, which is comparable to carrying a small suitcase. Furthermore, our Snap-Fold design enhances its convenience by enabling effortless folding into a compact travel bag. This feature ensures that you can effortlessly carry it with you wherever you may go, without encountering any difficulties. And it's perfect for your car camping or you can simply put it in the truck to enjoy your ultimate relaxation.</p>",
+            "page": ""
+          }
+        },
+        "78977bda-88c1-4c5d-a57b-395a8e01f169": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Is it solid/stable enough for outdoors?",
+            "open": false,
+            "content": "<p>anymaka is designed and tested above industry standards. Unlike other hammock stands made from stainless steel, anymaka stands out by utilizing aircraft-grade aluminum for the frame. This exceptional material significantly reduces weight while maintaining remarkable strength and corrosion-resistant durability. Paired with our super-durable hammock made of 40D diamond ripstop nylon fabric, it supports a weight of up to 550 lbs / 250 kg without any wobbling or touching the ground.</p>",
+            "page": ""
+          }
+        },
+        "6e96805a-0713-4c8f-98b5-f7f2996582ee": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What measures have been taken to ensure the hammock stand's resistance to rust?",
+            "open": false,
+            "content": "<p>The anymaka hammock stand is made of aluminum alloy, which is naturally rust-proof. Additionally, all the bolts and screws used are made of 304 stainless steel, and the stainless steel components undergo passivation treatment to enhance their corrosion resistance. The aluminum alloy used in the stand undergoes acid anodizing treatment and is coated with black textured paint to further protect it from corrosion. The product has also undergone a 36-hour salt fog test, equivalent to exposing the stand to the elements for 2 years, to ensure its corrosion resistance.</p>",
+            "page": ""
+          }
+        },
+        "1c2b155f-fa55-47b7-b3ac-f2b66737ec17": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "How well does the canopy cover hold up against wind?",
+            "open": false,
+            "content": "<p>We've thoroughly tested the canopy in windy conditions during our two-year product development process. If you're dealing with a steady wind speed of 10-15 mph, with occasional gusts reaching 25-30 mph, the canopy will hold up well. It may sway a bit with the wind, but it will remain stable since it's securely fixed to the frame with bolts. However, we strongly advise against using it on the beach during high winds. Setting it up in windy conditions can be challenging, especially for beginners. We recommend assembling the canopy before attaching it to the stand. Having an extra person to assist you during setup will make the process much easier.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "5586f39f-c9cc-41a5-9c79-494141a820e1",
+        "6ca4af54-3f47-4d4d-9060-0ff238ab6d1a",
+        "cd3d35fb-4237-4e0c-b360-523aae405e51",
+        "78977bda-88c1-4c5d-a57b-395a8e01f169",
+        "6e96805a-0713-4c8f-98b5-f7f2996582ee",
+        "1c2b155f-fa55-47b7-b3ac-f2b66737ec17"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "faqs",
+        "column_num": "one",
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "no_sides_border": true,
+        "color_bg": "#ffffff",
+        "color_heading": "#222222",
+        "marker_color": "#fd6262",
+        "color_text": "#666666",
+        "color_links": "#d2ff28",
+        "color_border": "#e2e2e2",
+        "color_row_bg": "#ffffff",
+        "color_content_bg": "#f5f5f5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true,
+        "row_heading_font": "swisBold",
+        "row_content_font": "OPPOSansR"
+      }
+    },
+    "17052128338746a551": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_GyGD6N": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_GyGD6N"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You might also like:",
+        "description": "",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_hCY8NR": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_PqGTNk": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/1_ac520478-6e9d-4791-ad39-4a019421a30f.webp",
+            "heading": "FREE SHIPPING",
+            "text": "<p>Free shipping on orders above $149 within the contiguous United States.</p>"
+          }
+        },
+        "icon_HyXrzd": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/2_d8a2c0f5-ff99-4b92-9e87-ef423ae2fc2e.webp",
+            "heading": "30 DAYS RETURN",
+            "text": "<p>If you're not happy with what you bought, you can return your purchase within 30 days.</p>"
+          }
+        },
+        "icon_A4bNVn": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "image": "shopify://shop_images/3_768289bf-e0ca-4c74-8809-13bf1def17ef.webp",
+            "heading": "WARRANTY SUPPORT",
+            "text": "<p>We stand behind everything we make and offer warranty coverage for your outdoor adventures.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_PqGTNk",
+        "icon_HyXrzd",
+        "icon_A4bNVn"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "xlarge",
+        "heading_size": "large",
+        "mobile_row": false,
+        "mobile_swipe": false,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true,
+        "block_heading_font": "",
+        "block_description_font": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "spacer_PRmVwi",
+    "main-product",
+    "1706342186ad67cfde",
+    "spacer_nFrUwd",
+    "product_tabbed_content_6nnM98",
+    "slideshow_ynULtY",
+    "image_with_text_YMJ3Lc",
+    "before_after_image_KJVPtW",
+    "image_with_text_overlay_NbmJAa",
+    "image_with_text_fE8a7i",
+    "image_with_text_CaAabm",
+    "shop_the_look_eT3hWk",
+    "custom_liquid_QWz8kP",
+    "reviews_new_EKdRbw",
+    "section_product_review_t43pB7",
+    "slideshow_FdMCtm",
+    "video_X6atXb",
+    "1663667029efc274af",
+    "17052128338746a551",
+    "product-recommendations",
+    "text_with_icons_hCY8NR"
+  ]
+}

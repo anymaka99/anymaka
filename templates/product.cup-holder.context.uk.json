@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.cup-holder.json",
+  "context": {
+    "market": "uk"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "collapsible_tab_YY39UD": {
+          "settings": {
+            "custom_liquid": "<style>\n/* 强制文本显示下划线 */\n.u-underline {\n  text-decoration: underline;\n}\n\n/* 样式化超链接 */\n.u-underline a {\n  text-decoration: none; /* 移除默认的超链接样式 */\n  color: inherit; /* 继承父元素的文字颜色 */\n}\n\n.bold-text {\n  font-weight: bold;\n}\n</style>\n\n<p>Orders with <strong class=\"bold-text\">Standard Shipping</strong> typically deliver within 3–7 working days across the UK. <span class=\"u-underline\"><a href=\"https://anymaka.com/pages/shipping-returns\">Learn More</a></span></p>"
+          }
+        }
+      }
+    }
+  }
+}

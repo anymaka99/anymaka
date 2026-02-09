@@ -14,57 +14,85 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "955bb93b-7a65-4933-8023-83a64ee46bc2": {
+        "text_bCeMyX": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "icon": "none",
-            "text": "Add campaign text here.",
-            "link": "",
-            "color_bg": "#3F72E5",
-            "color_text": "#FFFFFF"
+            "text": "Summer Sale - Save up to $50 Now!",
+            "link": "shopify://pages/new-year-sale-us",
+            "color_bg": "#3b5642",
+            "color_text": "#ffffff"
+          }
+        },
+        "text_UeBD7D": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "anymaka Portable Swing Chair is now on Kickstarter, Shop Now!",
+            "link": "https://www.kickstarter.com/projects/anymaka/anymaka-portable-swing-chair-set-up-in-3s-unwind-all-day?ref=czlaw8",
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
+          }
+        },
+        "955bb93b-7a65-4933-8023-83a64ee46bc2": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Order now in the US, delivery within 3-7 business days.",
+            "link": "shopify://products/anymaka-portable-hammock-stand",
+            "color_bg": "#3b5642",
+            "color_text": "#ffffff"
           }
         },
         "acca6658-bd49-4cc7-be9a-c02394ef4917": {
           "type": "text",
           "settings": {
             "icon": "none",
-            "text": "Add campaign text here.",
+            "text": "Free shipping for orders over $149!",
             "link": "",
-            "color_bg": "#3F72E5",
-            "color_text": "#FFFFFF"
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
           }
         },
         "888fc484-50e5-4566-bad6-41e835d00d5f": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "icon": "none",
-            "text": "Add campaign text here.",
+            "text": "For customers in other countries, please subscribe for the upcoming launch.",
             "link": "",
-            "color_bg": "#3F72E5",
-            "color_text": "#FFFFFF"
+            "color_bg": "#3f72e5",
+            "color_text": "#ffffff"
           }
         }
       },
       "block_order": [
+        "text_bCeMyX",
+        "text_UeBD7D",
         "955bb93b-7a65-4933-8023-83a64ee46bc2",
         "acca6658-bd49-4cc7-be9a-c02394ef4917",
         "888fc484-50e5-4566-bad6-41e835d00d5f"
       ],
+      "custom_css": [],
       "settings": {
         "announcement_bar": true,
         "announcement_bar_homepage_only": false,
         "announcement_bar_layout": "carousel",
-        "direction": "left",
-        "speed": "20s",
+        "direction": "right",
+        "speed": "30s",
         "use_block_colors": false,
         "autoplay": true,
-        "autoplay_length": 5
+        "autoplay_length": 3
       }
     },
     "header-secondary-menu": {
       "type": "header-secondary-menu",
+      "disabled": true,
       "settings": {
-        "secondary_menu": "secondary",
+        "secondary_menu": "",
         "show_language_switcher": false,
         "show_currency_switcher": true,
         "show_social_media": true
@@ -72,18 +100,84 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "megamenu_mjLMeV": {
+          "type": "megamenu",
+          "settings": {
+            "heading_text_font": "",
+            "content_text_font": "",
+            "position": "2",
+            "promo_1_image": "shopify://shop_images/SKU_-_2.webp",
+            "promo_1_heading": "anymaka Full Pack Enhanced",
+            "promo_1_content": "Hammock Stand + Ultralight Double Hammock <br> + Canopy Kit + Cup Holder + Insect Net",
+            "promo_1_link": "shopify://products/anymaka-full-pack-enhanced",
+            "promo_2_image": "shopify://shop_images/3.12_combos-_3.webp",
+            "promo_2_heading": "anymaka Full Pack",
+            "promo_2_content": "Hammock Stand + Ultralight Double Hammock <br> + Canopy Kit + Cup Holder",
+            "promo_2_link": "shopify://products/anymaka-hammock-full-pack",
+            "promo_3_image": "shopify://shop_images/3_9e80d924-c199-48e5-bdea-a981aec85e82.png",
+            "promo_3_heading": "anymaka Hammock Set",
+            "promo_3_content": "Hammock Stand + <br> Ultralight Double Hammock",
+            "promo_3_link": "shopify://products/anymaka-hammock-set",
+            "promo_4_image": "shopify://shop_images/2_0fc2f852-0a2d-4809-951d-16f9f61de563.png",
+            "promo_4_heading": "anymaka Hammock Stand",
+            "promo_4_content": "Hammock Stand",
+            "promo_4_link": "shopify://products/anymaka-portable-hammock-stand"
+          }
+        },
+        "megamenu_3qDqMA": {
+          "type": "megamenu",
+          "settings": {
+            "heading_text_font": "",
+            "content_text_font": "",
+            "position": "3",
+            "promo_1_image": "shopify://shop_images/2.27.webp",
+            "promo_1_heading": "Adjustable Canopy Kit",
+            "promo_1_content": "",
+            "promo_1_link": "shopify://products/anymaka-canopy-kit",
+            "promo_2_image": "shopify://shop_images/3.15-Accessories.webp",
+            "promo_2_heading": "Ultralight Double Hammmock",
+            "promo_2_content": "",
+            "promo_2_link": "shopify://products/ultralight-double-hammmock",
+            "promo_3_image": "shopify://shop_images/3.4_0ff56237-3879-4003-ba2c-22144637d601.webp",
+            "promo_3_heading": "Quick-install Cup Holder",
+            "promo_3_content": "",
+            "promo_3_link": "shopify://products/cup-holder",
+            "promo_4_image": "shopify://shop_images/15.webp",
+            "promo_4_heading": "Insect Net",
+            "promo_4_content": "",
+            "promo_4_link": "shopify://products/insect-net"
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_mjLMeV",
+        "megamenu_3qDqMA"
+      ],
+      "custom_css": [
+        ".sub-menu .mega-menu-promotion--content h6 {font-size: 21px; /* 调整标题的字体大小 */}",
+        ".sub-menu .mega-menu-promotion--content p {font-size: 15px; /* 调整描述的字体大小 */}"
+      ],
       "settings": {
         "sticky_header": true,
-        "logo_height_range": 26,
-        "logo_height_range_mobile": 26,
-        "style": "style5",
+        "logo": "shopify://shop_images/3.19-logo_f8c2dcce-28f8-4bdc-8204-89a320a367e5.webp",
+        "logo_height_range": 33,
+        "logo_height_range_mobile": 25,
+        "style": "style1",
         "header_shadow": "header--shadow-small",
+        "header_text_font": "swisBold",
         "menu": "main-menu",
-        "transparent_header": false
+        "transparent_header": true,
+        "logo_light": "shopify://shop_images/anymaka_b2af8519-940d-4989-80e1-623722457aa1.png",
+        "mobile_secondary_menu": "",
+        "show_social_links": false,
+        "show_language_switcher": false,
+        "show_currency_switcher": false
       }
     },
     "header-mobile-navigation": {
       "type": "header-mobile-navigation",
+      "disabled": true,
       "settings": {
         "mobile_nav": "main-menu",
         "color_links": "#d6d8d9",

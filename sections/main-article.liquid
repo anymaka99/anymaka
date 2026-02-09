@@ -44,7 +44,7 @@
 							<h1 class="entry-title h2">{{ article.title }}</h1>
 							{%- liquid
 								if article_show_sharing
-									render 'social-share', share_label: true, share_title: article.title, share_permalink: article.url, share_image: article.image
+									render 'social-share', share_label: true, share_title: article.title, share_permalink: article.url, share_image: article.featured_image
 								endif
 							-%}
 						</div>
@@ -187,9 +187,6 @@
 	</div>
 	{% endif %}
 </div>
-<script type="application/ld+json">
-  {{ article | structured_data }}
-</script>
 {% schema %}
   {
 		"name": "Blog post",

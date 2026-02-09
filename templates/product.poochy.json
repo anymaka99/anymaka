@@ -44,6 +44,7 @@
             "color_picker": true,
             "variant_is_disabled": true,
             "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
             "sizing_guide_icon": "ruler",
             "sizing_guide_page": ""
           }
@@ -77,7 +78,9 @@
             "icon_2_icon": "return",
             "icon_2_text": "60 night money back guarantee",
             "icon_3_icon": "star",
-            "icon_4_icon": "washing"
+            "icon_3_text": "",
+            "icon_4_icon": "washing",
+            "icon_4_text": ""
           }
         },
         "0b3e272b-c86a-4dba-946c-c6912251371c": {
@@ -118,6 +121,7 @@
           "settings": {
             "icon": "price_tag",
             "text": "Spend 60+ get $10 off with code: FUELTHEMES",
+            "link": "",
             "info_box_bg": "#f7eae9",
             "info_box_color": "#eb4f45"
           }
@@ -127,6 +131,7 @@
           "settings": {
             "icon": "gluten_free",
             "text": "Better gut health leads to a stronger immune function.",
+            "link": "",
             "info_box_bg": "#efe9fc",
             "info_box_color": "#5c4295"
           }
@@ -242,7 +247,11 @@
             "subheading": "",
             "title": "",
             "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
             "use_text_button": false,
+            "block_link": "",
             "marker_color": "#fd6262"
           }
         },
@@ -255,7 +264,11 @@
             "subheading": "",
             "title": "",
             "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
             "use_text_button": false,
+            "block_link": "",
             "marker_color": "#fd6262"
           }
         }
@@ -295,6 +308,7 @@
             "content": "<p>Grooming is also an important part of pet care. Regular brushing and bathing can help keep your pet's coat healthy and free of tangles and mats. Additionally, trimming your pet's nails can prevent them from becoming overgrown and causing discomfort or even injury.</p>",
             "description_size": "medium",
             "button_text": "Learn more",
+            "button_link": "",
             "marker_color": "#fd6262",
             "color_bg_badge": "#ffedec",
             "color_badge": "#eb4f45"
@@ -312,6 +326,7 @@
             "content": "<p>Just like humans, pets need regular physical activity to maintain a healthy weight and prevent boredom. Dogs need daily walks or runs, while cats may prefer to play with toys or climb a cat tree. Even smaller pets like rabbits and guinea pigs need space to move around and play.</p>",
             "description_size": "medium",
             "button_text": "Shop Now",
+            "button_link": "",
             "marker_color": "#fd6262",
             "color_bg_badge": "#ecfff6",
             "color_badge": "#478b60"
@@ -329,6 +344,7 @@
             "content": "<p>Depending on the type of pet you have, their nutritional needs may vary. For example, cats are obligate carnivores and require a diet high in protein, while rabbits need a diet high in fiber. It's important to do your research and talk to your veterinarian to ensure you're feeding your pet the right type and amount of food.</p>",
             "description_size": "medium",
             "button_text": "Our Story",
+            "button_link": "",
             "marker_color": "#eb4f45",
             "color_bg_badge": "#ecf2ff",
             "color_badge": "#315c74"
@@ -360,6 +376,7 @@
           "settings": {
             "image": "",
             "text": "We Need You, Woof, Woof",
+            "link": "",
             "outline_text": false
           }
         },
@@ -368,6 +385,7 @@
           "settings": {
             "image": "",
             "text": "Lovable Dogs For You",
+            "link": "",
             "outline_text": false
           }
         },
@@ -376,6 +394,7 @@
           "settings": {
             "image": "",
             "text": "Treat Them Best Is Your Duty",
+            "link": "",
             "outline_text": false
           }
         }
@@ -416,6 +435,7 @@
             "heading_size": "h2",
             "content": "Whether you're a new pet owner or a seasoned pro, there's always something new to learn about how to keep your furry friend happy and healthy.",
             "button_text": "Shop Now",
+            "button_link": "",
             "color_bg": "#efebf7",
             "color_text": "#5c4295",
             "color_button": "#eb4f45"
@@ -430,6 +450,7 @@
             "heading_size": "h2",
             "content": "Your veterinarian can perform routine exams and screenings, administer vaccines, and provide advice on how to keep your pet healthy and happy.",
             "button_text": "Shop Now",
+            "button_link": "",
             "color_bg": "#ebf7ef",
             "color_text": "#37765d",
             "color_button": "#ec9767"
@@ -444,6 +465,7 @@
             "heading_size": "h2",
             "content": "Are you going to talk about a specific type of pet, or a certain aspect of pet care? Some possible topics include choosing the right pet for your lifestyle, training tips.",
             "button_text": "Our Story",
+            "button_link": "",
             "color_bg": "#e7f2fa",
             "color_text": "#3a5f84",
             "color_button": "#ab6283"

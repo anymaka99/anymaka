@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "header-group.json",
+  "context": {
+    "market": "uk"
+  },
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "text_bCeMyX": {
+          "disabled": true,
+          "settings": {
+            "text": "🔔Gift Season Sale - Save up to ￡50 Now! 🎁",
+            "link": "shopify://pages/new-year-sale-uk"
+          }
+        },
+        "text_UeBD7D": {
+          "disabled": false,
+          "settings": {
+            "text": "Set up in 3 seconds. Relax anywhere, anytime."
+          }
+        },
+        "acca6658-bd49-4cc7-be9a-c02394ef4917": {
+          "settings": {
+            "text": "Free shipping for orders over ￡110!"
+          }
+        }
+      }
+    },
+    "header": {
+      "settings": {
+        "menu": "shopsale-copy"
+      },
+      "blocks": {
+        "megamenu_mjLMeV": {
+          "disabled": false,
+          "settings": {
+            "promo_2_image": "shopify://shop_images/full_pack_-2.21.webp",
+            "promo_2_link": "shopify://products/anymaka-hammock-full-pack",
+            "promo_1_image": "shopify://shop_images/830e8088c79655075b8538090500ed6e_042ca5a5-771f-4e30-b1a4-ba224e3f87d3.webp"
+          }
+        }
+      }
+    }
+  }
+}

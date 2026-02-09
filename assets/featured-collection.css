@@ -6,7 +6,7 @@
   overflow: hidden; }
   @media only screen and (max-width: 767px) {
     .featured-collection .carousel__slide {
-      width: var(--mobile-swipe-width); } }
+      width: calc(90vw - 15px); } }
   .featured-collection .products.row {
     padding: 0; }
   @media only screen and (max-width: 767px) {
@@ -15,7 +15,7 @@
       width: calc(100% + 30px);
       padding: 0 11px;
       display: grid;
-      gap: 0;
+      grid-gap: 0;
       grid-auto-flow: column;
       grid-auto-columns: minmax(50%, 1fr);
       overflow-x: auto;

@@ -2,7 +2,7 @@
 <div class="section-header">
 	<div class="section-header--content">
 		{%- if section_heading -%}
-			<h3 class="section-header--title">
+			<h3 class="section-header--title {% if heading_font != blank %}{{ heading_font }}{% endif %}">
 				{% render 'animated-marker-heading', heading: section_heading, style: marker_style, color: marker_color %}
 			</h3>
 		{%- endif -%}

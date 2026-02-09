@@ -11,11 +11,11 @@
 
 .image-hotspots {
   display: flex;
-  gap: 30px;
+  grid-gap: 30px;
   flex-direction: column; }
   @media only screen and (min-width: 1068px) {
     .image-hotspots {
-      gap: 60px; } }
+      grid-gap: 60px; } }
   @media only screen and (min-width: 1068px) {
     .image-hotspots--position-image_first {
       flex-direction: row-reverse;

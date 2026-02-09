@@ -20,11 +20,7 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(50px);
-  transition: opacity 0.25s cubic-bezier(0.104, 0.204, 0.492, 1), transform 0.25s cubic-bezier(0.104, 0.204, 0.492, 1);
-  --color-price: var(--color-header-text);
-  --color-body: var(--color-header-links);
-  --color-accent: var(--color-header-links);
-  --color-accent-rgb: var(--color-header-links-rgb); }
+  transition: opacity 0.25s cubic-bezier(0.104, 0.204, 0.492, 1), transform 0.25s cubic-bezier(0.104, 0.204, 0.492, 1); }
   @supports (height: 100dvh) {
     .mobile-menu-drawer {
       height: calc(100dvh - calc(100% + var(--header-offset, 0px))); } }
@@ -38,6 +34,10 @@
     display: flex;
     flex-direction: column; }
   .mobile-menu-drawer .thb-mobile-menu-footer {
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    align-items: center;
     margin-top: auto;
     position: sticky;
     bottom: 0;
@@ -98,8 +98,8 @@
     padding: 4px 0;
     min-height: 54px;
     font-size: 1.25rem;
-    font-weight: var(--font-body-medium-weight, 500);
-    border-top: 1px solid var(--color-header-border, var(--color-border, #dadce0));
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-header-border, var(--color-border, #dadce0));
     color: var(--color-header-links, --color-accent); }
     .mobile-menu li > a .link-forward,
     .mobile-menu li summary .link-forward {
@@ -120,9 +120,6 @@
       [dir="rtl"] .mobile-menu li > a .link-forward svg, [dir="rtl"]
       .mobile-menu li summary .link-forward svg {
         transform: rotateZ(180deg); }
-  .mobile-menu li:first-child > a,
-  .mobile-menu li:first-child summary {
-    border-top: 0; }
   .mobile-menu li .link-container summary {
     width: 100%; }
   .no-js .mobile-menu li .link-container[open] > .sub-menu {
@@ -168,21 +165,6 @@
         padding: 0 50px; } }
     .mobile-menu .sub-menu .sub-menu {
       z-index: 12; }
-    .mobile-menu .sub-menu--sidebar {
-      position: static;
-      height: auto;
-      transform: none;
-      visibility: visible;
-      padding: 0 0 15px;
-      border-bottom: 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px; }
-  .mobile-menu .mega-menu-sidebar .product-card {
-    margin-bottom: 10px; }
-  .mobile-menu .mega-menu-sidebar--content-container {
-    border-top: 0;
-    padding: 0; }
 
 .mobile-menu-drawer .social-links {
   padding: 0 15px;

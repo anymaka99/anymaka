@@ -14,7 +14,7 @@
 
 .logo-list {
   padding: 0 15px;
-  max-width: var(--grid-width-row, 1380px);
+  max-width: 1380px;
   margin-left: auto;
   margin-right: auto; }
   @media only screen and (min-width: 768px) {
@@ -23,16 +23,16 @@
 
 .logo-list--inner {
   display: grid;
-  gap: 10px;
+  grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr); }
   @media only screen and (min-width: 768px) {
     .logo-list--inner {
-      gap: 20px;
+      grid-gap: 20px;
       grid-template-columns: repeat(var(--logo-columns), 1fr); } }
   @media only screen and (max-width: 767px) {
     .logo-list--inner.swipe-on-mobile {
       display: grid;
-      gap: 10px;
+      grid-gap: 10px;
       grid-auto-flow: column;
       grid-auto-columns: minmax(calc(50vw - 30px), 1fr);
       overflow-x: auto;

@@ -12,7 +12,7 @@
 			{%- liquid
 				assign heading = block.settings.heading
 				assign color_bar = block.settings.color_bar
-				assign final_position = block.settings.final_position | at_most: 100
+				assign final_position = block.settings.final_position
 			-%}
 			<div class="progress-bars--single" style="--color-bar: {{ color_bar }}; --percent-value: {{ final_position }}; --percent-position: {{ final_position }}%; --final-position: {{ final_position | append: '%' }};" data-position="{{ final_position }}">
 				<span class="progress-bars--heading">{{ heading }}</span>
@@ -75,11 +75,14 @@
             "default": "Heading"
           },
 					{
-						"type": "number",
+						"type": "range",
 						"id": "final_position",
-						"label": "Final position",
-						"default": 50,
-						"info": "Maximum accepted number is 100."
+						"min": 0,
+						"max": 100,
+						"step": 1,
+						"unit": "%",
+						"label": "Drag final position",
+						"default": 50
 					},
 					{
 		        "type": "color_background",
@@ -108,12 +111,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

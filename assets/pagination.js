@@ -20,7 +20,6 @@ if (!customElements.get('pagination')) {
       if (this.classList.contains('pagination-type--infinite')) {
         this.infinite();
       }
-
     }
     addUrlParam(search, key) {
       var newParam = key + '=' + this.i,
@@ -41,7 +40,7 @@ if (!customElements.get('pagination')) {
     }
     loadMore() {
       let base = this;
-      this.button.addEventListener('click', function () {
+      this.button.addEventListener('click', function() {
         base.loadProducts();
         this.blur();
         return false;
@@ -49,7 +48,7 @@ if (!customElements.get('pagination')) {
     }
     infinite() {
       let base = this;
-      base.observer = new IntersectionObserver(function (entries) {
+      base.observer = new IntersectionObserver(function(entries) {
         if (entries[0].intersectionRatio === 1) {
           base.loadProducts();
         }
@@ -106,18 +105,12 @@ if (!customElements.get('pagination')) {
           y: 0,
           opacity: 1,
           stagger: 0.05,
-          onComplete: function () {
+          onComplete: function() {
             base.removeAttribute('loading');
-            if (typeof StampedFn.loadBadges !== "undefined") {
-              StampedFn.loadBadges();
-            }
           }
         });
       } else {
         base.removeAttribute('loading');
-        if (typeof StampedFn.loadBadges !== "undefined") {
-          StampedFn.loadBadges();
-        }
       }
     }
   }
