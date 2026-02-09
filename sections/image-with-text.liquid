@@ -34,14 +34,18 @@
 		endif
 	endif
 -%}
-<div class="row{% if full_width %} full-width-row{% endif %}">
+<div class="row{% if full_width %} full-width-row{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
 	<div class="small-12 columns">
 		<div class="image-with-text column-spacing--{{ column_spacing }} grid--image-{{ desktop_image_width }} {{ desktop_layout }} {{ content_position }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-bg:{{ color_bg }};--color-text:{{ color_text }};--color-text-rgb: {{ color_text.rgb | replace: ' ' , ',' }}; --solid-button-background: {{ color_text }}; --solid-button-background-hover: {{ color_text | color_darken: 7 }}; --solid-button-label: {{ color_bg }};--bg-body: {{ color_bg }};--color-border: {{ color_border }}">
 			<div class="image-with-text--image image-with-text--inner">
 				<div class="image-with-text--image-media aspect-ratio aspect-ratio--{{ height }}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
 					{%- if use_video -%}
 						{%- if video_hosted != blank -%}
-							{{ video_hosted | video_tag: autoplay: video_autoplay, loop: true, controls: true, muted: video_autoplay, image_size: '630x' }}
+                             {%- assign control = true -%}
+                             {%- if video_autoplay -%}
+                               {%- assign control = false -%}  
+                             {%- endif -%}          
+							{{ video_hosted | video_tag: autoplay: video_autoplay, loop: true, controls: control, muted: video_autoplay, image_size: '630x' }}
 						{%- elsif video != blank -%}
 							{%- if video.type == 'youtube' -%}
 								<iframe data-src="https://www.youtube.com/embed/{{ video.id }}?loop=1{%- if video_autoplay -%}&autoplay=1&mute=1{%- endif -%}&playlist={{ video.id }}&iv_load_policy=3&disablekb=1&controls=1&playsinline=1" frameborder="0" class="lazyload" allow="autoplay; encrypted-media" allowfullscreen title="{{ section.settings.heading | escape }}" tabindex="-1"></iframe>
@@ -120,6 +124,38 @@
     "name": "Image with text",
 		"class": "section-image-with-text",
     "settings": [
+            {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          } 
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },
 			{
 				"type": "image_picker",
 				"id": "image",
@@ -244,11 +280,15 @@
 	      "type": "select",
 	      "id": "column_spacing",
 	      "options": [
+            {
+	          "value": "",
+	          "label": "None"
+	        },
 	        {
 	          "value": "small",
 	          "label": "Small"
 	        },
-					{
+            {
 	          "value": "medium",
 	          "label": "Medium"
 	        },
@@ -264,13 +304,13 @@
 	      "type": "header",
 	      "content": "Colors"
 	    },
-			{
+      {
         "type": "color",
         "id": "color_bg",
         "label": "Background",
         "default": "#ffffff"
       },
-			{
+      {
         "type": "color",
         "id": "color_text",
         "label": "Text",
@@ -486,12 +526,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

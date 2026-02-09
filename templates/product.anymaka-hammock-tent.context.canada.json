@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.anymaka-hammock-tent.json",
+  "context": {
+    "market": "canada"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "collapsible_tab_YY39UD": {
+          "settings": {
+            "content": "<p>Orders with <strong>Standard Shipping </strong>typically deliver within <strong>3–7 business days</strong> within <strong>Canada</strong>. <a href=\"https://anymaka.com/pages/shipping-returns\"><span style=\"text-decoration:underline\">Learn More</span></a></p>"
+          }
+        }
+      }
+    }
+  }
+}

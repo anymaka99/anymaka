@@ -64,6 +64,7 @@
           "settings": {
             "image": "",
             "text": "We are the pet experts",
+            "link": "",
             "outline_text": false
           }
         },
@@ -72,6 +73,7 @@
           "settings": {
             "image": "",
             "text": "A paradise for all pet lovers",
+            "link": "",
             "outline_text": false
           }
         },
@@ -80,6 +82,7 @@
           "settings": {
             "image": "",
             "text": "Love your pet more than you",
+            "link": "",
             "outline_text": false
           }
         }
@@ -199,6 +202,7 @@
         "template--18200361697574__7c882761-10ac-4609-919b-c634ffda081b-1679309852d57d6692-1"
       ],
       "settings": {
+        "heading": "",
         "marker_style": "style1",
         "description": "",
         "columns_desktop": 3,
@@ -280,7 +284,11 @@
             "subheading": "",
             "title": "",
             "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
             "use_text_button": false,
+            "block_link": "",
             "marker_color": "#FD6262"
           }
         },
@@ -293,7 +301,11 @@
             "subheading": "",
             "title": "",
             "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
             "use_text_button": false,
+            "block_link": "",
             "marker_color": "#FD6262"
           }
         },
@@ -306,7 +318,11 @@
             "subheading": "",
             "title": "",
             "marker_style": "style1",
+            "text": "",
+            "link_label": "",
+            "link": "",
             "use_text_button": false,
+            "block_link": "",
             "marker_color": "#FD6262"
           }
         }
@@ -348,24 +364,33 @@
           "type": "column",
           "settings": {
             "image_full_width": false,
+            "image_link": "",
             "title": "🐶  Made in the USA.",
-            "text": "<p>Pet food manufacturers in the USA are subject to strict regulations and standards set by the US Food and Drug Administration (FDA) and the Association of American Feed Control Officials (AAFCO). </p>"
+            "text": "<p>Pet food manufacturers in the USA are subject to strict regulations and standards set by the US Food and Drug Administration (FDA) and the Association of American Feed Control Officials (AAFCO). </p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "template--18200361697574__4185e7df-5e04-4d79-bdba-e72b68dae1b8-1679309157384f7556-1": {
           "type": "column",
           "settings": {
             "image_full_width": false,
+            "image_link": "",
             "title": "💯  High Protein",
-            "text": "<p>Protein is essential for pets as it provides the necessary building blocks for their muscles, bones, skin, and hair. Additionally, protein is important for the proper functioning of various body systems.</p>"
+            "text": "<p>Protein is essential for pets as it provides the necessary building blocks for their muscles, bones, skin, and hair. Additionally, protein is important for the proper functioning of various body systems.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "template--18200361697574__4185e7df-5e04-4d79-bdba-e72b68dae1b8-1679309157384f7556-2": {
           "type": "column",
           "settings": {
             "image_full_width": false,
+            "image_link": "",
             "title": "😋  Beef Flavor",
-            "text": "<p>When selecting beef flavor pet food, it is important to read the label to determine the actual ingredients in the food. While beef flavoring may be used, the primary source of protein in the food may be chicken.</p>"
+            "text": "<p>When selecting beef flavor pet food, it is important to read the label to determine the actual ingredients in the food. While beef flavoring may be used, the primary source of protein in the food may be chicken.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
@@ -375,6 +400,7 @@
         "template--18200361697574__4185e7df-5e04-4d79-bdba-e72b68dae1b8-1679309157384f7556-2"
       ],
       "settings": {
+        "heading": "",
         "marker_style": "style1",
         "description": "",
         "columns_desktop": 3,

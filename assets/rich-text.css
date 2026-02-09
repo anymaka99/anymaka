@@ -22,10 +22,10 @@
       height: 120px; }
   .rich-text--transparent-false .rich-text__inner {
     max-width: 620px;
-    padding: 20px; }
+    padding: 0px; }
     @media only screen and (min-width: 768px) {
       .rich-text--transparent-false .rich-text__inner {
-        padding: 45px; } }
+        padding: 0px; } }
   .rich-text .rte {
     margin-bottom: 35px; }
     .rich-text .rte p:last-child {
@@ -51,4 +51,4 @@
   .rich-text.text-width-xlarge .rich-text__inner {
     max-width: 1000px; }
   .rich-text.text-width-grid .rich-text__inner {
-    max-width: var(--grid-width-row, 1380px); }
+    max-width: 1380px; }

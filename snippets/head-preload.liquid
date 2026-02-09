@@ -1,17 +1,18 @@
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0747/3440/3866/files/swiss_721_bt3.woff2?v=1705299098" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0747/3440/3866/files/swis721btbold.woff2?v=1705299098" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.shopify.com/s/files/1/0747/3440/3866/files/OPPOSans-R-2.woff2" as="font" type="font/woff2" crossorigin>
+
 <link rel="preload" as="style" href="{{ 'app.css' | asset_url }}">
 <link rel="preload" as="style" href="{{ 'product-grid.css' | asset_url }}">
+
 {% if template contains 'product' -%}
 <link rel="preload" as="style" href="{{ 'product.css' | asset_url }}">
 {% liquid
 	if product.selected_or_first_available_variant.featured_media.preview_image
-		assign product_image = product.selected_or_first_available_variant.featured_media.preview_image
-	elsif product.featured_media
-		assign product_image = product.featured_media.preview_image
+		assign image = product.selected_or_first_available_variant.featured_media.preview_image
+		render 'responsive-preload', image: image, sizes: '375x0,640x0,960x0'
 	endif
-	if product_image
-		render 'responsive-preload', image: product_image, sizes: '345x0,610x0,1220x0'
-	endif
-%}
+-%}
 {%- endif %}
 {% if template contains 'collection' -%}
 {% liquid

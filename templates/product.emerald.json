@@ -59,6 +59,7 @@
             "color_picker": true,
             "variant_is_disabled": true,
             "sizing_guide_variant": "Size",
+            "sizing_guide_text": "",
             "sizing_guide_icon": "ruler",
             "sizing_guide_page": ""
           }
@@ -82,7 +83,8 @@
             "icon_2_text": "Free shipping on all U.S. orders of $40+",
             "icon_3_icon": "lightning_bolt",
             "icon_3_text": "Designed in London",
-            "icon_4_icon": "none"
+            "icon_4_icon": "none",
+            "icon_4_text": ""
           }
         },
         "4fd23485-293f-46a0-8a4c-34d0e25ea41b": {
@@ -219,8 +221,11 @@
           "settings": {
             "image": "",
             "image_full_width": true,
+            "image_link": "",
             "title": "EASY RETURNS",
-            "text": "<p>Research your appliances and language capabilities to be sure the voice assistant you choose works with your household’s needs.</p>"
+            "text": "<p>Research your appliances and language capabilities to be sure the voice assistant you choose works with your household’s needs.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "1662387360fb14d4f3-1": {
@@ -228,8 +233,11 @@
           "settings": {
             "image": "",
             "image_full_width": false,
+            "image_link": "",
             "title": "HANDMADE IN LONDON",
-            "text": "<p>Stay connected to your community with real-time crime and safety alerts from your neighbors and local public safety agencies.</p>"
+            "text": "<p>Stay connected to your community with real-time crime and safety alerts from your neighbors and local public safety agencies.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "1662387360fb14d4f3-2": {
@@ -237,8 +245,11 @@
           "settings": {
             "image": "",
             "image_full_width": false,
+            "image_link": "",
             "title": "FINANCING OPTIONS",
-            "text": "<p>Keeping up with the devices connected to your network has never been easier. Invite guests or view and manage connected devices with just a few clicks.</p>"
+            "text": "<p>Keeping up with the devices connected to your network has never been easier. Invite guests or view and manage connected devices with just a few clicks.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
@@ -248,6 +259,7 @@
         "1662387360fb14d4f3-2"
       ],
       "settings": {
+        "heading": "",
         "marker_style": "style1",
         "description": "",
         "columns_desktop": 3,
@@ -316,6 +328,7 @@
           "settings": {
             "image": "",
             "text": "THE FINEST GEMSTONES",
+            "link": "",
             "outline_text": false
           }
         },
@@ -324,6 +337,7 @@
           "settings": {
             "image": "",
             "text": "YOUR STYLE, OUR DESIGN",
+            "link": "",
             "outline_text": false
           }
         },
@@ -332,6 +346,7 @@
           "settings": {
             "image": "",
             "text": "ROMANCE IS PRICELESS",
+            "link": "",
             "outline_text": false
           }
         }
@@ -390,7 +405,8 @@
         "b7550ecc-6ef4-4b4f-b16e-e2ef55c23c36": {
           "type": "text-button",
           "settings": {
-            "link_label": "Book an appointment"
+            "link_label": "Book an appointment",
+            "link": ""
           }
         }
       },

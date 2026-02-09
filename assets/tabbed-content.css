@@ -40,8 +40,8 @@
       min-height: 29px;
       color: rgba(var(--color-tabs), 0.6);
       margin-right: 40px;
-      font-size: 1.25rem;
-      font-weight: var(--font-body-medium-weight, 500);
+      font-size: 1.125rem;
+      font-weight: 500;
       padding: 2px 0 5px;
       position: relative;
       z-index: 2; }
@@ -74,8 +74,14 @@
           fill: rgba(var(--color-tabs), 1); }
     .tabbed-content--tabs.tabs-center {
       text-align: center; }
-      .tabbed-content--tabs.tabs-center button {
-        margin: 0 17px; }
+    .tabbed-content--tabs.tabs-center button {
+        margin: 0 17px; 
+    }
+    @media only screen and (max-width: 767px) {
+       .tabbed-content--tabs.tabs-center button {
+          margin: 0 10px; 
+      } 
+    }
     .tabbed-content--tabs.tabs-right {
       text-align: right; }
       .tabbed-content--tabs.tabs-right button {

@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "header-group.json",
+  "context": {
+    "market": "australia"
+  },
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "text_bCeMyX": {
+          "disabled": false,
+          "settings": {
+            "text": "🔔New Year Sale - Save up to $30 Now! 🎁",
+            "link": "shopify://pages/new-year-sale"
+          }
+        },
+        "text_UeBD7D": {
+          "disabled": true,
+          "settings": {
+            "text": "Set up in 3 seconds. Relax anywhere, anytime."
+          }
+        }
+      }
+    },
+    "header": {
+      "settings": {
+        "menu": "shop-ca"
+      },
+      "blocks": {}
+    }
+  }
+}

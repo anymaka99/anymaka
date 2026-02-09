@@ -11,7 +11,7 @@
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
-<div class="promotion-blocks{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-bg: {{ color_bg }}; --color-text: {{ color_text }}; --color-accent: {{ color_link }}; --column-size: {{ section.blocks.size }};">
+<div class="promotion-blocks{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}" style="--color-bg: {{ color_bg }}; --color-text: {{ color_text }}; --color-accent: {{ color_link }}; --column-size: {{ section.blocks.size }};">
 	<div class="promotion-blocks--inner column-spacing--{{ column_spacing }}">
 		{%- for block in section.blocks -%}
 			{%- liquid
@@ -36,9 +36,6 @@
 					</div>
 				</figure>
 				{% endif %}
-				{% if block.settings.block_link != blank %}
-					<a href="{{ block.settings.block_link }}" class="promotion-blocks--link"></a>
-				{% endif %}
 			</div>
 		{%- endfor -%}
 	</div>
@@ -49,6 +46,38 @@
     "name": "Promotion blocks",
 		"class": "section-promotion-blocks",
     "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          } 
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },      
 			{
 	      "type": "checkbox",
 	      "id": "mobile_swipe",
@@ -166,11 +195,6 @@
             "id": "button_link",
             "type": "url",
             "label": "Button link"
-          },
-          {
-            "id": "block_link",
-            "type": "url",
-            "label": "Block link"
           }
         ]
       }
@@ -190,12 +214,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

@@ -1,7 +1,7 @@
 <facet-remove class="active-facets">
 	{%- for filter in results.filters -%}
 		{%- for value in filter.active_values -%}
-			{% assign slug = filter.label | downcase | escape %}
+
 			{%- liquid
 				assign is_color = false
 				if slug contains 'color' or slug contains 'colour' or slug contains 'couleur' or slug contains 'farbe'
@@ -19,9 +19,9 @@
 
 					for color in custom_colors
 						assign key = color | split: ':' | first | rstrip
-						assign key_value = color | split: ':' | last | lstrip
+						assign value = color | split: ':' | last | lstrip
 						assign key_array = key_array | append: ',' | append: key
-						assign val_array = val_array | append: ',' | append: key_value
+						assign val_array = val_array | append: ',' | append: value
 					endfor
 
 					assign key_array = key_array | remove_first: ',' | strip_newlines | downcase | split: ','
@@ -40,21 +40,39 @@
 						assign bg_value = color_value | file_url
 						assign color_value = 'var(--bg-body)'
 					endif
+				endif
 
-					if filter.presentation == 'swatch'
-						assign bg_value = empty
-						assign color_value = value.swatch.color
-
-						if value.swatch.image
-							assign bg_value = value.swatch.image | image_url: width: 40
-						endif
+				if value.display.type == 'colors'
+					assign bg_value = empty
+					assign size_limit = value.display.value.size | at_most: 4
+					assign rotation = '0deg'
+					if size_limit == 2
+						assign rotation = '45deg'
 					endif
+
+					assign angle_increment = 360 | divided_by: size_limit
+					assign angle = 0
+				endif
+				if value.display.type == 'image'
+					assign bg_value = value.display.value | image_url: width: 40, height: 40
 				endif
 			-%}
+			{%- capture conic_gradient -%}
+				{%- for color in value.display.value limit: size_limit -%}
+					{{ color }} {{ angle }}deg{%- assign angle = angle | plus: angle_increment %} {{ angle }}deg{%- unless forloop.last %}, {%- endunless -%}
+				{%- endfor -%}
+			{%- endcapture -%}
+			{%- if filter.presentation == 'swatch' -%}
+			<a href="{{ value.url_to_remove }}" class="active-facets__button {% if is_color %}active-facets__button--color{% endif %}"{% if is_color %} style="--option-color-image:{%- if bg_value == empty -%}conic-gradient({{ conic_gradient }}){%- else -%}url('{{ bg_value }}'){%- endif -%};"{%- endif -%}>
+				{{ value.label }}
+				<span>{% render 'svg-icons' with 'thb-filter-remove' %}</span>
+			</a>
+			{%- else -%}
 			<a href="{{ value.url_to_remove }}" class="active-facets__button {% if is_color and filter_color_swatches %}active-facets__button--color{% endif %}"{% if is_color %} style="--bg-color: {{ color_value | downcase | escape }};{%- if bg_value != blank -%} --option-color-image: url('{{ bg_value | escape }}');{%- endif -%}"{%- endif -%}>
 				{{ value.label }}
 				<span>{% render 'svg-icons' with 'thb-filter-remove' %}</span>
 			</a>
+			{%- endif -%}
 		{%- endfor -%}
 		{% if filter.type == "price_range" %}
 			{%- if filter.min_value.value != nil or filter.max_value.value != nil -%}

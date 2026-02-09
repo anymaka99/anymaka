@@ -44,10 +44,8 @@
       "vimeo": "Vimeo",
       "tiktok": "TikTok",
       "linkedin": "Linkedin",
-      "wechat": "WeChat",
-      "whatsapp": "WhatsApp"
-    },
-    "copied_to_clipboard": "Panoya kopyalandı"
+      "wechat": "WeChat"
+    }
   },
   "pagination": {
     "label": "Sayfalama",
@@ -119,7 +117,6 @@
       "sold_out": "Tükendi",
       "save_html": "{{ saved_amount }} tasarruf et",
       "unavailable": "Kullanım dışı",
-      "pre_order": "Ön sipariş ver",
       "price": {
         "from_price_html": "Başlangıç fiyatı: {{ price }}",
         "regular_price": "Normal fiyat",
@@ -168,16 +165,6 @@
         "label": "Renk"
       }
     },
-    "compare": {
-      "compare": "Karşılaştır",
-      "compare_products": "Ürünleri karşılaştır",
-      "clear_all": "Hepsini temizle",
-      "metafields": {
-        "file_download": "İndir",
-        "boolean_true": "Evet",
-        "boolean_false": "Hayır"
-      }
-    },
     "facets": {
       "apply": "Uygula",
       "clear": "Temizle",
@@ -207,6 +194,11 @@
     }
   },
   "sections": {
+    "404": {
+      "not_found": "Sayfa bulunamadı",
+      "not_found_description": "Aradığınız sayfa bulunamadı. Adresi yanlış yazmış olabilirsiniz veya sayfa taşınmış olabilir.",
+      "continue_shopping": "Alışverişe devam et"
+    },
     "header": {
       "search": "Arama",
       "search_for": "Herhangi bir şey için ara",
@@ -214,10 +206,9 @@
       "my_account": "Hesabım",
       "login": "Giriş yap",
       "cart": "Sepetim",
-      "search_products": "Ürünler",
+      "products": "Ürünler",
       "articles": "Makaleler",
       "suggestions": "Öneriler",
-      "pages": "Sayfalar",
       "view_all_results": "Tüm sonuçları görüntüle"
     },
     "breadcrumbs": {
@@ -227,11 +218,6 @@
       "my_account": "Hesabım",
       "cart": "Sepet",
       "collections": "Koleksiyonlar"
-    },
-    "404": {
-      "not_found": "Sayfa bulunamadı",
-      "not_found_description": "Aradığınız sayfa bulunamadı. Adresi yanlış yazmış olabilirsiniz veya sayfa taşınmış olabilir.",
-      "continue_shopping": "Alışverişe devam et"
     },
     "cart": {
       "title": "Sepetiniz",
@@ -257,18 +243,7 @@
       },
       "terms": "Kullanım şartları ve koşullarını kabul ediyorum",
       "terms_html": "Ben, <a href='{{ url }}' target='_blank'>satış şartları ve koşulları</a>'nı kabul ediyorum.",
-      "terms_confirm": "Ödeme işlemi için satış şartları ve koşullarını kabul etmelisiniz.",
-      "shipping_estimator": {
-        "estimate_shipping": "Kargo ücretini tahmin et",
-        "country": "Ülke",
-        "province": "İl",
-        "zip_code": "Posta Kodu",
-        "submit": "Tahmin et",
-        "no_results": "Üzgünüz, adresinize gönderim yapılmamaktadır.",
-        "one_result": "Adresiniz için bir kargo ücreti bulunmaktadır:",
-        "multiple_results": "Adresiniz için birden fazla kargo ücreti bulunmaktadır:",
-        "error": "Kargo ücretleri alınırken bir veya daha fazla hata oluştu:"
-      }
+      "terms_confirm": "Ödeme işlemi için satış şartları ve koşullarını kabul etmelisiniz."
     },
     "collection_template": {
       "empty": "Ürün bulunamadı",
@@ -342,8 +317,7 @@
       "submit_register": "Hesap oluştur",
       "already_have_an_account": "Zaten hesabınız var mı?",
       "submit": "Gönder",
-      "cancel": "İptal",
-      "alternate_provider_separator": "veya"
+      "cancel": "İptal"
     },
     "recover_password": {
       "title": "Parolanızı sıfırlayın",
@@ -456,15 +430,52 @@
       "name": "Ad",
       "message_label": "Mesaj (isteğe bağlı)",
       "message": "Mesaj",
-      "max_characters": "Maksimum {{ max_chars }} karakter",
-      "send_on": "YYYY-AA-GG",
-      "send_on_label": "Şu tarihte gönder (isteğe bağlı)"
+      "max_characters": "Maksimum {{ max_chars }} karakter"
     }
   },
-  "discounts": {
-    "discount_code": "İndirim kodunu uygula",
-    "discount_code_error": "İndirim kodu sepetinize uygulanamıyor",
-    "discounts": "İndirimler",
-    "apply": "Uygula"
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
   }
 }

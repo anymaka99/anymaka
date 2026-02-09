@@ -24,16 +24,17 @@ if (!customElements.get('slide-show')) {
         progress_bar = slideshow.parentNode.querySelector('.flickity-progress--bar'),
         animations = [],
         rightToLeft = document.dir === 'rtl',
-        cell_align = (align == 'left' && rightToLeft ? 'right' : 'left'),
         animations_enabled = document.body.classList.contains('animations-true') && typeof gsap !== 'undefined',
         selectedIndex = 0,
+        tick = autoplay ? window.setInterval(autoplay, 10) : false,
         args = {
           wrapAround: true,
-          cellAlign: cell_align,
+          cellAlign: align,
           pageDots: pageDots,
           contain: true,
           fade: fade,
           autoPlay: autoplay,
+          pauseAutoPlayOnHover: false,
           rightToLeft: rightToLeft,
           prevNextButtons: false,
           cellSelector: '.carousel__slide',
@@ -64,6 +65,11 @@ if (!customElements.get('slide-show')) {
       }
       if (slideshow.classList.contains('customer-reviews--carousel')) {
         args.wrapAround = false;
+        // alert(JSON.stringify(slideshow.dataset));
+        if(slideshow.dataset.wraparound == 'true'){
+          args.wrapAround = true;
+          args.prevNextButtons = true;
+        }
         args.adaptiveHeight = false;
         args.resize = true;
         args.on.ready = function () {
@@ -424,7 +430,7 @@ if (!customElements.get('slide-show')) {
 
             button_offset += 0.5;
           }
-          if (item.querySelector('.slideshow__slide-heading')) {
+          if (item.querySelector('h1')) {
             let h1_duration = 1 + ((item.querySelectorAll('.slideshow__slide-heading .line-child').length - 1) * 0.1);
             tl
 

@@ -40,7 +40,7 @@
   .footer .widget {
     margin-bottom: 40px; }
     .footer .widget img {
-      margin-bottom: 20px; }
+      margin-bottom: 8px; }
     .footer .widget button {
       color: var(--color-footer-link, #fff); }
     .footer .widget .text-button path {
@@ -48,7 +48,12 @@
     @media only screen and (max-width: 767px) {
       .footer .widget--menu {
         margin-bottom: 0;
-        border-top: 1px solid var(--color-footer-border); } }
+        border-top: 1px solid var(--color-footer-border); 
+      } 
+      .footer .widget--menu-column:last-child .widget--menu {
+        border-bottom: 1px solid var(--color-footer-border); 
+      }      
+    }
     @media only screen and (max-width: 767px) {
       .footer .widget--menu-column + .columns:not(.widget--menu-column) {
         margin-top: 40px; } }
@@ -84,9 +89,14 @@
     line-height: 1;
     font-size: 1.0625rem;
     margin-bottom: 20px;
-    font-weight: var(--font-body-medium-weight, 500);
+    font-weight: 500;
     width: 100%;
-    color: var(--color-footer-heading, #fff); }
+    color: var(--color-footer-heading, #fff); 
+  }
+  .footer .widget--signup .thb-widget-title {
+    position: relative;
+    top: -7px;
+  }
     .footer .thb-widget-title.collapsible {
       padding: 25px 0;
       font-size: 1.0625rem;
@@ -155,23 +165,54 @@
       display: none;
       overflow: hidden; }
       .footer .thb-widget-menu .sub-menu.active {
-        display: block; }
-  .footer .signup-container button {
-    border-color: var(--color-footer-border, --color-form-border); }
+        display: block; 
+}
+.footer .signup-container button {
+    border-color: var(--color-footer-border, --color-form-border); 
+    position: static;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+}
     .footer .signup-container button svg path {
-      stroke: var(--color-footer-text, #fff); }
-  .footer .signup-container input {
+      stroke: var(--color-footer-text, #fff); 
+}
+.footer .signup-container input {
     color: var(--color-footer-text, --color-body);
-    border-color: var(--color-footer-border, --color-form-border); }
+    border-color: var(--color-footer-border, --color-form-border); 
+    background: #fff;
+    border: 0;
+    color: #333;
+    width: 100%;
+}
+
+  .footer .signup-container input[type="email"]:-moz-placeholder{
+    color: #666;  
+  }
+  
+  .footer .signup-container input[type="email"]::-moz-placeholder{
+    color: #666;  
+  }
+  .footer .signup-container input[type="email"]:-ms-input-placeholder{
+    color: #666;  
+  }
+  .footer .signup-container input[type="email"]::-webkit-input-placeholder{
+    color: #666; 
+  }
     .footer .signup-container input:focus + label,
     .footer .signup-container input:not(:placeholder-shown) + label {
       background: var(--color-footer-bg, #2c2d2e);
-      color: var(--color-footer-text, #fff); }
+      background: transparent;
+      color: var(--color-footer-text, #fff); 
+      color: #333;
+    }
   .footer .signup-container .field label {
-    color: var(--color-footer-text, #fff); }
+    color: var(--color-footer-text, #fff); 
+    color: #666; 
+  }
 
 .sub-footer {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   color: var(--color-footer-text, #fff); }
   .sub-footer a {
     color: var(--color-footer-link, #fff); }
@@ -221,7 +262,15 @@
   .signup-container .form-notification {
     margin-bottom: 10px; }
   .signup-container fieldset {
-    position: relative; }
+    position: relative; 
+    display: flex;
+    flex-wrap: wrap;
+  }
+.signup-container fieldset .field {
+    position: relative;
+    flex: 1;
+    margin-right: 10px;
+}
   .signup-container input {
     padding-right: 40px;
     width: 100%;
@@ -276,3 +325,40 @@
   .social-links--has-label li a {
     width: auto;
     height: auto; }
+.copyright-text{
+  margin: 0;
+  margin-top: 15px;
+}
+@media only screen and (max-width: 767px) {
+  .copyright-text{
+    margin: 15px 0;
+  }
+}
+.line-social-wrap .social-links{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 15px;
+}
+.line-social-wrap .social-links svg{
+  width: 26px;
+}
+.line-social-wrap .social-links a:hover svg{
+  transform: scale(1.07);
+}
+@media only screen and (min-width: 1028px) {
+  .gap-right-large{
+    margin-right: 16%;
+  }
+  .gap-right-medium{
+    margin-right: 8%;
+  }
+}
+
+@media print, screen and (min-width: 48em){
+  .medium-4.gap-right-large {
+      flex: 0 0 41.66%;
+      max-width: 41.66%;
+      margin-right: 6%;
+  }
+}

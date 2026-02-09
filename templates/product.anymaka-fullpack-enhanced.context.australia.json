@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.anymaka-fullpack-enhanced.json",
+  "context": {
+    "market": "australia"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "image_MKdfXn": {
+          "disabled": false,
+          "settings": {
+            "image": "shopify://shop_images/Stand_e18d416b-3c28-42a0-bd03-1c9e40d2c7c6.webp"
+          }
+        }
+      }
+    }
+  }
+}

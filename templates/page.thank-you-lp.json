@@ -1,0 +1,267 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "7b31d0f1-58b2-42bd-9633-986c2b265c80": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "image_with_text_KEfP84": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TEiktb": {
+          "type": "heading",
+          "settings": {
+            "text": "|Thank You!|",
+            "marker_style": "style1",
+            "heading_size": "h3",
+            "marker_color": "#ff8321"
+          }
+        },
+        "text_APhefJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Your coupon will be emailed to you on launch day, April 23rd. Click the link below to set a calendar reminder.</strong></p><p></p><p>[link]<br/></p><p>We can't wait to bring anymaka to you!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEiktb",
+        "text_APhefJ"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".section-image-with-text {padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important;}"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "image": "shopify://shop_images/thank_you_-4.1.jpg",
+        "use_video": false,
+        "video": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_autoplay": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "full_width": true,
+        "layout": "text_first",
+        "content_position": "text-left",
+        "column_spacing": "",
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_border": "#e2e2e2",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "single_image_GEdTzx": {
+      "type": "single-image",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "",
+        "image": "shopify://shop_images/thank_you_page.webp",
+        "full_width": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_aUeyC8": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 25,
+        "spacer_desktop": 50,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "image_with_text_overlay_hJjjRB": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "content_for_tab": "",
+        "image": "shopify://shop_images/thank_ypu_page-pc.webp",
+        "mobile_image": "shopify://shop_images/thank_ypu_page.webp",
+        "image_parallax": false,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-350",
+        "full_width": true,
+        "content_width": "medium",
+        "content_position": "bottom-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_wDLdRy": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 15,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_mi6Gdw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XQ3Nnc": {
+          "type": "heading",
+          "settings": {
+            "text": "|Thank You!|",
+            "marker_style": "style3",
+            "size": "h3",
+            "marker_color": "#ff8321"
+          }
+        },
+        "text_RxN3hC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>anymaka will be launched at 1<strong>0:00 am EDT on April 23rd</strong>. You'll get a welcome email confirming your <strong>34% launch discount reservation starting at $269 (Includes time-limited free shipping)</strong>. Looking to save more? Click below to grab an <strong>extra $20 coupon for just $1</strong>.</p>",
+            "size": "text-size-regular"
+          }
+        },
+        "button_kimfRK": {
+          "type": "button",
+          "settings": {
+            "link_label": "Get $20 Off Coupon",
+            "link": "shopify://products/extra-20-coupon"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XQ3Nnc",
+        "text_RxN3hC",
+        "button_kimfRK"
+      ],
+      "custom_css": [
+        ".rte a {text-decoration: none; color: #ff8300;}",
+        ".rte {line-height: 1; /* 调整描述文案的行间距 */}",
+        "h3 {margin-bottom: 40px; /* 控制标题与下面描述文案的行间距 */}",
+        ".button {background-color: #ff8300; color: white; /* 将文案颜色改为白色 */ /* 其他样式 */}",
+        ".button:hover {/* 鼠标悬停时的样式 */}",
+        ".button:active {/* 按钮被点击时的样式 */}"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_F3GwAe": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 25,
+        "spacer_desktop": 50,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_ePAa4T": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AEV4Tk": {
+          "type": "heading",
+          "settings": {
+            "text": "|See What They Say About anymaka |",
+            "marker_style": "style3",
+            "size": "h3",
+            "marker_color": "#ff8321"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AEV4Tk"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "spacer_Ad7E3j": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 20,
+        "spacer_desktop": 40,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "custom_liquid_qzh7bf": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".video-container {display: flex; justify-content: center;}",
+        ".video {width: 100%; max-width: 100%;}"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "grid",
+        "custom_liquid": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Two Videos</title>\n  <style>\n    .video-container {\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: space-between;\n      gap: 0px; /* 视频之间的间距 */\n      width: 100%; /* 确保在移动端容器占满整个屏幕 */\n      margin: 0 auto; /* 水平居中对齐 */\n    }\n    .video {\n      flex: 0 0 calc(50% - 20px); /* PC端一行两个视频，减去间距 */\n      margin-bottom: 20px; /* 视频底部间距 */\n    }\n    @media screen and (max-width: 767px) {\n      .video {\n        flex: 0 0 calc(100% - 20px); /* 移动端一行一个视频，减去间距 */\n      }\n      iframe {\n        width: 100%;\n        height: 180px; /* 移动端视频的固定高度 */\n        display: block; /* 确保视频填充整个容器 */\n      }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"video-container\">\n    <div class=\"video\">\n      <iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/IHL9O3HMteg\" frameborder=\"0\" allowfullscreen></iframe>\n    </div>\n    <div class=\"video\">\n      <iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/L6W-8gx6NSA\" frameborder=\"0\" allowfullscreen></iframe>\n    </div>\n  </div>\n</body>\n</html>"
+      }
+    },
+    "spacer_WaHBQw": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 20,
+        "spacer_desktop": 40,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "custom_liquid_7Erakz": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".video-container {display: flex; justify-content: center;}",
+        ".video {width: 100%; max-width: 100%;}"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "grid",
+        "custom_liquid": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Two Videos</title>\n  <style>\n    .video-container {\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: space-between;\n      gap: 20px; /* 视频之间的间距 */\n      width: 100%; /* 确保在移动端容器占满整个屏幕 */\n      margin: 0 auto; /* 水平居中对齐 */\n    }\n    .video {\n      flex: 0 0 calc(50% - 20px); /* PC端一行两个视频，减去间距 */\n      margin-bottom: 20px; /* 视频底部间距 */\n    }\n    @media screen and (max-width: 767px) {\n      .video {\n        flex: 0 0 calc(100% - 20px); /* 移动端一行一个视频，减去间距 */\n      }\n      iframe {\n        width: 100%;\n        height: 180px; /* 移动端视频的固定高度 */\n        display: block; /* 确保视频填充整个容器 */\n      }\n    }\n  </style>\n</head>\n<body>\n  <div class=\"video-container\">\n    <div class=\"video\">\n      <iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/bCV2qzDa2C4\" frameborder=\"0\" allowfullscreen></iframe>\n    </div>\n    <div class=\"video\">\n      <iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/68WNqUp2as8\" frameborder=\"0\" allowfullscreen></iframe>\n    </div>\n  </div>\n</body>\n</html>"
+      }
+    }
+  },
+  "order": [
+    "7b31d0f1-58b2-42bd-9633-986c2b265c80",
+    "image_with_text_KEfP84",
+    "single_image_GEdTzx",
+    "spacer_aUeyC8",
+    "image_with_text_overlay_hJjjRB",
+    "spacer_wDLdRy",
+    "rich_text_mi6Gdw",
+    "spacer_F3GwAe",
+    "rich_text_ePAa4T",
+    "spacer_Ad7E3j",
+    "custom_liquid_qzh7bf",
+    "spacer_WaHBQw",
+    "custom_liquid_7Erakz"
+  ]
+}

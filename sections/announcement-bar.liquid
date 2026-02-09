@@ -35,13 +35,20 @@
 				{%- if announcement_bar_layout == 'marquee' -%}
 					{%- capture scrolling_text -%}
 					<div>
-						{%- for block in section.blocks -%}
-							<div class="announcement-bar--item" {{ block.shopify_attributes }}>
-								{%- if block.settings.link -%}
-									<a href="{{ block.settings.link }}" target="_blank">
+						{%- for i in (1..5) -%}
+							{%- liquid
+								if i <= section.blocks.size
+									assign index = i | minus: 1
+								else
+								  assign index = i | minus: section.blocks.size | minus: 1
+								endif
+							-%}
+							<div class="announcement-bar--item" {{ section.blocks[index].shopify_attributes }}>
+								{%- if section.blocks[index].settings.link -%}
+									<a href="{{ section.blocks[index].settings.link }}" target="_blank">
 								{%- endif -%}
-								{%- if block.settings.icon -%}{% render 'svg-icons-inline', icon: block.settings.icon %}{%- endif -%}{{- block.settings.text -}}
-								{%- if block.settings.link -%}
+								{%- if section.blocks[index].settings.icon -%}{% render 'svg-icons-inline', icon: section.blocks[index].settings.icon %}{%- endif -%}{{- section.blocks[index].settings.text -}}
+								{%- if section.blocks[index].settings.link -%}
 									</a>
 								{%- endif -%}
 							</div>

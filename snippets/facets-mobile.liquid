@@ -58,17 +58,9 @@
 							{%- liquid
 								assign label = filter.label | downcase | replace: ' ', '-' | escape
 								assign slug = filter.label | downcase | escape
-
-								assign is_open = true 
-								if filters_collapsed
-									assign is_open = false
-									if filter.active_values.size > 0
-										assign is_open = true
-									endif
-								endif
 							-%}
 							<collapsible-row data-index="{{ forloop.index }}">
-								<details class="thb-filter js-filter" {%- if is_open %} open{%- endif -%}>
+								<details class="thb-filter js-filter" open>
 									<summary class="thb-filter-title">{{ filter.label | escape }}<span>{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span></summary>
 									<div class="thb-filter-content collapsible__content">
 										{%- if filter.param_name == 'filter.v.availability' -%}
@@ -93,13 +85,6 @@
 														else
 															assign slug = ''
 														endif
-													endif
-
-													# Additional swatch variant options set inside theme settings
-													assign color_swatches_variant_option = settings.color_swatches_variant_option | downcase | split: ', '
-
-													if color_swatches_variant_option contains slug
-														assign slug = 'color'
 													endif
 
 													if filter.presentation == 'swatch'
@@ -141,43 +126,55 @@
 															>
 															{%- if filter.presentation == 'swatch' -%}
 																{%- liquid
-																	assign bg_value = empty
-																	assign color_value = value.swatch.color
+																	if value.display.type == 'colors'
+																		assign bg_value = empty
+																		assign size_limit = value.display.value.size | at_most: 4
+																		assign rotation = '0deg'
+																		if size_limit == 2
+																			assign rotation = '45deg'
+																		endif
 
-																	if value.swatch.image
-																		assign bg_value = value.swatch.image | image_url: width: 40
+																		assign angle_increment = 360 | divided_by: size_limit
+																		assign angle = 0
 																	endif
-
+																	if value.display.type == 'image'
+																		assign bg_value = value.display.value | image_url: width: 40, height: 40
+																	endif
 																-%}
+																{%- capture conic_gradient -%}
+																	{%- for color in value.display.value limit: size_limit -%}
+																		{{ color }} {{ angle }}deg{%- assign angle = angle | plus: angle_increment %} {{ angle }}deg{%- unless forloop.last %}, {%- endunless -%}
+																	{%- endfor -%}
+																{%- endcapture -%}
 																<label
 																	for="Filter-Mobile-{{ label }}-{{ forloop.index }}"
-																	class="facet-checkbox {% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
-																	style="--bg-color: {{ color_value }}; {%- unless bg_value == empty -%}--option-color-image: url('{{ bg_value }}'){%- endunless -%};"
+																	class="facet-checkbox facet-checkbox--presentation{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
+																	style="--option-color-image:{%- if bg_value == empty -%}conic-gradient({{ conic_gradient }}){%- else -%}url('{{ bg_value }}'){%- endif -%};"
 																	data-tooltip="{{ value.label | escape }} ({{ value.count }})"
 																>
 																	<span class="filter-color"></span>
-																	<span class="filter-name">{{ value.label | escape }}</span>  {% if show_counts -%}<sup class="count">{{ value.count }}</sup>{%- endif -%}
+																	<span class="filter-name">{{ value.label | escape }}</span> {% if show_counts -%}<sup class="count">{{ value.count }}</sup>{%- endif -%}
 																</label>
 															{%- else -%}
-																{%- liquid
-																	assign color_value = value.value | downcase | escape
+															{%- liquid
+																assign color_value = value.value | downcase | escape
 
-																	for custom_color in key_array
-																		if custom_color == color_value
-																			assign color_value = val_array[forloop.index0]
-																		endif
-																	endfor
-
-																	assign bg_value = false
-																	if color_value contains '.'
-																		assign bg_value = color_value | file_url
-																		assign color_value = 'var(--bg-body)'
+																for custom_color in key_array
+																	if custom_color == color_value
+																		assign color_value = val_array[forloop.index0]
 																	endif
-																-%}
-																<label for="Filter-Mobile-{{ label }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}" style="--bg-color: {{ color_value | downcase | escape }};{%- if bg_value -%} --option-color-image: url('{{ bg_value | escape }}');{%- endif -%}" data-tooltip="{{ value.label | escape }} ({{ value.count }})">
-																	<span class="filter-color"></span>
-																	<span class="filter-name">{{- value.label | escape }}</span> {% if show_counts %}<span class="count">({{ value.count }})</span>{% endif %}
-																</label>
+																endfor
+
+																assign bg_value = false
+																if color_value contains '.'
+																	assign bg_value = color_value | file_url
+																	assign color_value = 'var(--bg-body)'
+																endif
+															-%}
+															<label for="Filter-Mobile-{{ label }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}" style="--bg-color: {{ color_value | downcase | escape }};{%- if bg_value -%} --option-color-image: url('{{ bg_value | escape }}');{%- endif -%}" data-tooltip="{{ value.label | escape }} ({{ value.count }})">
+																<span class="filter-color"></span>
+																<span class="filter-name">{{- value.label | escape }}</span> {% if show_counts %}<span class="count">({{ value.count }})</span>{% endif %}
+															</label>
 															{%- endif -%}
 														</li>
 													{%- endfor -%}
@@ -189,21 +186,74 @@
 							</collapsible-row>
 							{% when 'price_range' %}
 							<collapsible-row data-index="{{ forloop.index }}">
-								{%- liquid
-									assign is_open = true 
-									if filters_collapsed
-										assign is_open = false
-										if filter.min_value.value != nil or filter.max_value.value != nil
-											assign is_open = true
-										endif
-									endif
-								-%}
-								<details class="thb-filter js-filter" data-index="{{ forloop.index }}" {%- if is_open %} open{%- endif -%}>
+								<details class="thb-filter js-filter" data-index="{{ forloop.index }}" open>
 									<summary class="thb-filter-title">{{ filter.label | escape }}<span>{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span></summary>
 									<div class="thb-filter-content collapsible__content">
 										<div class="{{ filter.type | escape }} {{ filter.type | escape }}-{{ filter.label | downcase | escape }}">
-											{% render 'facets-price-range', filter: filter %}
-										</div>
+												{%- liquid
+													assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+													assign uses_comma_decimals = false
+													if currencies_using_comma_decimals contains cart.currency.iso_code
+														assign uses_comma_decimals = true
+													endif
+
+													assign max_value = nil
+													assign min_value = nil
+													if uses_comma_decimals
+														if filter.max_value.value
+															assign max_value = filter.max_value.value | money_without_currency | replace: '.', ''
+														endif
+														if filter.min_value.value
+															assign min_value = filter.min_value.value | money_without_currency | replace: '.', ''
+														endif
+														assign range_max = filter.range_max | money_without_currency | replace: '.', ''
+													else
+														if filter.max_value.value
+															assign max_value = filter.max_value.value | money_without_currency | replace: ',', ''
+														endif
+														if filter.min_value.value
+															assign min_value = filter.min_value.value | money_without_currency | replace: ',', ''
+														endif
+														assign range_max = filter.range_max | money_without_currency | strip_html | replace: ',', '' | divided_by: 1.00
+													endif
+												-%}
+												{%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+												<span class="price-highest">{{ "products.facets.max_price" | t: price: max_price_amount }}</span>
+												<price-slider class="price_slider_wrapper">
+													<div
+														class="price_slider"
+														data-min-value="{{ min_value }}"
+														data-min-name="filter.v.price.gte"
+														data-min="0"
+														data-max-value="{{ max_value }}"
+														data-max-name="filter.v.price.lte"
+														data-max="{{ range_max }}">
+													</div>
+													<div class="price_slider_amount">
+														<div class="price_slider_amount__single">
+															<span class="field-currency">{{ cart.currency.symbol }}</span>
+															<input class="field__input field__input_min"
+																name="{{ filter.min_value.param_name }}"
+																id="Filter-{{ filter.label | escape }}-GTE-mobile"
+																value="{{ min_value }}"
+																type="text"
+																placeholder="0"
+															/>
+														</div>
+														<span>—</span>
+														<div class="price_slider_amount__single">
+															<span class="field-currency">{{ cart.currency.symbol }}</span>
+															<input class="field__input field__input_max"
+																name="{{ filter.max_value.param_name }}"
+																id="Filter-{{ filter.label | escape }}-LTE-mobile"
+																value="{{ max_value }}"
+																type="text"
+																placeholder="{{ filter.range_max | money_without_currency }}"
+															/>
+														</div>
+													</div>
+												</price-slider>
+											</div>
 									</div>
 								</details>
 							</collapsible-row>
@@ -213,7 +263,6 @@
 					<div class="thb-filter-sort-count thb-filter">
 						<div class="thb-filter-sort">
 							<div class="thb-filter-title">{{ 'products.facets.sort_by_label' | t }}</div>
-							<label for="SortByMobile" class="visually-hidden">{{ 'products.facets.sort_by_label' | t }}</label>
 							<div class="select">
 								{%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
 								<select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortByMobile" aria-describedby="a11y-refresh-page-message">
@@ -221,7 +270,7 @@
 										<option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
 									{%- endfor -%}
 								</select>
-								<div class="select-arrow" style="transform: rotateX(180deg);">{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</div>
+								<div class="select-arrow">{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</div>
 							</div>
 						</div>
 					</div>

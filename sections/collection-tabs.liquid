@@ -26,7 +26,7 @@
       assign columns_class = 'medium-3 large-2'
   endcase
 -%}
-<div class="collection-tabs section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+<div class="collection-tabs section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %}product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
   <div class="row">
     <div class="small-12 columns">
       {% render 'section-header',
@@ -103,6 +103,34 @@
   "class": "section-collection-tabs",
   "max_blocks": 4,
   "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          }
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },    
     {
       "type": "text",
       "id": "heading",
@@ -328,10 +356,6 @@
         }
       ]
     }
-  ],
-  "enabled_on": {
-    "templates": ["*"],
-    "groups": ["header", "footer"]
-  }
+  ]
 }
 {% endschema %}

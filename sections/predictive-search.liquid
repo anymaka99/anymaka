@@ -3,20 +3,16 @@
 	assign predictive_search_products = predictive_search.resources.products
 	assign predictive_search_articles = predictive_search.resources.articles
 	assign predictive_search_queries = predictive_search.resources.queries
-	assign predictive_search_pages = predictive_search.resources.pages
 	-%}
 	<side-panel-content-tabs class="side-panel-content--tabs">
-		{%- if predictive_search_products.size > 0 -%}
-		<button class="tab-active" type="button">{{ 'sections.header.search_products' | t }}</button>
+		{%- if predictive_search_products.size != 0 -%}
+		<button class="tab-active">{{ 'sections.header.products' | t }}</button>
 		{%- endif -%}
-		{%- if predictive_search_queries.size > 0 -%}
-		<button class="{% if predictive_search_products.size == 0 -%}tab-active{%- endif -%}" type="button">{{ 'sections.header.suggestions' | t }}</button>
+		{%- if predictive_search_queries.size != 0 -%}
+		<button class="{% if predictive_search_products.size == 0 -%}tab-active{%- endif -%}">{{ 'sections.header.suggestions' | t }}</button>
 		{%- endif -%}
-		{%- if predictive_search_articles.size > 0 -%}
-		<button type="button">{{ 'sections.header.articles' | t }}</button>
-		{%- endif -%}
-		{%- if predictive_search_pages.size > 0 -%}
-		<button type="button">{{ 'sections.header.pages' | t }}</button>
+		{%- if predictive_search_articles.size != 0 -%}
+		<button>{{ 'sections.header.articles' | t }}</button>
 		{%- endif -%}
 	</side-panel-content-tabs>
 	<scroll-shadow>
@@ -61,28 +57,10 @@
 	      {%- endfor -%}
 			</div>
 			{%- endif -%}
-			{%- if predictive_search_pages.size != 0 -%}
-			<div class="side-panel-content--tab-panel{% if predictive_search_products.size == 0 -%} tab-active{%- endif -%}">
-				{%- for predictive_page in predictive_search_pages -%}
-					<div class="product-cart-item">
-						{% if predictive_page.image %}
-						<div class="product-cart-item-image">
-							<a href="{{ predictive_page.url }}" title="{{ predictive_page.title | escape }}" class="product-cart-item-image-link">
-								{%- render 'responsive-image', image: predictive_page.image, sizes: '96x96' -%}
-							</a>
-						</div>
-						{% endif %}
-						<div>
-							<a href="{{ predictive_page.url }}" title="{{ predictive_page.title | escape }}" class="cart-product-link">{{ predictive_page.title | highlight: predictive_search.terms }}</a>
-						</div>
-					</div>
-	      {%- endfor -%}
-			</div>
-			{%- endif -%}
 		</div>
 	</scroll-shadow>
 	<div class="side-panel-content--search-footer">
-		<button class="button full search-results-submit" id="search-results-submit"><span>{{ 'sections.header.view_all_results' | t }}</span></button>
+		<button class="button full" id="search-results-submit"><span>{{ 'sections.header.view_all_results' | t }}</span></button>
 	</div>
 	<span class="loading-overlay">
 		{%- render 'svg-icons' with 'thb-loading' -%}
