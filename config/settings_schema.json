@@ -3,7 +3,7 @@
     "name": "theme_info",
     "theme_name": "Vision",
     "theme_author": "Fuel Themes",
-    "theme_version": "11.0.0",
+    "theme_version": "2.0.0",
     "theme_documentation_url": "https:\/\/documentation.fuelthemes.net\/article-categories\/vision\/",
     "theme_support_url": "https:\/\/fuelthemes.net\/contact\/"
   },
@@ -172,21 +172,6 @@
         "id": "button_uppercase",
         "label": "Make buttons uppercase",
         "default": false
-      }
-    ]
-  },
-  {
-    "name": "Design",
-    "settings": [
-      {
-        "type": "range",
-        "id": "grid_width",
-        "min": 1160,
-        "max": 2840,
-        "step": 20,
-        "unit": "px",
-        "label": "Maximum page width",
-        "default": 1280
       }
     ]
   },
@@ -594,18 +579,6 @@
         "id": "social_share_pinterest",
         "label": "Pin on Pinterest",
         "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "social_share_whatsapp",
-        "label": "Share via WhatsApp",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "social_share_clipboard",
-        "label": "Copy to clipboard",
-        "default": true
       }
     ]
   },
@@ -639,12 +612,12 @@
         "label": "Content alignment",
         "options": [
           {
-            "value": "left",
-            "label": "Left"
-          },
-          {
             "value": "center",
             "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
           },
           {
             "value": "right",
@@ -719,31 +692,9 @@
       },
       {
         "type": "checkbox",
-        "id": "show_products_subtitle",
-        "label": "Show product subtitle",
-        "default": true,
-        "info": "Uses product subtitle [metafield](https://help.shopify.com/en/manual/metafields)"
-      },
-      {
-        "type": "header",
-        "content": "Color swatches"
-      },
-      {
-        "type": "checkbox",
         "id": "show_products_swatches",
         "label": "Show color swatches",
         "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "color_swatches_use_variants",
-        "default": false,
-        "label": "Use variant images for color swatches",
-        "info": "Color swatches will use variant featured images if available."
-      },
-      {
-        "type": "header",
-        "content": "Rating"
       },
       {
         "type": "checkbox",
@@ -757,65 +708,6 @@
         "id": "show_products_rating_average",
         "label": "Show product rating average",
         "default": true
-      },
-      {
-        "type": "header",
-        "content": "Inventory"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_products_inventory",
-        "label": "Show product inventory",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "show_inventory_notice",
-        "options": [
-          {
-            "value": "always",
-            "label": "Always"
-          },
-          {
-            "value": "low",
-            "label": "Only when inventory low"
-          }
-        ],
-        "default": "always",
-        "label": "Show inventory notice"
-      },
-      {
-        "type": "select",
-        "id": "show_inventory_count",
-        "options": [
-          {
-            "value": "never",
-            "label": "Never"
-          },
-          {
-            "value": "always",
-            "label": "Always"
-          },
-          {
-            "value": "low",
-            "label": "Only when inventory low"
-          }
-        ],
-        "default": "always",
-        "label": "Show count in inventory notice"
-      },
-      {
-        "type": "checkbox",
-        "id": "inventory_notice_pulse",
-        "default": true,
-        "label": "Show pulse"
-      },
-      {
-        "type": "number",
-        "id": "inventory_notice_threshold",
-        "label": "Low inventory threshold",
-        "default": 10,
-        "info": "Set the product inventory quantity to alert customers when limited quantities are available. Insert a dynamic source to set different thresholds for multiple products."
       },
       {
         "type": "header",
@@ -937,65 +829,6 @@
         "id": "color_badge_sale",
         "label": "Sale",
         "default": "#C62A32"
-      },
-      {
-        "type": "color",
-        "id": "color_badge_preorder",
-        "label": "Pre-Order",
-        "default": "#666666"
-      },
-      {
-        "type": "header",
-        "content": "Custom badges",
-        "info": "For each group below you may enter a set of product tags that will appear as badges in a given color"
-      },
-      {
-        "id": "custom_product_badge_group_1_tag_names",
-        "type": "text",
-        "label": "Badge tags - 1",
-        "info": "Separate tags by comma. For example: New, Best seller"
-      },
-      {
-        "id": "custom_product_badge_group_1_color",
-        "type": "color",
-        "label": "Badge color",
-        "default": "#000000"
-      },
-      {
-        "id": "custom_product_badge_group_2_tag_names",
-        "type": "text",
-        "label": "Badge tags - 2",
-        "info": "Separate tags by comma. For example: New, Best seller"
-      },
-      {
-        "id": "custom_product_badge_group_2_color",
-        "type": "color",
-        "label": "Badge color",
-        "default": "#111111"
-      },
-      {
-        "id": "custom_product_badge_group_3_tag_names",
-        "type": "text",
-        "label": "Badge tags - 3",
-        "info": "Separate tags by comma. For example: New, Best seller"
-      },
-      {
-        "id": "custom_product_badge_group_3_color",
-        "type": "color",
-        "label": "Badge color",
-        "default": "#222222"
-      },
-      {
-        "type": "text",
-        "id": "custom_product_badge_group_4_tag_names",
-        "label": "Badge tags - 4",
-        "info": "Separate tags by comma. For example: New, Best seller"
-      },
-      {
-        "id": "custom_product_badge_group_4_color",
-        "type": "color",
-        "label": "Badge color",
-        "default": "#333333"
       }
     ]
   },
@@ -1070,47 +903,6 @@
     ]
   },
   {
-    "name": "Product compare",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "Learn how to use the product compare section [here.](https://documentation.fuelthemes.net/kb/how-to-use-product-compare-feature-on-pinnacle-theme/)"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_compare",
-        "label": "Enable compare",
-        "default": false
-      },
-      {
-        "type": "range",
-        "id": "compare_products_max",
-        "min": 2,
-        "max": 10,
-        "step": 1,
-        "label": "Maximum products in compare",
-        "default": 5
-      },
-      {
-        "type": "header",
-        "content": "Compare toggle",
-        "info": "Displays compare toggle on collection and search pages"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_compare_toggle",
-        "label": "Show",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_compare_toggle_on",
-        "label": "Checked by default",
-        "default": true
-      }
-    ]
-  },
-  {
     "name": "Color swatches",
     "settings": [
       {
@@ -1120,23 +912,6 @@
       {
         "type": "paragraph",
         "content": "[Learn more about color swatches.](https:\/\/documentation.fuelthemes.net\/kb\/how-do-i-set-up-product-variant-swatches\/)"
-      },
-      {
-        "type": "text",
-        "id": "color_swatches_variant_option",
-        "label": "Variant option for swatches",
-        "info": "Variant option name to use for displaying swatches. Use a comma separated list to support multiple options: Color, Style, Finish"
-      },
-      {
-        "type": "textarea",
-        "id": "color_swatches",
-        "label": "Custom colors",
-        "placeholder": "Black: #000000\nWhite: #F3F3F3\nBlue: blue.png",
-        "info": "Follow the format: <Color>: <HEX Color>. Example: Purple: #7000AA. Each custom color must be on a new line."
-      },
-      {
-        "type": "header",
-        "content": "Siblings"
       },
       {
         "type": "select",
@@ -1154,6 +929,13 @@
         ],
         "default": "image",
         "info": "This setting is for Siblings block inside Product templates."
+      },
+      {
+        "type": "textarea",
+        "id": "color_swatches",
+        "label": "Custom colors",
+        "placeholder": "Black: #000000\nWhite: #F3F3F3\nBlue: blue.png",
+        "info": "Follow the format: <Color>: <HEX Color>. Example: Purple: #7000AA. Each custom color must be on a new line."
       }
     ]
   },
@@ -1189,13 +971,7 @@
       {
         "type": "checkbox",
         "id": "cart_drawer_notes",
-        "label": "Show cart notes",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "cart_drawer_add_discounts",
-        "label": "Show add discount form",
+        "label": "Enable cart notes",
         "default": true
       },
       {
@@ -1312,33 +1088,11 @@
     "name": "Advanced",
     "settings": [
       {
-        "type": "header",
-        "content": "Speed"
-      },
-      {
-        "type": "checkbox",
-        "id": "preload_links",
-        "label": "Preload links on hover",
-        "info": "This should increase the perceived loading speed of pages.",
-        "default": true
-      },
-      {
         "type": "checkbox",
         "id": "lazy_loading",
         "label": "Enable lazy loading",
         "info": "Uses Low Quality Image Placeholders (LQIP) to improve page loading time.",
         "default": true
-      },
-      {
-        "type": "header",
-        "content": "Custom HTML"
-      },
-      {
-        "type": "textarea",
-        "id": "custom_html_head",
-        "label": "HTML for <head> tag",
-        "placeholder": "<meta name='google-site-verification' content=''/>",
-        "info": "Placed at the end of the head tag. Included on all theme pages - this does not include the checkout."
       },
       {
         "type": "header",

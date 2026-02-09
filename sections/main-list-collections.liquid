@@ -6,7 +6,6 @@
 	assign columns_desktop = section.settings.columns_desktop
 	assign collection_list_pagination_num = section.settings.collection_list_pagination_num
 	assign style = section.settings.style
-	assign text_alignment = section.settings.text_alignment
 	assign heading_position = section.settings.heading_position
 	assign text_color = section.settings.text_color
 	assign overlay_color = section.settings.overlay_color
@@ -23,7 +22,7 @@
 					{% if section.blocks.size > 0 %}
 						<div class="collection-grid">
 					    {% for block in section.blocks %}
-					      {% render 'collection-card', grid_collection: collections[block.settings.collection], media_aspect_ratio: section.settings.image_ratio, style: style, index: forloop.index, columns_desktop: columns_desktop, heading_position: heading_position, heading_size: heading_size, text_alignment: text_alignment %}
+					      {% render 'collection-card', grid_collection: collections[block.settings.collection], media_aspect_ratio: section.settings.image_ratio, style: style, index: forloop.index, columns_desktop: columns_desktop, heading_position: heading_position, heading_size: heading_size %}
 					    {% endfor %}
 						</div>
 					{% else %}
@@ -42,7 +41,7 @@
 						{%- paginate collections by collection_list_pagination_num -%}
 							<div class="collection-grid">
 								{% for collection in collections %}
-									{% render 'collection-card', grid_collection: collection, media_aspect_ratio: section.settings.image_ratio, style: style, index: forloop.index, columns_desktop: columns_desktop, heading_position: heading_position, heading_size: heading_size, text_alignment: text_alignment %}
+									{% render 'collection-card', grid_collection: collection, media_aspect_ratio: section.settings.image_ratio, style: style, index: forloop.index, columns_desktop: columns_desktop, heading_position: heading_position, heading_size: heading_size %}
 								{% endfor %}
 							</div>
 							{% render 'pagination', pagination: paginate, pagination_type: 'paginated' %}
@@ -56,7 +55,7 @@
 {% schema %}
   {
     "name": "Collection list page",
-  	"class": "section-collection-list",
+	  "class": "collection-list-section",
     "settings": [
 			{
 				"type": "text",
@@ -120,8 +119,7 @@
 	        }
 	      ],
 	      "default": "alphabetical",
-	      "label": "Sort collections by:",
-				"info": "Pagination only works on default sort (Alphabetically, A-Z)"
+	      "label": "Sort collections by:"
 	    },
 			{
 	      "type": "select",
@@ -159,26 +157,6 @@
 				],
 				"default": "style1",
 				"label": "Style"
-			},
-			{
-				"type": "select",
-				"id": "text_alignment",
-				"options": [
-					{
-						"value": "left",
-						"label": "Left"
-					},
-					{
-						"value": "center",
-						"label": "Center"
-					},
-					{
-						"value": "right",
-						"label": "Right"
-					}
-				],
-				"default": "center",
-				"label": "Text alignment"
 			},
 			{
 	      "type": "range",

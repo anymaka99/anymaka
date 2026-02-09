@@ -14,12 +14,15 @@ if (!customElements.get('countdown-timer')) {
         year = parseInt(date[2]);
 
       let time = this.dataset.time,
-        tarhour = 0,
-        tarmin = 0;
+        tarhour, tarmin;
 
-      if (time) {
-        [tarhour, tarmin] = time.split(':').map(Number);
+      if (time != null) {
+        time = time.split(':');
+        tarhour = parseInt(time[0]);
+        tarmin = parseInt(time[1]);
       }
+
+
 
       // Set the date we're counting down to
       let date_string = month + '/' + day + '/' + year + ' ' + tarhour + ':' + tarmin + ' GMT' + timezone;
@@ -37,35 +40,33 @@ if (!customElements.get('countdown-timer')) {
       return date;
     }
     connectedCallback() {
+      let _this = this;
+      const updateTime = function() {
 
-      const daysEl = this.querySelector('.days .countdown-timer--column--number'),
-        hoursEl = this.querySelector('.hours .countdown-timer--column--number'),
-        minutesEl = this.querySelector('.minutes .countdown-timer--column--number'),
-        secondsEl = this.querySelector('.seconds .countdown-timer--column--number');
-      const updateTime = () => {
         // Get todays date and time
-        const now = Date.now();
+        const now = new Date().getTime();
 
         // Find the distance between now an the count down date
-        const distance = this.countDownDate - now;
-
-        if (distance < 0) {
-          daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = '00';
-          return;
-        }
+        const distance = _this.countDownDate - now;
 
         // Time calculations for days, hours, minutes and seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        requestAnimationFrame(updateTime);
-
-        daysEl.textContent = CountdownTimer.addZero(days);
-        hoursEl.textContent = CountdownTimer.addZero(hours);
-        minutesEl.textContent = CountdownTimer.addZero(minutes);
-        secondsEl.textContent = CountdownTimer.addZero(seconds);
+        if (distance < 0) {
+          _this.querySelector('.days .countdown-timer--column--number').innerHTML = 0;
+          _this.querySelector('.hours .countdown-timer--column--number').innerHTML = 0;
+          _this.querySelector('.minutes .countdown-timer--column--number').innerHTML = 0;
+          _this.querySelector('.seconds .countdown-timer--column--number').innerHTML = 0;
+        } else {
+          requestAnimationFrame(updateTime);
+          _this.querySelector('.days .countdown-timer--column--number').innerHTML = CountdownTimer.addZero(days);
+          _this.querySelector('.hours .countdown-timer--column--number').innerHTML = CountdownTimer.addZero(hours);
+          _this.querySelector('.minutes .countdown-timer--column--number').innerHTML = CountdownTimer.addZero(minutes);
+          _this.querySelector('.seconds .countdown-timer--column--number').innerHTML = CountdownTimer.addZero(seconds);
+        }
 
       };
       requestAnimationFrame(updateTime);

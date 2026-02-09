@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "uk"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {},
+      "block_order": [
+        "2b609eea-6cce-4efe-b447-c5560de1d797",
+        "title",
+        "0b3e272b-c86a-4dba-946c-c6912251371c",
+        "icon_list_iBqfEW",
+        "variant_picker",
+        "custom_option_HWfehA",
+        "quantity",
+        "buy_buttons",
+        "d56924f2-0137-4e3b-8c33-49b1f28391c6",
+        "collapsible_tab_YY39UD",
+        "collapsible_tab_XXHwQ7",
+        "386f7e4a-6127-4141-928b-9cb4614ee18c",
+        "fc6da228-45eb-4a6e-aa68-d6ec477bec34"
+      ]
+    }
+  }
+}

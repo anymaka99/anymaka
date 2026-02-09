@@ -19,37 +19,27 @@
 		assign dots = false
 	endif
 -%}
-<div class="row">
+<div class="row {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
 	<div class="small-12 columns">
 		<div class="image-with-text-slideshow grid--image-{{ desktop_image_width }} {{ desktop_layout }} {{ content_position }} column-spacing--medium section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 			<slide-show class="image-with-text-slideshow--image carousel inner-carousel" data-autoplay="{{ autoplay }}" data-fade="true" data-dots="{{ dots }}">
-				{%- for block in section.blocks -%}
+				{% for block in section.blocks %}
 					<div class="image-with-text-slideshow--image-slide carousel__slide">
 						<div class="image-with-text-slideshow--image-media {{ mobile_height }} {{ desktop_height }}{% unless block.settings.image %} thb-placeholder{% endunless %}">
 							{% if block.settings.image %}
-								{%- liquid
-									assign image = block.settings.image
-									assign master_width = image.src.width | append: 'x' | append: image.src.height
-									assign width = '375x500' | append: ',' | append: master_width
-									assign priority = 'auto'
-									
-									if section.index == 1 and forloop.index == 1
-										assign priority = 'high'
-									endif
-									if forloop.index > 1 and section.index > 1
-										assign priority = 'low'
-									endif
-									render 'responsive-image', image: image, sizes: width, priority: priority
-								-%}
+								{% assign image = block.settings.image %}
+								{% assign master_width = image.src.width | append: 'x' | append: image.src.height %}
+								{% assign width = '375x500' | append: ',' | append: master_width %}
+								{%- render 'responsive-image', image: image, sizes: width -%}
 							{% else %}
 								{% assign index = forloop.index | modulo: 2 | plus: 1 %}
 								<div class="thb-placeholder">
-									{{ 'blog-apparel-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
+									{{ 'lifestyle-' | append: index | placeholder_svg_tag: 'placeholder_svg_tag' }}
 								</div>
 							{% endif %}
 						</div>
 					</div>
-				{%- endfor -%}
+				{% endfor %}
 			</slide-show>
 			<slide-show class="image-with-text-slideshow--content carousel inner-carousel" data-fade="true">
 				{% for block in section.blocks %}
@@ -84,6 +74,38 @@
     "name": "Image with text slideshow",
 		"class": "section-image-with-text-slideshow",
     "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          } 
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },      
 			{
 				"type": "select",
 				"id": "mobile_height",
@@ -195,8 +217,8 @@
 				 "id": "content_position",
 				 "label": "Content alignment",
 				 "options": [
-					 { "value": "text-left", "label": "Left" },
 					 { "value": "text-center", "label": "Center" },
+					 { "value": "text-left", "label": "Left" },
 					 { "value": "text-right", "label": "Right" }
 				 ],
 				 "default": "text-left"
@@ -336,12 +358,6 @@
 					}
 				]
       }
-    ],
-		"enabled_on": {
-			"templates": ["*"],
-			"groups": [
-				"header", "footer"
-			]
-		}
+    ]
   }
 {% endschema %}

@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "index.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "custom_liquid_t6JyK": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "full_width",
+        "custom_liquid": "<div class=\"bf-banner-desktop\">\n  <a href=\"https://www.anymaka.com/pages/christmas-sale-us\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_9f78365a-cf9a-4c47-a0a3-614ac1b84715.webp?v=1765772236\" \n      alt=\"Black Friday Banner - Desktop\"\n      class=\"bf-desktop-img\"\n    >\n  </a>\n</div>\n\n<div class=\"bf-banner-mobile\">\n  <a href=\"https://www.anymaka.com/pages/christmas-sale-us\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_1x_caa3c259-adbc-43ff-b984-6d84667fbafb.webp?v=1765782016\" \n      alt=\"Black Friday Banner - Mobile\"\n      class=\"bf-mobile-img\"\n    >\n  </a>\n</div>\n\n<style>\n  /* PC 默认显示 desktop */\n  .bf-banner-mobile {\n    display: none;\n  }\n\n  /* --- PC 图片居中 --- */\n  .bf-banner-desktop {\n    text-align: center;         /* 关键：让图片在容器内水平居中 */\n    margin: 20px 0;\n  }\n\n  .bf-desktop-img {\n    width: 65%;\n    max-width: 100%;\n    height: auto;\n    display: inline-block;      /* 让 text-align:center 生效 */\n  }\n\n  /* 手机端显示 mobile 图片且已居中 */\n  @media (max-width: 768px) {\n    .bf-banner-desktop {\n      display: none;\n    }\n\n    .bf-banner-mobile {\n      display: block;\n      text-align: center;\n      margin: 20px 0;\n    }\n\n    .bf-mobile-img {\n      width: 90%;\n      max-width: 100%;\n      height: auto;\n    }\n  }\n</style>"
+      },
+      "blocks": {},
+      "block_order": [],
+      "name": "Custom liquid"
+    },
+    "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3": {
+      "settings": {
+        "autoplay": true,
+        "autoplay_length": 10,
+        "controls": "dots",
+        "slide_arrow": true
+      },
+      "blocks": {
+        "slide_nAbbmH": {
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/pc_2_8e29ea40-39eb-4efb-a5d4-daafd8140cb6.webp",
+            "mobile_image": "shopify://shop_images/8ceb5e7d9b360980295e144bc95e0165.webp",
+            "slide_link": "shopify://pages/new-year-sale-us",
+            "button_1_text": "Shop Now",
+            "button_1_link": "shopify://pages/new-year-sale-us"
+          }
+        }
+      }
+    },
+    "slideshow_DMDA3h": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "multicolumn_XPdtxg": {
+      "settings": {},
+      "blocks": {
+        "column_dFgtWE": {
+          "settings": {
+            "image": "shopify://shop_images/9132204b487f036da45099597c7f41c8_20be7bb9-405a-4e72-ba92-a3e8d35a6f65.webp",
+            "link": "shopify://products/anymaka-hammock-set"
+          }
+        },
+        "column_FEVQ3U": {
+          "settings": {
+            "image": "shopify://shop_images/Full_Pack_Enhanced.webp",
+            "link": "shopify://products/anymaka-full-pack-enhanced"
+          }
+        }
+      }
+    },
+    "custom_liquid_rpyxf9": {
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\"bf-banner-desktop\">\n  <a href=\"https://www.anymaka.com/pages/new-year-sale-us\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_9f78365a-cf9a-4c47-a0a3-614ac1b84715.webp?v=1765772236\" \n      alt=\"Black Friday Banner - Desktop\"\n      class=\"bf-desktop-img\"\n    >\n  </a>\n</div>\n\n<div class=\"bf-banner-mobile\">\n  <a href=\"https://www.anymaka.com/pages/new-year-sale-us\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_1x_caa3c259-adbc-43ff-b984-6d84667fbafb.webp?v=1765782016L\" \n      alt=\"Black Friday Banner - Mobile\"\n      class=\"bf-mobile-img\"\n    >\n  </a>\n</div>\n\n<style>\n  /* PC 默认显示 desktop */\n  .bf-banner-mobile {\n    display: none;\n  }\n\n  /* --- PC 图片居中 --- */\n  .bf-banner-desktop {\n    text-align: center;         /* 关键：让图片在容器内水平居中 */\n    margin: 20px 0;\n  }\n\n  .bf-desktop-img {\n    width: 65%;\n    max-width: 100%;\n    height: auto;\n    display: inline-block;      /* 让 text-align:center 生效 */\n  }\n\n  /* 手机端显示 mobile 图片且已居中 */\n  @media (max-width: 768px) {\n    .bf-banner-desktop {\n      display: none;\n    }\n\n    .bf-banner-mobile {\n      display: block;\n      text-align: center;\n      margin: 20px 0;\n    }\n\n    .bf-mobile-img {\n      width: 90%;\n      max-width: 100%;\n      height: auto;\n    }\n  }\n</style>"
+      },
+      "blocks": {}
+    },
+    "gallery_R8y4FM": {
+      "settings": {},
+      "blocks": {
+        "image_YywCKw": {
+          "settings": {
+            "video_hosted": "shopify://files/videos/首页视频pc端.mp4",
+            "video_hosted_mobile": "shopify://files/videos/首页-手机端.mp4"
+          }
+        }
+      }
+    },
+    "slideshow_x3xDFT": {
+      "settings": {
+        "disable_top_spacing": true,
+        "mobile_height": "mobile-height-500"
+      },
+      "blocks": {
+        "slide_6qCRGa": {
+          "settings": {
+            "content": "anymaka provides accessories that best suit your hammocking vibe, whether you're kicking back inside or heading for the wild.",
+            "button_1_link": "shopify://products/anymaka-portable-hammock-stand",
+            "custom_mobile_height": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_6qCRGa"
+      ]
+    }
+  },
+  "order": [
+    "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
+    "slideshow_DMDA3h",
+    "8f6ed916-ced8-44f6-9ef8-b60fd327ae31",
+    "pagefly_section_yUBXR3",
+    "rich_text_WApnjB",
+    "multicolumn_XPdtxg",
+    "custom_liquid_rpyxf9",
+    "spacer_bqWbYn",
+    "custom_liquid_t6JyK",
+    "testimonials_LKpURE",
+    "slideshow_MVx8ym",
+    "gallery_R8y4FM",
+    "reviews_new_49wXQ7",
+    "slideshow_x3xDFT",
+    "multicolumn_CwhDeq",
+    "rich_text_bHHXCG",
+    "custom_liquid_x4MgCm",
+    "custom_liquid_8gkkXf",
+    "slideshow_XyTerR",
+    "171072788289576312",
+    "single_image_hGQWY8",
+    "text_with_icons_kg7Kxm"
+  ]
+}

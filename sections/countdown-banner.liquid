@@ -51,7 +51,7 @@
 			assign mobile_image_height = 500
 	endcase
 -%}
-<div class="row {% if full_width %} full-width-row-full{% endif %}">
+<div class="row {% if full_width %} full-width-row-full{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
 	<div class="small-12 columns">
 		<div class="countdown-banner countdown-banner--full-width-{{ full_width }} {{ mobile_height }} {{ desktop_height }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--color-bg: {{ color_bg }}; --color-text: {{ color_text }}; --solid-button-background: {{ color_text }}; --solid-button-background-hover: {{ color_text | color_darken: 7 }}; --solid-button-label: {{ color_bg }};--bg-body: {{ color_bg }}">
 			<div class="countdown-banner--bg">
@@ -87,7 +87,9 @@
 						<p class="description-size--{{ content_size }}">{{ content | newline_to_br }}</p>
 					{%- endif -%}
 				</div>
+                
 				<div class="countdown-banner--timer">
+                  {%- if section.settings.enable_countdown -%}
 					<countdown-timer class="countdown-timer" data-date="{{ date }}" data-time="{{ time }}" data-timezone="{{ timezone }}">
 						<div class="countdown-timer--column days">
 							<span class="countdown-timer--column--number"></span>
@@ -106,8 +108,9 @@
 							<span class="countdown-timer--column--text">{{ 'sections.countdown_banner.seconds' | t }}</span>
 						</div>
 					</countdown-timer>
+                    {%- endif -%}
 					{%- if button_text != blank -%}
-						<a class="button" href="{{ button_link }}" role="button" title="{{ button_text | escape }}"><span>{{ button_text }}</span></a>
+						<a class="button {{ section.settings.button_color }}" href="{{ button_link }}" role="button" title="{{ button_text | escape }}"><span>{{ button_text }}</span></a>
 					{%- endif -%}
 				</div>
 			</div>
@@ -120,6 +123,38 @@
   "name": "Countdown banner",
 	"class": "section-countdown-banner",
   "settings": [
+      {
+        "type": "select",
+        "id": "content_for_tab",
+        "options": [
+        	{
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "detail",
+            "label": "Detail"
+          },
+          {
+            "value": "tech",
+            "label": "Tech Specs"
+          },
+          {
+            "value": "review",
+            "label": "Reviews"
+          },
+          {
+            "value": "faqs",
+            "label": "FAQs"
+          },
+          {
+            "value": "installation",
+            "label": "Installation"
+          }          
+        ],
+        "default": "",
+        "label": "In which product tab is the content displayed?"
+      },    
 		{
 			"type": "checkbox",
 			"id": "full_width",
@@ -298,10 +333,36 @@
 			"type": "url",
 			"label": "Link"
 		},
+        {
+            "type": "select",
+            "id": "button_color",
+            "label": "Color",
+            "options": [
+                {
+                    "value": "regular",
+                    "label": "Regular"
+                },
+                {
+                    "value": "accent",
+                    "label": "Accent"
+                },
+                {
+                    "value": "white",
+                    "label": "White"
+                }
+            ],
+            "default": "accent"
+        },    
 		{
 			"type": "header",
 			"content": "Timer"
 		},
+		{
+			"id": "enable_countdown",
+			"type": "checkbox",
+			"label": "Enable Countdown",
+            "default": true
+		},    
 		{
 		  "type": "number",
 		  "id": "timer_year",
@@ -622,8 +683,7 @@
 					"label": "03"
 				},
 				{
-					"value": "04",
-					"label": "04"
+					"value": "04"
 				},
 				{
 					"value": "05",
@@ -897,13 +957,7 @@
     {
       "name": "Countdown banner"
     }
-  ],
-  "enabled_on": {
-    "templates": ["*"],
-    "groups": [
-      "header", "footer"
-    ]
-  }
+  ]
 }
 
 {% endschema %}

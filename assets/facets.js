@@ -2,58 +2,30 @@
  *  @class
  *  @function FacetsToggle
  */
-class FacetToggle extends HTMLElement {
+class FacetsToggle {
 
   constructor() {
-    super();
-    this.init();
-  }
-  init() {
-    this.drawer = document.getElementById('Facet-Drawer');
-    this.container = this.closest('.facets--bar-sticky');
+    this.container = document.getElementById('Facet-Drawer');
+    let button = document.getElementById('Facets-Toggle');
 
     // Add functionality to buttons
-    this.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.body.classList.toggle('open-cc');
-      this.drawer.classList.toggle('active');
-    });
-    if (this.container) {
-      this.enableSticky();
+    if (button) {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementsByTagName("body")[0].classList.toggle('open-cc');
+        this.container.classList.toggle('active');
+      });
     }
-
   }
-  enableSticky() {
-    let rootMargin = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) + 1;
-    this.observer = new IntersectionObserver(
-      ([e]) => {
-        e.target.classList.toggle('is-pinned', e.intersectionRatio <= 1 && e.intersectionRatio > 0);
-      },
-      {
-        threshold: [1],
-        rootMargin: `-${rootMargin}px 0px 0px 0px`
-      }
-    );
-
-    this.observer.observe(this.container);
-  }
-
 }
-customElements.define('facet-toggle', FacetToggle);
 
-/**
- *  @class
- *  @function FacetFiltersForm
- */
+
 class FacetFiltersForm extends HTMLElement {
   constructor() {
     super();
     this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
 
     this.debouncedOnSubmit = debounce((event) => {
-      if (event.target.id === 'compare_toggle') {
-        return;
-      }
       this.onSubmitHandler(event);
     }, 500);
 
@@ -110,6 +82,8 @@ class FacetFiltersForm extends HTMLElement {
         FacetFiltersForm.renderFilters(html, event);
         FacetFiltersForm.renderProductGridContainer(html);
         FacetFiltersForm.renderProductCount(html);
+
+        new FacetsToggle();
       });
   }
 
@@ -232,10 +206,7 @@ FacetFiltersForm.searchParamsPrev = window.location.search.slice(1);
 customElements.define('facet-filters-form', FacetFiltersForm);
 FacetFiltersForm.setListeners();
 
-/**
- *  @class
- *  @function Facetremove
- */
+
 class FacetRemove extends HTMLElement {
   constructor() {
     super();
@@ -253,28 +224,6 @@ customElements.define('facet-remove', FacetRemove);
 
 /**
  *  @class
- *  @function FacetToolbar
- */
-class FacetToolbar extends HTMLElement {
-  constructor() {
-    super();
-  }
-  connectedCallback() {
-    this.compareToggle = this.querySelector('#compare_toggle');
-    if (this.compareToggle) {
-      this.compareToggle.addEventListener('change', this.onCompare);
-    }
-  }
-  onCompare(e) {
-    document.body.classList.toggle('compare-true');
-    e.preventDefault();
-    return false;
-  }
-}
-customElements.define('facet-toolbar', FacetToolbar);
-
-/**
- *  @class
  *  @function PriceSlider
  */
 class PriceSlider extends HTMLElement {
@@ -289,11 +238,6 @@ class PriceSlider extends HTMLElement {
         start: [parseFloat(slider.dataset.minValue || 0), parseFloat(slider.dataset.maxValue || slider.dataset.max)],
         connect: true,
         step: 10,
-        direction: document.dir,
-        handleAttributes: [
-          { 'aria-label': 'lower' },
-          { 'aria-label': 'upper' },
-        ],
         range: {
           'min': 0,
           'max': parseFloat(slider.dataset.max)
@@ -317,3 +261,7 @@ class PriceSlider extends HTMLElement {
   }
 }
 customElements.define('price-slider', PriceSlider);
+
+window.addEventListener('load', () => {
+  new FacetsToggle();
+});

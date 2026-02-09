@@ -1,0 +1,148 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_ydDcwy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_keWKNp": {
+          "type": "heading",
+          "settings": {
+            "text": "Privacy Policy",
+            "marker_style": "style1",
+            "size": "h1",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_keWKNp"
+      ],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_CjEaN9": {
+      "type": "rich-text",
+      "blocks": {
+        "text_DbEbk3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This Privacy Policy describes how ANYMAKA LIMITED and its parent, subsidiary, and affiliate companies (collectively, “anymaka,” “we,” or “us”) collect, as well as how it’s used, disclosed, protected, and retained through our website from which you are accessing this Policy, our social media pages on third-party socialmedia platforms, email, text, mail, and any offline business interactions you have with us (collectively, our“Services”).</p><h5>What personal information do we collect?</h5><p>When you visit the Site, we collect and process different types of information that identifies, relates to,describes, or can be associated with you (known as “personal information”), including information that wecollect directly from you, through automated collection technologies, from other sources, or personalinformation we derive based on other types of personal information we collect. Additionally, as you browsethe Site, we collect information about the individual web pages or products that you view, what websites orsearch terms referred you to the Site, and information about how you interact with the Site. We refer to thisautomatically collected information as “Device Information.”</p><ul><li>“Cookies” are data files that are placed on your device or computer and often include an anonymousunique identifier.</li><li>“Log files” track actions occurring on the Site, and collect data including your IP address, browser type,Internet service provider, referring/exit pages, and date/time stamps.</li><li>“Web beacons,” “tags,” and “pixels” are electronic files used to record information about how youbrowse the Site.</li></ul><h5>Use of personal information</h5><p>We and our service providers, contractors, and third parties use your personal information for the followingpurposes:</p><ul><li>Provide, operate, and maintain our website;</li><li>Fulfill orders and process returns that you have ordered or requested, and to communicate about suchorders or returns;</li><li>Enable and improve customer service and address your questions, suggestions, compliments, orcomplaints;</li><li>Communicate with you, including sending you important information regarding the website or terms,conditions, policies, recall information and/or other administrative information;</li><li>Share reviews, testimonials, or other user-generated content;</li><li>Register you for a anymaka.com account and communicate with you about your account and activitieson or in connection with the Services;</li><li>Deliver marketing communications and advertising that we believe may be of interest to you;</li><li>Learn about customer trends and interests;</li><li>Personalize digital content;</li><li>Create inference data about you and your interests;</li><li>Fraud prevention, security, and asset protection;</li><li>Enable our business purposes, such as data analysis, audits, researching and developing new productsand services, identifying usage trends, enhancing this website, improving our services;</li><li>Comply with a legal matter;</li><li>Initiate, operate, manage, and maintain our business relationships;</li><li>For any other purpose, with your consent where appropriate;</li></ul><h5>Disclosure</h5><p>We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Informationunless we provide users with advance notice. This does not include website hosting partners and otherparties who assist us in operating our website, conducting our business, or serving our users, so long asthose parties agree to keep this information confidential. We may disclose your personal information if weare required by law to do so or if you violate our <a href=\"/pages/terms-of-service\" title=\"Terms of Service\">Terms of Service.</a></p><h5>Consent</h5><p>By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do notuse our Site. Your continued use of the Site following the posting of changes to this policy will be deemedyour acceptance of those changes.</p><h5>Shopify</h5><p>Our store is hosted on Shopify Inc. They provide us with theonline e-commerce platform that allows us to sell our products and services to you. Your data is storedthrough Shopify’s data storage, databases and the general Shopify application. They store your data on asecure server behind a firewall.</p><h5>Third-party disclosure</h5><p>We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it’s release is appropriate to comply with the law, enforce our site policies, or protect ours or others’ rights, property orsafety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p><h5>Cookies and Other Tracking Technologies</h5><p>Cookies are files that are placed on your computer or mobile or handheld device (such as smartphones or tablets) when you visit certain pages on the internet or use certain mobile applications. They can be used to“remember” when your computer or device access this Site. Cookies are stored in your browser. The cookie will help the Site, or another website, to recognize your device the next time you visit. Most cookies won’t collect information like a name or email address that directly identifies you as a person and will instead be used in efforts such as collecting more general information such as how visitors arrive at and use a Site. Cookies may, however, be used to create a profile of the visitor's activities on the Internet, and they can contain unique identifiers or any form of personal information.</p><p>Clear GIFs are tiny graphics with a unique identifier, similar in function to cookies. In contrast to cookies, which are stored on your device, clear GIFs are embedded invisibly on web pages. We may use clear GIFs (a.k.a. web beacons, web bugs, or pixel tags), in connection with our Site and with cookies to, among other things, track the activities of Site visitors, help us manage content, compile statistics about Site usage (including clicks and cursor movements), and engage in targeted advertising. We and our third-party service providers also use clear GIFs in HTML emails we send, to help us with things like tracking email response rates, identifying when our emails are viewed, tracking whether our emails are forwarded, and customizing email or Site content.</p><h5>Categories of Cookies</h5><p>Our uses of such technologies usually fall into one of the following categories:</p><ul><li><strong>Strictly Necessary Cookies.</strong> These cookies, which may be set by us or third-party providers, are necessary for the website to function, and we do not offer an option for them to be switched off. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms, or they may be set when you simply load a page. You can set your browser to block or alert you about these cookies, but some parts of theSite will not work if you block them.</li><li><strong>Performance Cookies.</strong> These cookies, which may be set by us or third-party providers, mainly allow us to count visits and traffic sources so we can measure and improve the performance of our Site. They help us to know which pages are the most and least popular and see how visitors move around the Site. If you block these cookies, we cannot use them to know when you have visited our Site and will be less able to monitor its performance.</li><li><strong>Functional Cookies.</strong> These cookies mainly enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added toour pages. If you block these cookies, then some or all of these services may not function properly.</li><li><strong>Targeting and Social Media Cookies. </strong>These cookies may be set through our Site by or in collaboration with our advertising and social media partners. They may be used by those companies mainly to build a profile of your interests and show you relevant ads on other sites. If you block these cookies, you will experience less targeted advertising.</li></ul><h5>Google Analytics (Google)</h5><p>Google Analytics is a web analysis service provided by Google Inc. (“Google”). Google utilizes the PersonalData collected to track and examine the use of this Application, to prepare reports on its activities and share them with other Google services.</p><ul><li>Google may use the Personal Data collected to contextualize and personalize the ads of its own advertising network.</li><li>Personal Data collected: Cookie and Usage Data.</li><li>Place of processing: USA – <a href=\"http://www.google.com/intl/en/policies/privacy/\" title=\"http://www.google.com/intl/en/policies/privacy/\">Privacy Policy</a> – <a href=\"https://tools.google.com/dlpage/gaoptout?hl=en\" title=\"https://tools.google.com/dlpage/gaoptout?hl=en\">Opt Out</a></li></ul><h5>Managing Email Addresses And Sending Messages</h5><p>These services make it possible to manage a database of subscription-based email contacts to communicate with the User via email. The services are used to collect data concerning the date and time when the mail is viewed by the User, as well as when the User interacts with incoming mail, such as by clicking on links included in the email.</p><h5>CAN-SPAM Act</h5><p>The CAN-SPAM Act is a law that sets the rules for commercial email, establishes requirements for commercial messages, gives recipients the right to have emails stopped from being sent to them, and spells out tough penalties for violations.We collect your email address in order to:</p><ul><li>Market to our mailing list or continue to send emails to our clients after the original transaction has occurred.</li></ul><p>To be in accordance with CAN-SPAM, we agree to the following:</p><ul><li>Not use false or misleading subjects or email addresses.</li><li>Identify the message as an advertisement in some reasonable way.</li><li>Include the physical address of our business or site headquarters.</li><li>Monitor third-party email marketing services for compliance, if one is used.</li><li>Honor opt-out/unsubscribe requests quickly.</li><li>Allow users to unsubscribe by using the link at the bottom of each email.</li></ul><p>If at any time you would like to unsubscribe from receiving future emails, you can email us at</p><ul><li>Follow the instructions at the bottom of each email and we will promptly remove you from ALL correspondence.</li></ul><h5>California Online Privacy Protection Act</h5><p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require any person or company in theUnited States (and conceivably the world) that operates websites collecting Personally Identifiable Information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals or companies with whom it is being shared. – See more at: <a href=\"http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpufAccording\" title=\"http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpufAccording\">http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpufAccording</a> to CalOPPA, we agree to the following:</p><ul><li>Users can visit our site anonymously.</li><li>Once this privacy policy is created, we will add a link to it on our home page or as a minimum, on the first significant page after entering our website.</li><li>Our Privacy Policy link includes the word “Privacy” and can easily be found on the page specified above.</li></ul><p>You will be notified of any Privacy Policy changes:</p><ul><li>On our Privacy Policy Page</li></ul><p>Can change your personal information:</p><ul><li>By logging in to your account</li></ul><h5>COPPA (Children Online Privacy Protection Act)</h5><p>When it comes to the collection of personal information from children under the age of 13 years old, the Children’s Online Privacy Protection Act (COPPA) puts parents in control. The Federal Trade Commission,United States’ consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children’s privacy and safety online. We do not specifically market to children under the age of 13 years old.</p><h5>Contact Us</h5><p>If you have any questions, requests, concerns, complaints, or suggestions about this Privacy Policy, have any requests related to your personal information pursuant to applicable laws, or otherwise need to contact us, please contact us at:</p><p><a href=\"mailto:hi@anymaka.com\" title=\"mailto:hi@anymaka.com\"><strong>hi@anymaka.com</strong></a></p><p>Because email communications are not always secure, please do not include credit card or other sensitive information in your emails to us.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "text_DbEbk3"
+      ],
+      "custom_css": [],
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_djePaA": {
+      "type": "rich-text",
+      "blocks": {
+        "text_bMFmJq": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Easthills Inc.</h6><h6>6547 N Academy Blvd, </h6><h6>Colorado Springs, CO, 80918</h6><h6>United States</h6><h6><a href=\"mailto:hi@anymaka.com\" title=\"mailto:hi@anymaka.com\">hi@anymaka.com</a></h6>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "text_bMFmJq"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "rich_text_3GhYaU": {
+      "type": "rich-text",
+      "blocks": {
+        "text_TxPD8k": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Because email communications are not always secure, please do not include credit card or other sensitive information in your emails to us.</p>",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "text_TxPD8k"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "left",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "custom_liquid_Rzyr4R": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "content_for_tab": "",
+        "text_width": "full_width",
+        "custom_liquid": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Return Policy</title>\n<style>\n  /* 外部容器 */\n  .container {\n    padding: 0 5%; /* 左右留白相对于父容器宽度的5% */\n  }\n</style>\n</head>\n<body>\n\n<div class=\"container\">\n  <p>At anymaka, we prioritize customer satisfaction and strive to offer you the best shopping experience. In the event that you are not completely satisfied with your purchase, we have outlined our refund policy below.</p>\n  <p>To be eligible for a return, the following criteria must be met:</p>\n  <ul>\n    <li>Your item was purchased directly through anymaka.com.</li>\n    <li>All returns must be processed within 30 days of original purchase.</li>\n    <li>Your item must be unused, in the same condition that you received it.</li>\n  </ul>\n  <p>To initiate a return, please contact our customer support team at <a href=\"mailto:hi@anymaka.com\">hi@anymaka.com</a> with your order number and a detailed description of the issue. We will provide you with instructions on how to proceed.</p>\n  \n  <h4>Refunds (if applicable)</h4>\n  <p>Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also inform you of the approval or rejection of your refund. If your refund is approved, it will be processed, and a credit will automatically be applied to your original method of payment, within 5-10 business days.</p>\n  \n  <h4>Late or Missing Refunds (if applicable)</h4>\n  <p>If you haven’t received a refund yet, please check your bank account again. Then contact your credit card company, as it may take some time before your refund is officially posted. Next, contact your bank. There is often some processing time before a refund is posted. If you’ve done all of this and still have not received your refund, please contact us at <a href=\"mailto:hi@anymaka.com\">hi@anymaka.com</a>.</p>\n  \n  <h4>Shipping Your Return</h4>\n  <p>To return your product, you will be responsible for paying for your own shipping costs. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund. Depending on your location, the time it may take for your returned product to reach you may vary. We strongly recommend using a trackable shipping service or purchasing shipping insurance when returning items. We cannot guarantee that we will receive your returned item.</p>\n  \n  <p>If you have any questions about our refund policy, please don't hesitate to contact us at <a href=\"mailto:hi@anymaka.com\">hi@anymaka.com</a>.</p>\n</div>\n\n</body>\n</html>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_ydDcwy",
+    "rich_text_CjEaN9",
+    "rich_text_djePaA",
+    "rich_text_3GhYaU",
+    "custom_liquid_Rzyr4R"
+  ]
+}

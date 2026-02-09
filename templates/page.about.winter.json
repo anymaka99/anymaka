@@ -68,6 +68,8 @@
             "heading_size": "small",
             "content": "<p>Elevate your ensemble with our collection of knitwear wonders. From chunky cable-knit sweaters to soft cashmere turtlenecks, our selection ensures you stay snug without compromising on flair. Layer with abandon; warmth has never looked this good.</p>",
             "description_size": "medium",
+            "button_text": "",
+            "button_link": "",
             "marker_color": "#FD6262",
             "color_bg_badge": "#3fe5a2",
             "color_badge": "#ffffff"
@@ -99,6 +101,8 @@
             "heading_size": "small",
             "content": "<p>Winter fashion is more than just clothing; it's a narrative of resilience and style. Our collection is curated for those who refuse to compromise, embracing the beauty of winter while adorned in the epitome of fashion.</p>",
             "description_size": "medium",
+            "button_text": "",
+            "button_link": "",
             "marker_color": "#FD6262",
             "color_bg_badge": "#3f72e5",
             "color_badge": "#ffffff"
@@ -178,6 +182,7 @@
             "image_full_width": true,
             "image_link": "#",
             "title": "",
+            "text": "",
             "link_label": "Our Sustainability",
             "link": "#"
           }
@@ -188,7 +193,9 @@
             "image_full_width": true,
             "image_link": "#",
             "title": "",
-            "link_label": "Our Approach"
+            "text": "",
+            "link_label": "Our Approach",
+            "link": ""
           }
         },
         "template--14745674219578__a459b182-4bc8-4fcc-b198-df2792838aa7-column-3": {
@@ -197,7 +204,9 @@
             "image_full_width": true,
             "image_link": "#",
             "title": "",
-            "link_label": "Our Stores"
+            "text": "",
+            "link_label": "Our Stores",
+            "link": ""
           }
         },
         "template--14745674219578__a459b182-4bc8-4fcc-b198-df2792838aa7-column-4": {
@@ -206,7 +215,9 @@
             "image_full_width": true,
             "image_link": "#",
             "title": "",
-            "link_label": "Customer Support"
+            "text": "",
+            "link_label": "Customer Support",
+            "link": ""
           }
         }
       },

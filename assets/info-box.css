@@ -17,7 +17,7 @@
   .product--infobox-container {
     margin-bottom: 40px;
     display: grid;
-    gap: 5px; }
+    grid-gap: 5px; }
     @media only screen and (min-width: 1068px) {
       .product--infobox-container {
         margin-top: 20px;

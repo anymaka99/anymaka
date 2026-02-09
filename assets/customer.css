@@ -1,3 +1,4 @@
+@charset "UTF-8";
 
 
 
@@ -14,11 +15,6 @@
 @media only screen and (min-width: 1068px) {
   .myaccount-content {
     padding-right: 30px; } }
-
-.myaccount-content .form-notification {
-  margin-bottom: 20px; }
-  .myaccount-content .form-notification p {
-    margin-bottom: 0; }
 
 .myaccount-content table thead {
   display: none; }
@@ -73,7 +69,7 @@
     padding-bottom: 20px; } }
 
 .myaccount-content table tbody tr td:first-child a {
-  font-weight: var(--font-body-medium-weight, 500); }
+  font-weight: 500; }
 
 .myaccount-content table tfoot tr {
   margin-bottom: 0;
@@ -90,12 +86,12 @@
         display: table-cell; } }
   .myaccount-content table tfoot tr:last-child td {
     font-size: 1.0625rem; }
-    .myaccount-content table tfoot tr:last-child td:before {
+    .myaccount-content table tfoot tr:last-child td:before  {
       font-size: 0.8125rem; }
 
 @media only screen and (min-width: 768px) {
   .myaccount-sidebar {
-    padding-left: 50px !important; } }
+    padding-left: 50px; } }
 
 .myaccount-sidebar--address {
   margin-bottom: 40px; }
@@ -136,7 +132,7 @@
     line-height: 1;
     left: 0;
     font-size: 40px;
-    font-weight: var(--font-body-medium-weight, 500);
+    font-weight: 500;
     width: 60px;
     text-align: center; }
     @media only screen and (min-width: 768px) {

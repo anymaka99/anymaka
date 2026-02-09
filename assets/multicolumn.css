@@ -25,7 +25,9 @@
     color: var(--color-text, var(--color-body, #2c2d2e)); }
   .multicolumn__column .text-button {
     margin-right: 0; }
-
+.no-margin-true .multicolumn__column{
+ margin-bottom: 0;
+}
 .multicolumn__image {
   display: inline-block;
   width: 100%;
@@ -52,11 +54,11 @@
 @media only screen and (max-width: 767px) {
   .multicolumn.swipe-on-mobile .row {
     display: grid;
-    gap: 8px;
+    grid-gap: 8px;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(var(--mobile-swipe-width), 1fr);
+    grid-auto-columns: minmax(calc(90vw - 35px), 1fr);
     overflow-x: auto;
-    grid-template-columns: repeat(auto-fill, minmax(var(--mobile-swipe-width), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(calc(90vw - 35px), 1fr));
     margin-left: -8px;
     width: calc(100% + 16px);
     padding: 0 15px;
@@ -66,12 +68,58 @@
       display: none; }
     .multicolumn.swipe-on-mobile .row .columns {
       padding: 0;
-      scroll-snap-stop: always; } }
+      scroll-snap-stop: always; 
+    } 
 
-@media only screen and (max-width: 767px) {
-  .multicolumn.swipe-on-mobile .multicolumn__column {
-    margin-bottom: 0;
-    width: var(--mobile-swipe-width); } }
+  .multicolumn.swipe-on-mobile .row .section-header{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+.multicolumn.swipe-on-mobile .multicolumn__column {
+  margin-bottom: 0; }
+  @media only screen and (max-width: 767px) {
+    .multicolumn.swipe-on-mobile .multicolumn__column {
+      width: calc(90vw - 15px); } }
 
 .multicolumn.text-center .rte {
   padding: 0 15px; }
+
+@media only screen and (max-width: 767px) {
+  .multi-column--carousel-true.customer-reviews--carousel .flickity-nav.flickity-next{
+      right: 10px;
+      display: flex;
+      opacity: 1;
+  }
+  .multi-column--carousel-true.customer-reviews--carousel .flickity-nav.flickity-prev {
+    left: 10px;
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .multi-column--carousel.customer-reviews--carousel.flickity-enabled .flickity-nav {
+      display: none;
+  }
+}
+.no-margin-true .multicolumn__image{
+  margin-bottom: 0;
+}
+.no-margin-true .multicolumn__column{
+  line-height: 0;
+}
+.multicolumn-btn-wrap{
+  margin-top: -74px;
+  margin-bottom: 30px;
+  padding: 0 0 0 18px;
+  text-align: right
+}
+@media only screen and (max-width: 767px){
+  .multicolumn-btn-wrap{
+    margin-top: -10px;
+    text-align: left;
+    padding-left: 0;
+  }
+}
