@@ -15,23 +15,17 @@
         "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Main_Image.png",
             "slide_link": "",
-            "video_background": true,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "video_hosted": "shopify://files/videos/网页banner-4k（4.2）.mp4",
-            "video_hosted_mobile": "shopify://files/videos/5_7_Mobile_Banner.mp4",
-            "content_width": 750,
-            "content_width_mobile": 120,
+            "video_background": false,
             "badge_text": "",
             "subheading": "",
-            "heading": "Unwind Anywhere, Hammocking Made Easy.",
+            "heading": "<p>Unwind Anywhere, </p><p>Hammocking Made Easy.</p>",
             "heading_size": "h1",
-            "heading_size_mobile": 29,
             "content": "",
             "description_size": "large",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
             "content_size": "large",
             "color_slidebg": "rgba(0,0,0,0)",
             "color_slidebg_opacity": 0,
@@ -40,54 +34,47 @@
             "color_badge_bg": "#3f72e5",
             "color_badge_text": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(NaN, NaN, NaN, 1), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
+            "overlay_opacity": 16,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
             "button_1_color": "white",
-            "button_1_link": "",
-            "use_text_button_1": true,
+            "button_1_link": "#",
+            "use_text_button_1": false,
             "button_2_text": "",
             "button_2_color": "white",
             "button_2_link": "",
             "use_text_button_2": false
           }
         },
-        "slide_nAbbmH": {
+        "slide_c6RTBL": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/banner-pc_1x_fe9216c2-d8a3-4ec1-ab67-942361efc085.webp",
-            "mobile_image": "shopify://shop_images/banner-_1x_dc7a0e2a-545e-421b-96c3-a4c4778c0677.webp",
+            "image": "shopify://shop_images/Main_Image.png",
             "slide_link": "",
             "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "mobile-height-500",
-            "content_width": 750,
-            "content_width_mobile": 120,
             "badge_text": "",
             "subheading": "",
-            "heading": "",
+            "heading": "<p>Slide Heading</p>",
             "heading_size": "h1",
-            "heading_size_mobile": 29,
             "content": "",
-            "description_size": "large",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "content_size": "large",
+            "description_size": "medium",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "content_size": "medium",
             "color_slidebg": "rgba(0,0,0,0)",
             "color_slidebg_opacity": 0,
             "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
+            "color_text": "#2c2d2e",
             "color_badge_bg": "#3f72e5",
             "color_badge_text": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(NaN, NaN, NaN, 1), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "Sign Up Now",
-            "button_1_color": "regular",
-            "button_1_link": "https://swingchair.anymaka.com",
+            "overlay_opacity": 16,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
+            "button_2_text": "Shop Now",
             "button_2_color": "white",
             "button_2_link": "",
             "use_text_button_2": false
@@ -96,30 +83,20 @@
       },
       "block_order": [
         "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2",
-        "slide_nAbbmH"
+        "slide_c6RTBL"
       ],
-      "custom_css": [
-        "/* 默认显示桌面图，隐藏移动图 */.slideshow-image--mobile {display: none;}",
-        "@media only screen and (max-width: 767px) {.slideshow-image--desktop {display: none !important; } .slideshow-image--mobile {display: block !important; }}"
-      ],
+      "custom_css": [],
       "settings": {
-        "content_for_tab": "",
         "desktop_height": "desktop-height-full",
         "mobile_height": "mobile-height-full",
         "full_width": true,
-        "scale_clip": false,
         "autoplay": false,
         "autoplay_length": 5,
         "transition": "slide",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": true,
+        "controls": "arrows",
+        "arrow_transparent": true,
         "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "",
-        "block_link_font": ""
+        "disable_bottom_spacing": true
       }
     },
     "slideshow_DMDA3h": {
@@ -132,17 +109,11 @@
             "mobile_image": "shopify://shop_images/banner-_1x_12ce8d4d-ed04-4721-a329-416838656e4e.webp",
             "slide_link": "",
             "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
             "video_hosted": "shopify://files/videos/网页banner-4k（4.2）.mp4",
-            "video_hosted_mobile": "shopify://files/videos/5_7_Mobile_Banner.mp4",
-            "content_width": 750,
-            "content_width_mobile": 120,
             "badge_text": "",
             "subheading": "",
             "heading": "",
             "heading_size": "h1",
-            "heading_size_mobile": 29,
             "content": "",
             "description_size": "large",
             "content_position": "bottom-center",
@@ -177,23 +148,16 @@
         "@media only screen and (max-width: 767px) {.slideshow-image--desktop {display: none !important; } .slideshow-image--mobile {display: block !important; }}"
       ],
       "settings": {
-        "content_for_tab": "",
         "desktop_height": "desktop-height-image",
         "mobile_height": "mobile-height-image",
         "full_width": true,
-        "scale_clip": false,
         "autoplay": false,
         "autoplay_length": 5,
         "transition": "slide",
         "controls": "arrows-with-numbers",
-        "slide_arrow": false,
+        "arrow_transparent": false,
         "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "",
-        "block_link_font": ""
+        "disable_bottom_spacing": true
       }
     },
     "8f6ed916-ced8-44f6-9ef8-b60fd327ae31": {
@@ -357,26 +321,6 @@
         "block_link_font": "swisBold"
       }
     },
-    "custom_liquid_rpyxf9": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "Custom liquid",
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<div class=\"bf-banner-desktop\">\n  <a href=\"https://www.anymaka.com/pages/early-black-friday-sale\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_9f78365a-cf9a-4c47-a0a3-614ac1b84715.webp?v=1765772236\" \n      alt=\"Black Friday Banner - Desktop\"\n      class=\"bf-desktop-img\"\n    >\n  </a>\n</div>\n\n<div class=\"bf-banner-mobile\">\n  <a href=\"https://www.anymaka.com/pages/early-black-friday-sale\">\n    <img \n      src=\"你的手机竖版Banner图片URL\" \n      alt=\"Black Friday Banner - Mobile\"\n      class=\"bf-mobile-img\"\n    >\n  </a>\n</div>\n\n<style>\n  /* PC 默认显示 desktop */\n  .bf-banner-mobile {\n    display: none;\n  }\n\n  /* --- PC 图片居中 --- */\n  .bf-banner-desktop {\n    text-align: center;         /* 关键：让图片在容器内水平居中 */\n    margin: 20px 0;\n  }\n\n  .bf-desktop-img {\n    width: 65%;\n    max-width: 100%;\n    height: auto;\n    display: inline-block;      /* 让 text-align:center 生效 */\n  }\n\n  /* 手机端显示 mobile 图片且已居中 */\n  @media (max-width: 768px) {\n    .bf-banner-desktop {\n      display: none;\n    }\n\n    .bf-banner-mobile {\n      display: block;\n      text-align: center;\n      margin: 20px 0;\n    }\n\n    .bf-mobile-img {\n      width: 90%;\n      max-width: 100%;\n      height: auto;\n    }\n  }\n</style>"
-      }
-    },
-    "spacer_bqWbYn": {
-      "type": "spacer",
-      "disabled": true,
-      "settings": {
-        "spacer_mobile": 20,
-        "spacer_desktop": 50,
-        "border_separator": false,
-        "border_separator_full": false
-      }
-    },
     "testimonials_LKpURE": {
       "type": "testimonials",
       "blocks": {
@@ -492,73 +436,6 @@
         "disable_bottom_spacing": false,
         "block_text_font": "swisBold",
         "block_author_font": "swiss"
-      }
-    },
-    "slideshow_MVx8ym": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_7CUaWV": {
-          "type": "slide",
-          "settings": {
-            "slide_link": "",
-            "video_background": true,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "video_hosted": "shopify://files/videos/打开.mp4",
-            "video_hosted_mobile": "shopify://files/videos/2_打开-mob.mp4",
-            "badge_text": "",
-            "subheading": "",
-            "heading": "Set up and fold down instantly",
-            "heading_size": "h1",
-            "heading_size_mobile": 34,
-            "content": "",
-            "description_max_width": 300,
-            "description_size": "large",
-            "content_position": "top-center",
-            "text_alignment": "center",
-            "content_size": "medium",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 100,
-            "overlay_gradient": "linear-gradient(325deg, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
-            "button_1_color": "accent",
-            "button_1_link": "",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        }
-      },
-      "block_order": [
-        "slide_7CUaWV"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-full",
-        "mobile_height": "mobile-height-full",
-        "full_width": false,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "slide",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": false,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "swiss",
-        "block_link_font": ""
       }
     },
     "gallery_R8y4FM": {
@@ -690,6 +567,7 @@
         "image_8G9jqB",
         "image_YywCKw"
       ],
+      "disabled": true,
       "custom_css": [
         ".description-max-image_Ub9bjF p {white-space: nowrap; /* 让文本不换行 */}"
       ],
@@ -841,17 +719,11 @@
             "mobile_image": "shopify://shop_images/Tailor_Your_Experience_Indoors_or_Outdoors..webp",
             "slide_link": "",
             "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "content_width": 600,
-            "content_width_mobile": 0,
             "badge_text": "",
             "subheading": "",
-            "heading": "Tailor Your Experience,\nIndoors or Outdoors.",
+            "heading": "<p>Tailor Your Experience,\nIndoors or Outdoors.</p>",
             "heading_size": "h2",
-            "heading_size_mobile": 29,
             "content": "Select the accessories that best suit your hammocking vibe, whether you're kicking back inside or heading for the wild.",
-            "description_max_width": 420,
             "description_size": "large",
             "content_position": "top-left",
             "text_alignment": "left",
@@ -881,23 +753,16 @@
       ],
       "custom_css": [],
       "settings": {
-        "content_for_tab": "",
         "desktop_height": "desktop-height-550",
         "mobile_height": "mobile-height-500",
         "full_width": true,
-        "scale_clip": false,
         "autoplay": false,
         "autoplay_length": 5,
         "transition": "zoom",
         "controls": "arrows-with-numbers",
-        "slide_arrow": false,
+        "arrow_transparent": false,
         "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "",
-        "block_description_font": "",
-        "block_link_font": ""
+        "disable_bottom_spacing": true
       }
     },
     "multicolumn_CwhDeq": {
@@ -1329,128 +1194,6 @@
         "block_link_font": ""
       }
     },
-    "rich_text_bHHXCG": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_6MKYgz": {
-          "type": "heading",
-          "settings": {
-            "text": "Talk about your brand",
-            "marker_style": "style1",
-            "size": "h3",
-            "marker_color": "#fd6262"
-          }
-        },
-        "text_zLhfRY": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "size": "text-size-small"
-          }
-        }
-      },
-      "block_order": [
-        "heading_6MKYgz",
-        "text_zLhfRY"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "medium",
-        "text_position": "left",
-        "text_alignment": "left",
-        "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#1a1c1d",
-        "color_text": "#dddddd",
-        "color_links": "#2c2d2e",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true
-      }
-    },
-    "custom_liquid_x4MgCm": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<style>\n  /* 添加字体样式 */\n  @font-face {\n    font-family: 'Swiss 721 Bold';\n    src: url('{{ 'swiss-721-bold.woff' | asset_url }}') format('woff');\n    /* 添加其他字体格式，如果有的话 */\n  }\n\n  /* 添加其他样式 */\n  .custom-section {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: flex-start; /* 上下居中 */\n  }\n\n  .text-section {\n    flex: 1;\n    padding: 20px; /* 根据需要调整间距 */\n    box-sizing: border-box;\n  }\n\n  .text-section h2, .text-section p {\n    font-family: 'Swiss 721 Bold', sans-serif; /* 使用Swiss 721 Bold字体 */\n    /* 添加其他文案的样式 */\n  }\n\n  .button-section {\n    text-align: right;\n    padding: 20px; /* 根据需要调整间距 */\n    box-sizing: border-box;\n  }\n\n  .image-section {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n  }\n\n  .image-section img {\n    width: calc(20% - 5px); /* 图片比例为1:1，考虑到边距，总宽度为20% */\n    margin-bottom: 5px; /* 图片间距，根据需要调整 */\n  }\n\n  /* 针对左边上下4个格子 */\n  .image-section img:nth-child(-n+4) {\n    width: calc(40% - 5px); /* 图片比例为1:1，考虑到边距，总宽度为40% */\n  }\n</style>\n\n<div class=\"custom-section\">\n  <div class=\"text-section\">\n    <h2>Your Title</h2>\n    <p>Your Description</p>\n  </div>\n  <div class=\"button-section\">\n    <a href=\"#\" class=\"button\">Your Button</a>\n  </div>\n</div>\n\n<div class=\"image-section\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/4_22a82276-c0ac-4742-93e1-e969d74681b2.webp?v=1706667338\" alt=\"Image 1\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/3_500fc626-5933-47de-afc3-51f8559c5fe8.webp?v=1706667337\" alt=\"Image 2\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/2_0c7382e6-ac82-447c-9adc-2bcb27d823bc.webp?v=1706667338\" alt=\"Image 3\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/1_f8e7bf5c-133c-4ad4-8e8c-4161ca9d8771.webp?v=1706667337\" alt=\"Image 4\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/6_ca925642-d74a-40b3-989d-903317404334.webp?v=1706667337\" alt=\"Image 5\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/5_e693966b-00f0-46ad-a099-46786d7f6bd3.webp?v=1706667337\" alt=\"Image 6\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/7_bd20abd0-f8df-4be9-9e66-552cdda41f35.webp?v=1706667337\" alt=\"Image 7\">\n</div>"
-      }
-    },
-    "custom_liquid_8gkkXf": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<img src=\"https://cdn.shopifycdn.net/s/files/1/0747/3440/3866/files/3.8-_Review.webp?v=1709893173\" alt=\"Review Image\" style=\"width: 100%; height: auto;\">"
-      }
-    },
-    "slideshow_XyTerR": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_CiWa8t": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/kol_-3.8-2.webp",
-            "slide_link": "",
-            "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "badge_text": "",
-            "subheading": "",
-            "heading": "",
-            "heading_size": "h1",
-            "heading_size_mobile": 34,
-            "content": "",
-            "description_size": "large",
-            "content_position": "middle-center",
-            "text_alignment": "center",
-            "content_size": "large",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#2c2d2e",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
-            "button_1_color": "accent",
-            "button_1_link": "",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        }
-      },
-      "block_order": [
-        "slide_CiWa8t"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-full",
-        "mobile_height": "mobile-height-500",
-        "full_width": false,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "zoom",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": false,
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
     "171072788289576312": {
       "type": "apps",
       "blocks": {
@@ -1470,17 +1213,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "single_image_hGQWY8": {
-      "type": "single-image",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "image": "shopify://shop_images/kol_-3.8-2.webp",
-        "full_width": false,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": false
       }
     },
     "text_with_icons_kg7Kxm": {
@@ -1544,20 +1276,12 @@
     "pagefly_section_yUBXR3",
     "rich_text_WApnjB",
     "multicolumn_XPdtxg",
-    "custom_liquid_rpyxf9",
-    "spacer_bqWbYn",
     "testimonials_LKpURE",
-    "slideshow_MVx8ym",
     "gallery_R8y4FM",
     "reviews_new_49wXQ7",
     "slideshow_x3xDFT",
     "multicolumn_CwhDeq",
-    "rich_text_bHHXCG",
-    "custom_liquid_x4MgCm",
-    "custom_liquid_8gkkXf",
-    "slideshow_XyTerR",
     "171072788289576312",
-    "single_image_hGQWY8",
     "text_with_icons_kg7Kxm"
   ]
 }

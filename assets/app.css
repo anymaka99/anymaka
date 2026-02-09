@@ -2093,7 +2093,7 @@ h1, .h1, .h1-large, .h1-xlarge {
       line-height: calc( var(--font-heading-line-height-scale) * calc(var(--font-heading-scale) * 46px)); } }
   @media only screen and (min-width: 1068px) {
     h1, .h1, .h1-large, .h1-xlarge {
-      font-size: calc(var(--font-heading-scale) * 54px);
+      font-size: calc(var(--font-heading-scale) * 72px);
       line-height: calc( var(--font-heading-line-height-scale) * calc(var(--font-heading-scale) * 62px)); } }
 
 h2, .h2, blockquote p,
@@ -2991,13 +2991,13 @@ input[type="submit"] {
     font-size: 0.8125rem; }
   .button.white,
   input[type="submit"].white {
-    background: #fff;
+    background: var(--solid-button-label, #fff);
     color: var(--white-button-label, var(--color-body, #2c2d2e)); }
     @media screen and (hover: hover) {
       .button.white:hover,
       input[type="submit"].white:hover {
-        background: #f0f0f0;
-        color: var(--white-button-label, var(--color-body, #2c2d2e)); } }
+        background: var(--solid_button_background, #242528);
+        color: var(--solid-button-label, #fff); } }
   .button.accent,
   input[type="submit"].accent {
     background: var(--color-accent);
@@ -3943,14 +3943,20 @@ https://flickity.metafizzy.co
   justify-content: center;
   position: absolute;
   top: 50%;
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   margin-top: -21px;
   z-index: 30;
   opacity: 0;
   cursor: pointer; }
   .flickity-nav svg {
     pointer-events: none; }
+  
+  @media (max-width: 768px) {
+    .flickity-nav {
+      display: flex;
+    }
+  }  
   @media only screen and (min-width: 768px) {
     .flickity-enabled .flickity-nav {
       display: flex; } }
