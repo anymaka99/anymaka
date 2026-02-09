@@ -29,18 +29,7 @@
       "settings": {
         "autoplay_length": 10
       },
-      "blocks": {
-        "slide_nAbbmH": {
-          "settings": {
-            "image": "shopify://shop_images/pc_ed7ee8f9-a37f-4ad0-a10a-769b56262a8a.webp",
-            "mobile_image": "shopify://shop_images/06343c2c8e62c6f24209ea2e86373cc3.webp",
-            "slide_link": "shopify://pages/new-year-sale",
-            "button_1_text": "Shop Now",
-            "button_1_link": "shopify://pages/new-year-sale",
-            "button_2_link": "shopify://pages/new-year-sale"
-          }
-        }
-      }
+      "blocks": {}
     },
     "multicolumn_XPdtxg": {
       "settings": {},
@@ -57,13 +46,6 @@
           }
         }
       }
-    },
-    "custom_liquid_rpyxf9": {
-      "disabled": true,
-      "settings": {
-        "custom_liquid": "<div class=\"bf-banner-desktop\">\n  <a href=\"https://www.anymaka.com/pages/new-year-sale\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/CA.webp?v=1765781931\" \n      alt=\"Black Friday Banner - Desktop\"\n      class=\"bf-desktop-img\"\n    >\n  </a>\n</div>\n\n<div class=\"bf-banner-mobile\">\n  <a href=\"https://www.anymaka.com/pages/new-year-sale\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/CA_1x_e30d6326-d8af-4c5a-8b41-f40bd2c5a81b.webp?v=1765782016\" \n      alt=\"Black Friday Banner - Mobile\"\n      class=\"bf-mobile-img\"\n    >\n  </a>\n</div>\n\n<style>\n  /* PC 默认显示 desktop */\n  .bf-banner-mobile {\n    display: none;\n  }\n\n  /* --- PC 图片居中 --- */\n  .bf-banner-desktop {\n    text-align: center;         /* 关键：让图片在容器内水平居中 */\n    margin: 20px 0;\n  }\n\n  .bf-desktop-img {\n    width: 65%;\n    max-width: 100%;\n    height: auto;\n    display: inline-block;      /* 让 text-align:center 生效 */\n  }\n\n  /* 手机端显示 mobile 图片且已居中 */\n  @media (max-width: 768px) {\n    .bf-banner-desktop {\n      display: none;\n    }\n\n    .bf-banner-mobile {\n      display: block;\n      text-align: center;\n      margin: 20px 0;\n    }\n\n    .bf-mobile-img {\n      width: 90%;\n      max-width: 100%;\n      height: auto;\n    }\n  }\n</style>"
-      },
-      "blocks": {}
     }
   },
   "order": [
@@ -73,21 +55,13 @@
     "pagefly_section_yUBXR3",
     "rich_text_WApnjB",
     "multicolumn_XPdtxg",
-    "custom_liquid_rpyxf9",
     "custom_liquid_LRw8y",
-    "spacer_bqWbYn",
     "testimonials_LKpURE",
-    "slideshow_MVx8ym",
     "gallery_R8y4FM",
     "reviews_new_49wXQ7",
     "slideshow_x3xDFT",
     "multicolumn_CwhDeq",
-    "rich_text_bHHXCG",
-    "custom_liquid_x4MgCm",
-    "custom_liquid_8gkkXf",
-    "slideshow_XyTerR",
     "171072788289576312",
-    "single_image_hGQWY8",
     "text_with_icons_kg7Kxm"
   ]
 }
