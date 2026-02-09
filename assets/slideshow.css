@@ -257,7 +257,7 @@
     .slideshow__slide.content-size-medium .slideshow__slide-content {
       max-width: 640px; }
     .slideshow__slide.content-size-large .slideshow__slide-content {
-      max-width: 1200px; }
+      max-width: 1065px; }
     .slideshow__slide:not(.is-selected) iframe {
       display: none; }
   @media only screen and (min-width: 768px) {
