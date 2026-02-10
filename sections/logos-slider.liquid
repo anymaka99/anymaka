@@ -74,12 +74,12 @@
       if (!thumbsEl || !mainEl) return;
 
       const thumbs = new Swiper(thumbsEl, {
-        spaceBetween: 12,
+        spaceBetween: 64,
         slidesPerView: 5,
         breakpoints: {
-          320: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 7 },
+          320: { slidesPerView: 3, spaceBetween: 32 },
+          768: { slidesPerView: 4, spaceBetween: 48 },
+          1024: { slidesPerView: 7, spaceBetween: 64 },
         },
       });
 
