@@ -144,13 +144,14 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-	{% comment %} <link
-		rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-	> {% endcomment %}
+    {% comment %}
+      <link
+      	rel="stylesheet"
+      	href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      >
+    {% endcomment %}
 
-	{{ 'swiper.min.css' | asset_url | stylesheet_tag }}
-
+    {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
 
     {% render 'social-meta-tags' %}
 
@@ -188,8 +189,7 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
 
-	<script src="{{ 'swiper.min.js' | asset_url }}"></script>
-
+    <script src="{{ 'swiper.min.js' | asset_url }}"></script>
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -225,7 +225,7 @@
       {% render 'search-drawer' %}
       <div class="click-capture"></div>
       <div class="click-capture--product"></div>
-    </div
+    </div>
 
     {{ 'vendor.min.js' | asset_url | script_tag }}
 
@@ -256,7 +256,6 @@
     {% render 'back-to-top' %}
     <script src="{{ 'flowbox.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
-
 
     <!-- PAGEFLY CART HELPER - DO NOT DELETE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
