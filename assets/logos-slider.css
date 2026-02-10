@@ -41,13 +41,8 @@
 
   .logos-thumbs img {
     width: 100%;
-    height: 60px;
+    height: 48px;
     object-fit: contain;
-    filter: grayscale(100%);
-  }
-
-  .logos-thumbs .swiper-slide-thumb-active img {
-    filter: grayscale(0%);
   }
 
   @media (max-width: 767px) {
