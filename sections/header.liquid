@@ -1,6 +1,7 @@
 {%- liquid
   assign style = section.settings.style
   assign sticky_header = section.settings.sticky_header
+  assign full_width = section.settings.full_width
   assign transparent_header = false
   assign logo_height_range = section.settings.logo_height_range
   assign logo_height_range_mobile = section.settings.logo_height_range_mobile
@@ -12,7 +13,7 @@
 -%}
 <theme-header
   id="header"
-  class="header {{ style }} {{ header_shadow }} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}"
+  class="header {{ style }} {{ header_shadow }}{% if full_width %} header--full-width{%- endif %} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}"
 >
   <div class="header--inner">
     {%- case style -%}
@@ -92,6 +93,12 @@
       "default": true
     },
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
       "type": "image_picker",
       "id": "logo",
       "label": "Logo image",
@@ -144,55 +151,37 @@
       ]
     },
     {
-          "type": "header",
-          "content": "Header font"
-    },
-    {
-        "type": "select",
-        "id": "header_text_font",
-        "options": [
-        {
-            "value": "",
-            "label": "System Font"
-        },
-        {
-            "value": "swiss",
-            "label": "swiss"
-        },
-        {
-            "value": "swisBold",
-            "label": "swis Bold"
-        },
-        {
-            "value": "OPPOSansL",
-            "label": "OPPOSansL"
-        },
-        {
-            "value": "OPPOSansR",
-            "label": "OPPOSansR"
-        },
-        {
-            "value": "OPPOSansM",
-            "label": "OPPOSansM"
-        },
-        {
-            "value": "OPPOSansB",
-            "label": "OPPOSansB"
-        },
-        {
-            "value": "OPPOSansH",
-            "label": "OPPOSansH"
-        }
-        ],
-        "default": "",
-        "label": "Header Text Font"
-    },
-    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "Menu",
       "info": "Learn how to set up [mega menus](https://documentation.fuelthemes.net/kb/how-do-i-set-up-mega-menus-for-reformation-theme/)."
+    },
+    {
+      "type": "select",
+      "id": "cart_icon",
+      "label": "Cart icon",
+      "options": [
+        {
+          "value": "cart",
+          "label": "Cart"
+        },
+        {
+          "value": "bag",
+          "label": "Bag"
+        }
+      ],
+      "default": "cart"
+    },
+    {
+      "type": "header",
+      "content": "Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "minimized_search",
+      "label": "Enable minimized search on desktop",
+      "default": true
     },
     {
       "type": "header",
@@ -214,12 +203,6 @@
     {
       "type": "header",
       "content": "Mobile menu"
-    },
-    {
-      "type": "link_list",
-      "id": "mobile_secondary_menu",
-      "label": "Secondary menu",
-      "info": "Secondary menu is shown under the main menu."
     },
     {
       "type": "checkbox",
@@ -244,94 +227,56 @@
   ],
   "blocks": [
     {
+      "type": "@app"
+    },
+    {
+      "type": "mobile_secondary_menu",
+      "name": "Mobile secondary menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Secondary menu",
+          "info": "Secondary menu is shown under the main menu."
+        },
+        {
+          "type": "select",
+          "id": "secondary_menu_style",
+          "label": "Secondary menu style",
+          "default": "basic",
+          "options": [
+            {
+              "value": "basic",
+              "label": "Basic"
+            },
+            {
+              "value": "basic_with_submenu",
+              "label": "Basic with submenu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "secondary_nav",
+      "name": "Secondary navigation",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "main-menu",
+          "label": "Menu",
+          "info": "Shows a maximum of four menu items separately to the main menu. This menu does not support dropdowns."
+        }
+      ]
+    },
+    {
       "type": "megamenu",
       "name": "Mega menu",
       "limit": 10,
       "settings": [
-        {
-              "type": "header",
-              "content": "Header font"
-        },
-        {
-            "type": "select",
-            "id": "heading_text_font",
-            "options": [
-            {
-                "value": "",
-                "label": "System Font"
-            },
-            {
-                "value": "swiss",
-                "label": "swiss"
-            },
-            {
-                "value": "swisBold",
-                "label": "swis Bold"
-            },
-            {
-                "value": "OPPOSansL",
-                "label": "OPPOSansL"
-            },
-            {
-                "value": "OPPOSansR",
-                "label": "OPPOSansR"
-            },
-            {
-                "value": "OPPOSansM",
-                "label": "OPPOSansM"
-            },
-            {
-                "value": "OPPOSansB",
-                "label": "OPPOSansB"
-            },
-            {
-                "value": "OPPOSansH",
-                "label": "OPPOSansH"
-            }
-            ],
-            "default": "",
-            "label": "Heading Text Font"
-        },    
-        {
-            "type": "select",
-            "id": "content_text_font",
-            "options": [
-            {
-                "value": "",
-                "label": "System Font"
-            },
-            {
-                "value": "swiss",
-                "label": "swiss"
-            },
-            {
-                "value": "swisBold",
-                "label": "swis Bold"
-            },
-            {
-                "value": "OPPOSansL",
-                "label": "OPPOSansL"
-            },
-            {
-                "value": "OPPOSansR",
-                "label": "OPPOSansR"
-            },
-            {
-                "value": "OPPOSansM",
-                "label": "OPPOSansM"
-            },
-            {
-                "value": "OPPOSansB",
-                "label": "OPPOSansB"
-            },
-            {
-                "value": "OPPOSansH",
-                "label": "OPPOSansH"
-            }
-            ],
-            "default": "",
-            "label": "Promotion content Text Font"
-        },          
         {
           "type": "select",
           "id": "position",
@@ -379,6 +324,41 @@
               "label": "Item 10"
             }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Columns"
+        },
+        {
+          "type": "checkbox",
+          "id": "limit_columns",
+          "label": "Limit columns",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "max_columns",
+          "label": "Maximum columns",
+          "default": "4",
+          "options": [
+            {
+              "value": "4",
+              "label": "4"
+            },
+            {
+              "value": "5",
+              "label": "5"
+            },
+            {
+              "value": "6",
+              "label": "6"
+            },
+            {
+              "value": "7",
+              "label": "7"
+            }
+          ],
+          "info": "Maximum amount of columns including the added promotions. In effect when the above checkbox is selected."
         },
         {
           "type": "header",
@@ -483,6 +463,111 @@
           "type": "url",
           "id": "promo_4_link",
           "label": "Promotion link"
+        }
+      ]
+    },
+    {
+      "type": "megamenu_sidebar",
+      "name": "Mega menu sidebar",
+      "settings": [
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Link position in main menu",
+          "default": "1",
+          "options": [
+            {
+              "value": "1",
+              "label": "Item 1"
+            },
+            {
+              "value": "2",
+              "label": "Item 2"
+            },
+            {
+              "value": "3",
+              "label": "Item 3"
+            },
+            {
+              "value": "4",
+              "label": "Item 4"
+            },
+            {
+              "value": "5",
+              "label": "Item 5"
+            },
+            {
+              "value": "6",
+              "label": "Item 6"
+            },
+            {
+              "value": "7",
+              "label": "Item 7"
+            },
+            {
+              "value": "8",
+              "label": "Item 8"
+            },
+            {
+              "value": "9",
+              "label": "Item 9"
+            },
+            {
+              "value": "10",
+              "label": "Item 10"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Content links"
+        },
+        {
+          "type": "checkbox",
+          "id": "content_collection_image",
+          "label": "Show collection images",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "content_product_image",
+          "label": "Show product images",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_additional_links",
+          "label": "Show additional links"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_1",
+          "label": "Menu item 1"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_1",
+          "label": "Menu item URL 1"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_2",
+          "label": "Menu item 2"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_2",
+          "label": "Menu item URL 2"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_3",
+          "label": "Menu item 3"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_3",
+          "label": "Menu item URL 3"
         }
       ]
     },
