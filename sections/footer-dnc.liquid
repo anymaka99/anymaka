@@ -1,0 +1,178 @@
+{{ 'footer-dnc.css' | asset_url | stylesheet_tag }}
+<footer id="site-footer" class="footer-dnc">
+    <div class="footer-dnc__inner">
+        <div class="footer-dnc__left">
+            <a class="footer-dnc__logo" href="{{ routes.root_url }}" aria-label="anymaka">
+                {% if section.settings.image_anymaka != blank %}
+                    <img src="{{ section.settings.image_anymaka | image_url }}" alt="anymaka" class="footer-dnc__logo-img" loading="lazy"/>
+                {% else %}
+                    <img src="{{ 'logo_6ec0de95-e449-42db-90c5-636631b8f9dc.webp' | file_url }}" alt="anymaka" class="footer-dnc__logo-img" loading="lazy"/>
+                {% endif %}
+            </a>
+            {% if section.settings.image_red_dot != blank %}
+                <div class="footer-dnc__red_dot_award">
+                    <img src="{{ section.settings.image_red_dot | image_url }}" alt="Red Dot Award" class="footer-dnc__red_dot_award_imge" loading="lazy"/>
+                </div>
+            {% endif %}
+            {% if section.settings.signup_text != blank %}
+                <div class="footer-dnc__text">
+                {{ section.settings.signup_text }}
+                </div>
+            {% endif %}
+            <div class="footer-dnc__signup">
+                {% render 'email-signup-form' %}
+            </div>
+            <div class="footer-dnc__bottom">
+                <div class="footer-dnc__bottom-left">© 2025 anymaka. All rights reserved.</div>
+                <div class="footer-dnc__bottom-right">
+                {% if section.settings.privacy_policy_page != blank %}
+                    <a href="{{ section.settings.privacy_policy_page.url }}">
+                        {{ section.settings.privacy_policy_page.title }}
+                    </a>
+                {% endif %}
+                {% if section.settings.privacy_terms_of_service != blank %}
+                    <a href="{{ section.settings.privacy_terms_of_service.url }}">
+                        {{ section.settings.privacy_terms_of_service.title }}
+                    </a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE (2 menus) -->
+        <div class="footer-dnc__menu_wrp">
+            <div class="footer-dnc__mid">
+            {% assign menu_shop = section.settings.menu_shop %}
+            {% assign menu_about = section.settings.menu_about %}
+
+            {% if menu_shop != blank %}
+                <div class="footer-dnc__col">
+                <div class="footer-dnc__title">{{ section.settings.title_shop }}</div>
+                <ul class="footer-dnc__links">
+                    {% for link in menu_shop.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+
+            {% if menu_about != blank %}
+                <div class="footer-dnc__col">
+                <div class="footer-dnc__title">{{ section.settings.title_about }}</div>
+                <ul class="footer-dnc__links">
+                    {% for link in menu_about.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+            </div>
+
+            <div class="footer-dnc__right">
+                <div class="footer-dnc__col">
+                <div class="footer-dnc__title">{{ section.settings.title_follow }}</div>
+                <ul class="footer-dnc__links">
+                    {% if section.settings.show_instagram and settings.social_instagram_link != blank %}
+                        <li><a href="{{ settings.social_instagram_link }}">Instagram</a></li>
+                    {% endif %}
+                    {% if section.settings.show_facebook and settings.social_facebook_link != blank %}
+                        <li><a href="{{ settings.social_facebook_link }}">Facebook</a></li>
+                    {% endif %}
+                    {% if section.settings.show_youtube and settings.social_youtube_link != blank %}
+                        <li><a href="{{  settings.social_youtube_link }}">Youtube</a></li>
+                    {% endif %}
+                    {% if section.settings.show_twitter and settings.social_twitter_link != blank %}
+                        <li><a href="{{ settings.social_twitter_link }}">Twitter</a></li>
+                    {% endif %}
+                    {% if section.settings.show_tiktok and settings.social_tiktok_link != blank %}
+                        <li><a href="{{ settings.social_tiktok_link }}">TikTok</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            {% assign menu_support = section.settings.menu_support %}
+            {% if menu_support != blank %}
+                <div class="footer-dnc__col">
+                <div class="footer-dnc__title">{{ section.settings.title_support }}</div>
+                <ul class="footer-dnc__links">
+                    {% for link in menu_support.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer DNC",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image_anymaka",
+        "label": "Anymaka Logo Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_red_dot",
+        "label": "Red Dot Logo Image"
+    },
+    {
+      "type": "richtext",
+      "id": "signup_text",
+      "label": "Left text",
+      "default": "<p>Join our mailing list for insider perks, new arrivals, promotions and plenty more!</p>"
+    },
+
+    { "type": "text", "id": "title_shop", "label": "Shop title", "default": "Shop" },
+    { "type": "link_list", "id": "menu_shop", "label": "Shop menu" },
+
+    { "type": "text", "id": "title_about", "label": "About title", "default": "About" },
+    { "type": "link_list", "id": "menu_about", "label": "About menu" },
+
+    { "type": "text", "id": "title_follow", "label": "Follow Us title", "default": "Follow Us" },
+    { "type": "header", "content": "Social Media Display"},
+    {
+    "type": "checkbox",
+    "id": "show_instagram",
+    "label": "Show Instagram",
+    "default": true
+    },
+    {
+    "type": "checkbox",
+    "id": "show_facebook",
+    "label": "Show Facebook",
+    "default": true
+    },
+    {
+    "type": "checkbox",
+    "id": "show_youtube",
+    "label": "Show Youtube",
+    "default": true
+    },
+    {
+    "type": "checkbox",
+    "id": "show_twitter",
+    "label": "Show Twitter",
+    "default": false
+    },
+    {
+    "type": "checkbox",
+    "id": "show_tiktok",
+    "label": "Show TikTok",
+    "default": false
+    },
+    { "type": "text", "id": "title_support", "label": "Support title", "default": "Support" },
+    { "type": "link_list", "id": "menu_support", "label": "Support menu" },
+    { "type": "text", "id": "rights_text", "label": "Copyright text", "default": "© 2025 anymaka. All rights reserved." },
+    { "type": "page", "id": "privacy_policy_page", "label": "Select a Privacy Policy" },
+    { "type": "page", "id": "privacy_terms_of_service", "label": "Select a Terms of Service" },
+  ],
+  "presets": [
+    { "name": "Footer DNC" }
+  ]
+}
+{% endschema %}
