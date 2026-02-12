@@ -106,7 +106,7 @@
     min-height: 54px;
     font-size: 1.25rem;
     font-weight: var(--font-body-medium-weight, 500);
-    border-top: 1px solid var(--color-header-border, var(--color-border, #dadce0));
+    /* border-top: 1px solid var(--color-header-border, var(--color-border, #dadce0)); */
     color: var(--color-header-links, --color-accent); }
     .mobile-menu li > a .link-forward,
     .mobile-menu li summary .link-forward {
@@ -121,9 +121,9 @@
       .mobile-menu li summary .link-forward {
         margin-left: 0;
         margin-right: auto; }
-      .mobile-menu li > a .link-forward svg path,
+      /* .mobile-menu li > a .link-forward svg path,
       .mobile-menu li summary .link-forward svg path {
-        stroke: var(--color-header-links, --color-accent); }
+        stroke: var(--color-header-links, --color-accent); } */
       [dir="rtl"] .mobile-menu li > a .link-forward svg, [dir="rtl"]
       .mobile-menu li summary .link-forward svg {
         transform: rotateZ(180deg); }
@@ -131,7 +131,41 @@
   .mobile-menu li:first-child summary {
     border-top: 0; }
   .mobile-menu li .link-container summary {
-    width: 100%; }
+    width: 100%; 
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 38px;
+    color: #81868F;
+  }
+  .mobile-menu .link-container.submenu-open[open]>summary {
+    color: #242528 !important;
+  }
+  .sub-menu.sub-menu--sidebar product-card .product-card-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 24px !important;
+    color: #242528 !important;
+  }
+  .thb-mobile-menu-footer {
+    display: none;
+  }
+  .sub-menu.sub-menu--sidebar product-card {
+    margin-bottom: 0px;
+  }
+  .sub-menu.sub-menu--sidebar product-card .badge {
+    display: none;
+  }
+  .sub-menu.sub-menu--sidebar product-card .product-card-description {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 18px !important;
+    color: #242528 !important;
+  }
+
+  .mobile-menu .sub-menu--sidebar .mega-menu-sidebar--content-container .text-button {
+    display: none;
+  }
+
   .no-js .mobile-menu li .link-container[open] > .sub-menu {
     transform: translateX(0);
     visibility: visible; }
@@ -147,8 +181,8 @@
     color: var(--color-header-links, --color-accent); }
     .mobile-menu .parent-link-back button svg {
       margin-right: 10px; }
-      .mobile-menu .parent-link-back button svg path {
-        stroke: var(--color-header-links, --color-accent); }
+      /* .mobile-menu .parent-link-back button svg path {
+        stroke: var(--color-header-links, --color-accent); } */
       [dir="rtl"] .mobile-menu .parent-link-back button svg {
         transform: rotateZ(180deg);
         margin-right: 0;
@@ -206,11 +240,49 @@
   list-style: none;
   margin: 0 0 30px;
   font-size: 0.875rem;
-  padding: 0 15px; }
+  padding: 14px 15px; }
   @media only screen and (min-width: 768px) {
     .mobile-secondary-menu {
-      padding: 0 50px; } }
+      padding: 0 50px; 
+      border-top: 1px solid #81868F;
+    } }
   .mobile-secondary-menu a {
     display: block;
-    font-size: inherit;
-    color: var(--color-header-links, --color-accent); }
+    font-size: 30px !important;
+    line-height: 38px !important;
+    color: #81868F !important;
+  }
+  .mobile-secondary-menu .parent-link {
+    font-size: 30px !important;
+    line-height: 38px !important;
+    color: #81868F !important;
+  }
+  .mobile-menu .parent-link-back button {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #81868F;
+  }
+  .mobile-menu .parent-link-back button span {
+    display: flex;
+  }
+  .mobile-menu .parent-link-back button svg {
+    transform: rotate(180deg);
+  }
+
+
+    .mobile-menu.mobile-secondary-menu .li-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sub-menu .link-container .minus {
+      display: none;
+    }
+    .mobile-menu .link-container.submenu-open[open]>summary .plus {
+      display: none;
+    }
+    .mobile-menu .link-container.submenu-open[open]>summary .minus {
+      display: flex;
+    }

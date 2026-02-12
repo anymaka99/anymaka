@@ -2278,7 +2278,7 @@ h6,
     margin: 0 auto;
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 3fr;
     min-height: 60px; }
     @media only screen and (min-width: 1068px) {
       .header--inner {
@@ -2425,7 +2425,7 @@ h6,
   display: none;
 }
 @media (max-width: 1067px) {
-  .thb-secondary-area .thb-quick-search {
+  .thb-secondary-area .thb-search-text {
     display: none;
   }
   .thb-secondary-area .thb-secondary-area-item.thb-secondary-myaccount {
