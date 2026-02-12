@@ -103,6 +103,7 @@
                             <details class="link-container">
                               <summary>
                                 {{- l.title }}
+                                asd
                                 <span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-down' -%}</span>
                               </summary>
                               <div class="mega-menu-sidebar--content">
@@ -367,7 +368,7 @@
                 endif
               endfor
             -%}
-            <li>
+            <li class="{% if has_sub_menu == false %}li-flex{% endif %}">
               {%- if has_sub_menu == true or has_mega_menu == true -%}
                 {%- liquid
                   assign mega_menu_block = mega_menu_blocks[mega_menu_block_index]
@@ -384,12 +385,12 @@
                         {{- menu_badge_block.settings.text -}}
                       </span>
                     {%- endif -%}
-                    <span class="link-forward">{%- render 'svg-icons' with 'thb-mobile-menu-forward' -%}</span>
+                    <span class="link-forward">{%- render 'icon-arrow-mobile-menu' -%}</span>
                   </summary>
                   <ul class="sub-menu">
                     <li class="parent-link-back">
                       <button class="parent-link-back--button">
-                        <span>{%- render 'svg-icons' with 'thb-mobile-menu-back' -%}</span> {{ link.title }}
+                        <span>{%- render 'icon-arrow-mobile-menu', variable: value -%}</span> {{ link.title }}
                       </button>
                     </li>
                     {%- if link.links.size > 0 -%}
@@ -412,7 +413,8 @@
                                 <summary>
                                   {{- l.title }}
                                   <span class="link-forward">
-                                    {%- render 'svg-icons' with 'thb-mobile-menu-down' -%}
+                                    {%- render 'icon-menu-plus' -%}
+                                    {%- render 'icon-menu-minus' -%}
                                   </span>
                                 </summary>
                                 <div class="mega-menu-sidebar--content">
@@ -616,6 +618,9 @@
                   {%- endif -%}
                 </a>
               {%- endif -%}
+              {% if has_sub_menu == false %}
+                {%- render 'icon-arrow-top-menu' -%}
+              {% endif %}
             </li>
           {%- endfor -%}
         </ul>
