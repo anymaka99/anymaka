@@ -47,13 +47,13 @@
 				<div class="product-gallery-sticky">
 			    <div class="product-gallery-container thumbnails-{{ thumbnail_position }}" id="MediaGallery-{{ section.id }}">
 						<div class="product-image-container">
-			        <product-slider id="Product-Slider" class="product-images static-dots" data-captions="{{ display_captions }}" data-hide-variants="{{ hide_variants }}">
+			        <product-slider id="Product-Slider" class="product-images static-dots product-images--fullwidth-mobile-{{ media_fullwidth_mobile }} product-images--prevnext-mobile-{{ media_show_prevnext_mobile }}" data-captions="{{ display_captions }}" data-hide-variants="{{ hide_variants }}">
 								{%- if featured_media != null -%}
 		              {%- liquid
 										assign image_index = image_index | plus: 1
 										assign first_image = featured_media.preview_image
 									-%}
-		              {%- render 'product-media', product: product, section: section, forloop: false, media: featured_media, sizes: sizes, variant_images: variant_images, media_aspect_ratio: media_aspect_ratio, hide_variants: hide_variants -%}
+		              {%- render 'product-media', product: product, section: section, forloop: false, media: featured_media, sizes: sizes, variant_images: variant_images, media_aspect_ratio: media_aspect_ratio, hide_variants: hide_variants, display_captions: display_captions -%}
 		            {%- endif -%}
 			          {%- for media in product.media -%}
 									{%- unless media.id == featured_media.id -%}
@@ -65,12 +65,11 @@
 												assign first_image = media.preview_image
 											endif
 										-%}
-                    {%- render 'product-media', product: product, section: section, forloop: forloop, media: media, sizes: sizes, variant_images: variant_images, media_aspect_ratio: media_aspect_ratio, hide_variants: hide_variants -%}
+                    {%- render 'product-media', product: product, section: section, forloop: forloop, media: media, sizes: sizes, variant_images: variant_images, media_aspect_ratio: media_aspect_ratio, hide_variants: hide_variants, display_captions: display_captions -%}
 									{%- endunless -%}
 			          {%- endfor -%}
 								{%- if product.media.size > 1 -%}
-								<div class="flickity-nav flickity-prev" tabindex="0">{%- render 'svg-icons' with 'carousel-prev' -%}</div>
-								<div class="flickity-nav flickity-next" tabindex="0">{%- render 'svg-icons' with 'carousel-next' -%}</div>
+								{%- render 'slideshow-arrows' -%}
 								{%- endif -%}
 			        </product-slider>
 							<scroll-shadow>
@@ -116,9 +115,6 @@
   "name": "Featured product",
   "tag": "section",
   "class": "product-section",
-	"disabled_on": {
-    "templates": ["product"]
-  },
 	"settings": [
 		{
 			"type": "text",
@@ -245,6 +241,22 @@
       "default": false,
       "label": "Enable video looping"
     },
+    {
+			"type": "header",
+			"content": "Mobile"
+		},
+    {
+			"type": "checkbox",
+			"id": "media_fullwidth_mobile",
+			"default": true,
+			"label": "Make product gallery full width"
+		},
+    {
+			"type": "checkbox",
+			"id": "media_show_prevnext_mobile",
+			"default": true,
+			"label": "Show previous & next media"
+		},
 		{
 			"type": "header",
 			"content": "Colors"
@@ -333,6 +345,22 @@
 					"default": true,
 					"label": "Show product rating",
 					"info": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/manual/online-store/themes/os20/themes-by-shopify/dawn/sections#featured-collection-show-product-rating)"
+				},
+        {
+          "type": "checkbox",
+          "id": "show_products_rating_average",
+          "label": "Show product rating average",
+          "default": true
+        },
+        {
+					"type": "header",
+					"content": "Badges"
+				},
+        {
+					"type": "checkbox",
+					"id": "show_custom_badges",
+					"default": true,
+					"label": "Show custom badges"
 				}
 			]
     },
@@ -433,6 +461,26 @@
 					"label": "Enable color swatches",
 					"info": "[Learn more about color swatches.](https://documentation.fuelthemes.net/kb/how-do-i-set-up-product-variant-swatches/)"
 				},
+        {
+          "type": "select",
+          "id": "color_picker_size",
+          "label": "Color swatch size",
+          "options": [
+            {
+              "value": "regular",
+              "label": "Regular"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            },
+            {
+              "value": "xlarge",
+              "label": "X-large"
+            }
+          ],
+          "default": "regular"
+        },
         {
 					"type": "checkbox",
 					"id": "color_picker_use_variants",
@@ -673,7 +721,33 @@
     {
       "type": "description",
       "name": "Description",
-      "limit": 1
+      "limit": 1,
+			"settings": [
+        {
+          "type": "range",
+          "id": "seo_text_max_height",
+          "min": 100,
+          "max": 2000,
+          "step": 50,
+          "label": "Max height",
+          "default": 1000,
+          "info": "Displays a read more button after the text height exceeds a certain height."
+        },
+        {
+          "type": "text",
+          "id": "seo_text_read_more",
+          "default": "Read more",
+          "label": "Read more label",
+          "info": "Button will be shown when the content exceeds the max height"
+        },
+        {
+          "type": "text",
+          "id": "seo_text_read_less",
+          "default": "Read less",
+          "label": "Read less label",
+          "info": "Button will be shown when the content exceeds the max height"
+        }
+      ]
     },
 		{
       "type": "custom_liquid",
@@ -696,6 +770,38 @@
 					"type": "paragraph",
 					"content": "Use this to direct users to product page"
         }
+      ]
+    },
+    {
+      "type": "specifications_tab",
+      "name": "Product specifications",
+      "settings": [
+				{
+					"type": "text",
+					"id": "heading",
+					"default": "Product specifications",
+					"info": "Include a heading that explains the content.",
+					"label": "Heading"
+				},
+				{
+					"type": "checkbox",
+					"id": "open",
+					"default": false,
+					"label": "Open by default"
+				},
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Metafields",
+          "info": "Include a list of labels and product metafield keys below, separated by a colon, one per line. Example: Color:custom.color"
+        },
+        {
+					"type": "text",
+					"id": "empty_field_label",
+					"default": "N/A",
+					"label": "Empty field text",
+					"info": "Text to use for empty fields"
+				}
       ]
     },
 		{
@@ -733,6 +839,81 @@
         }
       ]
     },
+    {
+      "type": "fit_guide",
+      "name": "Fit guide",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_heading",
+          "default": "Fit guide",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "label_active",
+          "default": "4",
+          "label": "Active segment",
+          "info": "Enter a number from 1 - 5 to show active fit. Use a metafield for a custom fit per product."
+        },
+        {
+          "type": "text",
+          "id": "label_left",
+          "default": "Small",
+          "label": "Left label"
+        },
+        {
+          "type": "text",
+          "id": "label_middle",
+          "default": "True to size",
+          "label": "Middle label"
+        },
+        {
+          "type": "text",
+          "id": "label_right",
+          "default": "Large",
+          "label": "Right label"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "color_active_segment",
+          "label": "Active segment",
+          "default": "#151515"
+        },
+      ]
+    },
+		{
+			"type": "image",
+      "name": "Image",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					 "type": "select",
+					 "id": "position",
+					 "label": "Position",
+					 "options": [
+						 { "value": "text-center", "label": "Center" },
+						 { "value": "text-left", "label": "Left" },
+						 { "value": "text-right", "label": "Right" }
+					 ],
+					 "default": "text-left"
+				},
+        {
+          "id": "image_link",
+          "type": "url",
+          "label": "Link"
+        }
+			]
+		},
 		{
       "type": "custom_option",
       "name": "Line item property",
@@ -898,6 +1079,397 @@
           "default": 20
         }
       ]
+    },
+    {
+      "type": "payment_security",
+      "name": "Payment & security",
+			"settings": [
+        {
+          "type": "checkbox",
+          "id": "has_border",
+          "label": "Add border",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Payment",
+          "label": "Heading"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "Show payment icons",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Security"
+        },
+        {
+          "type": "text",
+          "id": "security_heading",
+          "default": "Security",
+          "label": "Security heading",
+          "info": "Leave empty to remove security section"
+        },
+        {
+					"type": "image_picker",
+					"id": "security_image",
+					"label": "Custom image"
+				},
+        {
+          "type": "range",
+          "id": "security_image_width",
+          "min": 30,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 30
+        }
+			]
+    },
+    {
+			"type": "pros_cons",
+			"name": "Pros and cons",
+			"settings": [
+        {
+          "type": "checkbox",
+          "id": "has_border",
+          "label": "Add border",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Pros and cons",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "pros",
+          "label": "Positives",
+          "default": "Option 1\nOption 2\nOption 3",
+          "info": "One option on each line"
+        },
+        {
+          "type": "textarea",
+          "id": "cons",
+          "label": "Negatives",
+          "default": "Option 1\nOption 2\nOption 3",
+          "info": "One option on each line"
+        }
+			]
+		},
+    {
+      "type": "coupon_code",
+      "name": "Coupon code",
+      "settings": [
+				{
+					"type": "select",
+					"id": "icon",
+					"options": [
+						{
+							"value": "none",
+							"label": "None"
+						},
+						{
+							"value": "apple",
+							"label": "Apple"
+						},
+						{
+							"value": "banana",
+							"label": "Banana"
+						},
+						{
+							"value": "bottle",
+							"label": "Bottle"
+						},
+						{
+							"value": "box",
+							"label": "Box"
+						},
+						{
+							"value": "carrot",
+							"label": "Carrot"
+						},
+						{
+							"value": "chat_bubble",
+							"label": "Chat bubble"
+						},
+						{
+							"value": "check_mark",
+							"label": "Check mark"
+						},
+						{
+							"value": "clipboard",
+							"label": "Clipboard"
+						},
+						{
+							"value": "dairy",
+							"label": "Dairy"
+						},
+						{
+							"value": "dairy_free",
+							"label": "Dairy free"
+						},
+						{
+							"value": "dryer",
+							"label": "Dryer"
+						},
+						{
+							"value": "eye",
+							"label": "Eye"
+						},
+						{
+							"value": "fire",
+							"label": "Fire"
+						},
+						{
+							"value": "gluten_free",
+							"label": "Gluten free"
+						},
+						{
+							"value": "heart",
+							"label": "Heart"
+						},
+						{
+							"value": "iron",
+							"label": "Iron"
+						},
+						{
+							"value": "leaf",
+							"label": "Leaf"
+						},
+						{
+							"value": "leather",
+							"label": "Leather"
+						},
+						{
+							"value": "lightning_bolt",
+							"label": "Lightning bolt"
+						},
+						{
+							"value": "lipstick",
+							"label": "Lipstick"
+						},
+						{
+							"value": "lock",
+							"label": "Lock"
+						},
+						{
+							"value": "map_pin",
+							"label": "Map pin"
+						},
+						{
+							"value": "nut_free",
+							"label": "Nut free"
+						},
+						{
+							"value": "pants",
+							"label": "Pants"
+						},
+						{
+							"value": "paw_print",
+							"label": "Paw print"
+						},
+						{
+							"value": "pepper",
+							"label": "Pepper"
+						},
+						{
+							"value": "perfume",
+							"label": "Perfume"
+						},
+						{
+							"value": "plane",
+							"label": "Plane"
+						},
+						{
+							"value": "plant",
+							"label": "Plant"
+						},
+						{
+							"value": "price_tag",
+							"label": "Price tag"
+						},
+						{
+							"value": "question_mark",
+							"label": "Question mark"
+						},
+						{
+							"value": "recycle",
+							"label": "Recycle"
+						},
+						{
+							"value": "return",
+							"label": "Return"
+						},
+						{
+							"value": "ruler",
+							"label": "Ruler"
+						},
+						{
+							"value": "serving_dish",
+							"label": "Serving dish"
+						},
+						{
+							"value": "shirt",
+							"label": "Shirt"
+						},
+						{
+							"value": "shoe",
+							"label": "Shoe"
+						},
+						{
+							"value": "silhouette",
+							"label": "Silhouette"
+						},
+						{
+							"value": "snowflake",
+							"label": "Snowflake"
+						},
+						{
+							"value": "star",
+							"label": "Star"
+						},
+						{
+							"value": "stopwatch",
+							"label": "Stopwatch"
+						},
+						{
+							"value": "truck",
+							"label": "Truck"
+						},
+						{
+							"value": "washing",
+							"label": "Washing"
+						}
+					],
+					"default": "ruler",
+					"label": "Icon"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Custom icon",
+					"info": "96 x 96 .png recommended."
+				},
+        {
+					"type": "checkbox",
+					"id": "has_background",
+					"default": false,
+					"label": "Enable background"
+				},
+				{
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Advertise your coupon code here.</p>",
+          "label": "Content"
+        },
+				{
+		      "type": "header",
+		      "content": "Coupon"
+		    },
+        {
+          "type": "text",
+          "id": "coupon_text",
+          "default": "VISION20",
+          "label": "Coupon code",
+          "info": "When filled, this will add a text to copy the coupon code."
+        },
+        {
+          "type": "text",
+          "id": "copy_text",
+          "default": "Copy code",
+          "label": "Copy to clipboard text"
+        },
+				{
+		      "type": "header",
+		      "content": "Colors"
+		    },
+				{
+	        "type": "color",
+	        "id": "coupon_box_color",
+	        "label": "Text",
+	        "default": "#EA6B24"
+	      },
+				{
+	        "type": "color",
+	        "id": "coupon_box_color_link",
+	        "label": "Link",
+	        "default": "#3F72E5"
+	      }
+      ]
+    },
+		{
+      "type": "scrolling_text",
+      "name": "Scrolling text",
+      "settings": [
+				{
+          "type": "textarea",
+          "id": "content",
+          "label": "Content",
+          "info": "Include a list of sentences. Separate sentences by a line break."
+        },
+        {
+          "type": "select",
+          "id": "direction",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left",
+          "label": "Direction"
+        },
+        {
+          "type": "select",
+          "id": "speed",
+          "options": [
+            {
+              "value": "10s",
+              "label": "Fast"
+            },
+            {
+              "value": "20s",
+              "label": "Normal"
+            },
+            {
+              "value": "30s",
+              "label": "Slow"
+            },
+            {
+              "value": "50s",
+              "label": "Very slow"
+            }
+          ],
+          "default": "20s",
+          "label": "Speed"
+        },
+				{
+		      "type": "header",
+		      "content": "Colors"
+		    },
+				{
+	        "type": "color",
+	        "id": "background_color",
+	        "label": "Background",
+	        "default": "#F56223"
+	      },
+				{
+	        "type": "color",
+	        "id": "text_color",
+	        "label": "Text",
+	        "default": "#FFFFFF"
+	      }
+      ]
     }
   ],
 	"presets": [
@@ -918,6 +1490,12 @@
 				}
 			]
 		}
-	]
+	],
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": [
+      "header", "footer"
+    ]
+  }
 }
 {% endschema %}

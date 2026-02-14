@@ -9,12 +9,20 @@ if (!customElements.get('social-share')) {
     }
 
     connectedCallback() {
-      this.container = document.querySelector('.share-article');
-      this.links = document.querySelectorAll('.social');
+      this.links = this.querySelectorAll('.social:not(.clipboard):not(.whatsapp)');
+      this.clipboard = this.querySelector('.social.clipboard');
 
+      this.clipboard?.addEventListener('click', this.onClipboardClick.bind(this));
       this.setupEventListeners();
     }
-
+    onClipboardClick() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        this.clipboard.classList.add('clipboard-success');
+        setTimeout(() => {
+          this.clipboard.classList.remove('clipboard-success');
+        }, 1800);
+      });
+    }
     setupEventListeners() {
       this.links.forEach((link) => {
         link.addEventListener('click', (event) => {

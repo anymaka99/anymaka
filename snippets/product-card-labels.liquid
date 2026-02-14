@@ -13,7 +13,7 @@
 	{%- endfor -%}
 {%- endcapture -%}
 {%- if product_labels != '' -%}
-<div class="product-card--label-container">
+<div class="product-card--label-container" {{ block.shopify_attributes }}>
 {{ product_labels }}
 </div>
 {%- endif -%}

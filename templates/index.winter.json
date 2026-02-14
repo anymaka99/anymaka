@@ -15,7 +15,6 @@
         "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-0": {
           "type": "slide",
           "settings": {
-            "slide_link": "",
             "video_background": false,
             "badge_text": "Look Exclusive",
             "subheading": "",
@@ -38,17 +37,13 @@
             "button_1_text": "Shop collection",
             "button_1_color": "white",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         },
         "d07c1654-8a0a-454c-96cd-e18103e56f47": {
           "type": "slide",
           "settings": {
-            "slide_link": "",
-            "badge_text": "",
             "subheading": "New year",
             "heading": "Up to 20% Off",
             "heading_size": "h1",
@@ -68,7 +63,6 @@
             "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.06) 78%, rgba(0, 0, 0, 0.7) 100%)",
             "button_1_text": "Shop Men",
             "button_1_color": "white",
-            "button_1_link": "",
             "use_text_button_1": false,
             "button_2_text": "Shop Women",
             "button_2_color": "white",
@@ -78,9 +72,7 @@
         "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-1": {
           "type": "slide",
           "settings": {
-            "slide_link": "",
             "video_background": false,
-            "badge_text": "",
             "subheading": "",
             "heading": "Winter Joys",
             "heading_size": "h3",
@@ -101,9 +93,7 @@
             "button_1_text": "Shop Now",
             "button_1_color": "white",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         }
@@ -135,7 +125,6 @@
           "type": "text",
           "settings": {
             "text": "Returns extended to 30 days",
-            "link": "",
             "outline_text": false
           }
         },
@@ -143,7 +132,6 @@
           "type": "text",
           "settings": {
             "text": "Returns extended to 30 days",
-            "link": "",
             "outline_text": false
           }
         },
@@ -151,7 +139,6 @@
           "type": "text",
           "settings": {
             "text": "Returns extended to 30 days",
-            "link": "",
             "outline_text": false
           }
         }
@@ -295,7 +282,6 @@
     "929d05b4-c5ff-4bf6-8737-f5c313bf9a2b": {
       "type": "collection-list",
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "heading_size": "small",
@@ -331,13 +317,10 @@
             "collection": "under-400",
             "enable_promotion": true,
             "title": "Up to 70% off everything!",
-            "text": "",
             "link_label": "Shop sale",
             "content_position": "bottom-left",
             "text_alignment": "left",
-            "link": "",
             "use_text_button": false,
-            "block_link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -352,9 +335,7 @@
             "link_label": "Explore",
             "content_position": "bottom-left",
             "text_alignment": "left",
-            "link": "",
             "use_text_button": false,
-            "block_link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 70
           }
@@ -442,10 +423,8 @@
             "subheading": "",
             "title": "The Snow Edit",
             "marker_style": "style1",
-            "text": "",
             "link_label": "Shop Outerwear",
             "use_text_button": true,
-            "block_link": "",
             "marker_color": "#fd6262"
           }
         },
@@ -457,10 +436,8 @@
             "subheading": "",
             "title": "Break The Ice",
             "marker_style": "style1",
-            "text": "",
             "link_label": "Shop Coats",
             "use_text_button": true,
-            "block_link": "",
             "marker_color": "#fd6262"
           }
         },
@@ -472,10 +449,8 @@
             "subheading": "",
             "title": "Warm Inside",
             "marker_style": "style1",
-            "text": "",
             "link_label": "Shop Boots",
             "use_text_button": true,
-            "block_link": "",
             "marker_color": "#fd6262"
           }
         }
@@ -508,11 +483,9 @@
           "type": "slide",
           "settings": {
             "subheading": "",
-            "heading": "",
             "heading_size": "h3",
             "content": "Khloe Polo 14759 - Pageant Blue",
             "button_text": "Buy now -  $130.00",
-            "button_link": "",
             "color_bg": "#f0f1f2",
             "color_text": "#35393d",
             "color_button": "#404cb7"
@@ -526,7 +499,6 @@
             "heading_size": "h3",
             "content": "Add a descriptive text here for your slide.",
             "button_text": "Shop Now",
-            "button_link": "",
             "color_bg": "#f0f1f2",
             "color_text": "#2c2d2e",
             "color_button": "#2c2d2e"
@@ -540,7 +512,6 @@
             "heading_size": "h3",
             "content": "Add a descriptive text here for your slide.",
             "button_text": "Shop Now",
-            "button_link": "",
             "color_bg": "#f0f1f2",
             "color_text": "#2c2d2e",
             "color_button": "#2c2d2e"
@@ -616,41 +587,31 @@
         "template--14745674514490__4f8e85d1-58b2-43fb-962f-fa57b08269bb-image-1": {
           "type": "image",
           "settings": {
-            "link": "#",
-            "heading": "",
-            "text": ""
+            "link": "#"
           }
         },
         "template--14745674514490__4f8e85d1-58b2-43fb-962f-fa57b08269bb-image-2": {
           "type": "image",
           "settings": {
-            "link": "#",
-            "heading": "",
-            "text": ""
+            "link": "#"
           }
         },
         "template--14745674514490__4f8e85d1-58b2-43fb-962f-fa57b08269bb-image-3": {
           "type": "image",
           "settings": {
-            "link": "#",
-            "heading": "",
-            "text": ""
+            "link": "#"
           }
         },
         "template--14745674514490__4f8e85d1-58b2-43fb-962f-fa57b08269bb-image-4": {
           "type": "image",
           "settings": {
-            "link": "#",
-            "heading": "",
-            "text": ""
+            "link": "#"
           }
         },
         "template--14745674514490__4f8e85d1-58b2-43fb-962f-fa57b08269bb-image-5": {
           "type": "image",
           "settings": {
-            "link": "#",
-            "heading": "",
-            "text": ""
+            "link": "#"
           }
         }
       },

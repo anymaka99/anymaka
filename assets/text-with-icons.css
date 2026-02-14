@@ -4,7 +4,7 @@
 
 .text-with-icons__inner {
   padding: 0 15px;
-  max-width: 1380px;
+  max-width: var(--grid-width-row, 1380px);
   margin-left: auto;
   margin-right: auto; }
   @media only screen and (min-width: 768px) {
@@ -23,23 +23,12 @@
     text-align: right; }
   .text-with-icons__inner {
     display: grid;
-    grid-gap: 40px 20px;
+    gap: 40px 20px;
     justify-content: center;
-    grid-auto-columns: minmax(250px, 300px); 
-  }
-
-    .text-with-icons__inner.text-with-icons__inner--one-row-3{
-        grid-template-columns: repeat(3,minmax(33.3%,300px));
-    }
-    @media only screen and (max-width: 767px) {
-     .text-with-icons__inner.text-with-icons__inner--one-row-3{
-       grid-gap: 40px 10px;
-      } 
-    }
+    grid-auto-columns: minmax(250px, 300px); }
     @media only screen and (min-width: 768px) {
       .text-with-icons__inner {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 300px)); } 
-    }
+        grid-template-columns: repeat(auto-fill, minmax(200px, 300px)); } }
   @media only screen and (min-width: 768px) {
     .text-with-icons.icon-columns-2 .text-with-icons__inner {
       grid-template-columns: repeat(2, minmax(200px, 300px)); } }
@@ -119,7 +108,7 @@
     height: 80px;
     width: 80px; }
   .text-with-icons h6.body-font {
-    font-weight: 600; }
+    font-weight: var(--font-body-bold-weight, 600); }
   .text-with-icons.heading-large h6 {
     font-size: 20px; }
   .text-with-icons.heading-medium h6 {

@@ -21,8 +21,7 @@ if (!customElements.get('theme-footer')) {
       this.wrapper = document.getElementById('wrapper');
       this.footer_bg = window.getComputedStyle(document.documentElement).getPropertyValue('--color-footer-bg');
       this.radius = window.getComputedStyle(document.documentElement).getPropertyValue('--block-border-radius');
-      // this.setupAnimations();
-      this.scaleClipPath();
+      this.setupAnimations();
     }
     setupAnimations() {
       let mm = gsap.matchMedia();
@@ -41,10 +40,15 @@ if (!customElements.get('theme-footer')) {
         } = context.conditions;
 
         gsap.to(this.content, {
-          clipPath: !isDesktop || reduceMotion ? `inset(0px 0% 0% round 0` : `inset(0px 4% 0% round ${this.radius})`,
+          "--footer-border-radius": !isDesktop || reduceMotion ? '0px' : `${this.radius}`,
+          "--footer-width-percent": !isDesktop || reduceMotion ? '0%' : '4%',
           duration: 0.5,
           inherit: false,
           ease: "none",
+          modifiers: {
+            "--footer-border-radius": x => Math.round(parseFloat(x)) + "px",
+            "--footer-width-percent": x => Math.round(parseFloat(x) * 100) / 100 + "%"
+          },
           scrollTrigger: {
             trigger: this,
             fastScrollEnd: true,
@@ -53,37 +57,9 @@ if (!customElements.get('theme-footer')) {
             end: () => `bottom bottom`
           }
         });
-      });      
-    }
+      });
 
-    scaleClipPath(){
-      // gsap.registerPlugin(ScrollTrigger);
-      let scaleElms = document.querySelectorAll(".scale-clip-path");
-      if(scaleElms.length > 0){
-       scaleElms.forEach(function(scale){ 
-    
-         gsap.timeline({ scrollTrigger: {
-                scroller:'body',
-                trigger: scale,
-                start: "top 50%",
-                end: "top 5%",
-                markers: false,
-                scrub: true,
-                ease: "power1.inOut",
-            } })
-        .fromTo(scale,
-              {
-                clipPath: "polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)"
-              },
-              {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                duration: 0.8
-              });
-          });
-        // ScrollTrigger.refresh();
-        console.log(ScrollTrigger,'refresh ScrollTrigger 1');
-      }
-    }  
+    }
   }
   customElements.define('theme-footer', ThemeFooter);
 }

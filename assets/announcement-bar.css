@@ -6,8 +6,8 @@
 
 
 .announcement-bar--inner {
-  padding: 20 15px;
-  max-width: 1380px;
+  padding: 0 15px;
+  max-width: var(--grid-width-row, 1380px);
   margin-left: auto;
   margin-right: auto; }
   @media only screen and (min-width: 768px) {
@@ -22,7 +22,7 @@
   background: var(--color-announcement-bar-bg, var(--color-accent));
   color: var(--color-announcement-bar-text, #fff);
   line-height: 1;
-  padding: 16px 0; }
+  padding: 8px 0; }
   .announcement-bar--inner {
     height: 100%;
     display: flex;
@@ -78,7 +78,7 @@
     display: inline-flex;
     align-items: center;
     padding: 0 20px;
-    line-height: 1.4; }
+    line-height: 1.1; }
     .announcement-bar--item svg {
       margin-right: 12px;
       height: 14px;

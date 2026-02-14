@@ -1,4 +1,4 @@
-<div {{ block.shopify_attributes }}>
+<div class="product product--product-form" {{ block.shopify_attributes }}>
 	{%- if product != blank -%}
 	{%- liquid
       assign gift_card_recipient_feature_active = false
@@ -10,8 +10,14 @@
       if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
         assign show_dynamic_checkout = true
       endif
+
+			assign product_template = product.template_suffix
+
+			if product.metafields.theme.preorder and product.available
+				assign product_template = 'pre-order'
+			endif
     -%}
-  <product-form class="product-form" data-section="{{ section.id }}" data-hide-errors="{{ gift_card_recipient_feature_active }}">
+  <product-form class="product-form" data-section="{{ section.id }}" data-hide-errors="{{ gift_card_recipient_feature_active }}" template="{{ product_template | escape }}">
 		<div class="product-form__error-message-wrapper form-notification error" role="alert" hidden>
       {% render 'svg-icons' with 'thb-error' %}
       <span class="product-form__error-message"></span>
@@ -23,77 +29,29 @@
 			{%- endif -%}
 			<div class="product-add-to-cart-container">
 				<div class="form-notification error" style="display:none;"></div>
-				<div class="add_to_cart_holder{% if show_dynamic_checkout %} 1add_to_cart_holder--multi{%- endif -%}">
-                    <div class="{% unless block.settings.cart_checkout_line %}add_to_cart_holder-quantity{% endunless %}">
-                      {%- if product.available -%}
-                      <div
-                        id="quantity-{{ section.id }}"
-                        {{ block.shopify_attributes }}
-                      >
-                        
-                        <quantity-selector class="quantity">
-                          <button class="minus" type="button" aria-label="{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}">
-                            {% render 'svg-icons' with 'minus' %}
-                          </button>
-                          <input
-                            type="number"
-                            id="Quantity-{{ section.id }}"
-                            name="quantity"
-                            class="qty quantity__input"
-                            value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                            data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                            min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                            {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                              data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                              max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                            {% endif %}
-                            step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                            form="{{ product_form_id }}"
-                            aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
-                          >
-                          <button class="plus" type="button" aria-label="{{ 'products.product.quantity.increase' | t: product: product.title | escape }}">{% render 'svg-icons' with 'plus' %}</button>
-                        </quantity-selector>
-                      </div>
-                      {%- endif -%}
-                      {%- if block.settings.cart_checkout_line -%}            
-                      <div class="add_to_cart_holder{% if show_dynamic_checkout %} add_to_cart_holder--multi{%- endif -%}">
-    					<button type="submit" name="add" id="AddToCart" class="single-add-to-cart-button button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                        {% if block.settings.enable_cart_color %} style="color: {{ block.settings.cart_button_txt_color }};background: {{ block.settings.cart_button_bg }};"{% endif %}>
-    						<span class="single-add-to-cart-button--text">
-    							{%- if product.selected_or_first_available_variant.available -%}
-    								{{ 'products.product.add_to_cart' | t }}
-    							{%- else -%}
-    								{{ 'products.product.sold_out' | t }}
-    							{%- endif -%}
-    						</span>
-    						<span class="loading-overlay">
-    							{% render 'svg-icons' with 'thb-loading' %}
-    						</span>
-    					</button>
-                        {%- if show_dynamic_checkout -%}
-    						{{ form | payment_button }}
-    					{%- endif -%}
-                      </div>
-                      {%- else -%}
-    					<button type="submit" name="add" id="AddToCart" class="single-add-to-cart-button single-add-to-cart-button-{{ block.id }} button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
-    						<span class="single-add-to-cart-button--text">
-    							{%- if product.selected_or_first_available_variant.available -%}
-    								{{ 'products.product.add_to_cart' | t }}
-    							{%- else -%}
-    								{{ 'products.product.sold_out' | t }}
-    							{%- endif -%}
-    						</span>
-    						<span class="loading-overlay">
-    							{% render 'svg-icons' with 'thb-loading' %}
-    						</span>
-    					</button>
-                      {%- endif -%}
-                    </div>
-                    {%- unless block.settings.cart_checkout_line -%}
-    					{%- if show_dynamic_checkout -%}
-    						{{ form | payment_button }}
-    					{%- endif -%}
-                    {%- endunless -%}
+				<div class="add_to_cart_holder{% if show_dynamic_checkout %} add_to_cart_holder--multi{%- endif -%}">
+					<button type="submit" name="add" id="AddToCart" class="single-add-to-cart-button button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+						<span class="single-add-to-cart-button--text">
+							{%- liquid
+								if product.selected_or_first_available_variant.available == false
+									assign button_content = 'products.product.sold_out' | t
+								else
+									if product_template == 'pre-order'
+										assign button_content = 'products.product.pre_order' | t
+									else
+										assign button_content = 'products.product.add_to_cart' | t
+									endif
+								endif
+							-%}
+							{{- button_content -}}
+						</span>
+						<span class="loading-overlay">
+							{% render 'svg-icons' with 'thb-loading' %}
+						</span>
+					</button>
+					{%- if show_dynamic_checkout -%}
+						{{ form | payment_button }}
+					{%- endif -%}
 				</div>
 			</div>
 		{%- endform -%}
@@ -128,16 +86,4 @@
 	{% endif %}
 </pickup-availability>
 <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-{%- if block.settings.enable_cart_color -%}
-<style>
-  .button.accent.single-add-to-cart-button-{{ block.id }}{
-    color: {{ block.settings.cart_button_txt_color }};
-    background: {{ block.settings.cart_button_bg }};
-  }
-  .button.accent.single-add-to-cart-button-{{ block.id }}:hover, .single-add-to-cart-button-{{ block.id }}:focus{
-    color: {{ block.settings.cart_button_hover_txt_color }};
-    background: {{ block.settings.cart_button_hover_bg }};
-  }
-</style>
 {%- endif -%}

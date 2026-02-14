@@ -14,7 +14,7 @@
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
-<div class="row {% if full_width %} full-width-row-full{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="row {% if full_width %} full-width-row-full{% endif %}">
 	<div class="small-12 columns">
 		<div class="video-section section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 			<div class="video-section--inner">
@@ -43,39 +43,8 @@
 {% schema %}
   {
     "name": "Video",
+		"class": "section-video",
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          }
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },      
 			{
         "type": "text",
         "id": "heading",
@@ -202,6 +171,12 @@
       {
         "name": "Video"
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

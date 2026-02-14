@@ -58,7 +58,7 @@
     display: flex;
     width: 100%;
     flex-grow: 1;
-    padding: 25px 0;
+    padding: 25px;
     align-items: center;
     background: var(--color-bg, #fff); }
     @media only screen and (min-width: 768px) {

@@ -3,12 +3,13 @@
 	assign desktop_height = section.settings.desktop_height
 	assign mobile_height = section.settings.mobile_height
 	assign column_spacing = section.settings.column_spacing
+	assign mobile_swipe = section.settings.mobile_swipe
 
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
 <div class="media-grid section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
-	<div class="media-grid--inner column-spacing--{{ column_spacing }}" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
+	<div class="media-grid--inner column-spacing--{{ column_spacing }}{% if mobile_swipe %} swipe-on-mobile{% endif %}" style="--desktop-height:{{ desktop_height | append: 'px' }}; --mobile-height:{{ mobile_height | append: 'px' }}">
 		{%- for block in section.blocks -%}
 			{%- liquid
 				assign image = block.settings.image
@@ -111,27 +112,11 @@
 	      "label": "Column spacing"
 	    },
 			{
-	      "type": "header",
-	      "content": "Colors"
+	      "type": "checkbox",
+	      "id": "mobile_swipe",
+	      "default": true,
+	      "label": "Enable swipe on mobile"
 	    },
-			{
-				"type": "color",
-				"id": "color_bg",
-				"label": "Background",
-				"default": "#ffffff"
-			},
-			{
-				"type": "color",
-				"id": "color_text",
-				"label": "Text",
-				"default": "#2c2d2e"
-			},
-			{
-				"type": "color",
-				"id": "color_link",
-				"label": "Link",
-				"default": "#3f72e5"
-			},
 			{
 	      "type": "header",
 	      "content": "Spacing"
@@ -179,8 +164,7 @@
 					{
 						"type": "video",
 						"id": "video_hosted",
-						"label": "Shopify-hosted video",
-						"info": "Overrides the Video URL setting."
+						"label": "Shopify-hosted video"
 					},
 					{
 						"type": "checkbox",
@@ -357,6 +341,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

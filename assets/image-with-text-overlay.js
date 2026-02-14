@@ -34,8 +34,8 @@ if (!customElements.get('image-with-text-overlay')) {
         }
       });
 
-      document.fonts.ready.then(function() {
-        section.splittext = new SplitText(section.querySelectorAll('h3, p:not(.subheading)'), {
+      document.fonts.ready.then(function () {
+        section.splittext = new SplitText(section.querySelectorAll('.image-with-text-overlay--heading, p:not(.subheading)'), {
           type: 'lines, words',
           linesClass: 'line-child'
         });
@@ -62,13 +62,13 @@ if (!customElements.get('image-with-text-overlay')) {
 
           button_offset += 0.5;
         }
-        if (section.querySelector('h3')) {
-          let h3_duration = 0.8 + ((section.querySelectorAll('h3 .line-child div').length - 1) * 0.08);
+        if (section.querySelector('.image-with-text-overlay--heading')) {
+          let h3_duration = 0.8 + ((section.querySelectorAll('.image-with-text-overlay--heading .line-child div').length - 1) * 0.08);
           section.tl
-            .set(section.querySelector('h3'), {
+            .set(section.querySelector('.image-with-text-overlay--heading'), {
               visibility: 'visible'
             }, 0)
-            .from(section.querySelectorAll('h3 .line-child div'), {
+            .from(section.querySelectorAll('.image-with-text-overlay--heading .line-child div'), {
               duration: h3_duration,
               yPercent: '100',
               stagger: 0.08

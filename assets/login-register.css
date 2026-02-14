@@ -71,9 +71,15 @@
 .account-activate-buttons {
   display: flex;
   flex-direction: column;
-  grid-gap: 10px; }
+  gap: 10px; }
   .account-activate-buttons .button {
     width: 100%; }
   @media only screen and (min-width: 768px) {
     .account-activate-buttons {
       flex-direction: row; } }
+
+.sign-in-with-shop-provider {
+  margin-top: 10px;
+  text-align: center; }
+  .sign-in-with-shop-provider p {
+    margin-bottom: 10px; }

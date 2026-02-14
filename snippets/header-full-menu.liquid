@@ -1,3 +1,9 @@
+{%- liquid
+  assign secondary_nav = blocks | where: "type", "secondary_nav"
+  assign secondary_menu = secondary_nav[0].settings.menu
+
+	assign menu_has_mega_menu = false
+-%}
 <full-menu class="full-menu">
 	<ul class="thb-full-menu" role="menubar">
 	  {%- for link in menu.links -%}
@@ -7,7 +13,11 @@
 				assign has_mega_menu = false
 				assign has_menu_badge = false
 				assign mega_menu_block_index = false
+				assign mega_menu_block_index_sidebar = false
+
 				assign mega_menu_blocks = blocks | where: "type", "megamenu"
+				assign mega_menu_blocks_sidebar = blocks | where: "type", "megamenu_sidebar"
+				
 				assign menu_badge_index = false
 				assign menu_badge_blocks = blocks | where: "type", "menu_badge"
 
@@ -28,9 +38,21 @@
 						assign menu_badge_index = forloop.index0
 					endif
 				endfor
+
+				for block in mega_menu_blocks_sidebar
+					assign position_sidebar = block.settings.position | plus: 0
+		    	if position_sidebar == parent_index
+						assign has_mega_menu = true
+						assign mega_menu_block_index_sidebar = forloop.index0
+					endif
+				endfor
+
+				if has_mega_menu
+					assign menu_has_mega_menu = true
+				endif
 			-%}
 		  <li role="none" class="{% if has_sub_menu or has_mega_menu %}menu-item-has-children{% endif %}{% if has_mega_menu %} menu-item-has-megamenu{% endif %}{% if link.active %} active{% endif %}" {% if has_sub_menu %}data-item-title="{{ link.title | escape }}"{% endif %}>
-		    <a role="menuitem" href="{{ link.url }}" title="{{ link.title | escape }}"{%- if link.active %} aria-current="page"{% endif -%} class="{{ header_settings.header_text_font }}">
+		    <a role="menuitem" class="thb-full-menu--link" href="{{ link.url }}"{%- if link.active %} aria-current="page"{% endif -%}>
 					{{- link.title -}}
 					{%- if has_sub_menu or has_mega_menu -%}{%- render 'svg-icons' with 'thb-dropdown-bottom' -%}{%- endif -%}
 				</a>
@@ -50,7 +72,7 @@
 
 							-%}
 			        <li class="{%- if l.active %}active{% endif %}{% if has_sub_menu %} menu-item-has-children{%- endif -%}" role="none" {% if has_sub_menu %}data-item-title="{{ l.title | escape }}"{% endif %}>
-			          <a href="{{ l.url }}" title="{{ l.title | escape }}" role="menuitem">
+			          <a href="{{ l.url }}" role="menuitem" class="thb-full-menu--link">
 									{{- l.title -}}
 									{%- if has_sub_menu -%}{%- render 'svg-icons' with 'thb-dropdown-right' -%}{%- endif -%}
 								</a>
@@ -58,7 +80,7 @@
 									<ul class="sub-menu" role="menu">
 										{%- for sub_link in l.links -%}
 											<li class="{%- if sub_link.active %} active{% endif %}" role="none">
-												<a href="{{ sub_link.url }}" title="{{ sub_link.title | escape }}" role="menuitem">{{- sub_link.title -}}</a>
+												<a href="{{ sub_link.url }}" class="thb-full-menu--link" role="menuitem">{{- sub_link.title -}}</a>
 											</li>
 										{%- endfor -%}
 									</ul>
@@ -69,45 +91,16 @@
 		    {%- elsif has_sub_menu == true or has_mega_menu == true -%}
 					{%- liquid
 						assign mega_menu_block = mega_menu_blocks[mega_menu_block_index]
+						assign mega_menu_block_sidebar = mega_menu_blocks_sidebar[mega_menu_block_index_sidebar]
 					-%}
-					<div class="sub-menu mega-menu-container" tabindex="-1">
-
-				    <ul class="mega-menu-columns" tabindex="-1">
-							{% if link.links.size > 0 %}
-			        {%- for l in link.links -%}
-				        <li class="{% if l.active %} active{% endif %}" role="none">
-				          <a href="{{ l.url }}" title="{{ l.title | escape }}" class="mega-menu-columns__heading" role="menuitem">{{ l.title }}</a>
-									{%- if l.links.size > 0 -%}
-										<ul role="menu">
-											{%- for sub_link in l.links -%}
-												<li class="{% if sub_link.active %} active{% endif %}" role="none">
-													<a href="{{ sub_link.url }}" title="{{ sub_link.title | escape }}" role="menuitem">{{ sub_link.title }}</a>
-												</li>
-											{%- endfor -%}
-										</ul>
-									{%- endif -%}
-				        </li>
-							{%- endfor -%}
-							{% endif %}
-							{% if has_mega_menu %}
-								{%- if mega_menu_block.settings.promo_1_image -%}
-									{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_1_image, promotion_link: mega_menu_block.settings.promo_1_link, promotion_heading_font: mega_menu_block.settings.heading_text_font, promotion_content_font: mega_menu_block.settings.content_text_font, promotion_heading: mega_menu_block.settings.promo_1_heading, promotion_content: mega_menu_block.settings.promo_1_content %}
-								{%- endif -%}
-								{%- if mega_menu_block.settings.promo_2_image -%}
-									{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_2_image, promotion_link: mega_menu_block.settings.promo_2_link, promotion_heading_font: mega_menu_block.settings.heading_text_font, promotion_content_font: mega_menu_block.settings.content_text_font, promotion_heading: mega_menu_block.settings.promo_2_heading, promotion_content: mega_menu_block.settings.promo_2_content %}
-								{%- endif -%}
-								{%- if mega_menu_block.settings.promo_3_image -%}
-									{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_3_image, promotion_link: mega_menu_block.settings.promo_3_link, promotion_heading_font: mega_menu_block.settings.heading_text_font, promotion_content_font: mega_menu_block.settings.content_text_font, promotion_heading: mega_menu_block.settings.promo_3_heading, promotion_content: mega_menu_block.settings.promo_3_content %}
-								{%- endif -%}
-								{%- if mega_menu_block.settings.promo_4_image -%}
-									{% render 'header-full-menu-promotion', promotion_image: mega_menu_block.settings.promo_4_image, promotion_link: mega_menu_block.settings.promo_4_link, promotion_heading_font: mega_menu_block.settings.heading_text_font, promotion_content_font: mega_menu_block.settings.content_text_font, promotion_heading: mega_menu_block.settings.promo_4_heading, promotion_content: mega_menu_block.settings.promo_4_content %}
-								{%- endif -%}
-							{%- endif -%}
-				    </ul>
-
-					</div>
+					{% if mega_menu_block %}
+						{% render 'header-mega-menu-promotions', mega_menu_block: mega_menu_block, link: link %}
+					{% elsif mega_menu_block_sidebar %}
+						{% render 'header-mega-menu-sidebar', mega_menu_block: mega_menu_block_sidebar, link: link %}
+					{% endif %}
 		    {%- endif -%}
 		  </li>
 	  {%- endfor -%}
 	</ul>
+	{% render 'header-secondary-menu', secondary_menu: secondary_menu, blocks: blocks %}
 </full-menu>

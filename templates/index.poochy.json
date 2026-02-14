@@ -16,7 +16,6 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "slide_link": "",
             "video_background": false,
             "subheading": "Extra Love",
             "heading": "Because It’s Your Family",
@@ -35,11 +34,8 @@
             "overlay_gradient": "",
             "button_1_text": "Purrchase Foods",
             "button_1_color": "white",
-            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         },
@@ -47,7 +43,6 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "slide_link": "",
             "video_background": false,
             "subheading": "SINCE 2008",
             "heading": "Let’s Make The World Pawsome",
@@ -66,11 +61,8 @@
             "overlay_gradient": "",
             "button_1_text": "Our Pawsome Story",
             "button_1_color": "accent",
-            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         },
@@ -78,7 +70,6 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "slide_link": "",
             "video_background": false,
             "subheading": "SECURITY CAMERAS",
             "heading": "Big Love For The Little Ones",
@@ -97,11 +88,8 @@
             "overlay_gradient": "",
             "button_1_text": "Buy Now - $45",
             "button_1_color": "white",
-            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "regular",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         }
@@ -135,7 +123,6 @@
     "60ed2e7d-3f50-428a-b546-03274d862db0": {
       "type": "collection-list",
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "heading_size": "medium",
@@ -212,7 +199,6 @@
         "content": "",
         "content_size": "medium",
         "button_text": "Shop Deals",
-        "button_link": "",
         "timer_year": 2023,
         "timer_month": "06",
         "timer_day": "01",
@@ -288,7 +274,6 @@
           "type": "button",
           "settings": {
             "button_text": "Learn more",
-            "button_link": "",
             "button_color": "regular"
           }
         }
@@ -503,7 +488,6 @@
         "template--18200361664806__6ad8cec2-709b-4c46-ae24-5a5a68bdcbf7-1679067147757d9bf3-3"
       ],
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "product": "dogo-pet-fruitilicious-hat",
@@ -531,11 +515,8 @@
             "subheading": "CAT TOYS",
             "title": "|Quality Things| for Loving Dogs & Cats",
             "marker_style": "style1",
-            "text": "",
             "link_label": "Shop Toys",
-            "link": "",
             "use_text_button": true,
-            "block_link": "",
             "marker_color": "#fd6b62"
           }
         },
@@ -548,11 +529,8 @@
             "subheading": "PURINA FOODS",
             "title": "Your Natural Choice for |Your Pet|",
             "marker_style": "style2",
-            "text": "",
             "link_label": "Explore",
-            "link": "",
             "use_text_button": true,
-            "block_link": "",
             "marker_color": "#fff176"
           }
         }
@@ -692,7 +670,6 @@
     "ed24b5d2-e11a-4452-9a76-6eb79d6660bc": {
       "type": "featured-blog-post",
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "article": "news/ensuring-safe-travel-with-your-emotional-support-dog",
@@ -723,7 +700,6 @@
           "settings": {
             "image": "",
             "text": "The Pets Daycare",
-            "link": "",
             "outline_text": false
           }
         },
@@ -732,7 +708,6 @@
           "settings": {
             "image": "",
             "text": "Better Nutrition For Pets",
-            "link": "",
             "outline_text": false
           }
         },
@@ -741,7 +716,6 @@
           "settings": {
             "image": "",
             "text": "Smart Pets For Smart People",
-            "link": "",
             "outline_text": false
           }
         }

@@ -19,6 +19,7 @@
 {% schema %}
   {
     "name": "Spacer",
+		"class": "section-spacer",
     "settings": [
 			{
 				"type": "range",
@@ -59,7 +60,12 @@
       {
         "name": "Spacer"
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
-
 {% endschema %}

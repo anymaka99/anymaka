@@ -1,5 +1,4 @@
-{% assign icon_font = block.settings.icon_label_font %}
-<div class="product--icon-list">
+<div class="product--icon-list" {{ block.shopify_attributes }}>
 	<ul>
 		{%- if block.settings.icon_1_text != empty -%}
 			<li>
@@ -12,7 +11,7 @@
 					{% render 'svg-icons-inline', icon: block.settings.icon_1_icon %}
 				</span>
 				{%- endif -%}
-				<span class="{{ icon_font }}">{{ block.settings.icon_1_text }}</span>
+				<span>{{ block.settings.icon_1_text }}</span>
 			</li>
 		{%- endif -%}
 		{%- if block.settings.icon_2_text != empty -%}
@@ -26,7 +25,7 @@
 					{% render 'svg-icons-inline', icon: block.settings.icon_2_icon %}
 				</span>
 				{%- endif -%}
-				<span class="{{ icon_font }}">{{ block.settings.icon_2_text }}</span>
+				<span>{{ block.settings.icon_2_text }}</span>
 			</li>
 		{%- endif -%}
 		{%- if block.settings.icon_3_text != empty -%}
@@ -40,7 +39,7 @@
 					{% render 'svg-icons-inline', icon: block.settings.icon_3_icon %}
 				</span>
 				{%- endif -%}
-				<span class="{{ icon_font }}">{{ block.settings.icon_3_text }}</span>
+				<span>{{ block.settings.icon_3_text }}</span>
 			</li>
 		{%- endif -%}
 		{%- if block.settings.icon_4_text != empty -%}
@@ -54,22 +53,8 @@
 					{% render 'svg-icons-inline', icon: block.settings.icon_4_icon %}
 				</span>
 				{%- endif -%}
-				<span class="{{ icon_font }}">{{ block.settings.icon_4_text }}</span>
+				<span>{{ block.settings.icon_4_text }}</span>
 			</li>
 		{%- endif -%}
-		{%- if block.settings.icon_5_text != empty -%}
-			<li>
-				{% if block.settings.icon_5_image %}
-				<span class="product--icon-list-image">
-					{%- render 'responsive-image', image: block.settings.icon_5_image, sizes: '20x20,40x40' -%}
-				</span>
-				{%- else -%}
-				<span class="product--icon-list-image">
-					{% render 'svg-icons-inline', icon: block.settings.icon_5_icon %}
-				</span>
-				{%- endif -%}
-				<span class="{{ icon_font }}">{{ block.settings.icon_5_text }}</span>
-			</li>
-		{%- endif -%}  
 	</ul>
 </div>

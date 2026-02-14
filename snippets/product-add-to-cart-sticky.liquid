@@ -7,17 +7,16 @@
 			{%- endif -%}
 		</div>
 		<div class="product-add-to-cart-sticky--info">
-			<div class="product-add-to-cart-sticky--title swisBold">{{ product.title }}</div>
+			<div class="product-add-to-cart-sticky--title">{{ product.title }}</div>
 			<div id="price-{{ section.id }}--sticky">
 				{% render 'product-price', product: product, use_variant: true, show_badges: false %}
 			</div>
 		</div>
 		<span class="plus">{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span>
 	</button>
-    {% if section.settings.show_sticky_cart_button %}
 	<div class="product-add-to-cart-sticky--content">
 		{%- unless product.has_only_default_variant -%}
-		<variant-selects  id="variant-selects-{{ section.id }}--sticky" class="no-js-hidden variant-selects--sticky" data-section="{{ section.id }}" data-url="{{ product.url }}" data-sticky="1" data-is-disabled="{{ is_disabled }}">
+		<variant-selects id="variant-selects-{{ section.id }}--sticky" class="no-js-hidden variant-selects--sticky" data-section="{{ section.id }}" data-url="{{ product.url }}" data-sticky="1" data-is-disabled="{{ is_disabled }}">
 			<div class="variations">
 				{%- for option in product.options_with_values -%}
 					{%- liquid
@@ -28,9 +27,15 @@
               if option_name contains 'color' or option_name contains 'colour' or option_name contains 'couleur' or option_name contains 'farbe'
 								assign option_type = 'color'
 							endif
+							# Additional swatch variant options set inside theme settings
+							assign color_swatches_variant_option = settings.color_swatches_variant_option | downcase | split: ', '
+
+							if color_swatches_variant_option contains option_name
+								assign option_type = 'color'
+							endif
 						endif
 					-%}
-					{% render 'product-option', option_type: option_type, product: product, option: option, forloop: forloop, product_form_id: product_form_id, sticky: true %}
+					{% render 'product-option', color_picker_size: color_picker_size, color_picker_use_variants: color_picker_use_variants, option_type: option_type, product: product, option: option, forloop: forloop, product_form_id: product_form_id, sticky: true %}
 				{%- endfor -%}
 			</div>
 			<script type="application/json">
@@ -39,7 +44,14 @@
 		</variant-selects>
 		{%- endunless -%}
 		{%- if product != blank -%}
-		  <product-form class="product-form" data-sticky="1" data-section="{{ section.id }}">
+			{%- liquid
+				assign product_template = product.template_suffix | escape 
+
+				if product.metafields.theme.preorder and product.available
+					assign product_template = 'pre-order'
+				endif
+			-%}
+		  <product-form class="product-form" data-sticky="1" data-section="{{ section.id }}" template="{{ product_template | escape }}">
 				<div class="product-form__error-message-wrapper form-notification error" role="alert" hidden>
 		      {% render 'svg-icons' with 'thb-error' %}
 		      <span class="product-form__error-message"></span>
@@ -49,11 +61,18 @@
 				  <div class="add_to_cart_holder">
 				    <button type="submit" name="add" id="AddToCartSticky" class="single-add-to-cart-button button accent {% unless product.selected_or_first_available_variant.available %}sold-out{% endunless %}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %} form="{{ product_form_id }}">
 							<span class="single-add-to-cart-button--text">
-								{%- if product.selected_or_first_available_variant.available -%}
-				          {{ 'products.product.add_to_cart' | t }}
-				        {%- else -%}
-				          {{ 'products.product.sold_out' | t }}
-				        {%- endif -%}
+								{%- liquid
+									if product.selected_or_first_available_variant.available == false
+										assign button_content = 'products.product.sold_out' | t
+									else
+										if product_template == 'pre-order'
+											assign button_content = 'products.product.pre_order' | t
+										else
+											assign button_content = 'products.product.add_to_cart' | t
+										endif
+									endif
+								-%}
+								{{- button_content -}}
 							</span>
 							<span class="loading-overlay">
 								{% render 'svg-icons' with 'thb-loading' %}
@@ -77,5 +96,4 @@
 	    </div>
 	  {%- endif -%}
 	</div>
-    {%- endif -%}
 </product-add-to-cart-sticky>

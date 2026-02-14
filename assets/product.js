@@ -17,6 +17,7 @@ if (!customElements.get('variant-selects')) {
 
       this.productWrapper = this.closest('.thb-product-detail');
       this.productSlider = this.productWrapper.querySelector('.product-images');
+      this.thumbnails = this.productWrapper.querySelector('.product-thumbnail-container');
       this.hideVariants = this.dataset.hideVariants === 'true';
     }
 
@@ -66,32 +67,6 @@ if (!customElements.get('variant-selects')) {
           this.options.push(fieldset.querySelector('input:checked').value);
         }
       });
-
-      // if(this.options.length > 2){
-      //   // 对option最后一个单独做判断
-      //   var lastOption = this.options[this.options.length - 1];
-      //   var last2Option = this.options[this.options.length - 2];
-      //   if(lastOption.includes('I will pass')){
-      //     // 如果有i will pass, 针对倒数第二去掉Insect Net
-      //     if(last2Option.includes('Insect Net')){
-      //       if(last2Option.includes('And')){
-      //         this.options[this.options.length - 2] = "Cup Holder";
-      //       }else{
-      //         this.options[this.options.length - 2] = "I will pass the cup holder";
-      //       }
-      //     }
-      //   }else{
-      //     if(last2Option.includes('Cup Holder')){
-      //         this.options[this.options.length - 2] = "Cup Holder And Insect Net";
-           
-      //     }else{
-      //       this.options[this.options.length - 2] = "Insect Net";
-      //     }       
-      //   }
-      //   // this.options[this.options.length - 2] = "Cup Holder And Insect Net";
-  
-      //   console.log(lastOption);
-      // }
     }
     updateVariantText() {
       const fieldsets = Array.from(this.querySelectorAll('fieldset'));
@@ -103,11 +78,7 @@ if (!customElements.get('variant-selects')) {
       });
     }
     updateMasterId() {
-      console.log(this);
-      console.log(this.options);
-      console.log(this.getVariantData());
       this.currentVariant = this.getVariantData().find((variant) => {
-        console.log(variant);  
         return !variant.options.map((option, index) => {
           return this.options[index] === option;
         }).includes(false);
@@ -139,24 +110,29 @@ if (!customElements.get('variant-selects')) {
       if (!this.currentVariant) return;
       if (!this.currentVariant.featured_media) return;
 
-      let productSlider = document.querySelector('.thb-product-detail .product-images'),
-        thumbnails = document.querySelector('.thb-product-detail #Product-Thumbnails');
+      let thumbnails = this.productWrapper.querySelector('.product-thumbnail-container');
 
-      this.setActiveMedia(`#Slide-${this.dataset.section}-${this.currentVariant.featured_media.id}`, `#Thumb-${this.dataset.section}-${this.currentVariant.featured_media.id}`, productSlider, thumbnails);
+      this.setActiveMedia(`#Slide-${this.dataset.section}-${this.currentVariant.featured_media.id}`, `#Thumb-${this.dataset.section}-${this.currentVariant.featured_media.id}`, this.productSlider, thumbnails);
     }
     setActiveMedia(mediaId, thumbId, productSlider, thumbnails) {
       let flkty = Flickity.data(productSlider),
         activeMedia = productSlider.querySelector(mediaId);
 
       if (flkty && this.hideVariants) {
-
-
         if (productSlider.querySelector('.product-images__slide.is-initial-selected')) {
           productSlider.querySelector('.product-images__slide.is-initial-selected').classList.remove('is-initial-selected');
         }
         [].forEach.call(productSlider.querySelectorAll('.product-images__slide-item--variant'), function (el) {
           el.classList.remove('is-active');
         });
+        if (this.thumbnails) {
+          if (this.thumbnails.querySelector('.product-thumbnail.is-initial-selected')) {
+            this.thumbnails.querySelector('.product-thumbnail.is-initial-selected').classList.remove('is-initial-selected');
+          }
+          [].forEach.call(this.thumbnails.querySelectorAll('.product-images__slide-item--variant'), function (el) {
+            el.classList.remove('is-active');
+          });
+        }
 
         activeMedia.classList.add('is-active');
         activeMedia.classList.add('is-initial-selected');
@@ -165,13 +141,6 @@ if (!customElements.get('variant-selects')) {
 
         if (thumbnails) {
           let activeThumb = thumbnails.querySelector(thumbId);
-
-          if (thumbnails.querySelector('.product-thumbnail.is-initial-selected')) {
-            thumbnails.querySelector('.product-thumbnail.is-initial-selected').classList.remove('is-initial-selected');
-          }
-          [].forEach.call(thumbnails.querySelectorAll('.product-images__slide-item--variant'), function (el) {
-            el.classList.remove('is-active');
-          });
 
           activeThumb.classList.add('is-active');
           activeThumb.classList.add('is-initial-selected');
@@ -263,10 +232,10 @@ if (!customElements.get('variant-selects')) {
       const productForm = document.getElementById(`product-form-${this.dataset.section}`);
       if (!productForm) return;
 
+      const productTemplate = productForm.closest('.product-form').getAttribute('template');
       const submitButtons = document.querySelectorAll('.single-add-to-cart-button');
 
       if (!submitButtons) return;
-
       submitButtons.forEach((submitButton) => {
         const submitButtonText = submitButton.querySelector('.single-add-to-cart-button--text');
 
@@ -278,7 +247,13 @@ if (!customElements.get('variant-selects')) {
         } else {
           submitButton.removeAttribute('disabled');
           submitButton.classList.remove('loading');
-          submitButtonText.textContent = window.theme.variantStrings.addToCart;
+
+          if (productTemplate?.includes('pre-order')) {
+            submitButtonText.textContent = window.theme.variantStrings.preOrder;
+          } else {
+            submitButtonText.textContent = window.theme.variantStrings.addToCart;
+          }
+
         }
       });
 
@@ -309,14 +284,34 @@ if (!customElements.get('variant-selects')) {
 
       if (variant_data) {
 
-        const selected_options = this.currentVariant.options.map((value, index) => {
-          return {
-            value,
-            index: `option${index + 1}`
-          };
-        });
+        let selected_options = false;
+        if (this.currentVariant) {
+          selected_options = this.currentVariant.options.map((value, index) => {
+            return {
+              value,
+              index: `option${index + 1}`
+            };
+          });
+        } else {
+          let found_option = variant_data.find(option => {
+            return option.option1 === this.options[0];
+          });
+          if (found_option) {
+            selected_options = [
+              {
+                "value": this.options[0],
+                "index": "option1"
+              },
+              {
+                "value": found_option.option2,
+                "index": "option2"
+              }
+            ];
+          } else {
+            return;
+          }
+        }
         const available_options = this.createAvailableOptionsTree(variant_data, selected_options);
-
 
         this.fieldsets.forEach((fieldset, i) => {
           const fieldset_options = Object.values(available_options)[i];
@@ -391,9 +386,9 @@ if (!customElements.get('variant-selects')) {
 
     }
 
-    createAvailableOptionsTree(variant_data, selected_options) {
+    createAvailableOptionsTree(variants, currentlySelectedValues) {
       // Reduce variant array into option availability tree
-      return variant_data.reduce((options, variant) => {
+      return variants.reduce((options, variant) => {
 
         // Check each option group (e.g. option1, option2, option3) of the variant
         Object.keys(options).forEach(index => {
@@ -404,43 +399,34 @@ if (!customElements.get('variant-selects')) {
 
           if (typeof entry === 'undefined') {
             // If option has yet to be added to the options tree, add it
-            entry = {
-              value: variant[index],
-              isUnavailable: true
-            };
+            entry = { value: variant[index], isUnavailable: true };
             options[index].push(entry);
           }
 
-          // Check how many selected option values match a variant
-          const countVariantOptionsThatMatchCurrent = selected_options.reduce((count, {
-            value,
-            index
-          }) => {
-            return variant[index] === value ? count + 1 : count;
-          }, 0);
+          const currentOption1 = currentlySelectedValues.find(({ value, index }) => index === 'option1');
+          const currentOption2 = currentlySelectedValues.find(({ value, index }) => index === 'option2');
 
-          // Only enable an option if an available variant matches all but one current selected value
-          if (countVariantOptionsThatMatchCurrent >= selected_options.length - 1) {
-            entry.isUnavailable = entry.isUnavailable && variant.available ? false : entry.isUnavailable;
-          }
-
-          // Make sure if a variant is unavailable, disable currently selected option
-          if ((!this.currentVariant || !this.currentVariant.available) && selected_options.find((option) => option.value === entry.value && index === option.index)) {
-            entry.isUnavailable = true;
-          }
-
-          // First option is always enabled
-          if (index === 'option1') {
-            entry.isUnavailable = entry.isUnavailable && variant.available ? false : entry.isUnavailable;
+          switch (index) {
+            case 'option1':
+              // Option1 inputs should always remain enabled based on all available variants
+              entry.isUnavailable = entry.isUnavailable && variant.available ? false : entry.isUnavailable;
+              break;
+            case 'option2':
+              // Option2 inputs should remain enabled based on available variants that match first option group
+              if (currentOption1 && variant.option1 === currentOption1.value) {
+                entry.isUnavailable = entry.isUnavailable && variant.available ? false : entry.isUnavailable;
+              }
+              break;
+            case 'option3':
+              // Option 3 inputs should remain enabled based on available variants that match first and second option group
+              if (currentOption1 && variant.option1 === currentOption1.value && currentOption2 && variant.option2 === currentOption2.value) {
+                entry.isUnavailable = entry.isUnavailable && variant.available ? false : entry.isUnavailable;
+              }
           }
         });
 
         return options;
-      }, {
-        option1: [],
-        option2: [],
-        option3: []
-      });
+      }, { option1: [], option2: [], option3: [] });
     }
 
     getVariantData() {
@@ -660,6 +646,7 @@ if (!customElements.get('product-slider')) {
     setEventListeners() {
       this.links = this.querySelectorAll('.product-single__media-zoom');
       this.pswpElement = document.querySelectorAll('.pswp')[0];
+
       this.pswpOptions = {
         maxSpreadZoom: 2,
         loop: false,
@@ -697,7 +684,11 @@ if (!customElements.get('product-slider')) {
       this.pswpOptions.index = parseInt(link.dataset.index, 10);
       if (typeof PhotoSwipe !== 'undefined') {
         let pswp = new PhotoSwipe(this.pswpElement, PhotoSwipeUI_Default, this.items, this.pswpOptions);
+        document.body.classList.add('open-lightbox');
         pswp.listen('firstUpdate', function () {
+          pswp.listen('destroy', function () {
+            document.body.classList.remove('open-lightbox');
+          });
           pswp.listen('parseVerticalMargin', function (item) {
             item.vGap = {
               top: 50,
@@ -721,7 +712,8 @@ if (!customElements.get('product-form')) {
   customElements.define('product-form', class ProductForm extends HTMLElement {
     constructor() {
       super();
-
+    }
+    connectedCallback() {
       this.sticky = this.dataset.sticky;
       this.form = document.getElementById(`product-form-${this.dataset.section}`);
       this.form.querySelector('[name=id]').disabled = false;
@@ -733,7 +725,6 @@ if (!customElements.get('product-form')) {
 
       this.hideErrors = this.dataset.hideErrors === 'true';
     }
-
     onSubmitHandler(evt) {
       evt.preventDefault();
 
@@ -777,6 +768,11 @@ if (!customElements.get('product-form')) {
               errors: response.description,
               message: response.message
             });
+            if (response.status === 422) {
+              document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+                bubbles: true
+              }));
+            }
             this.handleErrorMessage(response.description);
             return;
           }
@@ -823,15 +819,13 @@ if (!customElements.get('product-form')) {
         const elementToReplace = document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
         elementToReplace.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
 
-        if (typeof CartDrawer !== 'undefined') {
-          new CartDrawer();
+        if (section.id === 'Cart-Drawer') {
+          document.getElementById('Cart-Drawer')?.removeProductEvent();
         }
         if (typeof Cart !== 'undefined') {
           new Cart().renderContents(parsedState);
         }
       }));
-
-
 
       let product_drawer = document.getElementById('Product-Drawer'),
         search_drawer = document.getElementById('Search-Drawer');
@@ -843,13 +837,10 @@ if (!customElements.get('product-form')) {
         product_drawer.classList.remove('active');
         this.body.classList.remove('open-cc--product');
         if (document.getElementById('Cart-Drawer')) {
-          this.body.classList.add('open-cc');
-          document.getElementById('Cart-Drawer').classList.add('active');
+          document.getElementById('Cart-Drawer').open();
         }
       } else if (document.getElementById('Cart-Drawer')) {
-        this.body.classList.add('open-cc');
-        document.getElementById('Cart-Drawer').classList.add('active');
-        dispatchCustomEvent('cart-drawer:open');
+        document.getElementById('Cart-Drawer').open();
       }
     }
     getSectionInnerHTML(html, selector = '.shopify-section') {
@@ -891,8 +882,7 @@ if (!customElements.get('product-add-to-cart-sticky')) {
     setupToggle() {
       const button = this.querySelector('.product-add-to-cart-sticky--inner'),
         content = this.querySelector('.product-add-to-cart-sticky--content');
-      if(!content) return false;
-      
+
       if (this.animations_enabled) {
         const tl = gsap.timeline({
           reversed: true,
@@ -922,7 +912,6 @@ if (!customElements.get('product-add-to-cart-sticky')) {
         });
       } else {
         button.addEventListener('click', function () {
-          button.classList.toggle('active');
           content.classList.toggle('active');
           return false;
         });
@@ -942,14 +931,13 @@ if (!customElements.get('product-add-to-cart-sticky')) {
             }
             if (entry.target === form) {
               let boundingRect = form.getBoundingClientRect();
-              _this.classList.add('sticky--visible');
-              // if (entry.intersectionRatio === 0 && window.scrollY > (boundingRect.top + boundingRect.height)) {
+
               if (entry.intersectionRatio === 0 && window.scrollY > (boundingRect.top + boundingRect.height)) {
                 _this.formPassed = true;
                 _this.classList.add('sticky--visible');
               } else if (entry.intersectionRatio === 1) {
-                // _this.formPassed = false;
-                // _this.classList.remove('sticky--visible');
+                _this.formPassed = false;
+                _this.classList.remove('sticky--visible');
               }
             }
           });
@@ -960,7 +948,7 @@ if (!customElements.get('product-add-to-cart-sticky')) {
         footer = document.getElementById('footer');
       _this.formPassed = false;
       observer.observe(form);
-      // observer.observe(footer);
+      observer.observe(footer);
     }
   }
 
@@ -999,4 +987,8 @@ if (!customElements.get('side-panel-links')) {
   }
 
   customElements.define('side-panel-links', ProductSidePanelLinks);
+}
+
+if (typeof addIdToRecentlyViewed !== "undefined") {
+  addIdToRecentlyViewed();
 }

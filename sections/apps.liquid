@@ -1,33 +1,75 @@
-<div class="{% if section.settings.include_margins %}row{% endif %}">
-  {% if section.settings.include_margins %}<div class="small-12 columns">{% endif %}
-  {%- for block in section.blocks -%}
-    {% render block %}
-  {%- endfor -%}
-    {% if section.settings.include_margins %}</div>{% endif %}
+{%- liquid
+	assign section_width = section.settings.section_width
+
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+-%}
+<div class="app-wrapper section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+  <div class="row {{ section_width }}">
+    <div class="small-12 columns">
+      {%- for block in section.blocks -%}
+        {% render block %}
+      {%- endfor -%}
+    </div>
+  </div>
 </div>
 
 {% schema %}
-{
-  "name": "Apps",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "include_margins",
-      "default": true,
-      "label": "Include margins"
+  {
+    "name": "App wrapper",
+    "class": "section-app-wrapper",
+    "settings": [
+      {
+        "type": "select",
+        "id": "section_width",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "full-width-row",
+            "label": "Full width"
+          },
+          {
+            "value": "full-width-row-full",
+            "label": "Full width, no spacing"
+          }
+        ],
+        "default": "grid",
+        "label": "Section width"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_top_spacing",
+        "default": false,
+        "label": "Remove top spacing"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_bottom_spacing",
+        "default": false,
+        "label": "Remove bottom spacing"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "App wrapper"
+      }
+    ],
+    "disabled_on": {
+      "groups": [
+        "header", "custom.overlay", "footer"
+      ]
     }
-  ],
-  "blocks": [
-    {
-      "type": "@app"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Apps"
-    }
-  ]
-}
+  }
 {% endschema %}

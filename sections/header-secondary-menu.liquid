@@ -1,5 +1,6 @@
 {%- liquid
 	assign menu = section.settings.secondary_menu
+  assign full_width = section.settings.full_width
 	assign show_language_switcher = section.settings.show_language_switcher
 	assign show_currency_switcher = section.settings.show_currency_switcher
 	assign show_social_media = section.settings.show_social_media
@@ -13,7 +14,7 @@
 	endif
 -%}
 {{- 'subheader.css' | asset_url | stylesheet_tag -}}
-<aside class="subheader subheader-border--{{ has_border }}">
+<aside class="subheader subheader-border--{{ has_border }}{% if full_width %} subheader--full-width{%- endif %}">
 	<div class="subheader--inner">
 		<div class="subheader--left">
 			<ul class="thb-full-menu" role="menubar">
@@ -82,6 +83,12 @@
 	"name": "Secondary Menu",
 	"class": "header-secondary-menu-section",
 	"settings": [
+		{
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
 		{
 			"type": "link_list",
 			"id": "secondary_menu",

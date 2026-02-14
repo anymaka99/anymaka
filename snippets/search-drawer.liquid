@@ -1,5 +1,5 @@
 <div class="side-panel search-drawer" tabindex="-1" id="Search-Drawer">
-	<div class="side-panel-inner">
+	<search-form data-drawer="1" class="side-panel-inner searchform">
 		<div class="side-panel-header">
 			<div>
 				<form role="search" method="get" class="searchform" action="{{ routes.search_url }}">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		{%- if settings.predictive_search_enabled -%}
-		<div class="side-panel-content side-panel-content--has-tabs">
+		<div class="side-panel-content side-panel-content--has-tabs thb-predictive-search">
 
 		</div>
 		{%- endif -%}
@@ -44,8 +44,7 @@
 				{%- endif -%}
 			</div>
 		</div>
-
-	</div>
+	</search-form>
 </div>
 
 <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">

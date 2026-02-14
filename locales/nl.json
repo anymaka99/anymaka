@@ -44,8 +44,10 @@
       "vimeo": "Vimeo",
       "tiktok": "TikTok",
       "linkedin": "Linkedin",
-      "wechat": "WeChat"
-    }
+      "wechat": "WeChat",
+      "whatsapp": "WhatsApp"
+    },
+    "copied_to_clipboard": "Gekopieerd naar het klembord"
   },
   "pagination": {
     "label": "Paginering",
@@ -81,8 +83,8 @@
       "read_more": "Lees verder",
       "tags": "Tags:",
       "comments_html": {
-        "one": "<span>{{ count }} reactie</span> {{ title }}",
-        "other": "<span>{{ count }} reacties</span> {{ title }}"
+        "one": "<span>{{ count }} reactie<\/span> {{ title }}",
+        "other": "<span>{{ count }} reacties<\/span> {{ title }}"
       },
       "moderated": "Let op: opmerkingen moeten worden goedgekeurd voordat ze worden gepubliceerd.",
       "comment_form_title": "Reactie plaatsen",
@@ -117,6 +119,7 @@
       "sold_out": "Uitverkocht",
       "save_html": "Bespaar {{ saved_amount }}",
       "unavailable": "Niet beschikbaar",
+      "pre_order": "Vooruitbestellen",
       "price": {
         "from_price_html": "Vanaf {{ price }}",
         "regular_price": "Normale prijs",
@@ -165,6 +168,16 @@
         "label": "Kleur"
       }
     },
+    "compare": {
+      "compare": "Vergelijken",
+      "compare_products": "Producten vergelijken",
+      "clear_all": "Alles wissen",
+      "metafields": {
+        "file_download": "Downloaden",
+        "boolean_true": "Ja",
+        "boolean_false": "Nee"
+      }
+    },
     "facets": {
       "apply": "Toepassen",
       "clear": "Wissen",
@@ -194,11 +207,6 @@
     }
   },
   "sections": {
-    "404": {
-      "not_found": "Pagina niet gevonden",
-      "not_found_description": "De pagina waarnaar u op zoek was, bestaat niet. Mogelijk hebt u het adres verkeerd getypt of is de pagina verplaatst.",
-      "continue_shopping": "Verder winkelen"
-    },
     "header": {
       "search": "Zoek",
       "search_for": "Zoek nar iets",
@@ -206,9 +214,10 @@
       "my_account": "Mijn account",
       "login": "Login",
       "cart": "winkelwagen",
-      "products": "Producten",
+      "search_products": "Producten",
       "articles": "Artikelen",
       "suggestions": "Suggesties",
+      "pages": "Paginas",
       "view_all_results": "Bekijk alle resultaten"
     },
     "breadcrumbs": {
@@ -218,6 +227,11 @@
       "my_account": "Mijn account",
       "cart": "Winkelwagen",
       "collections": "Collecties"
+    },
+    "404": {
+      "not_found": "Pagina niet gevonden",
+      "not_found_description": "De pagina waarnaar u op zoek was, bestaat niet. Mogelijk hebt u het adres verkeerd getypt of is de pagina verplaatst.",
+      "continue_shopping": "Verder winkelen"
     },
     "cart": {
       "title": "Jouw winkelwagen",
@@ -242,8 +256,19 @@
         "quantity": "Aantal"
       },
       "terms": "Ik ga akkoord met de algemene voorwaarden",
-      "terms_html": "Ik ga akkoord met de <a href='{{ url }}' target='_blank'>algemene voorwaarden</a>",
-      "terms_confirm": "U moet akkoord gaan met de algemene voorwaarden van verkoop om af te rekenen"
+      "terms_html": "Ik ga akkoord met de <a href='{{ url }}' target='_blank'>algemene voorwaarden<\/a>",
+      "terms_confirm": "U moet akkoord gaan met de algemene voorwaarden van verkoop om af te rekenen",
+      "shipping_estimator": {
+        "estimate_shipping": "Verzendkosten schatten",
+        "country": "Land",
+        "province": "Provincie",
+        "zip_code": "Postcode",
+        "submit": "Schatting maken",
+        "no_results": "Sorry, we verzenden niet naar uw adres.",
+        "one_result": "Er is één verzendtarief voor uw adres:",
+        "multiple_results": "Er zijn meerdere verzendtarieven voor uw adres:",
+        "error": "Er is een of meer fouten opgetreden bij het ophalen van verzendtarieven:"
+      }
     },
     "collection_template": {
       "empty": "Geen producten gevonden",
@@ -317,7 +342,8 @@
       "submit_register": "Account aanmaken",
       "already_have_an_account": "Heb je al een account?",
       "submit": "Aanmaken",
-      "cancel": "Annuleren"
+      "cancel": "Annuleren",
+      "alternate_provider_separator": "of"
     },
     "recover_password": {
       "title": "Wachtwoord opnieuw instellen",
@@ -430,52 +456,15 @@
       "name": "Naam",
       "message_label": "Bericht (optioneel)",
       "message": "Bericht",
-      "max_characters": "Maximaal {{ max_chars }} tekens"
+      "max_characters": "Maximaal {{ max_chars }} tekens",
+      "send_on": "JJJJ-MM-DD",
+      "send_on_label": "Verzenden op (optioneel)"
     }
   },
-  "pagefly": {
-    "products": {
-      "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
-        "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
-      }
-    },
-    "article": {
-      "tags": "Tags:",
-      "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
-    },
-    "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
-      "moderated": "Please note, comments must be approved before they are published",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
-      "comments_with_count": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      }
-    },
-    "password_page": {
-      "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
-      "signup_form_email_label": "Email",
-      "signup_form_success": "We will send you an email right before we open!",
-      "password_link": "Enter using password"
-    }
+  "discounts": {
+    "discount_code": "Kortingscode toepassen",
+    "discount_code_error": "De kortingscode kan niet op je winkelwagen worden toegepast",
+    "discounts": "Kortingen",
+    "apply": "Toepassen"
   }
 }

@@ -91,7 +91,7 @@
   .media-with-tabs--button {
     position: relative;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: var(--font-body-medium-weight, 500);
     color: var(--color-text);
     opacity: 0.4;
     width: 100%;

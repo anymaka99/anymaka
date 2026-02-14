@@ -35,7 +35,7 @@
     margin: 0 0 10px;
     display: flex;
     align-items: flex-start;
-    grid-gap: 15px;
+    gap: 15px;
     padding: 15px;
     background: rgba(var(--color-body-rgb), 0.03);
     min-height: 112px; }
@@ -43,13 +43,13 @@
       display: none !important; }
     @media only screen and (min-width: 768px) {
       .commentlist .comment {
-        grid-gap: 24px;
+        gap: 24px;
         padding: 24px; } }
     .commentlist .comment .comment-author {
       display: block;
       font-size: 0.9375rem;
       line-height: 1;
-      font-weight: 500;
+      font-weight: var(--font-body-medium-weight, 500);
       margin-bottom: 10px; }
       .commentlist .comment .comment-author .fn {
         display: inline-block;
