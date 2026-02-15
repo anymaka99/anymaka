@@ -1,3 +1,5 @@
+{{ 'header-custom.css' | asset_url | stylesheet_tag }}
+
 {%- liquid
   assign style = section.settings.style
   assign sticky_header = section.settings.sticky_header
@@ -13,7 +15,7 @@
 -%}
 <theme-header
   id="header"
-  class="header {{ style }} {{ header_shadow }}{% if full_width %} header--full-width{%- endif %} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}"
+  class="header header-custom {{ style }} {{ header_shadow }}{% if full_width %} header--full-width{%- endif %} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}"
 >
   <div class="header--inner">
     {%- case style -%}
@@ -229,19 +231,35 @@
     {
       "type": "@app"
     },
-		{
-			"type": "mobile_secondary_menu",
-			"name": "Mobile secondary menu",
-			"limit": 1,
-			"settings": [
-				{
-					"type": "link_list",
-					"id": "menu",
-					"label": "Secondary menu",
-					"info": "Secondary menu is shown under the main menu."
-				}
-			]
-		},
+    {
+      "type": "mobile_secondary_menu",
+      "name": "Mobile secondary menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Secondary menu",
+          "info": "Secondary menu is shown under the main menu."
+        },
+        {
+          "type": "select",
+          "id": "secondary_menu_style",
+          "label": "Secondary menu style",
+          "default": "basic",
+          "options": [
+            {
+              "value": "basic",
+              "label": "Basic"
+            },
+            {
+              "value": "basic_with_submenu",
+              "label": "Basic with submenu"
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "secondary_nav",
       "name": "Secondary navigation",
@@ -517,6 +535,41 @@
           "id": "content_product_image",
           "label": "Show product images",
           "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_additional_links",
+          "label": "Show additional links"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_1",
+          "label": "Menu item 1"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_1",
+          "label": "Menu item URL 1"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_2",
+          "label": "Menu item 2"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_2",
+          "label": "Menu item URL 2"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_menu_item_3",
+          "label": "Menu item 3"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_menu_url_3",
+          "label": "Menu item URL 3"
         }
       ]
     },
