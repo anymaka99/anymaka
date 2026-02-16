@@ -1,0 +1,80 @@
+{{ 'advantages-dnc.css' | asset_url | stylesheet_tag }}
+<section class="advantages-blocks">
+  {%- if section.settings.section_title -%}
+    <h1 class="advantages-blocks__title">{{ section.settings.section_title }}</h1>
+  {%- endif -%}
+  <div class="advantages-blocks-container">
+    {% for block in section.blocks %}
+      <div class="advantages-block-item" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 500 }}"
+            alt="{{ block.settings.title }}"
+            class="advantages-block-image"
+          >
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+        <h3 class="advantages-block-title">{{ block.settings.title }}</h3>
+        <div class="advantages-block-text">{{ block.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages Section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Heading",
+      "default": "Our Advantages"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_block",
+      "name": "Item Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Item Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Item Text",
+          "default": "<p>Description of your awesome feature goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advantages Section",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "info_block"
+        },
+        {
+          "type": "info_block"
+        },
+        {
+          "type": "info_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
