@@ -1,0 +1,225 @@
+{{- 'video-instagram.css' | asset_url | stylesheet_tag -}}
+
+<style>
+  .how-used-video {
+      background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .how-used-video {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .how-used-video {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="how-used-video">
+  <div class="how-used-video__wrapper">
+    {%- if section.settings.top_image -%}
+      <div class="top-icon">
+        {{ section.settings.top_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+      </div>
+    {%- endif -%}
+    <h2 class="how-used__title">
+      {% if section.settings.title %}
+        {{ section.settings.title }}
+      {% endif %}
+      {% if section.settings.show_line %}
+        {%- render 'icon-line-title' -%}
+        {%- render 'icon-line-title-mob' -%}
+      {% endif %}
+    </h2>
+
+    <div class="swiper how-used__slider">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide how-used__slide">
+            <div class="how-used__video-wrap">
+              {% if block.settings.video != blank %}
+                {% assign poster = block.settings.video.preview_image %}
+
+                {% if poster %}
+                  <img
+                    class="how-used__video-poster"
+                    src="{{ poster | image_url: width: 800 }}"
+                    alt=""
+                    loading="lazy"
+                  >
+                {% endif %}
+                {{
+                  block.settings.video
+                  | video_tag: autoplay: false, loop: true, muted: true, playsinline: true, controls: false
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'how-used__placeholder' }}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function initHowUsed(scope = document) {
+      const sliders = scope.querySelectorAll('.how-used__slider');
+
+      sliders.forEach((slider) => {
+        if (!slider.classList.contains('swiper-initialized')) {
+          new Swiper(slider, {
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            centeredSlides: true,
+            loop: true,
+
+            breakpoints: {
+              0: { slidesPerView: 1.2, spaceBetween: 12 },
+              768: { slidesPerView: 2.2, spaceBetween: 16 },
+              1024: { slidesPerView: 3.2, spaceBetween: 24 },
+              1440: { slidesPerView: 4.2, spaceBetween: 24 },
+            },
+          });
+        }
+      });
+
+      const slides = scope.querySelectorAll('.how-used__slide');
+
+      slides.forEach((slide) => {
+        if (slide.dataset.videoInit === 'true') return;
+
+        const video = slide.querySelector('video');
+        if (!video) return;
+
+        const play = () => {
+          slide.classList.add('is-playing');
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        };
+
+        const pause = () => {
+          slide.classList.remove('is-playing');
+          video.pause();
+          video.currentTime = 0;
+        };
+
+        slide.addEventListener('mouseenter', play);
+        slide.addEventListener('mouseleave', pause);
+
+        slide.addEventListener('touchstart', play, { passive: true });
+        slide.addEventListener('touchend', pause);
+
+        slide.dataset.videoInit = 'true';
+      });
+    }
+
+    initHowUsed();
+
+    document.addEventListener('shopify:section:load', function (event) {
+      initHowUsed(event.target);
+    });
+
+    document.addEventListener('shopify:block:load', function (event) {
+      const section = event.target.closest('.shopify-section');
+      if (!section) return;
+      initHowUsed(section);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Instagram video slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How It's Used"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show line title",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "top_image",
+      "label": "Top image icon"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_item",
+      "name": "video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Instagram video slider"
+    }
+  ]
+}
+{% endschema %}

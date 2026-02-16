@@ -1,0 +1,115 @@
+
+.how-used-video {
+    position: relative;
+}
+
+  .how-used__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    color: #242528;
+    padding: 0px 64px;
+    margin-bottom: 48px;
+    position: relative;
+    max-width: max-content;
+    z-index: 2;
+  }
+  .how-used__title svg {
+    position: absolute;
+    left: 68px;
+    top: 2px;
+    z-index: -1;
+  }
+  .how-used__slide {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .how-used__video-wrap {
+    position: relative;
+    aspect-ratio: auto;
+    height: 600px;
+    display: flex;
+    background: rgba(0, 0, 0, .2);
+  }
+  .how-used__video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .how-used__video-wrap {
+    aspect-ratio: auto;
+    height: 600px;
+  }
+  .line-mob {
+    display: none;
+  }
+
+  .how-used-video .top-icon {
+    position: absolute;
+    top: -55px;
+    right: 55px;
+  }
+  
+  .how-used__video-wrap video,
+.how-used__video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-used__video-poster {
+  z-index: 2;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.how-used__slide.is-playing .how-used__video-poster {
+  opacity: 0;
+}
+
+.how-used__video-wrap video {
+  z-index: 1;
+}
+
+  @media (max-width: 1500px) {
+    .how-used__video-wrap {
+      height: auto;
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .how-used__video-wrap {
+      aspect-ratio: 4 / 5;
+      height: auto;
+    }
+    .line-desktop {
+        display: none;
+    }
+    .line-mob {
+        display: block;
+    }
+    .how-used__title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .how-used__title {
+        padding: 0px 16px;
+        margin-bottom: 32px;
+    }
+    .how-used__title svg {
+        max-width: 174px;
+        left: 15px;
+        top: -1px;
+    }
+    .how-used-video .top-icon {
+        top: -32px;
+        right: 13px;
+    }
+    .how-used-video .top-icon img {
+        max-width: 120px;
+    }
+  }
