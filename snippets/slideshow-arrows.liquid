@@ -1,2 +1,12 @@
-<div class="flickity-nav flickity-prev" tabindex="0">{%- render 'svg-icons' with 'carousel-prev' -%}</div>
-<div class="flickity-nav flickity-next" tabindex="0">{%- render 'svg-icons' with 'carousel-next' -%}</div>
+<div
+  class="flickity-nav flickity-prev {% if section.settings.arrow_transparent %}flickity-transparent{% endif %}"
+  tabindex="0"
+>
+  {%- render 'svg-icons' with 'carousel-prev' -%}
+</div>
+<div
+  class="flickity-nav flickity-next {% if section.settings.arrow_transparent %}flickity-transparent{% endif %}"
+  tabindex="0"
+>
+  {%- render 'svg-icons' with 'carousel-next' -%}
+</div>
