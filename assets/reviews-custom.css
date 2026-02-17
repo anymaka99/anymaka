@@ -10,7 +10,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
-  
   .reviews__title {
     position: relative;
     margin: 0;
@@ -95,7 +94,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: auto;
   }
   
@@ -130,6 +128,11 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
   }
   
   .reviews__footer {
