@@ -211,6 +211,7 @@ if (!customElements.get('product-card')) {
     enableSwatches(swatches, image) {
       let swatch_list = swatches.querySelectorAll('.product-card-swatch'),
         org_srcset = image ? image.dataset.srcset : '';
+        const quickAddButton = this.quick_add;
 
       swatch_list.forEach((swatch, index) => {
         window.addEventListener('load', (event) => {
@@ -231,14 +232,19 @@ if (!customElements.get('product-card')) {
             }
           }
 
+          if (swatch.dataset.variantId && quickAddButton) {
+            quickAddButton.dataset.productId = swatch.dataset.variantId;
+          }
+
           swatch.classList.add('active');
         });
         swatch.addEventListener('click', function (evt) {
-          window.location.href = this.dataset.href;
+          // window.location.href = this.dataset.href;
           evt.preventDefault();
         });
       });
     }
+    
     enableQuickAdd() {
       this.quick_add.addEventListener('click', this.quickAdd.bind(this));
     }
@@ -261,8 +267,11 @@ if (!customElements.get('product-card')) {
 
       let formData = new FormData(this.form);
 
+      const qtyInput = this.querySelector('.quantity__input');
+      const qty = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+
       formData.append('id', this.quick_add.dataset.productId);
-      formData.append('quantity', 1);
+      formData.append('quantity', qty);
       formData.append('sections', this.getSectionsToRender().map((section) => section.section));
       formData.append('sections_url', window.location.pathname);
 
