@@ -1,0 +1,299 @@
+{{ 'reviews-custom.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .reviews {
+      background-color: {{ section.settings.bg_color }};
+  }
+  #shopify-section-{{ section.id }} .reviews {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    @media (max-width: 767px) {
+      #shopify-section-{{ section.id }} .reviews {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+</style>
+
+<section
+  class="reviews"
+>
+  <div class="reviews__header">
+    <div class="reviews__titles">
+      {% if section.settings.title != blank %}
+        <div class="reviews__title">
+          <span class="reviews__title-text">{{ section.settings.title }}</span>
+
+          {% if section.settings.show_line %}
+            {%- render 'icon-line-title-review' -%}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.sub_title != blank %}
+        <p class="reviews__subtext">{{ section.settings.sub_title }}</p>
+      {% endif %}
+    </div>
+
+    <div class="reviews__actions">
+      <div class="reviews__nav">
+        <button class="reviews__nav-btn reviews__nav-btn--prev" type="button" aria-label="Previous slide">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.83333 7.14583L6.91667 11.2292C7.08333 11.3958 7.16319 11.5903 7.15625 11.8125C7.14931 12.0347 7.0625 12.2292 6.89583 12.3958C6.72917 12.5486 6.53472 12.6285 6.3125 12.6354C6.09028 12.6424 5.89583 12.5625 5.72917 12.3958L0.229167 6.89583C0.145833 6.8125 0.0868056 6.72222 0.0520833 6.625C0.0173611 6.52778 0 6.42361 0 6.3125C0 6.20139 0.0173611 6.09722 0.0520833 6C0.0868056 5.90278 0.145833 5.8125 0.229167 5.72917L5.72917 0.229167C5.88194 0.0763889 6.07292 0 6.30208 0C6.53125 0 6.72917 0.0763889 6.89583 0.229167C7.0625 0.395833 7.14583 0.59375 7.14583 0.822917C7.14583 1.05208 7.0625 1.25 6.89583 1.41667L2.83333 5.47917H12.1458C12.3819 5.47917 12.5799 5.55903 12.7396 5.71875C12.8993 5.87847 12.9792 6.07639 12.9792 6.3125C12.9792 6.54861 12.8993 6.74653 12.7396 6.90625C12.5799 7.06597 12.3819 7.14583 12.1458 7.14583H2.83333Z" fill="#242528"/>
+          </svg>
+        </button>
+
+        <button class="reviews__nav-btn reviews__nav-btn--next" type="button" aria-label="Next slide">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.83333 7.14583L6.91667 11.2292C7.08333 11.3958 7.16319 11.5903 7.15625 11.8125C7.14931 12.0347 7.0625 12.2292 6.89583 12.3958C6.72917 12.5486 6.53472 12.6285 6.3125 12.6354C6.09028 12.6424 5.89583 12.5625 5.72917 12.3958L0.229167 6.89583C0.145833 6.8125 0.0868056 6.72222 0.0520833 6.625C0.0173611 6.52778 0 6.42361 0 6.3125C0 6.20139 0.0173611 6.09722 0.0520833 6C0.0868056 5.90278 0.145833 5.8125 0.229167 5.72917L5.72917 0.229167C5.88194 0.0763889 6.07292 0 6.30208 0C6.53125 0 6.72917 0.0763889 6.89583 0.229167C7.0625 0.395833 7.14583 0.59375 7.14583 0.822917C7.14583 1.05208 7.0625 1.25 6.89583 1.41667L2.83333 5.47917H12.1458C12.3819 5.47917 12.5799 5.55903 12.7396 5.71875C12.8993 5.87847 12.9792 6.07639 12.9792 6.3125C12.9792 6.54861 12.8993 6.74653 12.7396 6.90625C12.5799 7.06597 12.3819 7.14583 12.1458 7.14583H2.83333Z" fill="#242528"/>
+          </svg>
+        </button>
+      </div>
+
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="reviews__cta">
+          {{ section.settings.button_text }}
+          {%- render 'icon-arrow-button-mobile', variable: value -%}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="swiper reviews__swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <article class="swiper-slide reviews__slide" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="reviews__media">
+                <img
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  srcset="
+                    {{ block.settings.image | image_url: width: 400 }} 400w,
+                    {{ block.settings.image | image_url: width: 800 }} 800w,
+                    {{ block.settings.image | image_url: width: 1200 }} 1200w
+                  "
+                  sizes="(max-width: 768px) 90vw, 33vw"
+                  alt="{{ block.settings.title | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              </div>
+            {% endif %}
+
+            <div class="reviews__content">
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.description != blank %}
+                <div class="rte">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="reviews__footer">
+              {% if block.settings.name != blank %}
+                <span class="reviews__name">{{ block.settings.name }}</span>
+              {% endif %}
+
+              {% if block.settings.stars != blank %}
+                <img
+                  class="reviews__stars-img"
+                  src="{{ block.settings.stars | image_url: width: 120 }}"
+                  alt="Rating"
+                  loading="lazy"
+                  width="{{ block.settings.stars.width }}"
+                  height="{{ block.settings.stars.height }}"
+                >
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if section.settings.bottom_image != blank %}
+    <img
+      src="{{ section.settings.bottom_image | image_url: width: 800 }}"
+      alt=""
+      class="reviews__hammock"
+      loading="lazy"
+      width="{{ section.settings.bottom_image.width }}"
+      height="{{ section.settings.bottom_image.height }}"
+    >
+  {% endif %}
+</section>
+
+<script>
+  (function () {
+    const initReviewsSwiper = () => {
+      document.querySelectorAll('.reviews__swiper').forEach((el) => {
+        if (!el || typeof Swiper === 'undefined') return;
+
+        if (el.swiper) {
+          el.swiper.destroy(true, true);
+        }
+
+        new Swiper(el, {
+          slidesPerView: 1.2,
+          speed: 600,
+          navigation: {
+            nextEl: el.closest('.reviews')?.querySelector('.reviews__nav-btn--next'),
+            prevEl: el.closest('.reviews')?.querySelector('.reviews__nav-btn--prev'),
+          },
+          breakpoints: {
+            320: {
+              slidesPerView: 1.2,
+              spaceBetween: 12,
+            },
+            700: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+          },
+        });
+      });
+    };
+
+    initReviewsSwiper();
+
+    document.addEventListener('shopify:section:load', initReviewsSwiper);
+    document.addEventListener('shopify:section:reorder', initReviewsSwiper);
+    document.addEventListener('shopify:section:select', initReviewsSwiper);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Reviews custom",
+  "class": "reviews-custom",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Satisfied Customers"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Subtitle",
+      "default": "Over 600,000 happy customers"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show line title",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_image",
+      "label": "Bottom image icon"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "See All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Review item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer name"
+        },
+        {
+          "type": "image_picker",
+          "id": "stars",
+          "label": "Stars image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews custom"
+    }
+  ]
+}
+{% endschema %}
