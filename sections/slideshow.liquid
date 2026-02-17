@@ -4,6 +4,7 @@
   assign mobile_height = section.settings.mobile_height
   assign full_width = section.settings.full_width
   assign controls = section.settings.controls
+  assign controls_desktop = section.settings.controls_desktop
   assign transition = section.settings.transition
   assign autoplay = section.settings.autoplay
   assign disable_top_spacing = section.settings.disable_top_spacing
@@ -186,7 +187,7 @@
               endif
             -%}
             <div class="slideshow__slide-video-bg" data-provider="hosted" data-video-id="{{ video.id }}">
-              {{ video | video_tag: autoplay: autoplay, loop: true, controls: false, muted: true }}
+              {{ video | video_tag: autoplay: autoplay, loop: true, controls_desktop: false, muted: true }}
             </div>
           {%- endif -%}
           <div class="slideshow__slide-overlay" style="background: {{ block.settings.overlay_gradient }}"></div>
@@ -273,7 +274,7 @@
         </div>
       {%- endfor -%}
       {%- if enable_controls -%}
-        {%- if controls == 'arrows-with-numbers' -%}
+        {%- if controls_desktop == 'arrows-with-numbers' -%}
           <div class="flickity-custom-navigation-wrapper">
             <div class="flickity-custom-navigation">
               <div
@@ -295,7 +296,7 @@
               </div>
             </div>
           </div>
-        {%- elsif controls == 'arrows' -%}
+        {%- elsif controls_desktop == 'arrows' -%}
           <div class="flickity-custom-navigation-wrapper">
             <div class="flickity-static-arrows">
               {%- render 'slideshow-arrows' -%}
@@ -425,7 +426,19 @@
     {
       "type": "select",
       "id": "controls",
-      "label": "Controls",
+      "label": "Controls Mobile",
+      "options": [
+        {
+          "value": "dots",
+          "label": "Dots"
+        }
+      ],
+      "default": "dots"
+    },
+    {
+      "type": "select",
+      "id": "controls_desktop",
+      "label": "Controls Desktop",
       "options": [
         {
           "value": "arrows-with-numbers",
@@ -434,13 +447,9 @@
         {
           "value": "arrows",
           "label": "Arrows"
-        },
-        {
-          "value": "dots",
-          "label": "Dots"
         }
       ],
-      "default": "arrows-with-numbers"
+      "default": "arrows"
     },
     {
       "type": "checkbox",
