@@ -32,22 +32,33 @@
                   assign variant_url = ''
                   assign srcset = ''
                   assign variant_id = ''
+                  assign available = false
 
                   for variant in product.variants
                     if variant.title contains value
                       if variant.image.id and variant.image.id == product.featured_image.id
                         assign active = 'active'
                       endif
+
                       if variant.image
                         assign variant_image = variant.image
+                      endif
+                      if variant.available
+                        assign available = true
                       endif
                       assign variant_url = variant.url
                       assign variant_id = variant.id
                     endif
                   endfor
 
+                  assign sold_out_class = ''
+                  if available == false
+                    assign sold_out_class = 'sold-out'
+                  endif
+
                   assign image_sizes = sizes | split: ','
                 -%}
+
                 {%- capture srcset -%}
 								{%- if variant_image != blank -%}
 								  {%- for size in image_sizes -%}
@@ -98,12 +109,18 @@
                   endif
                 -%}
                 <div
-                  class="product-card-swatch {{ active }}"
+                  class="product-card-swatch {{ active }} {{ sold_out_class }}"
                   style="--option-color: {{ color_value | downcase | escape }}; {%- if bg_value -%} --option-color-image: url('{{ bg_value | escape }}');{%- endif -%}"
                   data-srcset="{{- srcset | slice: 0, l | strip_newlines -}}"
                   data-href="{{ variant_url }}"
                   data-variant-id="{{ variant_id }}"
+                  data-available="{{ available }}"
                 >
+                  <svg width="32" height="16" viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.6035 16C23.0734 16 29.3478 10.881 31.1098 3.95953C31.6548 1.81867 29.8127 0 27.6035 0H3.60352C1.39438 0 -0.447792 1.81867 0.0972244 3.95952C1.85928 10.881 8.13359 16 15.6035 16Z"
+                      fill="{{ color_value }}">
+                    </path>
+                  </svg>
                   <span class="visually-hidden" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                     {{ value }}
                   </span>
@@ -120,3 +137,18 @@
     {%- endfor -%}
   {%- endunless -%}
 {%- endif -%}
+
+<style>
+  .product-card-swatch.sold-out {
+    opacity: 0.4;
+  }
+  .product-card-swatch.is-sold-out {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .product-card--add-to-cart-button-simple.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+</style>
