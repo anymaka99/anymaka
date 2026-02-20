@@ -382,20 +382,31 @@
   .product-card .product-card-swatches {
     line-height: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1px;
+    left: 1px;
     width: 100%;
-    transform: translateY(100%); }
+    transform: translateY(0); }
     .product-card .product-card-swatches .product-card-swatch {
       display: inline-flex;
       margin: 0;
-      width: 18px;
-      height: 18px;
+      width: 32px;
+      height: 16px;
       border-radius: 9px;
       padding: 3px;
       position: relative;
-      cursor: pointer; }
-      .product-card .product-card-swatches .product-card-swatch:after {
+      cursor: pointer; 
+      border: 1px solid transparent;
+    }
+    /* .product-card .product-card-swatches .product-card-swatch:after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      left: 4px;
+      top: 2px;
+      background: var(--option-color);
+      clip-path: path(" M2 0 H22 C24 0 24 2 23 4 C20 10 14 12 12 12 C10 12 4 10 1 4 C0 2 0 0 2 0 Z ");
+    } */
+      /* .product-card .product-card-swatches .product-card-swatch:after {
         content: "";
         display: block;
         position: absolute;
@@ -406,9 +417,12 @@
         border-radius: 6px;
         background: var(--option-color);
         background-image: var(--option-color-image);
-        background-size: cover; }
-      .product-card .product-card-swatches .product-card-swatch.active {
-        box-shadow: 0 0 0 1px var(--color-body, #2c2d2e) inset; }
+        background-size: cover; } */
+      .product-card .product-card-swatches .product-card-swatch.active svg {
+        /* box-shadow: 0 0 0 1px var(--color-body, #2c2d2e);  */
+        border-radius: 120% 120% 570% 570%;
+        border: 1px solid #2c2d2e;
+      }
     .product-card .product-card-swatches--container {
       position: relative;
       overflow: hidden;
@@ -418,6 +432,7 @@
       font-size: 0.75rem;
       line-height: 18px;
       opacity: 0.8;
+      display: none;
       transform: translateY(0%); }
   .product-card--label-container {
     margin-top: 10px; }

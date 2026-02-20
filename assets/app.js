@@ -210,35 +210,56 @@ if (!customElements.get('product-card')) {
     }
     enableSwatches(swatches, image) {
       let swatch_list = swatches.querySelectorAll('.product-card-swatch'),
-        org_srcset = image ? image.dataset.srcset : '';
-
-      swatch_list.forEach((swatch, index) => {
-        window.addEventListener('load', (event) => {
-          let image = new Image();
-          image.srcset = swatch.dataset.srcset;
-          lazySizes.loader.unveil(image);
+          org_srcset = image ? image.dataset.srcset : '';
+      const quickAddButton = this.quick_add;
+    
+      swatch_list.forEach((swatch) => {
+        window.addEventListener('load', () => {
+          let img = new Image();
+          img.srcset = swatch.dataset.srcset;
+          lazySizes.loader.unveil(img);
         });
-        swatch.addEventListener('mouseover', function () {
-
-          [].forEach.call(swatch_list, function (el) {
-            el.classList.remove('active');
-          });
+    
+        swatch.addEventListener('mouseover', () => {
+    
+          swatch_list.forEach(el => el.classList.remove('active'));
+    
           if (image) {
-            if (swatch.dataset.srcset) {
-              image.setAttribute('srcset', swatch.dataset.srcset);
+            image.setAttribute('srcset', swatch.dataset.srcset || org_srcset);
+          }
+    
+          if (swatch.dataset.variantId && quickAddButton) {
+            quickAddButton.dataset.productId = swatch.dataset.variantId;
+    
+            if (swatch.dataset.available === 'false') {
+              quickAddButton.disabled = true;
+              quickAddButton.classList.add('is-disabled');
             } else {
-              image.setAttribute('srcset', org_srcset);
+              quickAddButton.disabled = false;
+              quickAddButton.classList.remove('is-disabled');
             }
           }
-
+    
           swatch.classList.add('active');
         });
+    
         swatch.addEventListener('click', function (evt) {
-          window.location.href = this.dataset.href;
           evt.preventDefault();
         });
       });
+    
+      const active = swatches.querySelector('.product-card-swatch.active');
+      if (active && quickAddButton) {
+        quickAddButton.dataset.productId = active.dataset.variantId;
+    
+        if (active.dataset.available === 'false') {
+          quickAddButton.disabled = true;
+          quickAddButton.classList.add('is-disabled');
+        }
+      }
     }
+    
+    
     enableQuickAdd() {
       this.quick_add.addEventListener('click', this.quickAdd.bind(this));
     }
@@ -261,8 +282,11 @@ if (!customElements.get('product-card')) {
 
       let formData = new FormData(this.form);
 
+      const qtyInput = this.querySelector('.quantity__input');
+      const qty = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
+
       formData.append('id', this.quick_add.dataset.productId);
-      formData.append('quantity', 1);
+      formData.append('quantity', qty);
       formData.append('sections', this.getSectionsToRender().map((section) => section.section));
       formData.append('sections_url', window.location.pathname);
 

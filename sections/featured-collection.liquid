@@ -1,4 +1,5 @@
 {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
+{{ 'featured-collection-custom.css' | asset_url | stylesheet_tag }}
 {{ 'product-grid.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign section_heading = section.settings.heading
@@ -19,15 +20,15 @@
   assign columns_class = 'small-6 medium-6 large-4'
   case columns_desktop
     when 2
-      assign columns_class = 'small-6 medium-6'
+      assign columns_class = 'small-10 medium-6'
     when 3
-      assign columns_class = 'small-6 medium-4'
+      assign columns_class = 'small-10 medium-4'
     when 4
-      assign columns_class = 'small-6 medium-6 large-3'
+      assign columns_class = 'small-10 medium-6 large-3'
     when 5
-      assign columns_class = 'small-6 medium-3 large-1/5'
+      assign columns_class = 'small-10 medium-3 large-1/5'
     when 6
-      assign columns_class = 'small-6 medium-3 large-2'
+      assign columns_class = 'small-10 medium-3 large-2'
   endcase
 
   if featured_collection.all_products_count > product_limit
@@ -44,7 +45,7 @@
     assign element = 'div'
   endif
 -%}
-<div class="featured-collection{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+<div class="featured-collection featured-collection-custom row-{{ columns_desktop }}{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
   <div class="row">
     <div class="small-12 columns">
       {% render 'section-header',
@@ -127,6 +128,22 @@
       "id": "description",
       "label": "Description",
       "default": "<p>Describe your featured collection here</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_description",
+      "label": "Show product description",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_collection_all",
+      "label": "View all button text"
+    },
+    {
+      "type": "url",
+      "id": "button_collection_all_url",
+      "label": "View all button URL"
     },
     {
       "type": "header",
