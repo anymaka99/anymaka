@@ -1,53 +1,99 @@
-<div class="side-panel search-drawer" tabindex="-1" id="Search-Drawer">
-	<search-form data-drawer="1" class="side-panel-inner searchform">
-		<div class="side-panel-header">
-			<div>
-				<form role="search" method="get" class="searchform" action="{{ routes.search_url }}">
-					<fieldset>
-						<label for="side-panel-search-input">{{ 'sections.header.search' | t }}</label>
-						<input id="side-panel-search-input" type="search" class="search-field" placeholder="{{ 'sections.header.search_for' | t | escape }}" value="{{ search.terms | replace: '*', '' }}" name="q" autocomplete="off">
-					</fieldset>
-				</form>
-				<side-panel-close class="side-panel-close">{%- render 'svg-icons' with 'close' -%}</side-panel-close>
-			</div>
-		</div>
-		{%- if settings.predictive_search_enabled -%}
-		<div class="side-panel-content side-panel-content--has-tabs thb-predictive-search">
+{{ 'search-drawer.css' | asset_url | stylesheet_tag }}
 
-		</div>
-		{%- endif -%}
-		<div class="side-panel-content side-panel-content--initial">
-			<div class="thb-predictive-search">
-				{%- if settings.search_menu != blank -%}
-					<div class="thb-predictive-search--popular">
-						<span class="thb-predictive-search--label">{{ 'sections.header.popular_searches' | t }}</span>
-						<ul>
-							{%- for link in settings.search_menu.links -%}
-							<li><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a></li>
-							{%- endfor -%}
-						</ul>
-					</div>
-				{%- endif -%}
-				{%- if settings.search_product_collection != blank -%}
-					<div class="thb-predictive-search--promotion product-card-spacing-small">
-						<span class="thb-predictive-search--label">{{ settings.search_product_heading }}</span>
-						<div class="thb-predictive-search--promotion-products">
-							<ul class="products row small-up-1 medium-up-2">
-								{%- for product in settings.search_product_collection.products limit: settings.search_product_collection_limit -%}
-									<li class="columns">
-										{% render 'product-card', product_card_product: product %}
-									</li>
-								{%- endfor -%}
-							</ul>
-						</div>
-					</div>
-				{%- endif -%}
-			</div>
-		</div>
-	</search-form>
+<div class="side-panel search-drawer search-custom" tabindex="-1" id="Search-Drawer">
+  <search-form data-drawer="1" class="side-panel-inner searchform">
+    <div class="side-panel-header">
+      <div>
+        <h1 class="side-panel-header-title">{{ 'sections.header.search' | t }}</h1>
+        <side-panel-close class="side-panel-close">{%- render 'svg-icons' with 'close' -%}</side-panel-close>
+      </div>
+      <form role="search" method="get" class="searchform" action="{{ routes.search_url }}">
+        <fieldset>
+          <label for="side-panel-search-input">{{ 'sections.header.search' | t }}</label>
+          {%- render 'svg-icons' with 'search' -%}
+          <input
+            id="side-panel-search-input"
+            type="search"
+            class="search-field"
+            placeholder="{{ 'sections.header.search_for' | t | escape }}"
+            value="{{ search.terms | replace: '*', '' }}"
+            name="q"
+            autocomplete="off"
+          >
+          <svg
+            class="close_clean"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M13 1L1 13M13 13L1 1" stroke="var(--color-body)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {%- render 'svg-icons' with 'close_clean' -%}
+        </fieldset>
+      </form>
+    </div>
+    {%- if settings.predictive_search_enabled -%}
+      <div class="side-panel-content side-panel-content--has-tabs thb-predictive-search"></div>
+    {%- endif -%}
+    <div class="side-panel-content side-panel-content--initial">
+      <div class="thb-predictive-search">
+        {%- if settings.search_menu != blank -%}
+          <div class="thb-predictive-search--popular">
+            <span class="thb-predictive-search--label">{{ 'sections.header.popular_searches' | t }}</span>
+            <ul>
+              {%- for link in settings.search_menu.links -%}
+                <li>
+                  <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if settings.search_product_collection != blank -%}
+          <div class="thb-predictive-search--promotion product-card-spacing-small">
+            <span class="thb-predictive-search--label">{{ settings.search_product_heading }}</span>
+            <div class="thb-predictive-search--promotion-products">
+              <ul class="products row small-up-1 medium-up-2">
+                {%- for product in settings.search_product_collection.products
+                  limit: settings.search_product_collection_limit
+                -%}
+                  <li class="columns">
+                    {% render 'product-card', product_card_product: product %}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </search-form>
 </div>
+
+<script>
+  const input = document.getElementById('side-panel-search-input');
+  const clearBtn = document.querySelector('.close_clean');
+
+  function toggleClear() {
+    clearBtn.style.display = input.value.length ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', toggleClear);
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    toggleClear();
+    input.focus();
+
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+
+  toggleClear();
+</script>
 
 <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>
-	{{ 'predictive-search.css' | asset_url | stylesheet_tag }}
+  {{ 'predictive-search.css' | asset_url | stylesheet_tag }}
 </noscript>
