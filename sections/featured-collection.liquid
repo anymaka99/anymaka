@@ -72,8 +72,12 @@
           {%- endif -%}
           {%- if display_type == 'carousel' -%}
             {%- if product_limit > columns_desktop -%}
-              <div class="flickity-nav flickity-prev" tabindex="0">{% render 'svg-icons' with 'carousel-prev' %}</div>
-              <div class="flickity-nav flickity-next" tabindex="0">{% render 'svg-icons' with 'carousel-next' %}</div>
+              <div class="flickity-nav flickity-prev" tabindex="0">
+                {% render 'svg-icons' with 'carousel-prev-featured' %}
+              </div>
+              <div class="flickity-nav flickity-next" tabindex="0">
+                {% render 'svg-icons' with 'carousel-next-featured' %}
+              </div>
             {%- endif -%}
           {%- endif -%}
         </{{ element }}>
