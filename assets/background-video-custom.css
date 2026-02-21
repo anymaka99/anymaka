@@ -1,0 +1,80 @@
+.background-video-custom {
+
+}
+.background-video-custom .background-video__fallback-img {
+    z-index: 1;
+}
+.template-collection .transparent--true .header--inner:before {
+    background: transparent;
+}
+.background-video-custom .background-video__content {
+    max-width: 800px;
+}
+.background-video__content h3 {
+    line-height: 92px;
+    font-weight: 700;
+}
+.background-video__content .description p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+}
+.background-video-custom .background-video__content .list-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 32px;
+    margin: 48px 0px 0px 0px;
+}
+.background-video-custom .background-video__content .list-items__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.background-video-custom .background-video__content .list-items__item img {
+    width: 40px;
+    height: 40px;
+}
+
+.background-video-custom .background-video__content.content-left {
+    margin: 0 auto 0 0;
+}
+.background-video-custom .background-video__content.content-middle {
+    margin: 0 auto;
+}
+.background-video-custom .background-video__content.content-right {
+    margin: 0 0 0 auto;
+}
+.background-video-custom .background-video__content.alignment-left {
+    text-align: left;
+}
+.background-video-custom .background-video__content.alignment-middle {
+    text-align: center;
+}
+.background-video-custom .background-video__content.alignment-right {
+    text-align: right;
+}
+
+.background-video-custom .video-lightbox-modal__button-custom {
+    background-color: #F79009;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    max-width: 100%;
+    width: 200px;
+    height: 56px;
+    color: #fff;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    transition: all .3s;
+    border: 1px solid #F79009;
+}
+.background-video-custom .video-lightbox-modal__button-custom:hover {
+    background-color: transparent;
+    color: #242528;
+}.background-video-custom .video-lightbox-modal__button-custom:hover svg path {
+    fill: #242528;
+}

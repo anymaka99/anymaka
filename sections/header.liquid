@@ -10,6 +10,9 @@
   if template == 'index'
     assign transparent_header = section.settings.transparent_header
   endif
+  if template == 'collection'
+    assign transparent_header = section.settings.transparent_header
+  endif
 -%}
 <theme-header
   id="header"
@@ -229,19 +232,19 @@
     {
       "type": "@app"
     },
-		{
-			"type": "mobile_secondary_menu",
-			"name": "Mobile secondary menu",
-			"limit": 1,
-			"settings": [
-				{
-					"type": "link_list",
-					"id": "menu",
-					"label": "Secondary menu",
-					"info": "Secondary menu is shown under the main menu."
-				}
-			]
-		},
+    {
+      "type": "mobile_secondary_menu",
+      "name": "Mobile secondary menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Secondary menu",
+          "info": "Secondary menu is shown under the main menu."
+        }
+      ]
+    },
     {
       "type": "secondary_nav",
       "name": "Secondary navigation",
