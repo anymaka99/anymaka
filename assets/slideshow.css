@@ -49,7 +49,7 @@
         opacity: 0; 
     }
     .slideshow__slide .button-overflow-container a {
-      max-width: 208px;
+      max-width: 210px;
       width: 100%;
       font-size: 16px;
       line-height: 24px;
@@ -350,10 +350,12 @@
     display: flex;
   }
 
+  .slideshow .button-overflow-container .button.white {
+    border: 1px solid #fff;
+  }
   .slideshow .button-overflow-container .button.white:hover {
     background-color: transparent;
     color: #fff;
-    border: 1px solid #fff;
   }
   .slideshow .button-overflow-container .button.accent:hover {
     background-color: #fff;
