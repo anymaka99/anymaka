@@ -420,8 +420,6 @@
         background-size: cover; } */
       .product-card .product-card-swatches .product-card-swatch.active svg {
         /* box-shadow: 0 0 0 1px var(--color-body, #2c2d2e);  */
-        border-radius: 120% 120% 570% 570%;
-        border: 1px solid #2c2d2e;
       }
     .product-card .product-card-swatches--container {
       position: relative;

@@ -116,11 +116,26 @@
                   data-variant-id="{{ variant_id }}"
                   data-available="{{ available }}"
                 >
-                  <svg width="32" height="16" viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.6035 16C23.0734 16 29.3478 10.881 31.1098 3.95953C31.6548 1.81867 29.8127 0 27.6035 0H3.60352C1.39438 0 -0.447792 1.81867 0.0972244 3.95952C1.85928 10.881 8.13359 16 15.6035 16Z"
-                      fill="{{ color_value }}">
-                    </path>
-                  </svg>
+                  <div class="bullet" aria-hidden="true">
+                    <svg
+                      class="bullet__icon"
+                      width="39"
+                      height="22"
+                      viewBox="0 0 39 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path class="bullet__border" d="M7.00635 0.5H31.0063C33.0809 0.5 34.9777 1.36559 36.1792 2.69727C37.3715 4.01909 37.8802 5.79549 37.2212 7.69141C34.4053 15.7918 27.2924 21.5 19.0063 21.5C10.7203 21.5 3.60738 15.7918 0.791504 7.69141C0.13247 5.79549 0.641146 4.01909 1.8335 2.69727C3.03495 1.36559 4.93184 0.5 7.00635 0.5Z"/>
+                      <path class="bullet__inner" transform="translate(3.5 3)" d="M15.603 16C23.073 16 29.3473 10.881 31.1093 3.95953C31.6543 1.81867 29.8122 0 27.603 0H3.60303C1.39389 0 -0.448281 1.81867 0.0967361 3.95952C1.85879 10.881 8.1331 16 15.603 16Z" fill="{{ color_value }}"/>
+                    </svg>
+                  </div>
+                  {% comment %}
+                    <svg width="32" height="16" viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.6035 16C23.0734 16 29.3478 10.881 31.1098 3.95953C31.6548 1.81867 29.8127 0 27.6035 0H3.60352C1.39438 0 -0.447792 1.81867 0.0972244 3.95952C1.85928 10.881 8.13359 16 15.6035 16Z"
+                        fill="{{ color_value }}">
+                      </path>
+                    </svg>
+                  {% endcomment %}
                   <span class="visually-hidden" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                     {{ value }}
                   </span>
