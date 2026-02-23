@@ -3,6 +3,7 @@
   assign mobile_height = section.settings.mobile_height
   assign full_width = section.settings.full_width
   assign fallback_image = section.settings.fallback_image
+  assign fallback_image_mobile = section.settings.fallback_image_mobile
   assign overlay_color = section.settings.overlay_color
   assign overlay_opacity = section.settings.overlay_opacity
   assign video = section.settings.video
@@ -35,6 +36,25 @@
               alt="{{ fallback_image.alt | escape }}"
               width="{{ fallback_image.width }}"
               height="{{ fallback_image.height }}"
+            >
+          </noscript>
+        </div>
+      {%- endif -%}
+      {%- if fallback_image_mobile != blank -%}
+        <div class="background-video__fallback-img background-video__fallback-img--mobile">
+          <img
+            data-src="{{ fallback_image_mobile | image_url }}"
+            alt="{{ fallback_image_mobile.alt | escape }}"
+            width="{{ fallback_image_mobile.width }}"
+            height="{{ fallback_image_mobile.height }}"
+            class="lazyload{% unless settings.lazy_loading %} no-blur{% endunless %}"
+          >
+          <noscript>
+            <img
+              src="{{ fallback_image_mobile | image_url }}"
+              alt="{{ fallback_image_mobile.alt | escape }}"
+              width="{{ fallback_image_mobile.width }}"
+              height="{{ fallback_image_mobile.height }}"
             >
           </noscript>
         </div>
@@ -73,21 +93,22 @@
         style="--overlay-color-rgb: {{ overlay_color.rgb | replace: " ", "," }}; --overlay-opacity: {{ overlay_opacity | divided_by: 100.00 }}"
       ></div>
       <div class="background-video__content-wrap">
-        <div class="background-video__content content-{{ section.settings.content_position }} alignment-{{ section.settings.content_alignment }}">
+        <div class="background-video__content content-{{ section.settings.content_position }} alignment-{{ section.settings.content_alignment }} alignment-mobile-{{ section.settings.content_alignment_mobile }}">
           {% for block in section.blocks %}
             {%- case block.type -%}
               {%- when 'subheading' -%}
                 <p class="subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
               {%- when 'heading' -%}
-                <h3 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-                  {{ block.settings.text | newline_to_br }}
-                </h3>
-              {%- when 'text' -%}
-                <div
-                  class="rte description description-size--{{ block.settings.description_size }}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{ block.settings.text }}
+                <div class="block-info">
+                  <h3 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.text | newline_to_br }}
+                  </h3>
+                  <div
+                    class="rte description description-size--{{ block.settings.description_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.description }}
+                  </div>
                 </div>
               {%- when 'list_items' -%}
                 <ul class="list-items">
@@ -166,6 +187,9 @@
                     {% render 'svg-icons' with 'thb-video-play' %}
                     {{ block.settings.button_text }}
                   </button>
+                  <a href="{{ block.settings.button_link }}" class="button button_block-link accent" target="_blank">
+                    {{ block.settings.button_text_mobile }}
+                  </a>
                 </modal-opener>
                 <a href="{{ video.url }}" class="video-lightbox-modal__button no-js" target="_blank">
                   {%- render 'svg-icons' with 'thb-video-play' -%}
@@ -223,7 +247,76 @@
           </button>
         </div>
       {% endif %}
+      <div class="button_block">
+        {%- if section.settings.button_link -%}
+          <a href="{{ section.settings.button_link }}" class="button button_block-link accent" target="_blank">
+            {{ section.settings.button_text }}
+          </a>
+        {%- endif -%}
+      </div>
     </background-video>
+    <ul class="list-items list-items-mobile" style="background-color:{{ section.settings.bg_list }}">
+      <li class="list-items__item">
+        {%- if section.settings.item_image_1 != blank -%}
+          {{
+            section.settings.item_image_1
+            | image_url: width: 40, height: 40, crop: 'center'
+            | img_tag: alt: section.settings.item_text_1
+          }}
+        {%- endif -%}
+        {%- if section.settings.item_text_1 != blank -%}
+          {{ section.settings.item_text_1 }}
+        {%- endif -%}
+      </li>
+      <li class="list-items__item">
+        {%- if section.settings.item_image_2 != blank -%}
+          {{
+            section.settings.item_image_2
+            | image_url: width: 40, height: 40, crop: 'center'
+            | img_tag: alt: section.settings.item_text_2
+          }}
+        {%- endif -%}
+        {%- if section.settings.item_text_2 != blank -%}
+          {{ section.settings.item_text_2 }}
+        {%- endif -%}
+      </li>
+      <li class="list-items__item">
+        {%- if section.settings.item_image_3 != blank -%}
+          {{
+            section.settings.item_image_3
+            | image_url: width: 40, height: 40, crop: 'center'
+            | img_tag: alt: section.settings.item_text_3
+          }}
+        {%- endif -%}
+        {%- if section.settings.item_text_3 != blank -%}
+          {{ section.settings.item_text_3 }}
+        {%- endif -%}
+      </li>
+      <li class="list-items__item">
+        {%- if section.settings.item_image_4 != blank -%}
+          {{
+            section.settings.item_image_4
+            | image_url: width: 40, height: 40, crop: 'center'
+            | img_tag: alt: section.settings.item_text_4
+          }}
+        {%- endif -%}
+        {%- if section.settings.item_text_4 != blank -%}
+          {{ section.settings.item_text_4 }}
+        {%- endif -%}
+      </li>
+      <li class="list-items__item">
+        {%- if section.settings.item_image_5 != blank -%}
+          {{
+            section.settings.item_image_5
+            | image_url: width: 40, height: 40, crop: 'center'
+            | img_tag: alt: section.settings.item_text_5
+          }}
+        {%- endif -%}
+        {%- if section.settings.item_text_5 != blank -%}
+          {{ section.settings.item_text_5 }}
+        {%- endif -%}
+      </li>
+    </ul>
   </div>
 </div>
 {{- 'background-video.css' | asset_url | stylesheet_tag -}}
@@ -332,6 +425,12 @@
       "info": "1920 x 1080 px .jpg recommended."
     },
     {
+      "type": "image_picker",
+      "id": "fallback_image_mobile",
+      "label": "Fallback image mobile",
+      "info": "1920 x 1080 px .jpg recommended."
+    },
+    {
       "type": "color",
       "id": "overlay_color",
       "label": "Overlay",
@@ -388,6 +487,26 @@
       "default": "middle"
     },
     {
+      "type": "select",
+      "id": "content_alignment_mobile",
+      "label": "Content alignment mobile",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "middle"
+    },
+    {
       "type": "header",
       "content": "Spacing"
     },
@@ -402,6 +521,71 @@
       "id": "disable_bottom_spacing",
       "default": false,
       "label": "Remove bottom spacing"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "bg_list",
+      "label": "Background list (mobile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_image_1",
+      "label": "Item image 1"
+    },
+    {
+      "type": "text",
+      "id": "item_text_1",
+      "label": "Item text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_image_2",
+      "label": "Item image 2"
+    },
+    {
+      "type": "text",
+      "id": "item_text_2",
+      "label": "Item text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_image_3",
+      "label": "Item image 3"
+    },
+    {
+      "type": "text",
+      "id": "item_text_3",
+      "label": "Item text 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_image_4",
+      "label": "Item image 4"
+    },
+    {
+      "type": "text",
+      "id": "item_text_4",
+      "label": "Item text 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_image_5",
+      "label": "Item image 5"
+    },
+    {
+      "type": "text",
+      "id": "item_text_5",
+      "label": "Item text 5"
     }
   ],
   "blocks": [
@@ -509,39 +693,12 @@
             }
           ],
           "default": "h1-xlarge"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "Text",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Content",
-          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
         },
         {
-          "type": "select",
-          "id": "description_size",
-          "label": "Size",
-          "options": [
-            {
-              "value": "small",
-              "label": "Small"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "large",
-              "label": "Large"
-            }
-          ],
-          "default": "medium"
+          "type": "richtext",
+          "id": "description",
+          "label": "Content",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
         }
       ]
     },
@@ -554,6 +711,16 @@
           "type": "text",
           "id": "button_text",
           "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button_text_mobile",
+          "label": "Button text mobile"
         }
       ]
     },
@@ -583,9 +750,6 @@
         },
         {
           "type": "heading"
-        },
-        {
-          "type": "text"
         },
         {
           "type": "button"
