@@ -114,6 +114,7 @@
   
   .reviews__content {
     letter-spacing: 0;
+    margin-bottom: auto;
   }
   
   .reviews__content h3 {
@@ -253,7 +254,6 @@
     .reviews__swiper {
       margin-top: 32px;
     }
-  
     .reviews__content h3 {
       margin: 0 0 12px;
       font-size: 18px;
@@ -262,6 +262,9 @@
     .reviews__content p {
       font-size: 14px;
       line-height: 20px;
+    }
+    .reviews__media {
+        aspect-ratio: 1 / 1;
     }
   }
   
