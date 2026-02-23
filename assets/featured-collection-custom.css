@@ -192,6 +192,26 @@
     justify-content: space-between;
 }
 
+.bullet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.bullet:hover .bullet__icon {
+    --bullet-border: #242528;
+}
+.bullet__icon {
+    cursor: pointer;
+}
+.bullet__border {
+    stroke: var(--bullet-border);
+    stroke-width: 1;
+    fill: none;
+}
+.bullet--active {
+    --bullet-border: #242528;
+}
+
 @media (max-width: 1250px) {
     .featured-collection-custom.row-4 .quantity-selector-custom {
         flex-direction: column;
