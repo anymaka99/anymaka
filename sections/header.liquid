@@ -12,6 +12,9 @@
   if template == 'index'
     assign transparent_header = section.settings.transparent_header
   endif
+  if template == 'collection'
+    assign transparent_header = section.settings.transparent_header
+  endif
 -%}
 <theme-header
   id="header"
