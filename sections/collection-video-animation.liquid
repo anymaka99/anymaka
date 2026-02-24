@@ -1,0 +1,187 @@
+{{ 'collection-video-animation.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .scroll-video-section {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .scroll-video-section {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .scroll-video-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="scroll-video-section">
+  <section>
+    <div class="video_mob_content">
+      {% if section.settings.title != blank %}
+        <h1>{{ section.settings.title }}</h1>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p>{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="scroll-video">
+      <div class="scroll-video__sticky">
+        {% if section.settings.video != blank %}
+          {{
+            section.settings.video
+            | video_tag:
+              autoplay: true,
+              muted: true,
+              loop: true,
+              playsinline: true,
+              controls: false,
+              class: 'scroll-video__media'
+          }}
+        {% endif %}
+
+        <div class="scroll-video__overlay"></div>
+
+        <div class="scroll-video__content">
+          {% if section.settings.title != blank %}
+            <h1 style="color: {{ section.settings.color_text }}">{{ section.settings.title }}</h1>
+          {% endif %}
+          {% if section.settings.subtitle != blank %}
+            <p style="color: {{ section.settings.color_text }}">{{ section.settings.subtitle }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<script>
+  (function () {
+    const initScrollVideo = () => {
+      const section = document.querySelector('#shopify-section-{{ section.id }} .scroll-video');
+      const content = document.querySelector('#shopify-section-{{ section.id }} .scroll-video__content');
+      const overlay = document.querySelector('#shopify-section-{{ section.id }} .scroll-video__overlay');
+
+      if (!section || !content || !overlay) return;
+
+      const easeInOut = (t) => 0.5 * (1 - Math.cos(Math.PI * t));
+
+      const onScroll = () => {
+        if (window.innerWidth <= 1024) return;
+
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionHeight = rect.height;
+
+        let progress = (windowHeight - rect.top) / (sectionHeight + windowHeight);
+        progress = Math.min(Math.max(progress, 0), 1);
+
+        const eased = easeInOut(progress);
+
+        const translateY = -eased * windowHeight * 1.1;
+        const overlayOpacity = 0.5 * (1 - eased);
+
+        requestAnimationFrame(() => {
+          content.style.transform = `translate(-50%, ${translateY}px)`;
+          overlay.style.opacity = overlayOpacity;
+        });
+      };
+
+      window.removeEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    };
+
+    initScrollVideo();
+
+    document.addEventListener('shopify:section:load', initScrollVideo);
+    document.addEventListener('shopify:section:reorder', initScrollVideo);
+    document.addEventListener('shopify:section:select', initScrollVideo);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Scroll Video",
+  "class": "scroll-video-section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Sets Up in 3 Seconds"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Unfold. Sit. Relax."
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll Video"
+    }
+  ]
+}
+{% endschema %}
