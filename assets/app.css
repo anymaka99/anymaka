@@ -2677,7 +2677,7 @@ h6,
   .thb-full-menu--link {
     color: var(--color-header-links, --color-accent);
     position: relative;
-    font-size: calc(var(--font-navigation-scale, 1) * 15px); }
+    font-size: calc(var(--font-navigation-scale, 1) * 16px); }
     .navigation-uppercase-true .thb-full-menu--link {
       text-transform: uppercase; }
     .thb-full-menu--link:after {
