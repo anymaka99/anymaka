@@ -80,6 +80,8 @@
     padding: 16px 20px;
     border-radius: 999px;
     cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
   }
   .reviews__cta:hover {
     background-color: transparent;
@@ -143,6 +145,10 @@
     align-items: center;
     font-size: 12px;
     margin-top: 24px;
+  }
+  .reviews__footer .reviews__name {
+    font-size: 16px;
+    line-height: 24px;
   }
   
   .reviews__stars {
