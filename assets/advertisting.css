@@ -193,4 +193,7 @@
     font-size: 14px;
     line-height: 20px;
   }
+  .advertising__desc p {
+    margin-bottom: 0px;
+  }
 }
