@@ -1,9 +1,31 @@
 {{ 'advantages-dnc.css' | asset_url | stylesheet_tag }}
-<section class="advantages-blocks">
-  {%- if section.settings.section_title -%}
+
+<style>
+  .advantages-blocks .direction-horizontal {
+    flex-direction: row;
+  }
+  {% if template.name == 'collection' %}
+    @media (max-width: 767px) {
+        .advantages-blocks .advantages-blocks-container.direction-horizontal {
+            gap: 15px;
+        }
+        .advantages-blocks .direction-horizontal .advantages-block-title {
+            font-size: 11px;
+            line-height: 18px;
+        }
+        .advantages-blocks .direction-horizontal .advantages-block-text p {
+            font-size: 11px;
+            line-height: 18px;
+        }
+    }
+  {% endif %}
+</style>
+
+<section class="advantages-blocks {{ template.name }}">
+  {%- if section.settings.section_title != blank -%}
     <h1 class="advantages-blocks__title">{{ section.settings.section_title }}</h1>
   {%- endif -%}
-  <div class="advantages-blocks-container">
+  <div class="advantages-blocks-container {% if section.settings.direction_block == 'horizontal' %}direction-horizontal{% endif %}">
     {% for block in section.blocks %}
       <div class="advantages-block-item" {{ block.shopify_attributes }}>
         {% if block.settings.image != blank %}
@@ -32,6 +54,22 @@
       "id": "section_title",
       "label": "Section Heading",
       "default": "Our Advantages"
+    },
+    {
+      "type": "select",
+      "id": "direction_block",
+      "label": "Direction of blocks",
+      "default": "horizontal",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ]
     }
   ],
   "blocks": [
