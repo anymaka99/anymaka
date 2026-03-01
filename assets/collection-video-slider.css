@@ -1,4 +1,4 @@
-.product-list {
+.product-list-section .product-list {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
     margin: 0 auto;
 }
 
-.product-list__vector {
+.product-list-section .product-list__vector {
     position: absolute;
     width: 100%;
     left: 50%;
@@ -21,7 +21,7 @@
     pointer-events: none;
 }
 
-.product-list__title {
+.product-list-section .product-list__title {
     position: relative;
     margin: 0;
     text-align: center;
@@ -34,19 +34,19 @@
     z-index: 1;
 }
 
-.product-list__slider {
+.product-list-section .product-list__slider {
     width: 100%;
     z-index: 2;
     position: relative;
 }
 
-.product-swiper {
+.product-list-section .product-swiper {
     width: 100%;
     z-index: 2;
     position: relative;
 }
 
-.product-card {
+.product-list-section .product-card {
     position: relative;
     aspect-ratio: 16 / 9;
     max-width: 80%;
@@ -57,11 +57,11 @@
     margin-bottom: 0px;
 }
 
-.product-card.swiper-slide-active {
+.product-list-section .product-card.swiper-slide-active {
     opacity: 1;
 }
 
-.product-card__media {
+.product-list-section .product-card__media {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -71,7 +71,7 @@
 
 }
 
-.product-card__gradient {
+.product-list-section .product-card__gradient {
     position: absolute;
     width: 100%;
     height: clamp(160px, 16.667vw, 320px);
@@ -81,7 +81,7 @@
     transform: scaleY(-1);
 }
 
-.product-card__tagline {
+.product-list-section .product-card__tagline {
     position: absolute;
     left: 50%;
     bottom: clamp(28px, 3.125vw, 60px);
@@ -95,11 +95,11 @@
     color: #ffffff;
 }
 
-.product-swiper {
+.product-list-section .product-swiper {
     cursor: none;
 }
 
-.product-list__cursor {
+.product-list-section .product-list__cursor {
     position: absolute;
     left: 0;
     top: 0;
@@ -117,7 +117,7 @@
     z-index: 3;
 }
 
-.product-list__cursor::after {
+.product-list-section .product-list__cursor::after {
     content: "";
     width: clamp(16px, 1.042vw, 20px);
     height: clamp(16px, 1.042vw, 20px);
@@ -125,15 +125,15 @@
     clip-path: polygon(0 0, 85% 50%, 0 100%, 15% 100%, 100% 50%, 15% 0);
 }
 
-.product-list__cursor.is-left::after {
+.product-list-section .product-list__cursor.is-left::after {
     transform: rotate(180deg);
 }
 
-.product-swiper.is-hovered .product-list__cursor {
+.product-list-section .product-swiper.is-hovered .product-list__cursor {
     opacity: 1;
 }
 
-.pagination {
+.product-list-section .pagination {
     gap: 12px;
     margin: 48px 0 auto;
     display: none;
@@ -141,7 +141,7 @@
 }
 
 
-.pagination .swiper-pagination-bullet {
+.product-list-section .pagination .swiper-pagination-bullet {
     position: relative;
     width: 32px;
     height: 20px;
@@ -151,7 +151,7 @@
     background: transparent;
 }
 
-.pagination .swiper-pagination-bullet::before {
+.product-list-section .pagination .swiper-pagination-bullet::before {
     content: "";
     position: absolute;
     inset: 4px;
@@ -160,30 +160,30 @@
     clip-path: path(" M2 0 H22 C24 0 24 2 23 4 C20 10 14 12 12 12 C10 12 4 10 1 4 C0 2 0 0 2 0 Z ");
 }
 
-.pagination .swiper-pagination-bullet-active::before {
+.product-list-section .pagination .swiper-pagination-bullet-active::before {
     opacity: 1;
 }
 
 @media (max-width: 1024px) {
 
-    .product-list {
+    .product-list-section .product-list {
         padding: clamp(56px, 8vw, 96px) 16px;
         background: #FBF9EC;
     }
 
-    .product-card {
+    .product-list-section .product-card {
         max-width: 100%;
     }
 
-    .product-list__slider {
+    .product-list-section .product-list__slider {
         cursor: auto;
     }
 
-    .product-list__cursor {
+    .product-list-section .product-list__cursor {
         display: none;
     }
 
-    .pagination {
+    .product-list-section .pagination {
         position: absolute;
         left: 50% !important;
         bottom: 16px !important;
@@ -192,7 +192,7 @@
         z-index: 2;
     }
 
-    .product-card__tagline {
+    .product-list-section .product-card__tagline {
         bottom: 44px;
         font-weight: 400;
         font-size: 14px;
@@ -200,17 +200,17 @@
         letter-spacing: 0;
         text-align: center;
     }
-    .pagination .swiper-pagination-bullet::before {
+    .product-list-section .pagination .swiper-pagination-bullet::before {
         background: white;
     }
-    .product-list__title {
+    .product-list-section .product-list__title {
         font-size: 24px;
         line-height: 32px;
     }
 }
 
 @media (max-width: 640px) {
-    .product-card__tagline {
+    .product-list-section .product-card__tagline {
         width: clamp(240px, 80vw, 360px);
     }
 
