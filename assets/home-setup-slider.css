@@ -109,11 +109,13 @@
     color: #242528;
     cursor: pointer;
     background: transparent;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all .2s;
 }
-
 .setup__nav-btn:hover {
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    background-color: #f79009;
+}
+.setup__nav-btn:hover svg path {
+    fill: white;
 }
 
 .setup__media {
