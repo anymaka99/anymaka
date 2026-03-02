@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    z-index: 2;
 }
 
 .setup__text {
@@ -41,6 +42,7 @@
     right: 0;
     z-index: 0;
     max-width: 100%;
+    z-index: -1;
 }
 
 .setup__title {
@@ -321,5 +323,9 @@
     .video-controls {
         opacity: 1;
         pointer-events: auto;
+    }
+    .setup__text__curve {
+        top: -12px;
+        max-width: 85%;
     }
 }

@@ -165,4 +165,7 @@
         padding: 4p 16px;
         line-height: 1;
     }
+    .showcase-dnc-image {
+        object-position: center bottom;
+    }
 }
