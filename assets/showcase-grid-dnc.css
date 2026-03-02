@@ -7,7 +7,7 @@
 .showcase-dnc-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 48px;
 }
 .showcase-dnc-item {
     width: 100%;
@@ -16,7 +16,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 32px;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio: 1 / 1; */
+    aspect-ratio: 4 / 5;
+    max-height: 720px;
     overflow: hidden;
 }
 .showcase-dnc-grid:not(.even) .showcase-dnc-item:last-child {
