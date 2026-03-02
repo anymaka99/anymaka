@@ -875,6 +875,12 @@
         "content": "Badges"
       },
       {
+        "type": "checkbox",
+        "id": "show_badges",
+        "label": "Show badges",
+        "default": true
+      },
+      {
         "type": "select",
         "id": "sale_badge_type",
         "options": [
