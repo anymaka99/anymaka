@@ -25,15 +25,34 @@
         {{ section.settings.top_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
       </div>
     {%- endif -%}
-    <h2 class="how-used__title">
+    <div class="how-used-wrapper">
       {% if section.settings.title %}
-        {{ section.settings.title }}
+        <h2 class="how-used__title">
+          {{ section.settings.title }}
+          {% if section.settings.show_line %}
+            {%- render 'icon-line-title' -%}
+            {%- render 'icon-line-title-mob' -%}
+          {% endif %}
+        </h2>
       {% endif %}
-      {% if section.settings.show_line %}
-        {%- render 'icon-line-title' -%}
-        {%- render 'icon-line-title-mob' -%}
+      {% if section.blocks.size > 0 %}
+        <div class="used__actions">
+          <div class="used__nav">
+            <button class="used__nav-btn used__nav-btn--prev" type="button" aria-label="Previous slide">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.83333 7.14583L6.91667 11.2292C7.08333 11.3958 7.16319 11.5903 7.15625 11.8125C7.14931 12.0347 7.0625 12.2292 6.89583 12.3958C6.72917 12.5486 6.53472 12.6285 6.3125 12.6354C6.09028 12.6424 5.89583 12.5625 5.72917 12.3958L0.229167 6.89583C0.145833 6.8125 0.0868056 6.72222 0.0520833 6.625C0.0173611 6.52778 0 6.42361 0 6.3125C0 6.20139 0.0173611 6.09722 0.0520833 6C0.0868056 5.90278 0.145833 5.8125 0.229167 5.72917L5.72917 0.229167C5.88194 0.0763889 6.07292 0 6.30208 0C6.53125 0 6.72917 0.0763889 6.89583 0.229167C7.0625 0.395833 7.14583 0.59375 7.14583 0.822917C7.14583 1.05208 7.0625 1.25 6.89583 1.41667L2.83333 5.47917H12.1458C12.3819 5.47917 12.5799 5.55903 12.7396 5.71875C12.8993 5.87847 12.9792 6.07639 12.9792 6.3125C12.9792 6.54861 12.8993 6.74653 12.7396 6.90625C12.5799 7.06597 12.3819 7.14583 12.1458 7.14583H2.83333Z" fill="#242528"/>
+              </svg>
+            </button>
+
+            <button class="used__nav-btn used__nav-btn--next" type="button" aria-label="Next slide">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.83333 7.14583L6.91667 11.2292C7.08333 11.3958 7.16319 11.5903 7.15625 11.8125C7.14931 12.0347 7.0625 12.2292 6.89583 12.3958C6.72917 12.5486 6.53472 12.6285 6.3125 12.6354C6.09028 12.6424 5.89583 12.5625 5.72917 12.3958L0.229167 6.89583C0.145833 6.8125 0.0868056 6.72222 0.0520833 6.625C0.0173611 6.52778 0 6.42361 0 6.3125C0 6.20139 0.0173611 6.09722 0.0520833 6C0.0868056 5.90278 0.145833 5.8125 0.229167 5.72917L5.72917 0.229167C5.88194 0.0763889 6.07292 0 6.30208 0C6.53125 0 6.72917 0.0763889 6.89583 0.229167C7.0625 0.395833 7.14583 0.59375 7.14583 0.822917C7.14583 1.05208 7.0625 1.25 6.89583 1.41667L2.83333 5.47917H12.1458C12.3819 5.47917 12.5799 5.55903 12.7396 5.71875C12.8993 5.87847 12.9792 6.07639 12.9792 6.3125C12.9792 6.54861 12.8993 6.74653 12.7396 6.90625C12.5799 7.06597 12.3819 7.14583 12.1458 7.14583H2.83333Z" fill="#242528"/>
+              </svg>
+            </button>
+          </div>
+        </div>
       {% endif %}
-    </h2>
+    </div>
 
     <div class="swiper how-used__slider">
       <div class="swiper-wrapper">
@@ -80,7 +99,17 @@
             spaceBetween: 24,
             centeredSlides: true,
             loop: true,
-
+            navigation: {
+              nextEl: slider.closest('.how-used-video')?.querySelector('.used__nav-btn--next'),
+              prevEl: slider.closest('.how-used-video')?.querySelector('.used__nav-btn--prev'),
+            },
+            {% if section.settings.autoplay %}
+              autoplay: {
+                delay: {{ section.settings.autoplay_delay }},
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              },
+            {% endif %}
             breakpoints: {
               0: { slidesPerView: 1.2, spaceBetween: 12 },
               768: { slidesPerView: 2.2, spaceBetween: 16 },
@@ -155,6 +184,22 @@
       "id": "show_line",
       "label": "Show line title",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 1000,
+      "max": 5000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay delay",
+      "default": 3000
     },
     {
       "type": "image_picker",
