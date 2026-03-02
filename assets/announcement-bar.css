@@ -22,14 +22,14 @@
   background: var(--color-announcement-bar-bg, var(--color-accent));
   color: var(--color-announcement-bar-text, #fff);
   line-height: 1;
-  padding: 8px 0; }
+  padding: 0; }
   .announcement-bar--inner {
     height: 100%;
     display: flex;
     align-items: center;
     max-width: none;
     white-space: nowrap;
-    font-size: calc(var(--font-announcement-scale, 1) * 13px);
+    font-size: calc(var(--font-announcement-scale, 1) * 16px);
     font-weight: 400;
     overflow: hidden; }
   .announcement-bar--marquee.direction-left > div {
@@ -85,6 +85,12 @@
       fill: var(--color-announcement-bar-text, #fff); }
     .announcement-bar--item a {
       color: var(--color-announcement-bar-text, #fff); }
+
+      @media (max-width: 767px) {
+        .announcement-bar--inner {
+          font-size: calc(var(--font-announcement-scale, 1) * 14px);
+        }
+      }
 
 @keyframes marquee-left {
   0% {
