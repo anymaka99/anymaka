@@ -29,8 +29,12 @@
           class="setup__text-block {% if forloop.first %}setup__text-block--active{% endif %}"
           data-slide="{{ forloop.index0 }}"
         >
-          <h2 class="setup__title">{{ block.settings.title }}</h2>
-          <p class="setup__desc">{{ block.settings.description }}</p>
+          {%- if block.settings.title != blank -%}
+            <h2 class="setup__title">{{ block.settings.title }}</h2>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <p class="setup__desc">{{ block.settings.description }}</p>
+          {%- endif -%}
         </div>
       {% endfor %}
     </div>
@@ -103,7 +107,7 @@
 
     const setupSwiper = new Swiper(swiperEl, {
       slidesPerView: 1,
-      speed: 400,
+      speed: 800,
       loop: true,
       spaceBetween: 40,
       navigation: {

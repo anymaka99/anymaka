@@ -25,7 +25,7 @@
     gap: 16px;
     grid-area: 1 / 1;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 1s ease-in-out;
     visibility: hidden;
 }
 
@@ -40,7 +40,6 @@
     left: 0;
     right: 0;
     z-index: 0;
-    z-index: 1;
     max-width: 100%;
 }
 
@@ -50,8 +49,6 @@
     line-height: 60px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    z-index: 2;
-    color: #242528;
 }
 
 .setup__desc {
@@ -59,12 +56,6 @@
     max-width: 424px;
     font-size: 16px;
     line-height: 24px;
-}
-.setup__text-block p {
-     color: #242528;
-     font-size: 16px;
-     line-height: 24px;
-     max-width: 424px;
 }
 
 .setup__hammocks {
@@ -79,18 +70,13 @@
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-    opacity: 0.48;
+    opacity: 0.7;
     transition: opacity 0.5s ease;
     border: none;
     padding: 0;
     background: transparent;
 }
-.setup__hammock:hover {
-    opacity: .64;
-}
-.setup__hammock.setup__hammock--active:hover {
-    opacity: 1;
-}
+
 .setup__hammock img {
     width: 100%;
     object-fit: cover;
@@ -123,13 +109,11 @@
     color: #242528;
     cursor: pointer;
     background: transparent;
-    transition: all .2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .setup__nav-btn:hover {
-    background-color: #f79009;
-}
-.setup__nav-btn:hover svg path {
-    fill: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .setup__media {
@@ -141,6 +125,7 @@
 
 .setup__swiper {
     width: 100%;
+    border-radius: 24px;
 }
 
 .setup__slide {
@@ -296,20 +281,13 @@
         padding: 64px 20px;
         align-items: unset;
     }
-    .setup__text__curve {
-        max-width: 280px;
-        top: -10px;
-        left: -5px;
-    }
+
     .setup__text {
         min-height: 100px;
     }
 
     .setup__text-block{
         gap: 8px;
-    }
-    .setup__text-block p {
-        margin-bottom: 0px;
     }
 
     .setup__title {
@@ -341,9 +319,5 @@
     .video-controls {
         opacity: 1;
         pointer-events: auto;
-    }
-    .setup__text-block p {
-        font-size: 14px;
-        line-height: 20px;
     }
 }
