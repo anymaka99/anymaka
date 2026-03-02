@@ -44,6 +44,16 @@
     assign is_purchasable = true
   endif
 -%}
+
+<style>
+  .product-primary-image {
+    background-color: {{ color_product_card_bg }};
+  }
+  .featured-collection-custom .product-card .product-featured-image {
+    background-color: {{ color_product_card_bg }};
+  }
+</style>
+
 {%- if product_card_product and product_card_product != empty -%}
   <product-card class="product-card text-{{ product_content_alignment }} product-card--content-spacing-{{ info_spacing }} product-card--border-{{ product_card_border }} {{ product_card_shadow_class }}">
     <figure class="product-featured-image {% if products_hover_images and product_card_product.images.size > 1 %}thb-hover{% endif %}">
