@@ -206,28 +206,34 @@
         }
         .thb-hotspot-add-content h3 {
           font-size: 18px;
-          line-height: 28px;
+          line-height: 20px;
         }
         .thb-hotspot-add-content p {
           font-size: 14px;
-          line-height: 24px;
+          line-height: 22px;
         }
       }
 
       @media (max-width: 767px) {
         .thb-hotspot-add-content {
-          display: none;
-        }
-        .shop-the-look .thb-hotspot {
-          display: none;
+          max-width: 120px;
         }
         .shop-the-look .thb-hotspot-content {
-          width: 18px;
-          height: 18px;
+          width: 10px;
+          height: 10px;
+          border: 5px solid #F79009;
         }
         .shop-the-look--area img {
           min-height: 242px;
           object-fit: cover;
+        }
+        .thb-hotspot-add-content h3 {
+          font-size: 10px;
+          line-height: 100%;
+        }
+        .thb-hotspot-add-content p {
+          font-size: 7px;
+          line-height: 100%;
         }
       }
 
