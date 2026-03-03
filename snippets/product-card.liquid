@@ -8,6 +8,7 @@
   assign product_description = section.settings.product_description
   assign sizes = '298x298,596x596'
   assign info_spacing = true
+  assign show_selector = section.settings.show_selector
   assign product_card_border = settings.product_card_border
   assign product_card_shadow = settings.product_card_shadow
   assign product_card_shadow_class = 'has-shadow--' | append: product_card_shadow
@@ -151,23 +152,25 @@
       {%- endif -%}
       {%- if settings.enable_quick_add == false -%}
         <div class="quantity-selector-custom">
-          <quantity-selector class="quantity product-card-quantity">
-            <button class="minus" type="button" aria-label="Decrease quantity">
-              {% render 'svg-icons' with 'minus' %}
-            </button>
+          {%- if show_selector == true -%}
+            <quantity-selector class="quantity product-card-quantity">
+              <button class="minus" type="button" aria-label="Decrease quantity">
+                {% render 'svg-icons' with 'minus' %}
+              </button>
 
-            <input
-              type="number"
-              class="qty quantity__input"
-              value="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
-              min="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
-              step="{{ product_card_product.selected_or_first_available_variant.quantity_rule.increment | default: 1 }}"
-            >
+              <input
+                type="number"
+                class="qty quantity__input"
+                value="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
+                min="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
+                step="{{ product_card_product.selected_or_first_available_variant.quantity_rule.increment | default: 1 }}"
+              >
 
-            <button class="plus" type="button" aria-label="Increase quantity">
-              {% render 'svg-icons' with 'plus' %}
-            </button>
-          </quantity-selector>
+              <button class="plus" type="button" aria-label="Increase quantity">
+                {% render 'svg-icons' with 'plus' %}
+              </button>
+            </quantity-selector>
+          {%- endif -%}
 
           <button
             class="product-card--add-to-cart-button product-card--add-to-cart-button-simple button accent"
@@ -260,23 +263,25 @@
       {%- endif -%}
       {%- if settings.enable_quick_add == false -%}
         <div class="quantity-selector-custom">
-          <quantity-selector class="quantity product-card-quantity">
-            <button class="minus" type="button" aria-label="Decrease quantity">
-              {% render 'svg-icons' with 'minus' %}
-            </button>
+          {%- if show_selector == true -%}
+            <quantity-selector class="quantity product-card-quantity">
+              <button class="minus" type="button" aria-label="Decrease quantity">
+                {% render 'svg-icons' with 'minus' %}
+              </button>
 
-            <input
-              type="number"
-              class="qty quantity__input"
-              value="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
-              min="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
-              step="{{ product_card_product.selected_or_first_available_variant.quantity_rule.increment | default: 1 }}"
-            >
+              <input
+                type="number"
+                class="qty quantity__input"
+                value="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
+                min="{{ product_card_product.selected_or_first_available_variant.quantity_rule.min | default: 1 }}"
+                step="{{ product_card_product.selected_or_first_available_variant.quantity_rule.increment | default: 1 }}"
+              >
 
-            <button class="plus" type="button" aria-label="Increase quantity">
-              {% render 'svg-icons' with 'plus' %}
-            </button>
-          </quantity-selector>
+              <button class="plus" type="button" aria-label="Increase quantity">
+                {% render 'svg-icons' with 'plus' %}
+              </button>
+            </quantity-selector>
+          {%- endif -%}
 
           <button
             class="product-card--add-to-cart-button product-card--add-to-cart-button-simple button accent"
