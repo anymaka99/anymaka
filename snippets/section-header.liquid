@@ -59,7 +59,7 @@
         </collection-tabs>
       </scroll-shadow>
     {%- endif -%}
-    {%- if display_button -%}
+    {%- if display_button != blank -%}
       <a class="featured-custom-button button accent" href="{{ display_button_url }}">
         {{ display_button }}
         {%- render 'icon-arrow-button-mobile', variable: value -%}
