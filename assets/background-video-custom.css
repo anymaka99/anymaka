@@ -216,3 +216,9 @@
         flex-wrap: wrap;
     }
 }
+
+@media (max-height: 750px) {
+    .button_block {
+        bottom: 16px;
+    }
+}
