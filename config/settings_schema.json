@@ -635,6 +635,66 @@
         "id": "spec_dimensions",
         "label": "Dimensions",
         "default": "Dimensions"
+      },
+      {
+        "type": "text",
+        "id": "setup",
+        "label": "Setup",
+        "default": "Setup"
+      },
+      {
+        "type": "text",
+        "id": "weight_capacity",
+        "label": "Weight capacity",
+        "default": "Weight capacity"
+      },
+      {
+        "type": "text",
+        "id": "hammock_compatibility",
+        "label": "Hammock compatibility",
+        "default": "Hammock compatibility"
+      },
+      {
+        "type": "text",
+        "id": "ridgeline_length",
+        "label": "Ridgeline length",
+        "default": "Ridgeline length"
+      },
+      {
+        "type": "text",
+        "id": "multiple_modes",
+        "label": "Multiple modes",
+        "default": "Multiple modes"
+      },
+      {
+        "type": "text",
+        "id": "packed_size",
+        "label": "Packed size",
+        "default": "Packed size"
+      },
+      {
+        "type": "text",
+        "id": "shade_compatibility",
+        "label": "Shade compatibility",
+        "default": "Shade compatibility"
+      },
+      {
+        "type": "text",
+        "id": "cup_holder_compatibility",
+        "label": "Cup holder compatibility",
+        "default": "Cup holder compatibility"
+      },
+      {
+        "type": "text",
+        "id": "bug_net_compatibility",
+        "label": "Bug net compatibility",
+        "default": "Bug net compatibility"
+      },
+      {
+        "type": "text",
+        "id": "tent_compatibility",
+        "label": "Tent compatibility",
+        "default": "Tent compatibility"
       }
     ]
   },
