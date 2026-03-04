@@ -1,0 +1,298 @@
+{{ 'collection-spec-compare.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .spec-compare {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .spec-compare {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+{% assign p1 = section.settings.product_1 %}
+{% assign p2 = section.settings.product_2 %}
+
+<section class="spec-compare">
+  <div class="specs__head">
+    {% if section.settings.title != blank %}
+      <h2 class="specs__title">{{ section.settings.title }}</h2>
+      {%- if section.settings.show_line -%}
+        <svg
+          class="specs-compare__curve"
+          width="481"
+          height="36"
+          viewBox="0 0 481 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M480 10.4476C449.861 17.8522 429.402 34.5148 394.136 33.3462C356.437 32.0969 342.117 0.280343 306.118 1.01244C266.159 1.82511 251.705 29.0109 212.226 34.0899C155.62 41.3721 125.309 2.34783 68.6576 9.39136C41.1012 12.8175 25.5023 17.0779 1.00002 27.8703" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      {%- endif -%}
+    {% endif %}
+  </div>
+
+  {% if section.settings.subtitle != blank %}
+    <p class="specs__subtitle">
+      {{ section.settings.subtitle }}
+    </p>
+  {% endif %}
+
+  {% if p1 and p2 %}
+    <div class="spec-compare__inner">
+      <table class="compare-table">
+        <colgroup>
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+          <col style="width: 33.33%">
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th>{{ section.settings.table_name }}</th>
+
+            <th>
+              <div class="compare-product">
+                {% if p1.featured_image %}
+                  <div class="compare-product__card">
+                    <img
+                      width="400"
+                      height="400"
+                      class="compare-product__img"
+                      src="{{ p1.featured_image | image_url: width: 400 }}"
+                      alt="{{ p1.title }}"
+                    >
+                  </div>
+                {% endif %}
+                <div class="compare-product__title">
+                  {{ p1.title }}
+                </div>
+              </div>
+            </th>
+
+            <th>
+              <div class="compare-product">
+                {% if p2.featured_image %}
+                  <div class="compare-product__card">
+                    <img
+                      width="400"
+                      height="400"
+                      class="compare-product__img"
+                      src="{{ p2.featured_image | image_url: width: 400 }}"
+                      alt="{{ p2.title }}"
+                    >
+                  </div>
+                {% endif %}
+                <div class="compare-product__title">
+                  {{ p2.title }}
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% comment %} Setup {% endcomment %}
+          {%- if p1.metafields.custom.setup.value or p2.metafields.custom.setup.value -%}
+            <tr>
+              <th scope="row">{{ settings.setup }}</th>
+              <td>{{ p1.metafields.custom.setup }}</td>
+              <td>{{ p2.metafields.custom.setup }}</td>
+            </tr>
+          {%- endif -%}
+
+          {%- if p1.metafields.custom.weight_capacity.value or p2.metafields.custom.weight_capacity.value -%}
+            <tr>
+              <th scope="row">{{ settings.weight_capacity }}</th>
+              <td>{{ p1.metafields.custom.weight_capacity }}</td>
+              <td>{{ p2.metafields.custom.weight_capacity }}</td>
+            </tr>
+          {%- endif -%}
+
+          {%- if p1.metafields.custom.hammock_compatibility.value
+            or p2.metafields.custom.hammock_compatibility.value
+          -%}
+            <tr>
+              <th scope="row">{{ settings.hammock_compatibility }}</th>
+              <td>{{ p1.metafields.custom.hammock_compatibility }}</td>
+              <td>{{ p2.metafields.custom.hammock_compatibility }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.ridgeline_length.value or p2.metafields.custom.ridgeline_length.value -%}
+            <tr>
+              <th scope="row">{{ settings.ridgeline_length }}</th>
+              <td>{{ p1.metafields.custom.ridgeline_length }}</td>
+              <td>{{ p2.metafields.custom.ridgeline_length }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.footprint.value or p2.metafields.custom.footprint.value -%}
+            <tr>
+              <th scope="row">{{ settings.footprint }}</th>
+              <td>{{ p1.metafields.custom.footprint }}</td>
+              <td>{{ p2.metafields.custom.footprint }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.multiple_modes.value or p2.metafields.custom.multiple_modes.value -%}
+            <tr>
+              <th scope="row">{{ settings.multiple_modes }}</th>
+              <td>{{ p1.metafields.custom.multiple_modes }}</td>
+              <td>{{ p2.metafields.custom.multiple_modes }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.packed_size.value or p2.metafields.custom.packed_size.value -%}
+            <tr>
+              <th scope="row">{{ settings.packed_size }}</th>
+              <td>{{ p1.metafields.custom.packed_size }}</td>
+              <td>{{ p2.metafields.custom.packed_size }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.stand_weight.value or p2.metafields.custom.stand_weight.value -%}
+            <tr>
+              <th scope="row">{{ settings.stand_weight }}</th>
+              <td>{{ p1.metafields.custom.stand_weight }}</td>
+              <td>{{ p2.metafields.custom.stand_weight }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.frame_materials.value or p2.metafields.custom.frame_materials.value -%}
+            <tr>
+              <th scope="row">{{ settings.frame_materials }}</th>
+              <td>{{ p1.metafields.custom.frame_materials }}</td>
+              <td>{{ p2.metafields.custom.frame_materials }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.shade_compatibility.value or p2.metafields.custom.shade_compatibility.value -%}
+            <tr>
+              <th scope="row">{{ settings.shade_compatibility }}</th>
+              <td>{{ p1.metafields.custom.shade_compatibility }}</td>
+              <td>{{ p2.metafields.custom.shade_compatibility }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.cup_holder_compatibility.value
+            or p2.metafields.custom.cup_holder_compatibility.value
+          -%}
+            <tr>
+              <th scope="row">{{ settings.cup_holder_compatibility }}</th>
+              <td>{{ p1.metafields.custom.cup_holder_compatibility }}</td>
+              <td>{{ p2.metafields.custom.cup_holder_compatibility }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.bug_net_compatibility.value
+            or p2.metafields.custom.bug_net_compatibility.value
+          -%}
+            <tr>
+              <th scope="row">{{ settings.bug_net_compatibility }}</th>
+              <td>{{ p1.metafields.custom.bug_net_compatibility }}</td>
+              <td>{{ p2.metafields.custom.bug_net_compatibility }}</td>
+            </tr>
+          {% endif %}
+
+          {%- if p1.metafields.custom.tent_compatibility.value or p2.metafields.custom.tent_compatibility.value -%}
+            <tr>
+              <th scope="row">{{ settings.tent_compatibility }}</th>
+              <td>{{ p1.metafields.custom.tent_compatibility }}</td>
+              <td>{{ p2.metafields.custom.tent_compatibility }}</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Specifications Compare",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show line",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "First product"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Second product"
+    },
+    {
+      "type": "text",
+      "id": "table_name",
+      "label": "Table name",
+      "default": "Name"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specifications Compare"
+    }
+  ]
+}
+{% endschema %}
