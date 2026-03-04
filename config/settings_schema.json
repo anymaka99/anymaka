@@ -502,6 +502,143 @@
     ]
   },
   {
+    "name": "Product Specifications",
+    "settings": [
+      {
+        "type": "text",
+        "id": "folded_dimensions",
+        "label": "Folded Dimensions",
+        "default": "Folded Dimensions"
+      },
+      {
+        "type": "text",
+        "id": "packed_dimensions",
+        "label": "Packed Dimensions",
+        "default": "Packed Dimensions"
+      },
+      {
+        "type": "text",
+        "id": "stand_weight",
+        "label": "Stand Weight",
+        "default": "Stand Weight"
+      },
+      {
+        "type": "text",
+        "id": "total_packed_weight",
+        "label": "Total Packed Weight",
+        "default": "Total Packed Weight"
+      },
+      {
+        "type": "text",
+        "id": "footprint",
+        "label": "Footprint",
+        "default": "Footprint"
+      },
+      {
+        "type": "text",
+        "id": "ridgeline",
+        "label": "Ridgeline",
+        "default": "Ridgeline"
+      },
+      {
+        "type": "text",
+        "id": "spec_height",
+        "label": "Height",
+        "default": "Height"
+      },
+      {
+        "type": "text",
+        "id": "max_weight_capacity",
+        "label": "Max Weight Capacity",
+        "default": "Max Weight Capacity"
+      },
+      {
+        "type": "text",
+        "id": "spec_capacity",
+        "label": "Capacity",
+        "default": "Capacity"
+      },
+      {
+        "type": "text",
+        "id": "frame_materials",
+        "label": "Frame Materials",
+        "default": "Frame Materials"
+      },
+      {
+        "type": "text",
+        "id": "screws",
+        "label": "Screws",
+        "default": "Screws"
+      },
+      {
+        "type": "text",
+        "id": "bolts",
+        "label": "Bolts",
+        "default": "Bolts"
+      },
+      {
+        "type": "text",
+        "id": "hub_materials",
+        "label": "Hub Materials",
+        "default": "Hub Materials"
+      },
+      {
+        "type": "text",
+        "id": "travel_bag_materials",
+        "label": "Travel Bag Materials",
+        "default": "Travel Bag Materials"
+      },
+      {
+        "type": "text",
+        "id": "spec_included",
+        "label": "Included",
+        "default": "Included"
+      },
+      {
+        "type": "text",
+        "id": "spec_weight",
+        "label": "Weight",
+        "default": "Weight"
+      },
+      {
+        "type": "text",
+        "id": "unpacked_dimensions",
+        "label": "Unpacked Dimensions",
+        "default": "Unpacked Dimensions"
+      },
+      {
+        "type": "text",
+        "id": "spec_materials",
+        "label": "Materials",
+        "default": "Materials"
+      },
+      {
+        "type": "text",
+        "id": "tarp_dimensions",
+        "label": "Tarp Dimensions",
+        "default": "Tarp Dimensions"
+      },
+      {
+        "type": "text",
+        "id": "pole_materials",
+        "label": "Pole Materials",
+        "default": "Pole Materials"
+      },
+      {
+        "type": "text",
+        "id": "tarp_materials",
+        "label": "Tarp Materials",
+        "default": "Tarp Materials"
+      },
+      {
+        "type": "text",
+        "id": "spec_dimensions",
+        "label": "Dimensions",
+        "default": "Dimensions"
+      }
+    ]
+  },
+  {
     "name": "Animations",
     "settings": [
       {
