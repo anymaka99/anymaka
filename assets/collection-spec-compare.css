@@ -136,6 +136,9 @@
     font-size: 24px;
     line-height: 32px;
 }
+.specs-compare__curve-mobile {
+    display: none;
+}
 @media screen and (max-width: 1024px) {
     .spec-compare__inner{
         padding: 24px;
@@ -148,16 +151,26 @@
         background: transparent;
         border-radius: 0;
     }
-
+    .specs-compare__curve {
+        display: none;
+    }
+    .specs-compare__curve-mobile {
+        display: block;
+        position: absolute;
+        top: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
     .specs__head {
         width: 100%;
     }
-
-
     .specs__title {
         font-size: 24px;
         line-height: 32px;
         padding: 0 16px;
+        max-width: 88%;
+        margin: 0 auto;
     }
 
     .specs__subtitle {
