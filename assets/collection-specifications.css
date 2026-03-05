@@ -20,7 +20,7 @@
 
 }
 
-.specs__curve {
+.specs-products .specs__curve {
     margin-bottom: 48px;
     position: absolute;
     top: 0;
@@ -29,6 +29,9 @@
     height: 100%;
     object-fit: contain;
     z-index: -1;
+}
+.specs-products .specs__curve-mobile {
+    display: none;
 }
 
 .specs__subtitle {
@@ -224,6 +227,15 @@
     .pagination .swiper-pagination-bullet-active::before {
         opacity: 1;
     }
-
-
+    .specs-products .specs__curve {
+        display: none;
+    }
+    .specs-products .specs__curve-mobile {
+        display: block;
+        position: absolute;
+        top: 4px;
+        z-index: -1;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
