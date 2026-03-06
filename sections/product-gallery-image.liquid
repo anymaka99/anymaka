@@ -1,0 +1,115 @@
+{{ 'product-gallery-image.css' | asset_url | stylesheet_tag }}
+
+<section class="showcase-dnc-section product-gallery">
+  <div class="showcase-dnc-container">
+    {% if section.settings.heading %}
+      <h1 class="showcase-dnc-section__title">{{ section.settings.heading }}</h1>
+    {% endif %}
+    {% assign total_blocks_count = section.blocks.size %}
+    <div class="showcase-dnc-grid{%- if is_even == 0 -%}{{ ' ' }}even{%- endif -%}">
+      {% for block in section.blocks %}
+        <div
+          class="showcase-dnc-item product-gallery-item {% if block.settings.full_item == 'true' %}product-gallery-full{% endif %} showcase-dnc-item--{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.image != blank -%}
+            <img
+              width="1200"
+              height="1200"
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="showcase-dnc-image"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <div class="showcase-dnc-shading"></div>
+          <div class="showcase-dnc-content content-alignment-{{ block.settings.column_alignment }}">
+            <h2 class="showcase-dnc-title">{{ block.settings.title }}</h2>
+
+            {%- if block.settings.description != blank -%}
+              <p class="showcase-dnc-description">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product gallery image",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase_item",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item Image"
+        },
+        {
+          "type": "select",
+          "id": "full_item",
+          "label": "Full width",
+          "options": [
+            {
+              "value": "true",
+              "label": "Yes"
+            },
+            {
+              "value": "false",
+              "label": "No"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Original Stand"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lying down, sitting, or in any position, experience the ultimate ease."
+        },
+        {
+          "type": "select",
+          "id": "column_alignment",
+          "label": "Content alignment",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product gallery image"
+    }
+  ]
+}
+{% endschema %}
