@@ -7,7 +7,7 @@
 .showcase-dnc-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
+    gap: 32px;
 }
 .showcase-dnc-item {
     width: 100%;
@@ -33,14 +33,11 @@
     object-fit: cover;
     object-position: center center;
 }
-.showcase-dnc-grid:not(.even) .showcase-dnc-item:last-child .showcase-dnc-image {
-    object-position: center 80%;
-}
 .showcase-dnc-content {
     position: absolute;
     inset: 0px;
     padding: 64px;
-    color: #000;
+    color: #242528;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -55,46 +52,30 @@
     justify-content: flex-end;
 }
 
-.showcase-dnc-title {
-    color: inherit;
+.product-gallery .showcase-dnc-title {
+    color: #242528;
     font-weight: 700;
-    font-size: 48px;
-    line-height: 1.25;
+    font-size: 24px;
+    line-height: 32px;
     margin-bottom: 16px;
 }
-.showcase-dnc-description {
+.product-gallery .showcase-dnc-description {
+    max-width: 405px;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 24px;
     font-weight: 400;
     width: 512px;
-    max-width: calc(100% - 180px);
     margin-bottom: 0px;
 }
-.showcase-dnc-badge {
-    position: absolute;
-    right: 64px;
-    top: 64px;
-    background-color: #F79009;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 20px;
+.product-gallery .image-size-contain {
+    object-fit: contain;
+    object-position: right;
 }
-.showcase-dnc-button {
-    display: inline-block;
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 700;
-    color: #242528;
-    padding: 16px 20px;
-    border-radius: 30px;
-    background-color: #fff;
-    text-align: center;
-    transition: all .3s;
+.product-gallery .image-size-cover {
+    object-fit: cover;
 }
-.showcase-dnc-button:hover {
-    background-color: #F79009;
-    color: #FFFFFF;
+.product-gallery-image__mobile {
+    display: none;
 }
 
 @media only screen and (max-width: 1420px) {
@@ -106,17 +87,6 @@
     }
     .showcase-dnc-description {
         max-width: 100%;
-    }
-    .showcase-dnc-badge {
-        right: 32px;
-        top: 32px;
-    }
-    .showcase-dnc-button {
-        position: absolute;
-        bottom: 32px;
-        left: 32px;
-    }
-    .showcase-dnc-description {
         font-size: 14px;
     }
 }
@@ -150,34 +120,33 @@
         grid-column: 1 / 1;
         aspect-ratio: 343 / 400;
     }
-    .showcase-dnc-content {
-        padding: 24px;
+    .product-gallery .showcase-dnc-content {
+        padding: 16px;
     }
-    .showcase-dnc-title {
-        font-size: 24px;
+    .product-gallery .showcase-dnc-title {
+        font-size: 16px;
+        line-height: 24px;
         margin-bottom: 8px;
     }
-    
-    .showcase-dnc-badge {
-        right: 24px;
-        top: 24px;
-    }
-    .showcase-dnc-button {
-        position: absolute;
-        bottom: 24px;
-        left: 24px;
-        right: 24px;
+    .product-gallery .showcase-dnc-description {
         font-size: 14px;
-        line-height: 24px;
+        line-height: 20px;
+        max-width: 100%;
     }
-    .showcase-dnc-badge {
-        padding: 4p 16px;
-        line-height: 1;
+    .product-gallery-image {
+        display: none;
+    }
+    .product-gallery-image__mobile {
+        display: flex;
     }
     .showcase-dnc-image {
         object-position: center bottom;
     }
+    .product-gallery-item:last-child .product-gallery-image__mobile {
+        object-position: right;
+    }
     .showcase-dnc-content {
         justify-content: flex-end;
+        background: linear-gradient(to bottom, transparent 0%, rgba(245, 245, 246, 0) 60%, #F5F5F6 100%);
     }
 }

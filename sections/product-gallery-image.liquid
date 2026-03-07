@@ -18,7 +18,17 @@
               height="1200"
               src="{{ block.settings.image | image_url: width: 1200 }}"
               alt="{{ block.settings.title | escape }}"
-              class="showcase-dnc-image"
+              class="showcase-dnc-image product-gallery-image image-size-{{ block.settings.image_size }}"
+              loading="lazy"
+            >
+          {%- endif -%}
+          {%- if block.settings.image_mobile != blank -%}
+            <img
+              width="550"
+              height="550"
+              src="{{ block.settings.image_mobile | image_url: width: 1200 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="showcase-dnc-image product-gallery-image__mobile"
               loading="lazy"
             >
           {%- endif -%}
@@ -39,7 +49,7 @@
 {% schema %}
 {
   "name": "Product gallery image",
-  "max_blocks": 6,
+  "max_blocks": 4,
   "settings": [
     {
       "type": "text",
@@ -58,6 +68,11 @@
           "label": "Item Image"
         },
         {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image"
+        },
+        {
           "type": "select",
           "id": "full_item",
           "label": "Full width",
@@ -73,16 +88,29 @@
           ]
         },
         {
+          "type": "select",
+          "id": "image_size",
+          "label": "Image size",
+          "options": [
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "cover",
+              "label": "Cover"
+            }
+          ]
+        },
+        {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Original Stand"
+          "label": "Title"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Description",
-          "default": "Lying down, sitting, or in any position, experience the ultimate ease."
+          "label": "Description"
         },
         {
           "type": "select",
