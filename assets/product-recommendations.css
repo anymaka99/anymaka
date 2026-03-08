@@ -1,0 +1,257 @@
+.recommendations-slider .recommendations-slider-item {
+    height: auto;
+}
+.recommendations-slider .recommendations-slider-item .product-card-info {
+    justify-content: space-between;
+}
+.recommendations-slider .product-card .star-rating span {
+    color: #575A63;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0px;
+    line-height: 24px;
+}
+.recom-custom .section-header .section-header--title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 60px;
+    color: #242528;
+}
+.recommendations-slider .product-card .product-card-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #242528;
+}
+.recommendations-slider .product-card .product-card-description p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242528;
+    margin: 0;
+}
+.recommendations-slider .product-card .price {
+    color: #575A63;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 8px 0px 24px;
+}
+.recommendations-slider .product-card .price .from {
+    display: none;
+}
+.recommendations-slider .product-card .price ins {
+    margin-left: 0px;
+}
+.recommendations-slider .product-card .price del .amount {
+    color: #81868F;
+    text-decoration: line-through;
+}
+.recommendations-slider .product-card .price .amount.discounted {   
+    color: #F79009;
+    font-weight: 600;
+    text-decoration: initial;
+}
+.recommendations-slider .quantity-selector-custom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.recommendations-slider .quantity-selector-custom .quantity {
+    border: 1px solid #CED0D3;
+    border-radius: 40px;
+    max-width: 116px;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.recommendations-slider .quantity-selector-custom .quantity .minus {
+    left: 8px;
+}
+.recommendations-slider .quantity-selector-custom .quantity .plus {
+    right: 8px;
+}
+.recommendations-slider .quantity-selector-custom .quantity input {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+.recommendations-slider .quantity-selector-custom .product-card--add-to-cart-button {
+    margin-top: 0px;
+    border-radius: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    height: 56px;
+    padding: 0;
+    border: 1px solid #F79009;
+}
+.recommendations-slider .quantity-selector-custom .product-card--add-to-cart-button:hover {
+    background-color: transparent;
+    color: #242528;
+}
+.recommendations-slider .quantity-selector-custom .quantity button {
+    height: 100%;
+}
+.recommendations-slider .quantity-selector-custom .quantity button svg {
+    width: 20px;
+    height: 20px;
+}
+.recommendations-slider .product-card .product-card-swatches--container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 20;
+    text-align: center;
+}
+.recommendations-slider .product-card .product-card-swatches .product-card-swatch svg {
+    width: 32px;
+    height: 16px;
+    padding: 0.5px;
+}
+.recommendations-slider .product-card .product-featured-image  {
+    border-radius: 24px;
+    margin-bottom: 16px;
+}
+.product-card .product-featured-image-link img {
+    transform: scale(0.8);
+}
+
+.recommendations-slider .swiper-button-next,
+.recommendations-slider .swiper-button-prev {
+    position: absolute;
+    z-index: 2;
+    width:40px;
+    color:#000;
+    height:40px;
+    background: transparent;
+    box-shadow: none;
+    border: 1px solid #F79009;
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recommendations-slider .swiper-button-next {
+    right: 20px;
+    top: 0;
+}
+.recommendations-slider .swiper-button-prev {
+    right: 82px;
+    top: 0;
+}
+.recommendations-slider .swiper-button-next:hover {
+    background-color: #F79009;
+}
+.recommendations-slider .swiper-button-next:hover svg {
+    transform: scale(1) !important;
+}
+.recommendations-slider .swiper-button-next:hover svg path {
+    fill: #fff;
+}
+.recommendations-slider .swiper-button-prev:hover {
+    background-color: #F79009;
+} 
+.recommendations-slider .swiper-button-prev:hover svg {
+    transform: scale(1) !important;
+}
+.recommendations-slider .swiper-button-prev:hover svg path {
+    fill: #fff;
+}
+
+
+@media (max-width: 1250px) {
+    .recommendations-slider .row-4 .quantity-selector-custom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1120px) {
+    .recommendations-slider .quantity-selector-custom {
+        flex-direction: column;
+    }
+    .recommendations-slider .quantity-selector-custom .product-card--add-to-cart-button {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+@media (max-width: 1024px) {
+    .recommendations-slider .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .recommendations-slider .flickity-nav.flickity-next {
+        right: 20px !important;
+    }
+    .recommendations-slider .flickity-nav.flickity-prev {
+        left: auto !important;
+        right: 85px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .recom-custom .section-header .section-header--title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .recommendations-slider .recommendations-slider-item {
+        padding: 0px 4px;
+    }
+    .recommendations-slider .featured-custom-button {
+        background-color: transparent;
+        padding: 0;
+        font-size: 16px;
+        height: auto;
+        margin-top: 24px;
+        line-height: 24px;
+        color: #F79009;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .recommendations-slider .icon-arrow-mob {
+        display: block;
+    }
+    .recommendations-slider .product-card .product-card-title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .recommendations-slider .product-card .product-card-description p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .recommendations-slider .quantity-selector-custom {
+        flex-direction: row;
+    }
+    .recommendations-slider .row-4 .quantity-selector-custom {
+        flex-direction: row;
+    }
+    .recommendations-slider .product-card.product-card--content-spacing-true .product-card-info {
+        padding: 20px 6px;
+    }
+    .recommendations-slider .quantity-selector-custom .quantity input {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .recommendations-slider .product-card .price {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .section-product-recommendations .row {
+        padding-right: 0px;
+    }
+    .recommendations-slider .swiper-button-next,
+    .recommendations-slider .swiper-button-prev {
+        display: none;
+    }
+}
