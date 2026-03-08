@@ -24,7 +24,7 @@
     when 3
       assign columns_class = 'small-10 medium-4'
     when 4
-      assign columns_class = 'small-10 medium-6 large-3'
+      assign columns_class = 'small-11 medium-6 large-3'
     when 5
       assign columns_class = 'small-10 medium-3 large-1/5'
     when 6
@@ -55,7 +55,7 @@
         marker_color: marker_color,
         marker_style: marker_style
       %}
-      <div class="featured-collection__inner display-type--{{ display_type }}">
+      <div class="featured-collection__inner {% if section.settings.button_collection_all == blank%}button-empty{% endif %} display-type--{{ display_type }}">
         <{{ element }} id="product-grid-{{ section.id }}" class="products row {{ display_type }}">
           {%- if featured_collection != blank -%}
             {%- for product in featured_collection.products limit: product_limit -%}
