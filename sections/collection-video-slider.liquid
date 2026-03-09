@@ -4,6 +4,7 @@
   #shopify-section-{{ section.id }} .product-list {
     padding-top: {{ section.settings.padding_top_desktop }}px;
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    background-color: {{ section.settings.bg_color }};
   }
 
   @media (max-width: 1024px) {
@@ -11,9 +12,6 @@
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
     }
-    .product-list {
-        background-color: {{ section.settings.bg_color }};
-      }
   }
 </style>
 
@@ -23,12 +21,22 @@
       {{ section.settings.title }}
       {% if section.settings.show_line and section.settings.vector_image != blank %}
         <img
-          class="product-list__vector"
+          class="product-list__vector hide-mobile"
           src="{{ section.settings.vector_image | image_url: width: 200 }}"
           alt=""
           aria-hidden="true"
           loading="lazy"
         >
+        <svg
+          class="product-list__vector mobile-vector"
+          width="244"
+          height="16"
+          viewBox="0 0 244 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M243 4.89017C227.774 7.93916 217.437 14.8002 199.62 14.319C180.574 13.8046 173.339 0.70367 155.152 1.00512C134.964 1.33975 127.662 12.5339 107.716 14.6252C79.1175 17.6238 63.8039 1.55499 35.1824 4.45527C21.2604 5.86601 13.3795 7.62031 1.00049 12.0642" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       {% endif %}
     </h2>
   {% endif %}

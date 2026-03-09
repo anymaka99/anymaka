@@ -41,6 +41,7 @@
 .built-section .product-description {
     font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 0px;
 }
 
 .built-section .product-image {
@@ -135,7 +136,7 @@
 
     .built-section .product-header {
         width: 343px;
-        margin: 0 auto 24px;
+        margin: 0 auto 32px;
         gap: 8px;
     }
     .text__curve-desktop {
@@ -213,5 +214,6 @@
         font-size: 11px;
         letter-spacing: 0;
         text-align: center;
+        margin-bottom: 0px;
     }
 }

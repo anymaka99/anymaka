@@ -20,6 +20,9 @@
     z-index: -1;
     pointer-events: none;
 }
+.mobile-vector {
+    display: none;
+}
 
 .product-list-section .product-list__title {
     position: relative;
@@ -206,6 +209,13 @@
     .product-list-section .product-list__title {
         font-size: 24px;
         line-height: 32px;
+    }
+    .product-list__vector.hide-mobile {
+        display: none;
+    }
+    .mobile-vector {
+        display: block;
+        width: 105% !important;
     }
 }
 
