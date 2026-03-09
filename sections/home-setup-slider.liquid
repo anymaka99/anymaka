@@ -33,7 +33,9 @@
             <h2 class="setup__title">{{ block.settings.title }}</h2>
           {%- endif -%}
           {%- if block.settings.description != blank -%}
-            <p class="setup__desc">{{ block.settings.description }}</p>
+            <div class="setup__desc">
+              {{ block.settings.description }}
+            </div>
           {%- endif -%}
         </div>
       {% endfor %}

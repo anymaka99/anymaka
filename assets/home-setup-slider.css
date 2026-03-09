@@ -1,7 +1,7 @@
 .setup {
     padding: 120px 64px;
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: stretch;
     justify-content: space-between;
 }
@@ -25,14 +25,14 @@
     flex-direction: column;
     gap: 16px;
     grid-area: 1 / 1;
-    opacity: 0;
     transition: opacity 1s ease-in-out;
-    visibility: hidden;
+    /* opacity: 0;
+    visibility: hidden; */
+    display: none;
 }
 
 .setup__text-block--active {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
 }
 
 .setup__text__curve {
@@ -58,6 +58,9 @@
     max-width: 424px;
     font-size: 16px;
     line-height: 24px;
+}
+.setup__desc p {
+    margin-bottom: 0px;
 }
 
 .setup__hammocks {

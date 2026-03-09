@@ -121,7 +121,7 @@
 }
 @media only screen and (max-width: 768px) {
     .showcase-dnc-container {
-        padding: 80px 16px;
+        padding: 80px 16px 40px 16px;
     }
     .showcase-dnc-grid {
         grid-template-columns: 1fr;
