@@ -421,6 +421,30 @@
           "default": true
         },
         {
+          "type": "range",
+          "id": "seo_text_max_height",
+          "min": 100,
+          "max": 2000,
+          "step": 50,
+          "label": "Max height",
+          "default": 1000,
+          "info": "Displays a read more button after the text height exceeds a certain height."
+        },
+        {
+          "type": "text",
+          "id": "seo_text_read_more",
+          "default": "Read more",
+          "label": "Read more label",
+          "info": "Button will be shown when the content exceeds the max height"
+        },
+        {
+          "type": "text",
+          "id": "seo_text_read_less",
+          "default": "Read less",
+          "label": "Read less label",
+          "info": "Button will be shown when the content exceeds the max height"
+        },
+        {
           "type": "header",
           "content": "Badges"
         },
@@ -801,37 +825,6 @@
           "default": false,
           "label": "Show recipient form for gift card products",
           "info": "When enabled, gift card products can optionally be sent to a recipient with a personal message."
-        }
-      ]
-    },
-    {
-      "type": "description",
-      "name": "Description",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "range",
-          "id": "seo_text_max_height",
-          "min": 100,
-          "max": 2000,
-          "step": 50,
-          "label": "Max height",
-          "default": 1000,
-          "info": "Displays a read more button after the text height exceeds a certain height."
-        },
-        {
-          "type": "text",
-          "id": "seo_text_read_more",
-          "default": "Read more",
-          "label": "Read more label",
-          "info": "Button will be shown when the content exceeds the max height"
-        },
-        {
-          "type": "text",
-          "id": "seo_text_read_less",
-          "default": "Read less",
-          "label": "Read less label",
-          "info": "Button will be shown when the content exceeds the max height"
         }
       ]
     },
