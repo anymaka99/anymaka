@@ -1,0 +1,20 @@
+.product-custom .row {
+    padding: 0px 64px;
+}
+.thb-product-detail.product-custom .product-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    margin: 16px 0px;
+}
+.thb-product-detail.product-custom .product-short-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.thb-product-detail.product-custom .product-grid-container {
+    grid-template-columns:
+    minmax(700px, 1184px)
+    minmax(400px, 576px);
+    gap: 32px;
+}
