@@ -173,6 +173,7 @@
     font-size: 16px;
     line-height: 24px;
     height: 56px;
+    padding: 0;
 }
 
 .thb-product-detail.product-custom .product__accordion {
@@ -320,6 +321,7 @@
     height: 44px;
     margin-top: 16px;
     max-width: 174px;
+    padding: 0;
   }
   .product-custom .products-overflow-hidden .product-card-small--add-to-cart-button span {
     text-decoration: none;
@@ -388,6 +390,12 @@
   @media (max-width: 1440px) {
     .thb-product-detail.product-custom .custom-product-gallery .swiper-slide iframe {
         min-height: 400px;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    .thb-product-detail.product-custom .product-grid-container {
+        grid-template-columns: 60.27% 39.73%;
     }
   }
 
