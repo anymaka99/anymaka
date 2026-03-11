@@ -497,6 +497,7 @@
   line-height: 1; }
   .star-rating:before {
     content: "★★★★★";
+    font-size: 24px;
     background: linear-gradient(90deg, var(--color-star) var(--star-percent), #e1e1e1 var(--star-percent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }

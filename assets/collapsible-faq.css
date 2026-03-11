@@ -9,6 +9,10 @@
     gap: 32px;
 }
 
+.collapsible-faq__item summary span {
+    z-index: 4 !important;
+}
+
 .collapsible-faq__button {
     display: flex;
     align-items: center;

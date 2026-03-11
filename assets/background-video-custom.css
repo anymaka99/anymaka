@@ -152,10 +152,14 @@
         line-height: 20px;
         height: 56px;
         display: flex;
+        padding-left: 0px;
+        padding-right: 0px;
         border-radius: 40px;
         width: 164px;
         position: fixed;
         right: 16px;
+        z-index: 30;
+        bottom: 16px;
     }
     .background-video-custom .video-lightbox-modal__button-custom {
         font-size: 14px;
