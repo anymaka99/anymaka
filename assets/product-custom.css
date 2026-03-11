@@ -1,5 +1,11 @@
+.product-custom {
+    margin-top: 64px;
+}
 .product-custom .row {
     padding: 0px 64px;
+}
+.product-custom .row .columns {
+    padding: 0;
 }
 .thb-product-detail.product-custom .product-title {
     font-weight: 700;
@@ -214,3 +220,81 @@
 .thb-product-detail.product-custom .product__accordion details[open] .minus-icon {
     display: block;
 }
+.thb-product-detail.product-custom .custom-product-gallery__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .thb-product-detail.product-custom .product-gallery-container .product-image-container .product-images {
+    max-width: 100%;
+  }
+  .thb-product-detail.product-custom .grid-container {
+    padding-left: 0px;
+  }
+  .thb-product-detail.product-custom .grid-container .product-image-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .thb-product-detail.product-custom .custom-product-gallery .swiper-slide {
+    border-radius: 24px;
+    background-color: #F5F5F6;
+    height: auto;
+  }
+  .thb-product-detail.product-custom .custom-product-gallery .swiper-slide iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 24px;
+    min-height: 590px;
+  }
+  .thb-product-detail.product-custom .custom-product-gallery .swiper-slide img {
+    border-radius: 24px;
+  }
+  .custom-product-gallery iframe {
+    pointer-events: none;
+  }
+
+  .product-custom .complementary-products--inner.products-overflow-hidden {
+    overflow: hidden;
+  }
+  .product-custom .products-overflow-hidden {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F6;
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .product-custom .products-overflow-hidden .product-card-small {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 1440px) {
+    .thb-product-detail.product-custom .custom-product-gallery .swiper-slide iframe {
+        min-height: 400px;
+    }
+  }
+
+  @media (max-width: 1068px) {
+    .product-custom {
+        margin-top: 16px;
+    }
+    .product-custom .row {
+        padding: 0px 16px;
+    }
+    .thb-product-detail.product-custom .custom-product-gallery .swiper-slide iframe {
+        min-height: auto;
+    }
+  }
+  @media (min-width: 1068px) {
+    .custom-product-gallery .swiper-wrapper {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      transform: none !important;
+    }
+    .custom-product-gallery .swiper-slide {
+      width: 100% !important;
+    }
+  }

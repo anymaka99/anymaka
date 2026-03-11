@@ -350,11 +350,11 @@
         {{ block.shopify_attributes }}
       >
         {%- if recommendations.performed and recommendations.products_count > 0 -%}
-          {%- if block.settings.block_heading != blank -%}
-            <div class="complementary-products--heading">{{ block.settings.block_heading }}</div>
-          {%- endif -%}
           <scroll-shadow>
-            <div class="complementary-products--inner">
+            <div class="complementary-products--inner {% if block.settings.product_list_limit <= 2 %}products-overflow-hidden{% endif %}">
+              {%- if block.settings.block_heading != blank -%}
+                <div class="complementary-products--heading">{{ block.settings.block_heading }}</div>
+              {%- endif -%}
               {%- for recommended_product in recommendations.products
                 limit: block.settings.product_list_limit
                 offset: continue
@@ -698,3 +698,39 @@
 {%- endif -%}
 
 {{ sizing_popup }}
+
+<script>
+  const initSwatches = () => {
+    document.querySelectorAll('.product-card-small--swatch[data-image]:not([data-hover-init])').forEach((swatch) => {
+      swatch.setAttribute('data-hover-init', '');
+
+      const card = swatch.closest('product-card-small');
+      const img = card?.querySelector('.product-card-small--image img');
+      if (!img) return;
+
+      const firstSwatch = card.querySelector('.product-card-small--swatch[data-image]');
+      if (!card._activeImage) {
+        card._activeImage = firstSwatch?.dataset.image;
+      }
+
+      swatch.addEventListener('mouseenter', () => {
+        img.src = swatch.dataset.image;
+        img.srcset = swatch.dataset.image;
+        img.dataset.srcset = swatch.dataset.image;
+      });
+
+      swatch.addEventListener('mouseleave', () => {
+        img.src = card._activeImage;
+        img.srcset = card._activeImage;
+        img.dataset.srcset = card._activeImage;
+      });
+
+      swatch.addEventListener('click', () => {
+        card._activeImage = swatch.dataset.image;
+      });
+    });
+  };
+
+  const observer = new MutationObserver(initSwatches);
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>

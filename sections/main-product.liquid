@@ -48,93 +48,123 @@
     <div class="small-12 columns">
       <div class="product-grid-container">
         <div class="product-gallery-sticky">
-          <div class="product-gallery-container thumbnails-{{ thumbnail_position }}" id="MediaGallery-{{ section.id }}">
+          <div
+            class="product-gallery-container {% if section.settings.media_grid == 'grid' %}grid-container{% endif %} thumbnails-{{ thumbnail_position }}"
+            id="MediaGallery-{{ section.id }}"
+          >
             <div class="product-image-container">
-              <product-slider
-                id="Product-Slider"
-                class="product-images static-dots product-images--fullwidth-mobile-{{ media_fullwidth_mobile }} product-images--prevnext-mobile-{{ media_show_prevnext_mobile }}"
-                data-captions="{{ display_captions }}"
-                data-hide-variants="{{ hide_variants }}"
-              >
-                {%- if featured_media != null -%}
-                  {%- liquid
-                    assign image_index = image_index | plus: 1
-                    assign first_image = featured_media.preview_image
-                  -%}
-                  {%- render 'product-media',
-                    product: product,
-                    section: section,
-                    forloop: false,
-                    media: featured_media,
-                    sizes: sizes,
-                    variant_images: variant_images,
-                    media_aspect_ratio: media_aspect_ratio,
-                    hide_variants: hide_variants,
-                    priority: 'high',
-                    display_captions: display_captions
-                  -%}
-                {%- endif -%}
-                {%- for media in product.media -%}
-                  {%- unless media.id == featured_media.id -%}
-                    {%- liquid
-                      if media.media_type == 'image'
-                        assign image_index = image_index | default: 0 | plus: 1
-                      endif
+              {%- if section.settings.media_grid == 'grid' -%}
+                <product-slider
+                  id="Product-Slider"
+                  class="product-images custom-product-gallery swiper"
+                  data-captions="{{ display_captions }}"
+                  data-hide-variants="{{ hide_variants }}"
+                >
+                  <div class="swiper-wrapper">
+                    {% for media in product.media %}
+                      {% if media.media_type == 'image' or media.media_type == 'external_video' %}
+                        <div class="swiper-slide" data-variant="{{ media.alt | downcase }}">
+                          {% case media.media_type %}
+                            {% when 'image' %}
+                              {{ media | image_url: width: 1200 | image_tag }}
 
-                      assign priority = false
-                      if image_index == 0
-                        assign first_image = media.preview_image
-                        assign priority = 'high'
-                      endif
+                            {% when 'external_video' %}
+                              {{ media | video_tag: controls: true }}
+                          {% endcase %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+                </product-slider>
+              {%- else -%}
+                <product-slider
+                  id="Product-Slider"
+                  class="product-images static-dots product-images--fullwidth-mobile-{{ media_fullwidth_mobile }} product-images--prevnext-mobile-{{ media_show_prevnext_mobile }}"
+                  data-captions="{{ display_captions }}"
+                  data-hide-variants="{{ hide_variants }}"
+                >
+                  {%- if featured_media != null -%}
+                    {%- liquid
+                      assign image_index = image_index | plus: 1
+                      assign first_image = featured_media.preview_image
                     -%}
                     {%- render 'product-media',
                       product: product,
                       section: section,
-                      forloop: forloop,
-                      media: media,
+                      forloop: false,
+                      media: featured_media,
                       sizes: sizes,
                       variant_images: variant_images,
                       media_aspect_ratio: media_aspect_ratio,
                       hide_variants: hide_variants,
-                      priority: priority,
+                      priority: 'high',
                       display_captions: display_captions
-                    -%}
-                  {%- endunless -%}
-                {%- endfor -%}
-                {%- if product.media.size > 1 -%}
-                  {%- render 'slideshow-arrows' -%}
-                {%- endif -%}
-              </product-slider>
-              <scroll-shadow>
-                <div
-                  id="Product-Thumbnails"
-                  class="product-thumbnail-container"
-                  data-hide-variants="{{ hide_variants }}"
-                >
-                  {%- if featured_media != null -%}
-                    {%- render 'product-thumbnail',
-                      product: product,
-                      media: featured_media,
-                      forloop: false,
-                      variant_images: variant_images,
-                      media_aspect_ratio: media_aspect_ratio,
-                      hide_variants: hide_variants
                     -%}
                   {%- endif -%}
                   {%- for media in product.media -%}
                     {%- unless media.id == featured_media.id -%}
+                      {%- liquid
+                        if media.media_type == 'image'
+                          assign image_index = image_index | default: 0 | plus: 1
+                        endif
+
+                        assign priority = false
+                        if image_index == 0
+                          assign first_image = media.preview_image
+                          assign priority = 'high'
+                        endif
+                      -%}
+                      {%- render 'product-media',
+                        product: product,
+                        section: section,
+                        forloop: forloop,
+                        media: media,
+                        sizes: sizes,
+                        variant_images: variant_images,
+                        media_aspect_ratio: media_aspect_ratio,
+                        hide_variants: hide_variants,
+                        priority: priority,
+                        display_captions: display_captions
+                      -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+                  {%- if product.media.size > 1 -%}
+                    {%- render 'slideshow-arrows' -%}
+                  {%- endif -%}
+                </product-slider>
+                <scroll-shadow>
+                  <div
+                    id="Product-Thumbnails"
+                    class="product-thumbnail-container"
+                    data-hide-variants="{{ hide_variants }}"
+                  >
+                    {%- if featured_media != null -%}
                       {%- render 'product-thumbnail',
                         product: product,
-                        media: media,
-                        forloop: forloop,
+                        media: featured_media,
+                        forloop: false,
                         variant_images: variant_images,
                         media_aspect_ratio: media_aspect_ratio,
                         hide_variants: hide_variants
                       -%}
-                    {%- endunless -%}
-                  {%- endfor -%}
-                </div>
-              </scroll-shadow>
+                    {%- endif -%}
+                    {%- for media in product.media -%}
+                      {%- unless media.id == featured_media.id -%}
+                        {%- render 'product-thumbnail',
+                          product: product,
+                          media: media,
+                          forloop: forloop,
+                          variant_images: variant_images,
+                          media_aspect_ratio: media_aspect_ratio,
+                          hide_variants: hide_variants
+                        -%}
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  </div>
+                </scroll-shadow>
+              {%- endif -%}
             </div>
           </div>
           {%- assign info_boxes = section.blocks | where: 'type', 'info_box' -%}
@@ -239,6 +269,8 @@
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
 
+{{ 'swiper-product.js' | asset_url | script_tag }}
+
 <script type="application/ld+json">
   {{ product | structured_data }}
 </script>
@@ -261,6 +293,21 @@
       "default": true,
       "label": "Show tax and shipping information",
       "info": "Tax and shipping information will be displayed if [taxes are included in the price](https://help.shopify.com/en/manual/taxes/location#include-taxes-in-product-prices) or [shipping policy](https://help.shopify.com/en/manual/checkout-settings/refund-privacy-tos#add-or-generate-store-policies) is added"
+    },
+    {
+      "type": "select",
+      "id": "media_grid",
+      "label": "Media layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "slider",
+          "label": "Slider"
+        }
+      ]
     },
     {
       "type": "header",
