@@ -144,6 +144,9 @@
     {%- if settings.cart_terms_conditions_enable -%}
       <script src="{{ 'terms-checkbox.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {%- render 'collection-button-custom' -%}
+
     {% render 'back-to-top' %}
     {%- if settings.preload_links -%}
       {%- unless request.design_mode -%}

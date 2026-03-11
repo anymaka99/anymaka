@@ -155,17 +155,19 @@
         padding-left: 0px;
         padding-right: 0px;
         border-radius: 40px;
-        width: 164px;
-        position: fixed;
-        right: 16px;
-        z-index: 30;
-        bottom: 16px;
+        max-width: 164px;
+        width: 100%;
+        font-weight: 700;
+        /* position: fixed;
+        right: 16px; */
     }
     .background-video-custom .video-lightbox-modal__button-custom {
         font-size: 14px;
+        margin: 0;
+        font-weight: 700;
         line-height: 20px;
-        width: 164px;
-        margin: 0 auto 0 0;
+        max-width: 164px;
+        width: 100%;
     }
     .background-video-custom .background-video__content.alignment-mobile-left {
         text-align: left;
