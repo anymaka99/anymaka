@@ -59,33 +59,35 @@
 </div>
 
 <script>
-  const targetNode = document.querySelector('body');
+  (function () {
+    const targetNode = document.querySelector('body');
 
-  const observer = new MutationObserver((mutations, obs) => {
-    const slider = document.querySelector('.recommendations-slider');
-    if (slider && !slider.classList.contains('swiper-initialized')) {
-      new Swiper(slider, {
-        slidesPerView: 1.1,
-        breakpoints: {
-          750: { slidesPerView: 2 },
-          990: { slidesPerView: 3 },
-          1200: { slidesPerView: 4, spaceBetween: 30 },
-        },
-        pagination: {
-          el: slider.querySelector('.swiper-pagination'),
-          clickable: true,
-        },
-        navigation: {
-          nextEl: slider.querySelector('.swiper-button-next'),
-          prevEl: slider.querySelector('.swiper-button-prev'),
-        },
-      });
+    const observer = new MutationObserver((mutations, obs) => {
+      const slider = document.querySelector('.recommendations-slider');
+      if (slider && !slider.classList.contains('swiper-initialized')) {
+        new Swiper(slider, {
+          slidesPerView: 1.1,
+          breakpoints: {
+            750: { slidesPerView: 2 },
+            990: { slidesPerView: 3 },
+            1200: { slidesPerView: 4, spaceBetween: 30 },
+          },
+          pagination: {
+            el: slider.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: slider.querySelector('.swiper-button-next'),
+            prevEl: slider.querySelector('.swiper-button-prev'),
+          },
+        });
 
-      obs.disconnect();
-    }
-  });
+        obs.disconnect();
+      }
+    });
 
-  observer.observe(targetNode, { childList: true, subtree: true });
+    observer.observe(targetNode, { childList: true, subtree: true });
+  })();
 </script>
 
 {% schema %}
