@@ -709,8 +709,17 @@
       if (!img) return;
 
       const firstSwatch = card.querySelector('.product-card-small--swatch[data-image]');
+
       if (!card._activeImage) {
         card._activeImage = firstSwatch?.dataset.image;
+        card.dataset.id = firstSwatch?.dataset.variantId;
+        firstSwatch?.classList.add('is-active');
+
+        if (firstSwatch?.dataset.image) {
+          img.src = firstSwatch.dataset.image;
+          img.srcset = firstSwatch.dataset.image;
+          img.dataset.srcset = firstSwatch.dataset.image;
+        }
       }
 
       swatch.addEventListener('mouseenter', () => {
@@ -727,6 +736,10 @@
 
       swatch.addEventListener('click', () => {
         card._activeImage = swatch.dataset.image;
+        card.dataset.id = swatch.dataset.variantId;
+
+        card.querySelectorAll('.product-card-small--swatch').forEach((s) => s.classList.remove('is-active'));
+        swatch.classList.add('is-active');
       });
     });
   };
