@@ -57,7 +57,7 @@
     padding: 0;
 }
 .footer-dnc__links li a {
-    color: #FFFFFF;
+    color: #81868F;
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
@@ -79,7 +79,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 150%;
-    color: #81868f;
+    color: #fff;
     margin-bottom: 16px;
 }
 .footer-dnc__signup {
@@ -173,6 +173,9 @@
     .footer-dnc__inner {
         padding: 80px 16px 120px 16px;
         position: relative;
+    }
+    .footer-dnc__signup {
+        margin-bottom: 0px;
     }
     .footer-dnc__title {
         font-size: 16px;
