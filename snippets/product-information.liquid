@@ -22,7 +22,35 @@
       {{ block.settings.custom_liquid }}
     {%- when 'title' -%}
       <div class="product-title-container" {{ block.shopify_attributes }}>
+        {%- if block.settings.show_products_rating and product.metafields.reviews.rating.value != blank -%}
+          <div class="star-rating-container">
+            <div class="star-rating" style="--star-rating: {{ product.metafields.reviews.rating.value.rating }};">
+              {%- if block.settings.show_products_rating_average -%}
+                <span class="body-font">
+                  {{- product.metafields.reviews.rating.value.rating | round: 2 -}}
+                </span>
+                <span class="product-reviews-text">{{ 'products.product.reviews.reviews' | t }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
         <h1 class="product-title">{{ product.title }}</h1>
+        {%- liquid
+          assign seo_text_max_height = block.settings.seo_text_max_height
+          assign seo_text_read_more = block.settings.seo_text_read_more
+          assign seo_text_read_less = block.settings.seo_text_read_less
+        -%}
+        <div {{ block.shopify_attributes }}>
+          {%- render 'text-max-height',
+            no_bg: true,
+            content: product.description,
+            custom_liquid: seo_text_custom_liquid,
+            read_more: seo_text_read_more,
+            read_less: seo_text_read_less,
+            max_height: seo_text_max_height,
+            extra_class: 'product-short-description'
+          -%}
+        </div>
         <div class="product-price-container">
           <div class="no-js-hidden" id="price-{{ section.id }}">
             {% render 'product-price',
@@ -51,23 +79,6 @@
             {{ form | payment_terms }}
           {%- endform -%}
         {%- endif -%}
-      </div>
-    {%- when 'description' -%}
-      {%- liquid
-        assign seo_text_max_height = block.settings.seo_text_max_height
-        assign seo_text_read_more = block.settings.seo_text_read_more
-        assign seo_text_read_less = block.settings.seo_text_read_less
-      -%}
-      <div {{ block.shopify_attributes }}>
-        {%- render 'text-max-height',
-          no_bg: true,
-          content: product.description,
-          custom_liquid: seo_text_custom_liquid,
-          read_more: seo_text_read_more,
-          read_less: seo_text_read_less,
-          max_height: seo_text_max_height,
-          extra_class: 'product-short-description'
-        -%}
       </div>
     {%- when 'inventory_level' -%}
       {% render 'product-inventory-notice', product: product, section: section, block: block %}
@@ -223,55 +234,56 @@
           >
         {%- endif -%}
       </side-panel-links>
-    {%- when 'quantity' -%}
-      {%- if product.available -%}
-        <div
-          id="quantity-{{ section.id }}"
-          {{ block.shopify_attributes }}
-        >
-          <label class="form__label quantity__label">{{ 'products.product.quantity.label' | t }}</label>
-          <quantity-selector class="quantity">
-            <button
-              class="minus"
-              type="button"
-              aria-label="{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}"
-            >
-              {% render 'svg-icons' with 'minus' %}
-            </button>
-            <input
-              type="number"
-              id="Quantity-{{ section.id }}"
-              name="quantity"
-              class="qty quantity__input"
-              value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-              data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-              min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-              {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-              {% endif %}
-              step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-              form="{{ product_form_id }}"
-              aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
-            >
-            <button
-              class="plus"
-              type="button"
-              aria-label="{{ 'products.product.quantity.increase' | t: product: product.title | escape }}"
-            >
-              {% render 'svg-icons' with 'plus' %}
-            </button>
-          </quantity-selector>
-        </div>
-      {%- endif -%}
     {%- when 'buy_buttons' -%}
-      {% render 'product-add-to-cart',
-        product: product,
-        form: form,
-        product_form_id: product_form_id,
-        block: block,
-        pickup: pickup
-      %}
+      <div class="quantity-buttons-wrapper">
+        {%- if product.available -%}
+          <div
+            id="quantity-{{ section.id }}"
+            {{ block.shopify_attributes }}
+          >
+            <label class="form__label quantity__label">{{ 'products.product.quantity.label' | t }}</label>
+            <quantity-selector class="quantity">
+              <button
+                class="minus"
+                type="button"
+                aria-label="{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}"
+              >
+                {% render 'svg-icons' with 'minus' %}
+              </button>
+              <input
+                type="number"
+                id="Quantity-{{ section.id }}"
+                name="quantity"
+                class="qty quantity__input"
+                value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                  data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                  max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                {% endif %}
+                step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                form="{{ product_form_id }}"
+                aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
+              >
+              <button
+                class="plus"
+                type="button"
+                aria-label="{{ 'products.product.quantity.increase' | t: product: product.title | escape }}"
+              >
+                {% render 'svg-icons' with 'plus' %}
+              </button>
+            </quantity-selector>
+          </div>
+        {%- endif -%}
+        {% render 'product-add-to-cart',
+          product: product,
+          form: form,
+          product_form_id: product_form_id,
+          block: block,
+          pickup: pickup
+        %}
+      </div>
     {%- when 'share' -%}
       {% render 'social-share',
         share_label: true,
@@ -291,7 +303,12 @@
           >
             <summary>
               {{ block.settings.heading | default: block.settings.page.title }}
-              <span>{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span>
+              <span class="plus-icon">
+                {%- render 'svg-icons' with 'plus' -%}
+              </span>
+              <span class="minus-icon">
+                {%- render 'svg-icons' with 'minus' -%}
+              </span>
             </summary>
             <div
               class="collapsible__content accordion__content rte"
@@ -333,11 +350,11 @@
         {{ block.shopify_attributes }}
       >
         {%- if recommendations.performed and recommendations.products_count > 0 -%}
-          {%- if block.settings.block_heading != blank -%}
-            <div class="complementary-products--heading">{{ block.settings.block_heading }}</div>
-          {%- endif -%}
           <scroll-shadow>
-            <div class="complementary-products--inner">
+            <div class="complementary-products--inner {% if block.settings.product_list_limit <= 2 %}products-overflow-hidden{% endif %}">
+              {%- if block.settings.block_heading != blank -%}
+                <div class="complementary-products--heading">{{ block.settings.block_heading }}</div>
+              {%- endif -%}
               {%- for recommended_product in recommendations.products
                 limit: block.settings.product_list_limit
                 offset: continue
@@ -681,3 +698,52 @@
 {%- endif -%}
 
 {{ sizing_popup }}
+
+<script>
+  const initSwatches = () => {
+    document.querySelectorAll('.product-card-small--swatch[data-image]:not([data-hover-init])').forEach((swatch) => {
+      swatch.setAttribute('data-hover-init', '');
+
+      const card = swatch.closest('product-card-small');
+      const img = card?.querySelector('.product-card-small--image img');
+      if (!img) return;
+
+      const firstSwatch = card.querySelector('.product-card-small--swatch[data-image]');
+
+      if (!card._activeImage) {
+        card._activeImage = firstSwatch?.dataset.image;
+        card.dataset.id = firstSwatch?.dataset.variantId;
+        firstSwatch?.classList.add('is-active');
+
+        if (firstSwatch?.dataset.image) {
+          img.src = firstSwatch.dataset.image;
+          img.srcset = firstSwatch.dataset.image;
+          img.dataset.srcset = firstSwatch.dataset.image;
+        }
+      }
+
+      swatch.addEventListener('mouseenter', () => {
+        img.src = swatch.dataset.image;
+        img.srcset = swatch.dataset.image;
+        img.dataset.srcset = swatch.dataset.image;
+      });
+
+      swatch.addEventListener('mouseleave', () => {
+        img.src = card._activeImage;
+        img.srcset = card._activeImage;
+        img.dataset.srcset = card._activeImage;
+      });
+
+      swatch.addEventListener('click', () => {
+        card._activeImage = swatch.dataset.image;
+        card.dataset.id = swatch.dataset.variantId;
+
+        card.querySelectorAll('.product-card-small--swatch').forEach((s) => s.classList.remove('is-active'));
+        swatch.classList.add('is-active');
+      });
+    });
+  };
+
+  const observer = new MutationObserver(initSwatches);
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>

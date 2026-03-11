@@ -129,7 +129,8 @@
       "include_taxes": "Tax included.",
       "reviews": {
         "one": "{{ count }} review",
-        "other": "{{ count }} reviews"
+        "other": "{{ count }} reviews",
+        "reviews": "Reviews"
       },
       "available": {
         "one": "Available in {{ count }} color",

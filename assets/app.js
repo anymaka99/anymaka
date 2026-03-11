@@ -418,7 +418,7 @@ if (!customElements.get('product-card-small')) {
 
       let formData = new FormData(this.form);
 
-      formData.append('id', this.id);
+      formData.append('id', this.dataset.id);
       formData.append('quantity', 1);
       formData.append('sections', this.getSectionsToRender().map((section) => section.section));
       formData.append('sections_url', window.location.pathname);

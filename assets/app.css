@@ -3153,14 +3153,19 @@ input[type="submit"] {
   .button.accent,
   input[type="submit"].accent {
     background: var(--color-accent);
-    color: var(--solid-button-label, #fff); }
+    color: var(--solid-button-label, #fff); 
+    border: 1px solid var(--color-accent);
+  }
     .button.accent .spinner-path,
     input[type="submit"].accent .spinner-path {
       stroke: var(--bg-body); }
     @media screen and (hover: hover) {
       .button.accent:hover,
       input[type="submit"].accent:hover {
-        background: var(--color-accent-hover, var(--color-accent)); } }
+        background: transparent;
+        color: #242528;
+      } 
+    }
   .button[disabled],
   input[type="submit"][disabled] {
     background: rgba(var(--color-body-rgb), 0.4);
