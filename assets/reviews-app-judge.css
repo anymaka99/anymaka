@@ -1,0 +1,240 @@
+.jdgm-widget {
+    max-width: 1920px !important;
+}
+
+.jdgm-widget .jdgm-rev-widg__title {
+    display: none;
+}
+.jdgm-widget .jdgm-write-rev-link {
+    border-radius: 40px;
+    max-width: 160px !important;
+    width: 100% !important;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+.jdgm-widget .jdgm-write-rev-link:hover {
+    background-color: transparent !important;
+    color: #242528 !important;
+}
+.jdgm-widget .jdgm-rev-widg__header {
+    display: flex;
+    gap: 32px;
+}
+.jdgm-widget .jdgm-row-stars {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    flex-direction: column;
+    width: 50%;
+}
+.jdgm-widget .jdgm-histogram {
+    width: 100% !important;
+    border-left: none !important;
+}
+.jdgm-widget .jdgm-widget-actions-wrapper {
+    border-left: none !important;
+}
+
+.jdgm-widget .jdgm-rev-widg__summary {
+    align-items: flex-start !important;
+}
+.jdgm-widget .jdgm-histogram__row {
+    display: flex;
+    width: 100%;
+}
+.jdgm-widget .jdgm-histogram__row .jdgm-histogram__star {
+    display: flex;
+}
+.jdgm-widget .jdgm-histogram__bar {
+    width: 100%;
+    background-color: transparent;
+}
+.jdgm-widget .jdgm-row-media{
+    width: 100%;
+    flex-direction: column !important;
+    align-items: flex-start;
+}
+.jdgm-widget .jdgm-rev-widg__summary {
+    width: 100% !important;
+    margin-bottom: 24px !important;
+}
+.jdgm-widget .jdgm-gallery-wrapper {
+    width: 100%;
+    padding-top: 0px;
+    padding-right: 0px !important;
+}
+.jdgm-widget .jdgm-gallery-wrapper .jdgm-gallery-title {
+    display: none;
+}
+.jdgm-widget .jdgm-gallery-wrapper .jdgm-gallery {
+    width: 100%;
+}
+.jdgm-row-media {
+    border-top: none !important;
+}
+.jdgm-widget .jdgm-gallery__thumbnail.jdgm-gallery__thumbnail {
+    border-radius: 16px;
+}
+.jdgm-widget .jdgm-gallery .jdgm-gallery__thumbnail-link {
+    width: calc(100% / 4);
+}
+.jdgm-widget .jdgm-medals__container {
+    overflow: hidden !important;
+}
+.jdgm-widget .jdgm-gallery__thumbnail-link {
+    border-radius: 16px;
+}
+.jdgm-widget .jdgm-medals-wrapper {
+    border-left: none !important;
+    padding-left: 0px !important;
+}
+.jdgm-gallery.jdgm-gallery .jdgm-gallery__thumbnail-link:nth-child(8) .jdgm-gallery__thumbnail-wrapper.jdgm-gallery__thumbnail-wrapper:before {
+    font-size: 16px;
+    color: #F79009;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) .jdgm-rev-widg__summary-inner {
+    display: flex !important;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+.jdgm-widget .jdgm-rev-widg__summary-stars {
+    width: 100%;
+    display: none;
+}
+.jdgm-widget .jdgm-rev-widg__summary-text.jdgm-all-reviews__summary-text--verified {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    color: #242528;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}
+.jdgm-widget .jdgm-rev-widg__summary-text.jdgm-all-reviews__summary-text--verified img {
+    display: none;
+}
+.jdgm-widget .jdgm-widget-actions-wrapper {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+.jdgm-widget .jdgm-medals.jdgm-medals--rebranding .jdgm-verified-link-wrapper {
+    display: none;
+}
+.jdgm-widget .jdgm-sort-dropdown {
+    font-size: 16px;
+}
+.jdgm-btn.jdgm-paginate__load-more {
+    margin: 0 auto;
+    border-radius: 40px !important;
+    background-color: #F79009;
+    border-color: #F79009 !important;
+    max-width: 160px !important;
+    width: 100% !important;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+.jdgm-btn.jdgm-paginate__load-more:hover {
+    background-color: transparent !important;
+    color: #242528 !important;
+}
+.jdgm-widget .jdgm-rev__icon {
+    width: 120px;
+    height: 120px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.jdgm-widget .jdgm-rev__author {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.jdgm-rev[data-verified-buyer="true"] .jdgm-rev__icon.jdgm-rev__icon:after {
+    color: #12B76A !important;
+}
+.jdgm-widget .jdgm-histogram__bar {
+    height: 8px;
+    border-radius: 4px;
+}
+.jdgm-histogram__frequency {
+    width: 40px !important;
+    color: #575A63 !important;
+    font-size: 16px;
+}
+.jdgm-histogram__bar-content {
+    border-radius: 4px !important;
+}
+.jdgm-histogram__row {
+    margin-bottom: 16px !important;
+}
+.jdgm-form-wrapper {
+    position: absolute;
+    background: #F5F5F6;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+}
+.jdgm-form__fieldset.jdgm-form__fieldset-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.jdgm-form__fieldset.jdgm-form__fieldset-actions a,
+.jdgm-form__fieldset.jdgm-form__fieldset-actions input {
+    margin: 0;
+    border-radius: 40px !important;
+    background-color: #F79009 !important;
+    border-color: #F79009 !important;
+    max-width: 160px !important;
+    width: 100% !important;
+    color: #fff;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+
+@media (max-width: 1400px) {
+    .jdgm-widget .jdgm-row-stars {
+        width: 65%;
+    }
+}
+@media (max-width: 1200px) {
+    .jdgm-widget .jdgm-row-stars {
+        width: 100%;
+    }
+}
+@media (max-width: 1024px) {
+    .jdgm-widget .jdgm-rev-widg__header {
+        flex-direction: column;
+    }
+    .jdgm-widget .jdgm-rev-widg__summary-text.jdgm-all-reviews__summary-text--verified {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .jdgm-widget .jdgm-gallery-wrapper {
+        padding-bottom: 0px;
+    }
+    .jdgm-form-wrapper {
+        max-width: 350px;
+        width: 100%;
+    }
+    .jdgm-form__fieldset.jdgm-form__fieldset-actions {
+        flex-direction: column;
+    }
+    .jdgm-form__fieldset.jdgm-form__fieldset-actions a,
+    .jdgm-form__fieldset.jdgm-form__fieldset-actions input {
+        max-width: 100% !important;
+    }
+}
