@@ -53,6 +53,11 @@
             id="MediaGallery-{{ section.id }}"
           >
             <div class="product-image-container">
+              {%- liquid
+                assign first_image = product.featured_media.preview_image
+                assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+              -%}
+
               {%- if section.settings.media_grid == 'grid' -%}
                 <product-slider
                   id="Product-Slider"
