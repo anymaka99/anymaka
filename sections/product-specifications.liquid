@@ -48,32 +48,48 @@
 
   <div class="specs-grid">
     {% for block in section.blocks %}
-      <div class="spec-group" {{ block.shopify_attributes }}>
-        <h3 class="spec-group__title">
-          {{ block.settings.title }}
-        </h3>
+      {% assign has_specs = false %}
 
-        <ul class="spec-list">
-          {% for i in (1..8) %}
-            {% assign label_key = 'label_' | append: i %}
-            {% assign field_key = 'field_' | append: i %}
+      {% for i in (1..8) %}
+        {% assign field_key = 'field_' | append: i %}
+        {% assign field = block.settings[field_key] %}
 
-            {% assign label = block.settings[label_key] %}
-            {% assign field = block.settings[field_key] %}
+        {% if field != blank %}
+          {% assign value = product.metafields.custom[field] %}
+          {% if value != blank %}
+            {% assign has_specs = true %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
 
-            {% if field != blank %}
-              {% assign value = product.metafields.custom[field] %}
+      {% if has_specs %}
+        <div class="spec-group" {{ block.shopify_attributes }}>
+          <h3 class="spec-group__title">
+            {{ block.settings.title }}
+          </h3>
 
-              {% if value != blank %}
-                <li class="spec-row">
-                  <span class="spec-label">{{ label }}</span>
-                  <span class="spec-value">{{ value }}</span>
-                </li>
+          <ul class="spec-list">
+            {% for i in (1..8) %}
+              {% assign label_key = 'label_' | append: i %}
+              {% assign field_key = 'field_' | append: i %}
+
+              {% assign label = block.settings[label_key] %}
+              {% assign field = block.settings[field_key] %}
+
+              {% if field != blank %}
+                {% assign value = product.metafields.custom[field] %}
+
+                {% if value != blank %}
+                  <li class="spec-row">
+                    <span class="spec-label">{{ label }}</span>
+                    <span class="spec-value">{{ value }}</span>
+                  </li>
+                {% endif %}
               {% endif %}
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
