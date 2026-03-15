@@ -23,6 +23,10 @@
     display: flex;
     gap: 32px;
 }
+.jdgm-widget .jdgm-all-reviews__header {
+    display: flex;
+    gap: 32px;
+}
 .jdgm-widget .jdgm-row-stars {
     align-items: flex-start !important;
     justify-content: flex-start !important;
