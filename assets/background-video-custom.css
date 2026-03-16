@@ -152,7 +152,7 @@
 }
 
 @media (max-width: 1440px) {
-    .background-video-custom .background-video__content .button_block-hero {
+    .background-video-custom .background-video__content .button_block {
         bottom: 8px;
     }
 }
@@ -174,7 +174,7 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    .background-video-custom .background-video__content .button_block-hero {
+    .background-video-custom .background-video__content .button_block {
         display: none;
     }
     .video-lightbox-modal__opener {
@@ -284,7 +284,7 @@
 }
 
 @media (max-height: 750px) {
-    .button_block-hero {
+    .button_block {
         bottom: 16px;
     }
 }
