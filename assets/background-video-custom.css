@@ -87,12 +87,16 @@
     bottom: 80px;
     transform: translateX(-50%);
     z-index: 3;
+    max-width: 120px;
+    width: 100%;
 }
 .button_block .button_block-link {
     font-size: 16px;
     line-height: 24px;
     height: 56px;
     font-weight: 700;
+    width: 100%;
+    padding: 0;
 }
 .button_block .button_block-link.accent {
     border: 1px solid #F79009;
