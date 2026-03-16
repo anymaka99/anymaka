@@ -130,6 +130,7 @@
     font-weight: 400 !important;
     line-height: 24px !important;
     color: #242528 !important;
+    text-align: left;
 }
 
 @media (max-width: 1440px) {
