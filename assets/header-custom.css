@@ -122,9 +122,11 @@
     font-size: 24px;
     line-height: 32px;
     color: #242528;
+    /* margin-bottom: 8px; */
+    min-height: calc(1em * 2);
 }
 .header-custom .product-card .product-card-info .product-card-description {
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-weight: 400 !important;
     line-height: 24px !important;
     color: #242528 !important;
@@ -133,6 +135,12 @@
 @media (max-width: 1440px) {
     .header-custom.style2 .full-menu {
         margin-left: 25px;
+    }
+    .header-custom .product-card .product-card-info .product-card-title {
+        min-height: calc(1.2em * 2);
+    } 
+    .header-custom .mega-menu-sidebar {
+        grid-template-columns: 400px 1fr;
     }
 }
 @media (max-width: 1067px) {
