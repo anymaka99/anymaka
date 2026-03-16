@@ -145,6 +145,9 @@
     display: flex;
     justify-content: flex-end;
 }
+.compare-table__button-wrap .compare-table__button {
+    border-radius: 40px;
+}
 
 @media screen and (max-width: 1024px) {
     .spec-compare__inner{
@@ -229,6 +232,10 @@
     .compare-table__button-wrap {
         padding-top: 0px;
         padding-bottom: 16px;
+        justify-content: center;
+    }
+    .compare-table__button-wrap .compare-table__button {
+        width: 100%;
     }
 }
 
