@@ -280,6 +280,7 @@
     .featured-collection-custom .section-header .section-header--title {
         font-size: 24px;
         line-height: 32px;
+        padding-left: 16px;
     }
     .featured-collection-custom .featured-custom-button {
         background-color: transparent;
@@ -329,7 +330,7 @@
     .featured-collection-custom .row {
         padding-left: 0px;
     }
-    .featured-collection-custom .carousel__slide.is-selected {
+    .featured-collection-custom .carousel__slide {
         padding-left: 16px;
     }
 }
