@@ -141,6 +141,11 @@
 .specs-compare__curve-mobile {
     display: none;
 }
+.compare-table__button-wrap {
+    display: flex;
+    justify-content: flex-end;
+}
+
 @media screen and (max-width: 1024px) {
     .spec-compare__inner{
         padding: 24px;
@@ -220,6 +225,10 @@
     .compare-product__title {
         font-size: 12px;
         line-height: 18px;
+    }
+    .compare-table__button-wrap {
+        padding-top: 0px;
+        padding-bottom: 16px;
     }
 }
 

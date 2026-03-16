@@ -223,6 +223,13 @@
           {%- endif -%}
         </tbody>
       </table>
+      {% if section.settings.button_link %}
+        <div class="compare-table__button-wrap">
+          <a href="{{ section.settings.button_link }}" class="compare-table__button button accent">
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 </section>
@@ -262,6 +269,16 @@
       "id": "table_name",
       "label": "Table name",
       "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     },
     {
       "type": "range",

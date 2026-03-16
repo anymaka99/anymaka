@@ -47,19 +47,21 @@
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
             <div class="swiper-slide product-card" {{ block.shopify_attributes }}>
-              {% if block.settings.video != blank %}
-                {{
-                  block.settings.video
-                  | video_tag:
-                    muted: true,
-                    loop: true,
-                    playsinline: true,
-                    preload: 'metadata',
-                    class: 'product-card__media'
-                }}
-              {% endif %}
+              <div class="product-card__media-wrap">
+                {% if block.settings.video != blank %}
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      muted: true,
+                      loop: true,
+                      playsinline: true,
+                      preload: 'metadata',
+                      class: 'product-card__media'
+                  }}
+                {% endif %}
 
-              <div class="product-card__gradient" aria-hidden="true"></div>
+                <div class="product-card__gradient" aria-hidden="true"></div>
+              </div>
 
               {% if block.settings.tagline != blank %}
                 <p class="product-card__tagline">{{ block.settings.tagline }}</p>
@@ -71,7 +73,7 @@
         <span class="product-list__cursor" aria-hidden="true"></span>
       </div>
 
-      <div class="pagination"></div>
+      <div class="pagination orange"></div>
     </div>
   {% endif %}
 </section>

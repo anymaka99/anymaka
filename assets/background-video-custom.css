@@ -110,10 +110,46 @@
 .list-items-mobile {
     display: none;
 }
+.background-video-custom .background-video__content-wrap {
+    height: 100%;
+    align-items: center;
+}
+.background-video-custom .background-video__content {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.background-video-custom .background-video__content .button_block-hero {
+    position: absolute;
+    left: 0;
+    bottom: 80px;
+    display: none;
+}
+.background-video-custom .background-video__content .button_block-hero .button_block-link {
+    background-color: transparent;
+    color: #F79009;
+}
+.background-video-custom .background-video__content .button_block-hero .button_block-link:hover {
+    background-color: #F79009;
+    color: #fff;
+}
+.video-lightbox-modal__content {
+    padding: 16px;
+}
+.video-lightbox-modal__toggle {
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    background: #fff;
+    border-radius: 50%;
+}
 
 @media (max-width: 1440px) {
-    .button_block {
-        bottom: 16px;
+    .background-video-custom .background-video__content .button_block-hero {
+        bottom: 8px;
     }
 }
 
@@ -134,6 +170,9 @@
         flex-direction: column;
         justify-content: space-between;
     }
+    .background-video-custom .background-video__content .button_block-hero {
+        display: none;
+    }
     .video-lightbox-modal__opener {
         /* position: absolute;
         left: 50%;
@@ -142,6 +181,7 @@
         display: flex;
         justify-content: center;
         gap: 15px;
+        width: 100%;
     }
     .video-lightbox-modal__opener button {
         max-width: 164px;
@@ -216,6 +256,22 @@
         font-size: 16px;
         line-height: 24px;
     }
+    .video-lightbox-modal__content {
+        padding: 8px;
+    }
+    .video-lightbox-modal__toggle {
+        width: 20px;
+        height: 20px;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        background: #fff;
+        border-radius: 50%;
+    }
+    .video-lightbox-modal__toggle svg {
+        width: 10px;
+        height: 10px;
+    }
 }
 @media (max-width: 350px) {
     .video-lightbox-modal__opener {
@@ -224,7 +280,7 @@
 }
 
 @media (max-height: 750px) {
-    .button_block {
+    .button_block-hero {
         bottom: 16px;
     }
 }
