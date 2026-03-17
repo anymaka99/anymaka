@@ -255,6 +255,15 @@
     border-radius: 2px;
 }
 
+
+@media (max-width: 1500px) {
+    .setup__title {
+        font-size: 40px;
+        line-height: 52px;
+    }
+}
+
+
 @media (max-width: 1200px) {
     .setup {
         flex-direction: column;

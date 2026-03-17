@@ -5,6 +5,13 @@
     background-color: {{ section.settings.bg_color }};
   }
 
+  .setup__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: {{ section.settings.line_clamp }};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   #shopify-section-{{ section.id }} .setup-slider {
     padding-top: {{ section.settings.padding_top_desktop }}px;
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
@@ -181,6 +188,15 @@
       "type": "checkbox",
       "id": "show_line",
       "label": "Show title line"
+    },
+    {
+      "type": "range",
+      "id": "line_clamp",
+      "label": "Lines count",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "range",
