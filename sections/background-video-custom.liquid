@@ -18,6 +18,31 @@
     assign video_type = 'hosted'
   endif
 -%}
+
+<style>
+  .button_block a {
+    background-color: {{ section.settings.bg_button }};
+    color: {{ section.settings.color_button }};
+    border: 1px solid {{ section.settings.border_color }};
+  }
+  .button_block a:hover {
+    background-color: {{ section.settings.bg_button_hover }};
+    color: {{ section.settings.color_button_hover }};
+    border: 1px solid {{ section.settings.border_color_hover }};
+  }
+
+  .button_block-link.mobile {
+    background-color: {{ section.settings.bg_button }};
+    color: {{ section.settings.color_button }};
+    border: 1px solid {{ section.settings.border_color }};
+  }
+  .button_block-link.mobile:hover {
+    background-color: {{ section.settings.bg_button_hover }};
+    color: {{ section.settings.color_button_hover }};
+    border: 1px solid {{ section.settings.border_color_hover }};
+  }
+</style>
+
 <div class="row {% if full_width %}full-width-row-full{% endif %}">
   <div class="small-12 columns">
     <background-video class="background-video background-video-custom background-video--full-width-{{ full_width }} {{ mobile_height }} {{ desktop_height }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
@@ -187,7 +212,25 @@
                     {% render 'svg-icons' with 'thb-video-play' %}
                     {{ block.settings.button_text }}
                   </button>
-                  <a href="{{ block.settings.button_link }}" class="button button_block-link accent" target="_blank">
+                  <style>
+                    .video-lightbox-modal__button-custom {
+                      background-color: {{ block.settings.bg_button_video }} !important;
+                      color: {{ block.settings.color_button_video }}!important;
+                      border: 1px solid {{ block.settings.border_color_video }}!important;
+                    }
+                    .video-lightbox-modal__button-custom:hover {
+                      background-color: {{ block.settings.bg_button_video_hover }}!important;
+                      color: {{ block.settings.color_button_video_hover }}!important;
+                      border: 1px solid {{ block.settings.border_color_video_hover }}!important;
+                    }
+                    .video-lightbox-modal__button-custom svg path {
+                      fill: {{ block.settings.color_button_video }} !important;
+                    }
+                    .video-lightbox-modal__button-custom:hover svg path {
+                      fill: {{ block.settings.color_button_video_hover }} !important;
+                    }
+                  </style>
+                  <a href="{{ block.settings.button_link }}" class="button button_block-link accent mobile">
                     {{ block.settings.button_text_mobile }}
                   </a>
                 </modal-opener>
@@ -249,7 +292,7 @@
       {% endif %}
       <div class="button_block">
         {%- if section.settings.button_link -%}
-          <a href="{{ section.settings.button_link }}" class="button button_block-link accent" target="_blank">
+          <a href="{{ section.settings.button_link }}" class="button button_block-link">
             {{ section.settings.button_text }}
           </a>
         {%- endif -%}
@@ -534,6 +577,36 @@
     },
     {
       "type": "color",
+      "id": "bg_button",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "color_button",
+      "label": "Button text color"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Button border color"
+    },
+    {
+      "type": "color",
+      "id": "bg_button_hover",
+      "label": "Button background hover"
+    },
+    {
+      "type": "color",
+      "id": "color_button_hover",
+      "label": "Button text color hover"
+    },
+    {
+      "type": "color",
+      "id": "border_color_hover",
+      "label": "Button border color hover"
+    },
+    {
+      "type": "color",
       "id": "bg_list",
       "label": "Background list (mobile)"
     },
@@ -721,6 +794,36 @@
           "type": "text",
           "id": "button_text_mobile",
           "label": "Button text mobile"
+        },
+        {
+          "type": "color",
+          "id": "bg_button_video",
+          "label": "Button background video"
+        },
+        {
+          "type": "color",
+          "id": "color_button_video",
+          "label": "Button text color video"
+        },
+        {
+          "type": "color",
+          "id": "border_color_video",
+          "label": "Button border color video"
+        },
+        {
+          "type": "color",
+          "id": "bg_button_video_hover",
+          "label": "Button background video hover"
+        },
+        {
+          "type": "color",
+          "id": "color_button_video_hover",
+          "label": "Button text color video hover"
+        },
+        {
+          "type": "color",
+          "id": "border_color_video_hover",
+          "label": "Button border color video hover"
         }
       ]
     },

@@ -45,7 +45,10 @@
     assign element = 'div'
   endif
 -%}
-<div class="featured-collection featured-collection-custom row-{{ columns_desktop }}{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
+<div
+  class="featured-collection featured-collection-custom row-{{ columns_desktop }}{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
+  id="{{ section.settings.custom_id }}"
+>
   <div class="row">
     <div class="small-12 columns">
       {% render 'section-header',
@@ -148,6 +151,11 @@
       "type": "url",
       "id": "button_collection_all_url",
       "label": "View all button URL"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
     },
     {
       "type": "header",
