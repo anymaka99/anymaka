@@ -86,7 +86,7 @@
     left: 50%;
     bottom: 80px;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 5;
     max-width: 120px;
     width: 100%;
 }
