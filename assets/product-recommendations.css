@@ -11,6 +11,9 @@
     margin-top: 0px;
     line-height: 24px;
 }
+.recom-custom {
+    padding: 20px 0px 0px 0px;
+}
 .recom-custom .section-header .section-header--title {
     font-weight: 600;
     font-size: 48px;
