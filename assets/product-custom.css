@@ -12,11 +12,13 @@
     font-size: 30px;
     line-height: 38px;
     margin: 16px 0px;
+    color: #242528;
 }
 .thb-product-detail.product-custom .product-short-description {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    color: #242528;
 }
 .thb-product-detail.product-custom .max-height--no-background {
     margin-bottom: 16px;
@@ -80,6 +82,7 @@
     display: flex;
     line-height: 24px;
     margin-bottom: 20px;
+    color: #242528;
 }
 .thb-product-detail.product-custom .product--icon-list ul li .product--icon-list-image {
     width: 32px;
@@ -92,8 +95,7 @@
 }
 .thb-product-detail.product-custom .variations .product-form__input--color input[type="radio"] + label {
     width: 48px;
-    height: 28px;
-    margin-right: 4px;
+    margin: 0;
 }
 .thb-product-detail.product-custom .variations .product-form__input--color input[type="radio"]:checked + label {
     box-shadow: none !important;
@@ -121,7 +123,7 @@
 .thb-product-detail.product-custom .bullet__icon {
     cursor: pointer;
     width: 48px;
-    height: 28px;
+    height: 100%;
 }
 .thb-product-detail.product-custom .bullet__border {
     stroke: var(--bullet-border);
@@ -356,7 +358,7 @@
   }
   .thb-product-detail.product-custom .products-overflow-hidden .bullet__icon {
     width: 32px;
-    height: 16px;
+    height: 100%;
   }
   
   .product-card-small--swatch.is-active .bullet .bullet__icon {
