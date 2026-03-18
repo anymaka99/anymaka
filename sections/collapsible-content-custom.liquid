@@ -56,7 +56,7 @@
           </a>
         {%- endif -%}
         {%- if section.settings.faq_image -%}
-          <div class="collapsible-faq-block__image">
+          <div class="collapsible-faq-block__image {% if section.settings.show_faq_image_mobile %}show{% endif %}">
             {{ section.settings.faq_image | image_url: width: 240 | image_tag: class: 'faq-image', loading: 'lazy' }}
           </div>
         {%- endif -%}
@@ -153,6 +153,12 @@
       "type": "image_picker",
       "id": "faq_image",
       "label": "FAQ image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_faq_image_mobile",
+      "label": "Show FAQ image on mobile",
+      "default": false
     },
     {
       "type": "header",
