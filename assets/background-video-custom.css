@@ -82,7 +82,7 @@
     fill: #242528;
 }
 .button_block {
-    position: absolute;
+    position: fixed;
     left: 50%;
     bottom: 80px;
     transform: translateX(-50%);
