@@ -230,8 +230,8 @@
                       fill: {{ block.settings.color_button_video_hover }} !important;
                     }
                   </style>
-                  <a href="{{ block.settings.button_link }}" class="button button_block-link accent mobile">
-                    {{ block.settings.button_text_mobile }}
+                  <a href="{{ section.settings.button_link }}" class="button button_block-link accent mobile">
+                    {{ section.settings.button_text }}
                   </a>
                 </modal-opener>
                 <a href="{{ video.url }}" class="video-lightbox-modal__button no-js" target="_blank">
@@ -784,16 +784,6 @@
           "type": "text",
           "id": "button_text",
           "label": "Button text"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button URL"
-        },
-        {
-          "type": "text",
-          "id": "button_text_mobile",
-          "label": "Button text mobile"
         },
         {
           "type": "color",
