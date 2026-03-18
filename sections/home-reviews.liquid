@@ -19,6 +19,7 @@
 
 <section
   class="reviews"
+  id="{{ section.settings.custom_id }}"
 >
   <div class="reviews__header">
     <div class="reviews__titles">
@@ -195,6 +196,11 @@
       "id": "sub_title",
       "label": "Subtitle",
       "default": "Over 600,000 happy customers"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
     },
     {
       "type": "checkbox",

@@ -1,0 +1,64 @@
+.shopify-section.product-nav-scroll-section {
+  position: sticky;
+  top: var(--product-nav-sticky-top, 80px);
+  z-index: 50;
+}
+
+.product-nav-scroll-wrapper {
+  background: var(--product-nav-bg, var(--color-body, #fff));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.product-nav-scroll-wrapper.product-nav-scroll--has-bg {
+  border-radius: var(--block-border-radius, 16px);
+}
+
+.product-nav-scroll {
+  max-width: var(--grid-width-row, 1380px);
+  margin: 0 auto;
+}
+
+.product-nav-scroll__inner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 50px 0;
+}
+
+.product-nav-scroll__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.product-nav-scroll__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #81868F;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 8px 2px;
+  border-bottom: 2px solid transparent;
+  opacity: 0.9;
+  transition: opacity 150ms ease, border-color 150ms ease;
+}
+.product-nav-scroll__link.is-active {
+  color: #242528;
+}
+
+.product-nav-scroll__link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.product-nav-scroll__link:hover,
+.product-nav-scroll__link:focus,
+.product-nav-scroll__link:focus-visible {
+  opacity: 1;
+  color: #242528;
+}

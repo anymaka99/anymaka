@@ -14,7 +14,7 @@
   }
 </style>
 
-<section class="product-spec specs-products">
+<section class="product-spec specs-products" id="{{ section.settings.custom_id }}">
   <div class="specs__head">
     {%- if section.settings.section_title -%}
       <h2 id="specs-title" class="specs__title">{{ section.settings.section_title }}</h2>
@@ -98,6 +98,11 @@
 {
   "name": "Product Specifications",
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    },
     {
       "type": "text",
       "id": "section_title",

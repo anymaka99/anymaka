@@ -22,7 +22,7 @@
     assign has_bg = false
   endif
 -%}
-<div class="row collapsible-faq">
+<div class="row collapsible-faq" id="{{ section.settings.custom_id }}">
   <div class="small-12 columns">
     <div
       class="collapsible-content faq-content {% if has_bg -%}collapsible-content--has-bg{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
@@ -107,6 +107,11 @@
       "label": "Heading",
       "default": "Collapsible content",
       "info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
     },
     {
       "type": "select",
