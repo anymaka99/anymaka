@@ -121,12 +121,20 @@
     .collapsible-faq-block__image {
         display: none;
     }
+    .collapsible-faq-block__image img {
+        max-width: 120px;
+    }
+    .collapsible-faq-block__image.show {
+        display: block;
+        margin-bottom: 16px;
+    }
     .collapsible-faq{
         padding: 16px;
     }
     .collapsible-faq__button {
         padding-left: 0px;
         margin-top: 8px;
+        margin-bottom: 0px;
         font-size: 16px !important;
         background: transparent;
         color: #F79009 !important;
