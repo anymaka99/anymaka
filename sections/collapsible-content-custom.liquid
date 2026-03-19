@@ -1,5 +1,6 @@
 {{- 'collapsible-content.css' | asset_url | stylesheet_tag -}}
 {{- 'collapsible-faq.css' | asset_url | stylesheet_tag -}}
+{{- 'collapsible-faq-page.css' | asset_url | stylesheet_tag -}}
 
 {%- liquid
   assign section_heading = section.settings.heading
@@ -22,7 +23,25 @@
     assign has_bg = false
   endif
 -%}
-<div class="row collapsible-faq" id="{{ section.settings.custom_id }}">
+
+<style>
+  .collapsible-content {
+    grid-template-columns: {{ section.settings.columns_ratio }};
+  }
+  #shopify-section-{{ section.id }} .collapsible-faq {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1067px) {
+    #shopify-section-{{ section.id }} .collapsible-faq {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<div class="row collapsible-faq template-{{ template.suffix }}" id="{{ section.settings.custom_id }}">
   <div class="small-12 columns">
     <div
       class="collapsible-content faq-content {% if has_bg -%}collapsible-content--has-bg{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
@@ -112,6 +131,19 @@
       "type": "text",
       "id": "custom_id",
       "label": "Custom ID"
+    },
+    {
+      "type": "select",
+      "id": "columns_ratio",
+      "label": "Columns ratio",
+      "options": [
+        { "value": "1fr 1fr", "label": "50 / 50" },
+        { "value": "2fr 1fr", "label": "66 / 33" },
+        { "value": "1fr 2fr", "label": "33 / 66" },
+        { "value": "3fr 1fr", "label": "75 / 25" },
+        { "value": "1fr 3fr", "label": "25 / 75" }
+      ],
+      "default": "1fr 1fr"
     },
     {
       "type": "select",
@@ -208,6 +240,46 @@
     {
       "type": "header",
       "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
     },
     {
       "type": "checkbox",

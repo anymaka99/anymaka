@@ -1,0 +1,233 @@
+{{ 'contact-form-custom.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .contact-form {
+      background-color: {{ section.settings.background_color }};
+  }
+  #shopify-section-{{ section.id }} .contact-form-section {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    @media (max-width: 1067px) {
+      #shopify-section-{{ section.id }} .contact-form-section {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+</style>
+
+<section class="contact-form-section">
+  <div class="contact-form">
+    <div class="contact-form__inner">
+      <h2 class="contact-form__title">{{ section.settings.heading | escape }}</h2>
+      <p class="contact-form__subtitle">{{ section.settings.description | escape }}</p>
+      {% form 'contact', class: 'contact-form__form' %}
+        {% if form.posted_successfully? %}
+          <div class="form-notification success">
+            {% render 'svg-icons' with 'thb-success' %}
+            {{ 'sections.contact.form.post_success' | t }}
+          </div>
+        {%- elsif form.errors -%}
+          <div class="form-notification error">
+            {% render 'svg-icons' with 'thb-error' %}
+            {{ 'sections.contact.form.error_heading' | t }}
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+        <div class="contact-form__fields">
+          <label class="contact-form__field">
+            <span class="contact-form__label">
+              {{- 'sections.contact.form.name' | t }}
+              <span class="contact-form__required">*</span></span
+            >
+            <input
+              id="ContactFormName"
+              class="contact-form__input"
+              type="text"
+              name="contact[name]"
+              placeholder="{{ 'sections.contact.form.name' | t | escape }}"
+              autocomplete="name"
+              required
+            >
+          </label>
+          <label class="contact-form__field">
+            <span class="contact-form__label">
+              {{- 'sections.contact.form.email' | t }}
+              <span class="contact-form__required">*</span></span
+            >
+            <input
+              id="ContactFormEmail"
+              class="contact-form__input"
+              type="email"
+              name="contact[email]"
+              placeholder="{{ 'sections.contact.form.email' | t | escape }}"
+              autocomplete="email"
+              pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,10})(\]?)$"
+              required
+            >
+          </label>
+          <label class="contact-form__field">
+            <span class="contact-form__label">
+              {{- 'sections.contact.form.subject' | t }}
+              <span class="contact-form__required">*</span></span
+            >
+            <select class="contact-form__select" name="contact[subject]" required>
+              <option value="" disabled selected>
+                {{ 'sections.contact.form.subject_select_placeholder' | t | escape }}
+              </option>
+              <option value="order">{{ 'sections.contact.form.subject_option_order' | t | escape }}</option>
+              <option value="shipping">{{ 'sections.contact.form.subject_option_shipping' | t | escape }}</option>
+              <option value="returns">{{ 'sections.contact.form.subject_option_returns' | t | escape }}</option>
+              <option value="product">{{ 'sections.contact.form.subject_option_product' | t | escape }}</option>
+            </select>
+          </label>
+          <label class="contact-form__field">
+            <span class="contact-form__label">
+              {{- 'sections.contact.form.comment' | t }}
+              <span class="contact-form__required">*</span></span
+            >
+            <textarea
+              id="ContactFormMessage"
+              class="contact-form__textarea"
+              name="contact[body]"
+              placeholder="{{ 'sections.contact.form.comment' | t | escape }}"
+              required
+            ></textarea>
+          </label>
+        </div>
+
+        <button class="contact-form__button" type="submit">{{ 'sections.contact.form.send' | t }}</button>
+        <p class="contact-form__note">
+          {{ section.settings.note_prefix | escape }}
+          {% if section.settings.privacy_policy_page != blank %}
+            <a href="{{ section.settings.privacy_policy_page.url }}" class="contact-form__link">
+              {{- section.settings.privacy_policy_label | escape -}}
+            </a>
+          {% else %}
+            <a href="#" class="contact-form__link">{{ section.settings.privacy_policy_label | escape }}</a>
+          {% endif %}
+          and
+          {% if section.settings.privacy_terms_of_service_page != blank %}
+            <a href="{{ section.settings.privacy_terms_of_service_page.url }}" class="contact-form__link">
+              {{- section.settings.terms_of_service_label | escape -}}
+            </a>
+          {% else %}
+            <a href="#" class="contact-form__link">{{ section.settings.terms_of_service_label | escape }}</a>
+          {% endif %}
+          {{ section.settings.note_suffix | escape }}
+        </p>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Form Custom",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background color"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Still have questions?"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Contact us by simply filling out the form below."
+    },
+    {
+      "type": "text",
+      "id": "note_prefix",
+      "label": "Note prefix",
+      "default": "This site is protected by reCAPTCHA Enterprise and the Google"
+    },
+    {
+      "type": "text",
+      "id": "privacy_policy_label",
+      "label": "Privacy link label",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "page",
+      "id": "privacy_policy_page",
+      "label": "Privacy Policy page"
+    },
+    {
+      "type": "text",
+      "id": "terms_of_service_label",
+      "label": "Terms link label",
+      "default": "Terms of Service"
+    },
+    {
+      "type": "page",
+      "id": "privacy_terms_of_service_page",
+      "label": "Terms of Service page"
+    },
+    {
+      "type": "text",
+      "id": "note_suffix",
+      "label": "Note suffix",
+      "default": "apply."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form Custom",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -312,7 +312,13 @@
         "comment": "Kommentar",
         "send": "Senden",
         "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
-        "error_heading": "Bitte passe Folgendes an:"
+        "error_heading": "Bitte passe Folgendes an:",
+        "subject": "Betreff",
+        "subject_select_placeholder": "Thema auswählen",
+        "subject_option_order": "Bestellung",
+        "subject_option_shipping": "Versand",
+        "subject_option_returns": "Rücksendungen",
+        "subject_option_product": "Produktanfrage"
       },
       "map": {
         "location": "Standort {{ index }}"

@@ -316,7 +316,13 @@
         "comment": "Commenta",
         "send": "Invia",
         "post_success": "Grazie per averci contattato. Risponderemo il prima possibile.",
-        "error_heading": "Correggi gli errori seguenti:"
+        "error_heading": "Correggi gli errori seguenti:",
+        "subject": "Oggetto",
+        "subject_select_placeholder": "Seleziona un argomento",
+        "subject_option_order": "Ordine",
+        "subject_option_shipping": "Spedizione",
+        "subject_option_returns": "Resi",
+        "subject_option_product": "Domanda sul prodotto"
       },
       "map": {
         "location": "Posizione {{ index }}"
