@@ -98,11 +98,17 @@
     border-radius: 40px;
     border: none;
     background: #F79009;
+    border: 1px solid #F79009;
+    transition: all .3s;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     cursor: pointer;
+}
+.contact-form__button:hover {
+    background-color: transparent;
+    color: #242528;
 }
 
 .contact-form__note {
