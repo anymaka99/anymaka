@@ -315,7 +315,13 @@
         "comment": "Comentario",
         "send": "Enviar",
         "post_success": "Gracias por contactarnos. Te responderemos lo antes posible.",
-        "error_heading": "Por favor, ajusta lo siguiente:"
+        "error_heading": "Por favor, ajusta lo siguiente:",
+        "subject": "Asunto",
+        "subject_select_placeholder": "Selecciona un asunto",
+        "subject_option_order": "Pedido",
+        "subject_option_shipping": "Envío",
+        "subject_option_returns": "Devoluciones",
+        "subject_option_product": "Consulta de producto"
       },
       "map": {
         "location": "Ubicación {{ index }}"

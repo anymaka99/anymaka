@@ -315,7 +315,13 @@
         "comment": "Comment",
         "send": "Send Message",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "subject": "Subject",
+        "subject_select_placeholder": "Select a subject",
+        "subject_option_order": "Order",
+        "subject_option_shipping": "Shipping",
+        "subject_option_returns": "Returns",
+        "subject_option_product": "Product question"
       },
       "map": {
         "location": "Location {{ index }}"

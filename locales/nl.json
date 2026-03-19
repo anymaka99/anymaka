@@ -312,7 +312,13 @@
         "comment": "Reactie",
         "send": "Sturen",
         "post_success": "Bedankt dat je contact met ons hebt opgenomen. Je hoort zo snel mogelijk van ons.",
-        "error_heading": "Pas het volgende aan:"
+        "error_heading": "Pas het volgende aan:",
+        "subject": "Onderwerp",
+        "subject_select_placeholder": "Selecteer een onderwerp",
+        "subject_option_order": "Bestelling",
+        "subject_option_shipping": "Verzending",
+        "subject_option_returns": "Retourzendingen",
+        "subject_option_product": "Productvraag"
       },
       "map": {
         "location": "Locatie {{ index }}"

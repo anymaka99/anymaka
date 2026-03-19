@@ -312,7 +312,13 @@
         "comment": "Yorum",
         "send": "Gönder",
         "post_success": "Bizimle iletişime geçtiğiniz için teşekkür ederiz. Mümkün olan en kısa sürede size dönüş yapacağız.",
-        "error_heading": "Lütfen aşağıdakileri düzenleyin:"
+        "error_heading": "Lütfen aşağıdakileri düzenleyin:",
+        "subject": "Konu",
+        "subject_select_placeholder": "Bir konu seçin",
+        "subject_option_order": "Sipariş",
+        "subject_option_shipping": "Kargo",
+        "subject_option_returns": "İade",
+        "subject_option_product": "Ürün sorusu"
       },
       "map": {
         "location": "Lokasyon {{ index }}"
