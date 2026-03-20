@@ -88,7 +88,7 @@
 
 .contact-form__input::placeholder,
 .contact-form__textarea::placeholder {
-    color: #81868F;
+    color: #81868F !important;
 }
 
 .contact-form__button {
