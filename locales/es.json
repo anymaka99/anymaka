@@ -323,6 +323,15 @@
         "subject_option_returns": "Devoluciones",
         "subject_option_product": "Consulta de producto"
       },
+      "form_custom": {
+        "full_name": "Full name",
+        "full_name_placeholder": "Enter your full name",
+        "email": "Email",
+        "email_placeholder": "Enter your email",
+        "message": "Message",
+        "message_placeholder": "Write your message",
+        "send": "Send"
+      },
       "map": {
         "location": "Ubicación {{ index }}"
       }

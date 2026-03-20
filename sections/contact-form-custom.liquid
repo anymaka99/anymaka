@@ -38,7 +38,7 @@
         <div class="contact-form__fields">
           <label class="contact-form__field">
             <span class="contact-form__label">
-              {{- 'sections.contact.form.name' | t }}
+              {{ 'sections.contact.form_custom.full_name' | t }}
               <span class="contact-form__required">*</span></span
             >
             <input
@@ -46,14 +46,14 @@
               class="contact-form__input"
               type="text"
               name="contact[name]"
-              placeholder="{{ 'sections.contact.form.name' | t | escape }}"
+              placeholder="{{ 'sections.contact.form_custom.full_name_placeholder' | t | escape }}"
               autocomplete="name"
               required
             >
           </label>
           <label class="contact-form__field">
             <span class="contact-form__label">
-              {{- 'sections.contact.form.email' | t }}
+              {{ 'sections.contact.form_custom.email' | t }}
               <span class="contact-form__required">*</span></span
             >
             <input
@@ -61,7 +61,7 @@
               class="contact-form__input"
               type="email"
               name="contact[email]"
-              placeholder="{{ 'sections.contact.form.email' | t | escape }}"
+              placeholder="{{ 'sections.contact.form_custom.email_placeholder' | t | escape }}"
               autocomplete="email"
               pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,10})(\]?)$"
               required
@@ -69,7 +69,7 @@
           </label>
           <label class="contact-form__field">
             <span class="contact-form__label">
-              {{- 'sections.contact.form.subject' | t }}
+              {{ 'sections.contact.form.subject' | t }}
               <span class="contact-form__required">*</span></span
             >
             <select class="contact-form__select" name="contact[subject]" required>
@@ -84,20 +84,20 @@
           </label>
           <label class="contact-form__field">
             <span class="contact-form__label">
-              {{- 'sections.contact.form.comment' | t }}
+              {{ 'sections.contact.form_custom.message' | t }}
               <span class="contact-form__required">*</span></span
             >
             <textarea
               id="ContactFormMessage"
               class="contact-form__textarea"
               name="contact[body]"
-              placeholder="{{ 'sections.contact.form.comment' | t | escape }}"
+              placeholder="{{ 'sections.contact.form_custom.message_placeholder' | t | escape }}"
               required
             ></textarea>
           </label>
         </div>
 
-        <button class="contact-form__button" type="submit">{{ 'sections.contact.form.send' | t }}</button>
+        <button class="contact-form__button" type="submit">{{ 'sections.contact.form_custom.send' | t }}</button>
         <p class="contact-form__note">
           {{ section.settings.note_prefix | escape }}
           {% if section.settings.privacy_policy_page != blank %}
