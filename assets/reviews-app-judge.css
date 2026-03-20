@@ -334,7 +334,10 @@
     .jdgm-gallery .jdgm-gallery__thumbnail-link:nth-child(8) .jdgm-gallery__thumbnail-wrapper:before {
         content: 'See more' !important;
     }
+    .jdgm-widget .jdgm-write-rev-link {
+        max-width: 100% !important;
+    }
     .jdgm-all-reviews__header .jdgm-write-rev-link {
-        max-width: 205px !important
+        max-width: 100% !important;
     }
 }
