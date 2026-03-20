@@ -319,6 +319,11 @@
     display: none;
 }
 
+.jdgm-subtab {
+    display: none !important;
+}
+
+
 @media (max-width: 1024px) {
     .jdgm-all-reviews__summary-text--verified {
         font-size: 16px;
