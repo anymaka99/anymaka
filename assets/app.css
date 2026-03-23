@@ -2254,6 +2254,8 @@ h6,
       background: var(--color-border, #dadce0); }
       .template-index .header--inner:before {
         content: none; }
+      [class*="template-page-about"] .header--inner:before {
+        content: none; }
   .header--full-width .header--inner {
     max-width: 100%; }
   .header--full-width .thb-full-menu .mega-menu-columns {
