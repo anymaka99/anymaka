@@ -331,14 +331,11 @@
           font-size: 14px;
           line-height: 20px;
         }
-        .template-collection .side-panel.product-drawer {
+        /* .template-collection .side-panel.product-drawer {
           height: max-content;
           top: 50%;
           transform: translateY(-50%);
-          /* height: max-content;
-          top: 50%;
-          transform: translateY(-50%); */
-        }
+        } */
         .template-collection .static-dots .flickity-page-dots {
           margin-top: 20px;
         }
