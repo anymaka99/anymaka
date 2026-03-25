@@ -74,6 +74,14 @@
                   block.settings.video
                   | video_tag: autoplay: false, loop: true, muted: true, playsinline: true, controls: false
                 }}
+                <button
+                  class="how-used__video-toggle"
+                  type="button"
+                  aria-label="Play video"
+                  aria-pressed="false"
+                >
+                  <span class="how-used__video-toggle-icon" aria-hidden="true"></span>
+                </button>
               {% else %}
                 {{ 'image' | placeholder_svg_tag: 'how-used__placeholder' }}
               {% endif %}
@@ -126,25 +134,56 @@
         if (slide.dataset.videoInit === 'true') return;
 
         const video = slide.querySelector('video');
+        const toggle = slide.querySelector('.how-used__video-toggle');
         if (!video) return;
 
         const play = () => {
           slide.classList.add('is-playing');
           video.currentTime = 0;
           video.play().catch(() => {});
+          if (toggle) {
+            toggle.setAttribute('aria-label', 'Pause video');
+            toggle.setAttribute('aria-pressed', 'true');
+          }
         };
 
         const pause = () => {
           slide.classList.remove('is-playing');
           video.pause();
           video.currentTime = 0;
+          if (toggle) {
+            toggle.setAttribute('aria-label', 'Play video');
+            toggle.setAttribute('aria-pressed', 'false');
+          }
         };
 
-        slide.addEventListener('mouseenter', play);
-        slide.addEventListener('mouseleave', pause);
+        const stopOtherVideos = () => {
+          slides.forEach((otherSlide) => {
+            if (otherSlide === slide || !otherSlide.classList.contains('is-playing')) return;
+            const otherVideo = otherSlide.querySelector('video');
+            const otherToggle = otherSlide.querySelector('.how-used__video-toggle');
+            if (!otherVideo) return;
+            otherSlide.classList.remove('is-playing');
+            otherVideo.pause();
+            otherVideo.currentTime = 0;
+            if (otherToggle) {
+              otherToggle.setAttribute('aria-label', 'Play video');
+              otherToggle.setAttribute('aria-pressed', 'false');
+            }
+          });
+        };
 
-        slide.addEventListener('touchstart', play, { passive: true });
-        slide.addEventListener('touchend', pause);
+        if (toggle) {
+          toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (slide.classList.contains('is-playing')) {
+              pause();
+              return;
+            }
+            stopOtherVideos();
+            play();
+          });
+        }
 
         slide.dataset.videoInit = 'true';
       });

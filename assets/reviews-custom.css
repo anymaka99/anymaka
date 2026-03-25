@@ -23,7 +23,9 @@
     position: relative;
     z-index: 1;
   }
-  
+  .reviews .review-line-mobile {
+    display: none;
+  }
   .reviews__title__curve {
     position: absolute;
     top: 10px;
@@ -136,7 +138,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-
   }
   
   .reviews__footer {
@@ -274,5 +275,14 @@
     .reviews__media {
         aspect-ratio: 1 / 1;
     }
+
+    .reviews .review-line-mobile {
+      display: block;
+      left: 0;
+      top: 2px;
+    }
+    .reviews .review-line-desktop {
+      display: none;
+    } 
   }
   

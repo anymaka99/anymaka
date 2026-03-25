@@ -32,12 +32,13 @@
     <div class="swiper logos-thumbs">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div class="swiper-slide">
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
             {% if block.settings.logo %}
               <img
                 src="{{ block.settings.logo | image_url: width: 200 }}"
                 alt=""
                 loading="lazy"
+                style="--logo-scale: {{ block.settings.logo_scale | divided_by: 100.0 }}; --logo-scale-mobile: {{ block.settings.logo_scale_mobile | divided_by: 100.0 }};"
               >
             {% endif %}
           </div>
@@ -79,7 +80,7 @@
         breakpoints: {
           320: { slidesPerView: 3, spaceBetween: 32 },
           768: { slidesPerView: 4, spaceBetween: 48 },
-          1024: { slidesPerView: 8, spaceBetween: 64 },
+          1080: { slidesPerView: 8, spaceBetween: 64 },
         },
       });
 
@@ -190,6 +191,26 @@
           "type": "image_picker",
           "id": "logo",
           "label": "Logo"
+        },
+        {
+          "type": "range",
+          "id": "logo_scale",
+          "min": 50,
+          "max": 180,
+          "step": 2,
+          "unit": "%",
+          "label": "Logo scale",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "logo_scale_mobile",
+          "min": 50,
+          "max": 180,
+          "step": 2,
+          "unit": "%",
+          "label": "Logo scale (mobile)",
+          "default": 100
         },
         {
           "type": "richtext",

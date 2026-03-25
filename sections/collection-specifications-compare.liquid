@@ -221,15 +221,28 @@
               <td>{{ p2.metafields.custom.tent_compatibility }}</td>
             </tr>
           {%- endif -%}
+
+          {% if section.settings.button_link %}
+            <tr class="compare-table__button-row">
+              <td colspan="2" class="compare-table__button-spacer"></td>
+              <td class="compare-table__button-cell">
+                <a
+                  href="{{ section.settings.button_link }}"
+                  class="compare-table__button button accent compare-table__button-desktop"
+                >
+                  {{ section.settings.button_text }}
+                </a>
+                <a
+                  href="{{ section.settings.button_link }}"
+                  class="compare-table__button button accent compare-table__button-mobile"
+                >
+                  {{ section.settings.button_text_mobile }}
+                </a>
+              </td>
+            </tr>
+          {% endif %}
         </tbody>
       </table>
-      {% if section.settings.button_link %}
-        <div class="compare-table__button-wrap">
-          <a href="{{ section.settings.button_link }}" class="compare-table__button button accent">
-            {{ section.settings.button_text }}
-          </a>
-        </div>
-      {% endif %}
     </div>
   {% endif %}
 </section>
@@ -274,6 +287,11 @@
       "type": "text",
       "id": "button_text",
       "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "button_text_mobile",
+      "label": "Button text mobile"
     },
     {
       "type": "url",

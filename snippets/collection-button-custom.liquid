@@ -14,33 +14,36 @@
 
 <style>
   .sticky-btn-section {
-    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 30px;
+    left: auto;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .sticky-btn-section.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sticky-btn {
+    height: 56px;
+    width: 164px;
+    max-width: 100%;
+    padding: 0;
+  }
+
   @media (max-width: 767px) {
     .sticky-btn-section {
-      position: fixed;
-      bottom: 24px;
       left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      display: none;
-      transition: opacity 0.4s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sticky-btn-section.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .sticky-btn {
-      height: 56px;
-      width: 164px;
-      max-width: 100%;
-      padding: 0;
+      right: auto;
     }
   }
 </style>
@@ -48,27 +51,17 @@
 <script>
   (function () {
     const section = document.querySelector('.sticky-btn-section');
-    const trigger = document.querySelector('.shopify-section:first-child');
+    const triggers = Array.prototype.slice.call(document.querySelectorAll('.section-background-video'));
 
-    if (!section || !trigger) return;
+    if (!section || !triggers.length) return;
+
+    const trigger = triggers[Math.min(1, triggers.length - 1)];
 
     function checkPosition() {
-      if (window.innerWidth > 767) {
-        section.style.opacity = '0';
-        section.style.pointerEvents = 'none';
-        section.classList.remove('show');
-        return;
-      }
-
       const triggerBottom = trigger.getBoundingClientRect().bottom;
 
-      if (triggerBottom < -300) {
-        section.style.opacity = '1';
-        section.style.pointerEvents = 'auto';
-      } else {
-        section.style.opacity = '0';
-        section.style.pointerEvents = 'none';
-      }
+      const shouldShow = triggerBottom < -300;
+      section.classList.toggle('show', shouldShow);
     }
 
     window.addEventListener('scroll', checkPosition, { passive: true });
