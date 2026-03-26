@@ -31,7 +31,9 @@
 }
 .blog-custom .text-button {
     background-color: #F79009;
+    border: 1px solid #F79009;
     color: #fff;
+    transition: all .3s;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -41,6 +43,13 @@
     height: 56px;
     border-radius: 40px;
     margin-top: auto;
+}
+.blog-custom .text-button span {
+    display: none;
+}
+.blog-custom .text-button:hover {
+    background-color: transparent;
+    color: #242528;
 }
 
 @media (max-width: 767px) {
