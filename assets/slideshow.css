@@ -19,6 +19,7 @@
 @media (max-width: 1068px) {
   .slideshow__slide-content .split-text.h1 .line-parent {
     line-height: 38px;
+    font-size: 30px;
   }
 }
 .flickity-custom-navigation {

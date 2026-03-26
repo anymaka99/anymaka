@@ -18,7 +18,11 @@
   if template contains 'page.about'
     assign transparent_header = section.settings.transparent_header
   endif
+  if template contains 'blog'
+    assign transparent_header = section.settings.transparent_header
+  endif
 -%}
+
 <theme-header
   id="header"
   class="header header-custom {{ style }} {{ header_shadow }}{% if full_width %} header--full-width{%- endif %} transparent--{{ transparent_header }} {% if sticky_header %}header-sticky--active{%- endif -%}"
