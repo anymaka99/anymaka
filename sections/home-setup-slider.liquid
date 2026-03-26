@@ -19,6 +19,10 @@
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
   }
 
+  .setup__text svg path {
+    stroke-width: {{ section.settings.stroke_width_line }};
+  }
+
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} .setup-slider {
       padding-top: {{ section.settings.padding_top_mobile }}px;
@@ -190,6 +194,16 @@
       "type": "checkbox",
       "id": "show_line",
       "label": "Show title line"
+    },
+    {
+      "type": "range",
+      "id": "stroke_width_line",
+      "label": "Title line stroke width",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 2
     },
     {
       "type": "range",

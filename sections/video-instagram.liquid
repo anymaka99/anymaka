@@ -10,6 +10,10 @@
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
   }
 
+  .how-used__title svg path {
+    stroke-width: {{ section.settings.stroke_width_line }};
+  }
+
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} .how-used-video {
       padding-top: {{ section.settings.padding_top_mobile }}px;
@@ -102,7 +106,7 @@
 
       sliders.forEach((slider) => {
         if (!slider.classList.contains('swiper-initialized')) {
-          new Swiper(slider, {
+          const swiperInstance = new Swiper(slider, {
             slidesPerView: 'auto',
             spaceBetween: 24,
             centeredSlides: true,
@@ -125,6 +129,7 @@
               1440: { slidesPerView: 4.2, spaceBetween: 24 },
             },
           });
+          slider.swiperInstance = swiperInstance;
         }
       });
 
@@ -137,16 +142,21 @@
         const toggle = slide.querySelector('.how-used__video-toggle');
         if (!video) return;
 
+        const slider = slide.closest('.how-used__slider');
+        const swiper = slider?.swiperInstance;
+
         const play = () => {
           slide.classList.add('is-playing');
           video.currentTime = 0;
           video.play().catch(() => {});
 
+          if (swiper?.autoplay) {
+            swiper.autoplay.stop();
+          }
+
           if (toggle) {
             toggle.style.opacity = '0';
             toggle.style.pointerEvents = 'none';
-            toggle.setAttribute('aria-label', 'Pause video');
-            toggle.setAttribute('aria-pressed', 'true');
           }
         };
 
@@ -155,30 +165,38 @@
           video.pause();
           video.currentTime = 0;
 
+          if (swiper?.autoplay) {
+            swiper.autoplay.start();
+          }
+
           if (toggle) {
             toggle.style.opacity = '1';
             toggle.style.pointerEvents = 'auto';
-            toggle.setAttribute('aria-label', 'Play video');
-            toggle.setAttribute('aria-pressed', 'false');
           }
         };
 
         const stopOtherVideos = () => {
           slides.forEach((otherSlide) => {
             if (otherSlide === slide || !otherSlide.classList.contains('is-playing')) return;
+
             const otherVideo = otherSlide.querySelector('video');
-            const otherToggle = otherSlide.querySelector('.how-used__video-toggle');
             if (!otherVideo) return;
 
             otherSlide.classList.remove('is-playing');
             otherVideo.pause();
             otherVideo.currentTime = 0;
 
+            const otherSlider = otherSlide.closest('.how-used__slider');
+            const otherSwiper = otherSlider?.swiperInstance;
+
+            if (otherSwiper?.autoplay) {
+              otherSwiper.autoplay.start();
+            }
+
+            const otherToggle = otherSlide.querySelector('.how-used__video-toggle');
             if (otherToggle) {
               otherToggle.style.opacity = '1';
               otherToggle.style.pointerEvents = 'auto';
-              otherToggle.setAttribute('aria-label', 'Play video');
-              otherToggle.setAttribute('aria-pressed', 'false');
             }
           });
         };
@@ -240,6 +258,16 @@
       "id": "show_line",
       "label": "Show line title",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "stroke_width_line",
+      "label": "Title line stroke width",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 2
     },
     {
       "type": "checkbox",

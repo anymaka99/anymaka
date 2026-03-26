@@ -9,6 +9,10 @@
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
 
+    .reviews__title svg path {
+      stroke-width: {{ section.settings.stroke_width_line }};
+    }
+
     @media (max-width: 767px) {
       #shopify-section-{{ section.id }} .reviews {
         padding-top: {{ section.settings.padding_top_mobile }}px;
@@ -208,6 +212,16 @@
       "id": "show_line",
       "label": "Show line title",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "stroke_width_line",
+      "label": "Title line stroke width",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 2
     },
     {
       "type": "image_picker",
