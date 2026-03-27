@@ -20,11 +20,16 @@
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 12px;
+    color: #242528;
+}
+.blog-custom .blog-post-info h5 a {
+    color: #242528;
 }
 .blog-custom .blog-post-info p {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+    color: #242528;
 }
 .blog-custom .blog-post .featured-image img {
     border-radius: 16px;
