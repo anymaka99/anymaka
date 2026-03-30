@@ -72,6 +72,10 @@
     line-height: 24px;
     opacity: 1;
 }
+.side-panel-custom .side-panel-content .product-cart-item-info .product-cart-item-options .option-name {
+    font-weight: 400;
+    color: #575A63;
+}
 .side-panel-custom .side-panel-content .product-cart-item-info {
     display: flex;
     flex-direction: column;
