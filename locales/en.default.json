@@ -246,6 +246,7 @@
       "shipping_free": "Free",
       "note": "Order special instructions",
       "checkout": "Checkout",
+      "items": "Items",
       "empty": "Your cart is empty",
       "ready": "Ready to find your new favorite products?",
       "cart_error": "There was an error while updating your cart. Please try again.",
