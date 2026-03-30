@@ -72,18 +72,60 @@
 
 @media screen and (max-width:1024px) {
     .scroll-video {
+        position: relative;
+        width: 100%;
         height: unset;
-    }
-    .scroll-video__sticky {
+      }
+    
+      .scroll-video--16-9 {
+        aspect-ratio: 16 / 9;
+      }
+    
+      .scroll-video--4-5 {
+        aspect-ratio: 4 / 5;
+      }
+    
+      .scroll-video--1-1 {
+        aspect-ratio: 1 / 1;
+      }
+    
+      .scroll-video--9-16 {
+        aspect-ratio: 9 / 16;
+      }
+    
+      .scroll-video__sticky {
         position: static;
-        height: fit-content;
-    }
+        height: 100%;
+      }
+    
+      .scroll-video__media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     .video_mob_content {
         display: block;
         padding-bottom: 12px;
     }
+    .video_mob_content.hide {
+        display: none;
+    }
     .scroll-video__content {
         display: none;
+    }
+    .scroll-video__content.show {
+        display: block;
+        bottom: auto;
+        top: 50%;
+        transform: translate(-50%, -50%) !important;
+    }
+    .scroll-video__content h1 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+    .scroll-video__content p {
+        font-size: 14px;
+        line-height: 20px;
     }
     .video_mob_content h1 {
         font-size: 24px;
