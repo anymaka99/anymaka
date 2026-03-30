@@ -1,11 +1,14 @@
+{{ 'cart-drawer.css' | asset_url | stylesheet_tag }}
+
 {%- if settings.cart_drawer -%}
 {%- liquid
 	assign free_shipping = settings.free_shipping
+	assign free_shipping_message = settings.show_shipping_free
 	assign free_shipping_minimum = settings.free_shipping_minimum | times: 100
 	assign total = cart.total_price
 	assign shadow_class = 'has-shadow--' | append: settings.block_shadows
 -%}
-<cart-drawer class="side-panel cart-drawer {{ shadow_class }}" id="Cart-Drawer" tabindex="-1">
+<cart-drawer class="side-panel side-panel-custom cart-drawer {{ shadow_class }}" id="Cart-Drawer" tabindex="-1">
 	<div class="side-panel-inner">
 		<div class="side-panel-header">
 			<div>
@@ -115,19 +118,18 @@
 							 >
 							 <button class="plus" type="button" aria-label="{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}">{% render 'svg-icons' with 'plus' %}</button>
 							</quantity-selector>
-							<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" data-index="{{ item.index | plus: 1 }}">{% render 'svg-icons' with 'trash' %}</a>
 						</div>
 						<div class="product-cart-item-price">
 							<span class="price">
 							{%- if item.original_line_price != item.final_line_price -%}
-							 <del><span class="amount">{{ item.original_line_price | money }}</span></del>
-							 <ins><span class="amount">{{ item.final_line_price | money }}</span></ins>
+							 <del><span class="amount">{{ item.original_line_price | money_without_trailing_zeros }}</span></del>
+							 <ins><span class="amount">{{ item.final_line_price | money_without_trailing_zeros }}</span></ins>
 							{%- else -%}
-							 <ins><span class="amount">{{ item.original_line_price | money }}</span></ins>
+							 <ins><span class="amount">{{ item.original_line_price | money_without_trailing_zeros }}</span></ins>
 							{%- endif -%}
 							{%- if item.variant.available and item.unit_price_measurement -%}
 								<small class="unit-price">
-									{{ item.variant.unit_price | money }}
+									{{ item.variant.unit_price | money_without_trailing_zeros }}
 									<span class="unit-price-separator">/</span>
 									{%- if item.variant.unit_price_measurement.reference_value != 1 -%}
 									{{- item.variant.unit_price_measurement.reference_value -}}
@@ -136,6 +138,7 @@
 								</small>
 							{%- endif -%}
 							</span>
+							<a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="remove" data-index="{{ item.index | plus: 1 }}">{% render 'svg-icons' with 'trash' %}</a>
 						</div>
 					</div>
 					{% endfor %}
@@ -148,18 +151,23 @@
 				</div>
 			{%- endif -%}
 			{%- if settings.cart_recommendations and cart != empty -%}
-			<product-recommendations class="complementary-products" data-url="{{ routes.product_recommendations_url }}?section_id=cart-drawer&product_id={{ cart.items[0].product_id }}&limit=4">
-			  {% if recommendations.performed and recommendations.products_count > 0 %}
-					<div class="complementary-products--heading">{{ 'general.cart_drawer.you_may_also_like' | t }}</div>
-					<scroll-shadow>
-				    <div class="complementary-products--inner">
-				      {% for recommendation in recommendations.products %}
-				        {% render 'product-card-small' product_small: recommendation %}
-				      {% endfor %}
-				    </div>
-					</scroll-shadow>
-			  {% endif %}
-			</product-recommendations>
+				<product-recommendations 
+				  class="complementary-products" 
+				  data-url="{{ routes.product_recommendations_url }}?section_id=cart-drawer&product_id={{ cart.items[0].product_id }}&limit=2">
+				
+				  {% if recommendations.performed and recommendations.products_count > 0 %}
+				
+					<div class="complementary-products--heading">
+					  {{ 'general.cart_drawer.you_may_also_like' | t }}
+					</div>
+				
+					<div class="complementary-products--inner">
+					  {% for recommendation in recommendations.products %}
+						{% render 'product-card-small' product_small: recommendation %}
+					  {% endfor %}
+					</div>
+				  {% endif %}
+				</product-recommendations>
 			{%- endif -%}
 		</div>
 		{%- if cart != empty -%}
@@ -178,7 +186,7 @@
 					<table class="collaterals">
 							<tr class="cart-total">
  								<th>
-									{{ 'sections.cart.total' | t }}
+									{{ 'sections.cart.subtotal' | t }}
 									<p class="cart-policy-text">
 										{%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
 											{{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
@@ -197,12 +205,22 @@
 										 {% if settings.currency_code_enabled %}
 											{{ cart.total_price | money_with_currency }}
 										 {% else %}
-											{{ cart.total_price | money }}
+											{{ cart.total_price | money_without_trailing_zeros }}
 										 {% endif %}
 									 </span>
 								 </span>
 								</td>
 							</tr>
+							{%- if free_shipping_message -%}
+								<tr class="cart-shipping">
+									<th>
+										<p>{{ 'sections.cart.shipping' | t }}</p>
+									</th>
+									<td>
+										<span>{{ 'sections.cart.shipping_free' | t }}</span>
+									</td>
+								</tr>
+							{%- endif -%}
 						</tbody>
 					</table>
 					{%- if settings.cart_drawer_notes -%}
@@ -226,10 +244,17 @@
 						{%- endif -%}
 						{%- if settings.cart_drawer_checkout_button -%}
 						<form action="{{ routes.cart_url }}" method="post" novalidate>
-							<button type="submit" class="button accent checkout checkout-button full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span></button>
+							<button type="submit" class="button accent checkout checkout-button full" name="checkout" title="{{ 'general.cart_drawer.checkout' | t | escape }}"><span>{{ 'general.cart_drawer.checkout' | t }}</span>
+							<span class="checkout-price">{{ total | money_without_trailing_zeros }}</span>
+						</button>
 						</form>
 						{%- endif -%}
 					</div>
+					{%- if settings.show_terms_policy_text -%}
+						<div class="cart_footer_bottom-text">
+							{{ settings.cart_footer_bottom_text }}
+						</div>
+					{%- endif -%}
 				</div>
 			</div>
 		{%- endif -%}

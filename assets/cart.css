@@ -7,7 +7,25 @@
   isolation: isolate;
   border-radius: var(--block-border-radius, 16px); }
 
-
+.thb-cart-form--form .product-quantity .quantity + .remove {
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid #CED0D3;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  justify-content: center;
+}
+.thb-cart-form--form .cart-items tbody tr td.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-items tbody tr td.product-subtotal {
+  vertical-align: baseline;
+}
 
 .thb-cart-form {
   display: grid;
@@ -269,3 +287,37 @@
       width: 8px;
       height: 8px;
       pointer-events: none; }
+
+
+      @media (max-width: 1067px) {
+        .thb-cart-form--form .product-quantity .quantity + .remove {
+          display: none;
+        }
+        .thb-cart-form--form .product-cart-item .quantity + .remove {
+          margin: 0;
+          border-radius: 50%;
+          border: 1px solid #CED0D3;
+          width: 40px;
+          height: 40px;
+          align-items: center;
+          margin-top: auto;
+          justify-content: center;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+        .thb-cart-form--form .product-cart-item quantity-selector {
+          height: 40px;
+        }
+        .thb-cart-form--form .cart-items tbody tr td.product-quantity {
+          display: none;
+        }
+        .thb-cart-form--form .cart-items tbody tr {
+          position: relative;
+        }
+        .thb-cart-form--form .product-cart-item tbody tr td.product-quantity {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }

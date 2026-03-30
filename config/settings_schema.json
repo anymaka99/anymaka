@@ -1436,6 +1436,21 @@
         "label": "Free shipping minimum amount",
         "default": "250",
         "info": "Enter the value without a currency symbol and use a decimal to separate dollars and cents. Example: '100.00'"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_shipping_free",
+        "label": "Show message in footer bottom when free shipping",
+      },
+      {
+        "type": "checkbox",
+        "id": "show_terms_policy_text",
+        "label": "Show terms and privacy policy text",
+      },
+      {
+        "type": "richtext",
+        "id": "cart_footer_bottom_text",
+        "label": "Footer bottom text"
       }
     ]
   },
