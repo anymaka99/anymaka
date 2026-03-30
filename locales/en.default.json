@@ -242,6 +242,8 @@
       "add_notes": "Add notes",
       "subtotal": "Subtotal",
       "total": "Total",
+      "shipping": "Shipping",
+      "shipping_free": "Free",
       "note": "Order special instructions",
       "checkout": "Checkout",
       "empty": "Your cart is empty",

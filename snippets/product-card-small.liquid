@@ -124,7 +124,10 @@
     <div class="product-card-small--add-to-cart">
       {% if is_purchasable %}
         <button class="product-card-small--add-to-cart-button button accent" type="button">
-          <span class="product-card-small--add-to-cart-text">{{ 'products.product.add_to_cart' | t }}</span>
+          <span class="product-card-small--add-to-cart-text">
+            {{- 'products.product.add_to_cart' | t }}
+            {{ product.price | money_without_trailing_zeros -}}
+          </span>
         </button>
       {% else %}
         <button
@@ -132,7 +135,10 @@
           type="button"
           data-variant-id="{{ product_small.selected_or_first_available_variant.id }}"
         >
-          <span class="product-card-small--add-to-cart-text">{{ 'products.product.add_to_cart' | t }}</span>
+          <span class="product-card-small--add-to-cart-text">
+            {{- 'products.product.add_to_cart' | t }}
+            {{ product.price | money_without_trailing_zeros -}}
+          </span>
         </button>
         {% comment %}
           <quick-view class="product-card-small--add-to-cart-button" data-product-handle="{{ product_small.handle }}"
