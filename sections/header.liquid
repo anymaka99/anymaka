@@ -18,6 +18,9 @@
   if template contains 'page.about'
     assign transparent_header = section.settings.transparent_header
   endif
+  if template contains 'page.become-an-ambassador'
+    assign transparent_header = section.settings.transparent_header
+  endif
   if template contains 'blog'
     assign transparent_header = section.settings.transparent_header
   endif

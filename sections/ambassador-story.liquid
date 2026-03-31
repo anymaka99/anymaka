@@ -1,0 +1,168 @@
+{{ 'ambassador-story.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .ambassador {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    @media (max-width: 1067px) {
+      #shopify-section-{{ section.id }} .ambassador {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+</style>
+
+<section class="ambassador">
+  <div class="ambassador-container">
+    {% if section.settings.title != blank or section.settings.text != blank %}
+      <div class="ambassador-intro">
+        {% if section.settings.title != blank %}
+          <h2 class="ambassador-intro__title">
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="ambassador-intro__text rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ambassador-story">
+      <div class="ambassador-story__content">
+        {% for block in section.blocks %}
+          {% if block.type == 'step' %}
+            <article class="ambassador-story__step" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h3 class="ambassador-story__title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div class="ambassador-story__text rte">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="ambassador-story__media">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1500
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 1024px) 50vw, 100vw',
+              widths: '375, 550, 750, 900, 1200, 1500',
+              alt: section.settings.image.alt
+            | escape
+          }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ambassador Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Intro title",
+      "default": "Why Become Our Ambassador?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Intro text",
+      "default": "<p>At anymaka, we're dedicated to revolutionizing and enhancing the hammocking experience for hammocking lovers worldwide.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Story step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Feature & Amplify Your Content"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Step text",
+          "default": "<p>Showcase your incredible moments and reach a wider audience.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Ambassador Story",
+      "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }]
+    }
+  ]
+}
+{% endschema %}
