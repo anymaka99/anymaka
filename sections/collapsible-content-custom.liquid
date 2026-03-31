@@ -33,10 +33,23 @@
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
   }
 
+  .collapsible-faq__item summary {
+    font-size: {{ section.settings.text_font_size }}px!important;
+  }
+  .collapsible-faq__content {
+    font-size: {{ section.settings.answer_content_font_size }}px !important;
+  }
+
   @media (max-width: 1067px) {
     #shopify-section-{{ section.id }} .collapsible-faq {
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+    .collapsible-faq__item summary {
+      font-size: {{ section.settings.text_font_size_mobile }}px!important;
+    }
+    .collapsible-faq__content {
+      font-size: {{ section.settings.answer_content_font_size_mobile }}px !important;
     }
   }
 </style>
@@ -196,6 +209,50 @@
       "id": "show_faq_image_mobile",
       "label": "Show FAQ image on mobile",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Sizes"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Heading content font size",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "text_font_size_mobile",
+      "label": "Heading content font size (mobile)",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "answer_content_font_size",
+      "label": "Answer content font size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "answer_content_font_size_mobile",
+      "label": "Answer content font size (mobile)",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
     },
     {
       "type": "header",

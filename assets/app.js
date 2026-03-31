@@ -457,6 +457,9 @@ if (!customElements.get('product-card-small')) {
         if (typeof Cart !== 'undefined') {
           new Cart().renderContents(parsedState);
         }
+        if (section.id === 'Cart-Drawer') {
+          document.getElementById('Cart-Drawer')?.removeProductEvent();
+        }
       }));
       if (document.getElementById('Cart-Drawer')) {
         document.getElementById('Cart-Drawer').open();
@@ -575,9 +578,10 @@ if (!customElements.get('cart-drawer')) {
 
       removes.forEach((remove) => {
         remove.addEventListener('click', (event) => {
-          this.updateQuantity(event.target.dataset.index, '0');
-
           event.preventDefault();
+          const line = event.currentTarget?.dataset?.index;
+          if (!line) return;
+          this.updateQuantity(line, '0');
         });
       });
     }

@@ -14,7 +14,9 @@
     width: 56px;
 }
 
-
+.featured-collection-custom .carousel__slide {
+    padding-bottom: 10px !important;
+}
 .featured-collection-custom .flickity-nav.flickity-next {
     right: 229px !important;
 }
