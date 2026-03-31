@@ -2256,6 +2256,8 @@ h6,
         content: none; }
       [class*="template-page-about"] .header--inner:before {
         content: none; }
+        [class*="template-page-become-an-ambassador"] .header--inner:before {
+          content: none; }
         .template-blog .header--inner:before {
           content: none; }
   .header--full-width .header--inner {

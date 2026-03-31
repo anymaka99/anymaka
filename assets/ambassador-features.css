@@ -1,0 +1,150 @@
+.ambassador-features-container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.ambassador-intro {
+    margin: 0 auto 120px;
+}
+
+.ambassador-intro__title {
+    margin: 0 0 16px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: 0;
+    color: #242528;
+}
+
+.ambassador-intro__text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242528;
+}
+
+.ambassador-features {
+    margin-top: 120px;
+}
+
+.ambassador-features__title {
+    margin: 0 0 48px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: 0;
+    color: #242528;
+}
+
+.ambassador-features__list {
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    width: 100%;
+}
+
+.ambassador-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 48px;
+    background: #F5F5F6;
+    border-radius: 24px;
+    max-width: 374px;
+}
+
+.ambassador-feature__icon {
+    width: 80px;
+    height: 80px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+}
+
+.ambassador-feature__icon img {
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+
+
+.ambassador-feature__title {
+    margin: 0 0 12px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #242528;
+}
+
+.ambassador-feature__text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242528;
+}
+.ambassador-feature__text p {
+    margin-bottom: 0px;
+}
+
+.ambassador-form{
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    .ambassador-features-container {
+        max-width: 100%;
+    }
+
+    .ambassador-intro {
+        margin-bottom: 80px;
+    }
+
+    .ambassador-intro__title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .ambassador-intro__text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .ambassador-features {
+        gap: 32px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ambassador-features__title {
+        font-size: 24px;
+        line-height: 32px;
+        margin: 0 0 12px;
+    }
+
+    .ambassador-features__list {
+        flex-direction: column;
+    }
+
+    .ambassador-feature {
+        gap: 32px;
+        width: 100%;
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    .ambassador-feature__title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .ambassador-feature__text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

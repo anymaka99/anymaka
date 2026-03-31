@@ -9,6 +9,7 @@
   assign video_autoplay = section.settings.video_autoplay
   assign aspect_ratio = section.settings.aspect_ratio
   assign mobile_height = section.settings.mobile_aspect_ratio
+  assign heading_overlay = section.settings.heading_overlay
 
   assign marker_color = section.settings.marker_color
 
@@ -16,23 +17,26 @@
   assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
 {%- style -%}
-  @media screen and (max-width: 767px) {
-    .video-section--container.mobile_height--16-9 {
-      aspect-ratio: 16/9;
-    }
-    .video-section--container.mobile_height--9-16 {
-      aspect-ratio: 9/16;
-    }
-    .video-section--container.mobile_height--4-5 {
-      aspect-ratio: 4/3;
-    }
-    .video-section--container.mobile_height--3-4 {
-      aspect-ratio: 3/4;
-    }
-    .video-section--container.mobile_height--1-1 {
-      aspect-ratio: 1/1;
-    }
+  .heading-overlay {
+  	color: {{ section.settings.heading_overlay_color }};
   }
+   @media screen and (max-width: 767px) {
+     .video-section--container.mobile_height--16-9 {
+       aspect-ratio: 16/9;
+     }
+     .video-section--container.mobile_height--9-16 {
+       aspect-ratio: 9/16;
+     }
+     .video-section--container.mobile_height--4-5 {
+       aspect-ratio: 4/3;
+     }
+     .video-section--container.mobile_height--3-4 {
+       aspect-ratio: 3/4;
+     }
+     .video-section--container.mobile_height--1-1 {
+       aspect-ratio: 1/1;
+     }
+   }
 {%- endstyle -%}
 <div class="row {% if full_width %} full-width-row-full{% endif %}">
   <div class="small-12 columns">
@@ -46,6 +50,9 @@
         %}
       </div>
       <div class="video-section--container video-aspect--{{ aspect_ratio }} mobile_height--{{ mobile_height }}">
+        {%- if heading_overlay -%}
+          <h3 class="heading-overlay">{{ heading_overlay }}</h3>
+        {%- endif -%}
         {%- if video_hosted != blank -%}
           {%- liquid
             assign sizes = '1280x'
@@ -95,6 +102,16 @@
       "label": "Heading",
       "default": "Video",
       "info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+    },
+    {
+      "type": "text",
+      "id": "heading_overlay",
+      "label": "Heading overlay"
+    },
+    {
+      "type": "color",
+      "id": "heading_overlay_color",
+      "label": "Heading overlay color"
     },
     {
       "type": "select",
