@@ -5,6 +5,21 @@
   .product-nav-scroll-section {
       background-color: {{ settings.color_body_bg }};
   }
+  .product-nav-scroll__inner {
+    padding: {{ section.settings.padding_desktop }}px 0px;
+  }
+  .product-nav-scroll__link {
+    font-size: {{ section.settings.font_size_link }}px;
+  }
+
+  @media (max-width: 1024px) {
+    .product-nav-scroll__inner {
+        padding: {{ section.settings.padding_mobile }}px 0px;
+      }
+    .product-nav-scroll__link {
+        font-size: {{ section.settings.font_size_link_mobile }}px;
+      }
+    }
 </style>
 
 {%- liquid
@@ -62,6 +77,50 @@
       "type": "color",
       "id": "color_body_bg",
       "label": "Section background"
+    },
+    {
+      "type": "header",
+      "content": "Height and size"
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "label": "Padding navigation (desktop)",
+      "min": 4,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Padding navigation (mobile)",
+      "min": 4,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "font_size_link",
+      "label": "Font size link (desktop)",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "font_size_link_mobile",
+      "label": "Font size link (mobile)",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20
     },
     {
       "type": "header",

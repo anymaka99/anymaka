@@ -4,6 +4,10 @@
   .reviews {
       background-color: {{ section.settings.bg_color }};
   }
+  .reviews__subtext p strong {
+    font-weight: 400;
+    color: {{ section.settings.number_color }};
+  }
   #shopify-section-{{ section.id }} .reviews {
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
@@ -39,7 +43,9 @@
       {% endif %}
 
       {% if section.settings.sub_title != blank %}
-        <p class="reviews__subtext">{{ section.settings.sub_title }}</p>
+        <div class="reviews__subtext">
+          {{ section.settings.sub_title }}
+        </div>
       {% endif %}
     </div>
 
@@ -197,10 +203,16 @@
       "default": "Our Satisfied Customers"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "sub_title",
-      "label": "Subtitle",
-      "default": "Over 600,000 happy customers"
+      "label": "Sub title",
+      "default": "<p>Over 600,000 happy customers</p>"
+    },
+    {
+      "type": "color",
+      "id": "number_color",
+      "label": "Color for number in sub title",
+      "info": "To apply the color, select the desired text in the rich text editor and make it **bold**."
     },
     {
       "type": "text",
