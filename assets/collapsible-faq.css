@@ -112,6 +112,10 @@
 .collapsible-faq__item:hover summary span svg path {
     stroke: #F79009 !important;
 }
+.collapsible-faq-block {
+    display: flex;
+    flex-direction: column;
+}
 
 @media screen and (max-width: 1067px) {
     .faq-content .section-header--title {

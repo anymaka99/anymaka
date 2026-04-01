@@ -376,15 +376,12 @@
     color: #fff;
   }
   .slideshow .button-overflow-container .button.accent:hover {
-    background-color: #fff;
+    background-color: transparent;
     color: #242528;
     border: 1px solid #F79009;
   }
   .slideshow-dots .slideshow__slide-content {
     padding: 0px 0px 64px 0px !important;
-  }
-  .slideshow-dots.padding-bottom-none .slideshow__slide-content {
-    padding: 0px 0px 16px 0px !important;
   }
   .slideshow .flickity-page-dots {
     display: none;
@@ -470,5 +467,8 @@
   }
   .flickity-custom-navigation-wrapper {
     display: none;
+  }
+  .slideshow-dots.padding-bottom-none .slideshow__slide-content {
+    padding: 0px 0px 16px 0px !important;
   }
 }

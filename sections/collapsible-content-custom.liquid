@@ -28,6 +28,12 @@
   .collapsible-content {
     grid-template-columns: {{ section.settings.columns_ratio }};
   }
+  .collapsible-faq-block__image-bottom {
+    margin-top: auto;
+  }
+  .collapsible-faq-block__image-top {
+    margin-bottom: auto;
+  }
   #shopify-section-{{ section.id }} .collapsible-faq {
     padding-top: {{ section.settings.padding_top_desktop }}px;
     padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
@@ -88,7 +94,7 @@
           </a>
         {%- endif -%}
         {%- if section.settings.faq_image -%}
-          <div class="collapsible-faq-block__image {% if section.settings.show_faq_image_mobile %}show{% endif %}">
+          <div class="collapsible-faq-block__image {% if section.settings.show_faq_image_mobile %}show{% endif %} collapsible-faq-block__image-{{ section.settings.faq_image_position | default: 'bottom' }}">
             {{ section.settings.faq_image | image_url: width: 240 | image_tag: class: 'faq-image', loading: 'lazy' }}
           </div>
         {%- endif -%}
@@ -203,6 +209,23 @@
       "type": "image_picker",
       "id": "faq_image",
       "label": "FAQ image"
+    },
+    {
+      "type": "select",
+      "id": "faq_image_position",
+      "label": "FAQ image position",
+      "info": "Adjusting the image position if the button is missing ",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
     },
     {
       "type": "checkbox",
