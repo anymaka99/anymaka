@@ -20,7 +20,10 @@
     {% for block in section.blocks %}
       <article class="steps-section__step" {{ block.shopify_attributes }}>
         {% if block.settings.show_number %}
-          <span class="steps-section__number"> Step {{ forloop.index }} </span>
+          <span class="steps-section__number">
+            {{ section.settings.step_label }}
+            {{ forloop.index }}
+          </span>
         {% endif %}
 
         {% if block.settings.title != blank %}
@@ -71,6 +74,12 @@
       "type": "image_picker",
       "id": "image",
       "label": "Section image"
+    },
+    {
+      "type": "text",
+      "id": "step_label",
+      "label": "Step label",
+      "default": "Step"
     },
     {
       "type": "header",

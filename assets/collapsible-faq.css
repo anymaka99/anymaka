@@ -5,6 +5,7 @@
     line-height: 60px;
     letter-spacing: -0.02em;
     color: #242528;
+    margin-bottom: 16px;
 }
 .faq-content {
     gap: 32px;
@@ -116,6 +117,13 @@
     display: flex;
     flex-direction: column;
 }
+.collapsible-faq-block p {
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+}
 
 @media screen and (max-width: 1067px) {
     .faq-content .section-header--title {
@@ -165,5 +173,9 @@
         line-height: 16px;
         padding: 0 16px 16px !important;
     }
-
+    .collapsible-faq-block p {
+        margin-bottom: 32px;
+        font-size: 14px;
+        line-height: 20px;
+    }
 }
