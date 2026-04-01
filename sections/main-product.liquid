@@ -43,6 +43,33 @@
   >
 {%- endif -%}
 
+<style>
+  .thb-product-detail.product-custom .product-grid-container {
+    --col-1: 67%;
+    --col-2: 33%;
+    gap: 32px;
+    grid-template-columns: var(--col-1) var(--col-2);
+  }
+
+  {% case section.settings.product_layout_ratio %}
+    {% when '67_33' %}
+      .thb-product-detail.product-custom .product-grid-container {
+        --col-1: 67.27%;
+        --col-2: 32.73%;
+      }
+    {% when '60_40' %}
+      .thb-product-detail.product-custom .product-grid-container {
+        --col-1: 60%;
+        --col-2: 40%;
+      }
+    {% when '55_45' %}
+      .thb-product-detail.product-custom .product-grid-container {
+        --col-1: 55%;
+        --col-2: 45%;
+      }
+  {% endcase %}
+</style>
+
 <div class="thb-product-detail product product-custom" data-handle="{{ product.handle }}">
   <div class="row">
     <div class="small-12 columns">
@@ -311,6 +338,26 @@
         {
           "value": "slider",
           "label": "Slider"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "product_layout_ratio",
+      "label": "Product columns ratio",
+      "default": "67_33",
+      "options": [
+        {
+          "value": "67_33",
+          "label": "67% / 33%"
+        },
+        {
+          "value": "60_40",
+          "label": "60% / 40%"
+        },
+        {
+          "value": "55_45",
+          "label": "55% / 45%"
         }
       ]
     },
