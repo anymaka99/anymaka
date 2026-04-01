@@ -16,10 +16,26 @@
 .slideshow__slide-content .split-text.h1 .line-parent .line-child p {
   margin-bottom: 5px;
 }
+.slideshow__slide-content .split-text.description-size--medium {
+  font-weight: 400;
+  font-size: 24px !important;
+  line-height: 32px;
+  margin-bottom: 33px;
+}
+
+
 @media (max-width: 1068px) {
+  .slideshow__slide-content .split-text {
+    margin-bottom: 0px;
+  }
   .slideshow__slide-content .split-text.h1 .line-parent {
     line-height: 38px;
     font-size: 30px;
+  }
+  .slideshow__slide-content .split-text.description-size--medium {
+    font-size: 18px !important;
+    line-height: 28px;
+    margin-bottom: 23px;
   }
 }
 .flickity-custom-navigation {
@@ -353,6 +369,7 @@
 
   .slideshow .button-overflow-container .button.white {
     border: 1px solid #fff;
+    padding: 0;
   }
   .slideshow .button-overflow-container .button.white:hover {
     background-color: transparent;
@@ -365,6 +382,9 @@
   }
   .slideshow-dots .slideshow__slide-content {
     padding: 0px 0px 64px 0px !important;
+  }
+  .slideshow-dots.padding-bottom-none .slideshow__slide-content {
+    padding: 0px 0px 16px 0px !important;
   }
   .slideshow .flickity-page-dots {
     display: none;

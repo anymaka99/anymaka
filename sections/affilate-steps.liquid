@@ -1,0 +1,164 @@
+{{ 'affilate-steps.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .affilate {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .affilate {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="affilate steps-section">
+  <div class="steps-section__content">
+    {% for block in section.blocks %}
+      <article class="steps-section__step" {{ block.shopify_attributes }}>
+        {% if block.settings.show_number %}
+          <span class="steps-section__number"> Step {{ forloop.index }} </span>
+        {% endif %}
+
+        {% if block.settings.title != blank %}
+          <h2 class="steps-section__title">
+            {{ block.settings.title }}
+          </h2>
+        {% endif %}
+
+        {% if block.settings.text != blank %}
+          <div class="steps-section__text rte">
+            {{ block.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+          <a
+            href="{{ block.settings.button_link }}"
+            class="steps-section__button"
+          >
+            {{ block.settings.button_label }}
+          </a>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="steps-section__media">
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 1500
+        | image_tag:
+          loading: 'lazy',
+          widths: '375, 550, 750, 900, 1200, 1500',
+          sizes: '(min-width: 1024px) 50vw, 100vw',
+          alt: section.settings.image.alt
+        | escape
+      }}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Affilate Steps with Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_number",
+          "label": "Show step number",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Step description</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Affilate Steps with Image",
+      "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }]
+    }
+  ]
+}
+{% endschema %}
