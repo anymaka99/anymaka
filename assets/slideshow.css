@@ -370,6 +370,7 @@
   .slideshow .button-overflow-container .button.white {
     border: 1px solid #fff;
     padding: 0;
+    color: #242528;
   }
   .slideshow .button-overflow-container .button.white:hover {
     background-color: transparent;

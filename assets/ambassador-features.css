@@ -17,10 +17,10 @@
     color: #242528;
 }
 
-.ambassador-intro__text {
+.ambassador-features-intro__text {
     margin: 0;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     color: #242528;
 }
@@ -109,9 +109,9 @@
         line-height: 32px;
     }
 
-    .ambassador-intro__text {
-        font-size: 14px;
-        line-height: 20px;
+    .ambassador-features-intro__text {
+        font-size: 16px;
+        line-height: 24px;
     }
 
     .ambassador-features {
