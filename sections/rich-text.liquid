@@ -101,6 +101,20 @@
                       {{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
                     </div>
                   {%- endif -%}
+                {%- when 'image_bottom' -%}
+                  <div class="rich-text-image">
+                    {%- if block.settings.image != blank -%}
+                      {%- liquid
+                        assign image = block.settings.image
+                        assign master_width = image.src.width | append: 'x' | append: image.src.height
+                        render 'responsive-image', image: image, sizes: master_width, retina: true
+                      -%}
+                    {%- else -%}
+                      <div class="thb-placeholder">
+                        {{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+                      </div>
+                    {%- endif -%}
+                  </div>
                 {%- when 'subheading' -%}
                   <p class="subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
                 {%- when 'heading' -%}
@@ -111,6 +125,19 @@
                   -%}
                   <h3 class="{{ block.settings.size }} {{ heading_class }}" {{ block.shopify_attributes }}>
                     {% render 'animated-marker-heading', heading: text, style: marker_style, color: marker_color %}
+                    {% if block.settings.title_image != blank %}
+                      {{
+                        block.settings.title_image
+                        | image_url: width: 1500
+                        | image_tag:
+                          class: 'heading-image',
+                          loading: 'lazy',
+                          widths: '375, 550, 750, 900, 1200, 1500',
+                          sizes: '(min-width: 1024px) 50vw, 100vw',
+                          alt: block.settings.title_image.alt
+                        | escape
+                      }}
+                    {% endif %}
                   </h3>
                 {%- when 'text' -%}
                   <div
@@ -408,6 +435,22 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_second",
+          "label": "Image second"
+        }
+      ]
+    },
+    {
+      "type": "image_bottom",
+      "name": "Image Bottom",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         }
       ]
     },
@@ -433,6 +476,11 @@
           "label": "Text",
           "default": "Talk about your brand",
           "info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+        },
+        {
+          "type": "image_picker",
+          "id": "title_image",
+          "label": "Heading image"
         },
         {
           "type": "select",
@@ -596,7 +644,7 @@
           "type": "liquid",
           "id": "custom_liquid",
           "label": "Custom liquid",
-          "info": "Add app snippets or other Liquid code to create advanced customizations."
+          "info": "Paste HTML or Liquid code. Example: show your Terms of Service → <div class=\"policy-content\">{{ shop.terms_of_service.body }}</div>"
         }
       ]
     }

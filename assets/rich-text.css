@@ -131,6 +131,31 @@
       color: #242528;
       font-weight: 700;
       margin-bottom: 16px;
+      position: relative;
+    }
+    .rich-text__content .heading-image {
+      position: absolute;
+      top: -19px;
+      left: 120px;
+      z-index: -1;
+      width: 100%;
+      max-width: 100%;
+    }
+    .rich-text__content .policy-content {
+      margin-top: 48px;
+    }
+    .rich-text__content .policy-content p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .rich-text__content .rich-text-image {
+      width: 100%;
+      text-align: center;
+    }
+    .rich-text__content .rich-text-image img {
+      max-width: 240px;
+      width: 100%;
+      margin-bottom: 0px;
     }
     .rich-text__content .text-size-regular {
       font-size: 16px;
@@ -158,6 +183,27 @@
       margin-left: 0px;
     }
 
+    @media (max-width: 1440px) {
+      .rich-text__content .heading-image {
+        position: absolute;
+        top: -19px;
+        left: 80px;
+        right: 0;
+        z-index: -1;
+      }
+    }
+    @media (max-width: 1250px) {
+      .rich-text__content .heading-image {
+        max-width: 80%;
+        top: -10%;
+      }
+    }
+    @media (max-width: 1024px) {
+      .rich-text__content .heading-image {
+        display: none;
+      }
+    }
+
     @media (max-width: 767px) {
       .rich-text__content .text-size-regular {
         max-width: 100%;
@@ -175,5 +221,9 @@
       .rich-text__content img {
         aspect-ratio: 1 / 1;
         object-fit: cover;
+      }
+      .rich-text__content .policy-content p {
+        font-size: 14px;
+        line-height: 20px;
       }
     }
