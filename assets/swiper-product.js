@@ -1,6 +1,22 @@
+document.querySelectorAll('.thb-product-detail.product-custom').forEach((productDetail) => {
+  const colorRadios = productDetail.querySelectorAll('fieldset.product-form__input--color input[type="radio"]');
+  if (!colorRadios.length) return;
+
+  productDetail.classList.remove('variant-interacted');
+
+  const markInteracted = (e) => {
+    if (!e.isTrusted) return;
+    productDetail.classList.add('variant-interacted');
+  };
+
+  colorRadios.forEach((radio) => {
+    radio.addEventListener('click', markInteracted);
+    radio.addEventListener('change', markInteracted);
+  });
+});
+
 const gallery = document.querySelector('.custom-product-gallery');
 if (gallery) {
-
   const slides = gallery.querySelectorAll('.swiper-slide');
   const radios = document.querySelectorAll('.product-custom fieldset input[type="radio"]');
   const isMobileGallery = () => window.matchMedia && window.matchMedia('(max-width: 1067px)').matches;
@@ -25,7 +41,6 @@ if (gallery) {
       const url = new URL(src, window.location.href);
       const host = (url.hostname || '').toLowerCase();
 
-      // YouTube
       if (host.includes('youtube.com') || host.includes('youtu.be')) {
         url.searchParams.set('autoplay', '1');
         url.searchParams.set('mute', '1');
@@ -34,7 +49,6 @@ if (gallery) {
         return url.toString();
       }
 
-      // Vimeo
       if (host.includes('vimeo.com')) {
         url.searchParams.set('autoplay', '1');
         url.searchParams.set('muted', '1');
@@ -92,7 +106,7 @@ if (gallery) {
 
     const nextSrc = withAutoplayMuted(baseSrc);
     if (!nextSrc) return;
-    
+
     if (!currentSrc && lazySrc) {
       iframe.setAttribute('src', nextSrc);
     } else if (currentSrc !== nextSrc) {
@@ -162,11 +176,17 @@ if (gallery) {
     deactivateAllVideos();
   }
 
-  const checked = document.querySelector('fieldset input[type="radio"]:checked');
-  if (checked) updateImages(checked.value);
+  const applySelection = (e) => {
+    if (!e.isTrusted) return;
+    updateImages(e.target.value);
+  };
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', e => updateImages(e.target.value));
+  radios.forEach((radio) => {
+    radio.addEventListener('click', applySelection);
+    radio.addEventListener('change', (e) => {
+      if (!e.isTrusted) return;
+      applySelection(e);
+    });
   });
 
   enhanceVideoSlides();
