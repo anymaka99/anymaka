@@ -46,8 +46,10 @@
   endif
 -%}
 <style>
-  .featured-collection-custom .row-center .products.row {
-    justify-content: center;
+  @media (max-width: 767px) {
+    .featured-collection-custom .row-center .products.row {
+      justify-content: center;
+    }
   }
 </style>
 <div
