@@ -45,11 +45,16 @@
     assign element = 'div'
   endif
 -%}
+<style>
+  .featured-collection-custom .row-center .products.row {
+    justify-content: center;
+  }
+</style>
 <div
   class="featured-collection featured-collection-custom row-{{ columns_desktop }}{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
   id="{{ section.settings.custom_id }}"
 >
-  <div class="row">
+  <div class="row {% unless mobile_swipe %}row-center{% endunless %}">
     <div class="small-12 columns columns-pd">
       {% render 'section-header',
         section_heading: section_heading,
