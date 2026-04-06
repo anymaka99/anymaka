@@ -31,14 +31,20 @@
 }
 .footer-dnc__menu_wrp {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     flex: 0 0 calc(50% - 16px);
 }
 .footer-dnc__mid {
     flex: 0 0 calc(50% - 16px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 .footer-dnc__right {
     flex: 0 0 calc(50% - 16px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 .footer-dnc__col {
     margin-bottom: 64px;
