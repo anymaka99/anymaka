@@ -252,36 +252,61 @@ if (gallery) {
   }
 
   function updateImages(color) {
-    const selected = normalizeText(color);
-    visibleIndexes = [];
+  const selected = normalizeText(color);
+  visibleIndexes = [];
 
-    slides.forEach((slide, index) => {
-      const variant = normalizeText(slide.dataset.variant || '');
-      const isVariantMedia = variant && variants.some((value) => value && variant.includes(value));
-      const matchesSelected = variant && selected && (variant.includes(selected) || selected.includes(variant));
-      const isVideoSlide = slideIsVideo(slide);
+  let hasMatchingSlides = false;
 
-      const show = isVideoSlide
-        ? Boolean(matchesSelected || !variant || !isVariantMedia)
-        : Boolean(matchesSelected);
-      slide.style.display = show ? '' : 'none';
-      if (show) visibleIndexes.push(index);
-    });
-
-    gallery.classList.add('ready');
-
-    if (swiper && swiper.update) swiper.update();
-
-    if (visibleIndexes.length && swiper && swiper.slideTo) {
-      if (carouselDesktop) {
-        swiper.slideTo(0, 0);
-      } else {
-        swiper.slideTo(visibleIndexes[0], 0);
-      }
+  slides.forEach((slide) => {
+    const variant = normalizeText(slide.dataset.variant || '');
+    if (variant && selected && (variant.includes(selected) || selected.includes(variant))) {
+      hasMatchingSlides = true;
     }
-    renderCarouselPagination(visibleIndexes[0]);
-    deactivateAllVideos();
+  });
+
+  slides.forEach((slide, index) => {
+    const rawVariant = slide.dataset.variant || '';
+    const variant = normalizeText(rawVariant);
+  
+    const isGeneric = !variant;
+    const matchesSelected =
+      variant && selected && (variant.includes(selected) || selected.includes(variant));
+  
+    const isVideoSlide = slideIsVideo(slide);
+  
+    let show = false;
+  
+    if (isVideoSlide) {
+      show = true;
+    } else if (hasMatchingSlides) {
+      show = matchesSelected || isGeneric;
+    } else {
+      show = isGeneric;
+    }
+  
+    slide.style.display = show ? '' : 'none';
+    if (show) visibleIndexes.push(index);
+  });
+
+  if (visibleIndexes.length === 0) {
+    slides.forEach((slide, index) => {
+      slide.style.display = '';
+      visibleIndexes.push(index);
+    });
   }
+
+  gallery.classList.add('ready');
+
+  if (swiper && swiper.update) swiper.update();
+
+  if (visibleIndexes.length && swiper && swiper.slideTo) {
+    swiper.slideTo(0, 0);
+  }
+
+  renderCarouselPagination(visibleIndexes[0]);
+  deactivateAllVideos();
+}
+
 
   const applySelection = (e) => {
     if (!e.isTrusted) return;
