@@ -22,10 +22,6 @@
   endif
 
   case columns
-    when 1
-        assign columns_class = 'medium-12'
-    when 2
-        assign columns_class = 'medium-6'  
     when 3
       assign columns_class = 'medium-4'
     when 4
@@ -38,7 +34,7 @@
 -%}
 
 <customer-reviews
-  class="customer-reviews section-spacing-padding{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}"
+  class="customer-reviews section-spacing-padding{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
   style="--color-bg:{{ color_bg }}; --color-heading:{{ color_heading }}; --color-text:{{ color_text }}; --dot-speed: {{ autoplay | divided_by: 1000 | append: 's' }};"
 >
   <div class="row">
@@ -81,13 +77,7 @@
                 {%- if block.settings.heading != blank -%}
                   <h6>{{ block.settings.heading }}</h6>
                 {%- endif -%}
-                {%- if block.settings.custom_html != blank -%}
-                <div>
-                  {{ block.settings.custom_html }}
-                </div>
-                {%- else -%}
                 <p>{{ block.settings.text | newline_to_br }}</p>
-                {%- endif -%}
                 {%- if block.settings.author != blank -%}
                   <div class="customer-reviews--author">
                     {%- if block.settings.author_image != blank -%}
@@ -113,38 +103,6 @@
   "name": "Customer reviews",
   "class": "section-customer-reviews",
   "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          } 
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },    
     {
       "type": "text",
       "id": "heading",
@@ -160,7 +118,7 @@
     {
       "type": "range",
       "id": "columns",
-      "min": 1,
+      "min": 3,
       "max": 6,
       "step": 1,
       "label": "Number of columns on desktop",
@@ -258,11 +216,6 @@
           "default": "Add your customer review here to showcase them."
         },
         {
-          "type": "liquid",
-          "id": "custom_html",
-          "label": "Custom Html"
-        },        
-        {
           "type": "header",
           "content": "Author"
         },
@@ -295,6 +248,12 @@
         }
       ]
     }
-  ]
+  ],
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": [
+      "header", "footer"
+    ]
+  }
 }
 {% endschema %}

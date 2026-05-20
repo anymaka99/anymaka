@@ -17,7 +17,7 @@
 		assign has_bg = false
 	endif
 -%}
-<div class="logo-list logo-list--centered-{{ center_align }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="logo-list logo-list--centered-{{ center_align }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 	{% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style %}
 	<div class="logo-list--inner{% if mobile_swipe %} swipe-on-mobile{% endif %}" style="--logo-columns: {{ section.settings.columns }}; --logo-bg: {{ color_logo_bg }};">
 		{% for block in section.blocks %}
@@ -38,39 +38,8 @@
 {% schema %}
   {
     "name": "Logo list",
+		"class": "section-logo-list",
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          } 
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },      
 			{
 				"type": "text",
 				"id": "heading",
@@ -203,6 +172,12 @@
 	        }
 	      ]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

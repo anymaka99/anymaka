@@ -11,135 +11,63 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "text_with_icons_CaFmmP": {
-      "type": "text-with-icons",
-      "blocks": {
-        "icon_QiYJrK": {
-          "type": "icon",
-          "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/1_ac520478-6e9d-4791-ad39-4a019421a30f.webp",
-            "heading": "FAST SHIPPING",
-            "text": "<p>We offer fast shipping, ensuring your order reaches you within just 7 days.</p>"
-          }
-        },
-        "icon_XzgQA6": {
-          "type": "icon",
-          "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/2_d8a2c0f5-ff99-4b92-9e87-ef423ae2fc2e.webp",
-            "heading": "30 DAYS RETURN",
-            "text": "<p>If you're not happy with what you bought, you can return your purchase within 30 days.</p>"
-          }
-        },
-        "icon_QxGfM7": {
-          "type": "icon",
-          "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/3_768289bf-e0ca-4c74-8809-13bf1def17ef.webp",
-            "heading": "WARRANTY SUPPORT",
-            "text": "<p>We stand behind everything we make and offer warranty coverage for your outdoor adventures.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "icon_QiYJrK",
-        "icon_XzgQA6",
-        "icon_QxGfM7"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "text_alignment": "center",
-        "icon_position": "top",
-        "icon_size": "medium",
-        "heading_size": "large",
-        "mobile_row": false,
-        "mobile_swipe": false,
-        "color_bg": "#ffffff",
-        "color_heading": "#252f35",
-        "color_text": "#303c43",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true,
-        "block_heading_font": "swisBold",
-        "block_description_font": "swiss"
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
-        "2ab8345e-9f63-4c80-b028-f4edae3633b5": {
-          "type": "signup",
+        "ebdaaa5c-c47c-42ac-a830-30a799694755": {
+          "type": "text",
           "settings": {
-            "column_size": "medium",
-            "gap_to_right": "large",
-            "logo": "shopify://shop_images/3.19-logo.webp",
+            "column_size": "large",
+            "text_alignment": "left",
             "title": "",
-            "text": "<p>Join our mailing list for insider perks, new arrivals, promotions and plenty more!</p>",
-            "show_social": true
+            "text": "<p><strong>Text block<\/strong><\/p>",
+            "text_size": "medium",
+            "button_text": "",
+            "button_link": "",
+            "show_social_links": false
           }
         },
         "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8": {
           "type": "menu",
           "settings": {
             "column_size": "small",
-            "title": "Shop",
-            "menu": "shop-footer"
-          }
-        },
-        "menu_enPUcP": {
-          "type": "menu",
-          "settings": {
-            "column_size": "small",
-            "title": "Support",
-            "menu": "footer"
+            "title": "Company",
+            "menu": "main-menu"
           }
         },
         "055d0c35-3f11-4f51-9e3d-eab55edb7a9b": {
           "type": "menu",
           "settings": {
             "column_size": "small",
-            "title": "About",
-            "menu": "about-us"
+            "title": "Resources",
+            "menu": "main-menu"
           }
         },
-        "social_wbUYVz": {
-          "type": "social",
-          "disabled": true,
+        "2ab8345e-9f63-4c80-b028-f4edae3633b5": {
+          "type": "signup",
           "settings": {
-            "column_size": "small",
-            "title": ""
+            "column_size": "large",
+            "title": "Subscribe to our newsletter",
+            "text": "<p>Subscription description<\/p>"
           }
         }
       },
       "block_order": [
-        "2ab8345e-9f63-4c80-b028-f4edae3633b5",
+        "ebdaaa5c-c47c-42ac-a830-30a799694755",
         "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8",
-        "menu_enPUcP",
         "055d0c35-3f11-4f51-9e3d-eab55edb7a9b",
-        "social_wbUYVz"
-      ],
-      "custom_css": [
-        ".footer-menu {display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;}",
-        "@media screen and (max-width: 1024px) {.footer-menu {grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }}",
-        "@media screen and (max-width: 768px) {.footer-menu {grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }}",
-        " /* Adjust the media query breakpoints and column widths as needed */img.logoimg {width: auto !important; /* 设置宽度自适应 */ max-width: 188px; /* PC端最大宽度 */}",
-        "@media (max-width: 768px) {img.logoimg {max-width: 150px; }}"
+        "2ab8345e-9f63-4c80-b028-f4edae3633b5"
       ],
       "settings": {
         "footer_reveal_animation": true,
         "copyright_text": "All rights reserved.",
-        "show_language_switcher": false,
-        "show_currency_switcher": false,
-        "show_payment_icons": true,
-        "block_heading_font": "swisBold",
-        "footer_content_font": "swiss"
+        "show_language_switcher": true,
+        "show_currency_switcher": true,
+        "show_payment_icons": true
       }
     }
   },
   "order": [
-    "text_with_icons_CaFmmP",
     "footer"
   ]
 }

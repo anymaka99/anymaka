@@ -49,6 +49,7 @@
 {% schema %}
   {
     "name": "Newsletter",
+  "class": "section-newsletter",
     "settings": [
 			{
 				"type": "paragraph",
@@ -258,6 +259,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

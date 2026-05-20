@@ -1,0 +1,348 @@
+{{ 'collection-see-video-slider.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .see-video-section {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .see-video-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="see-video-section" id="video-section-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <h2 class="video-section__title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="video-section__slider">
+      <div class="swiper video-swiper" id="video-swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div
+              class="swiper-slide video-card"
+              {{ block.shopify_attributes }}
+              {% if block.settings.youtube_url != blank %}
+                data-youtube-url="{{ block.settings.youtube_url | escape }}"
+              {% endif %}
+            >
+              {% if block.settings.video != blank %}
+                {% assign poster = block.settings.video.preview_image %}
+
+                <div class="video-card__media-wrap">
+                  {% if poster %}
+                    <img
+                      class="video-card__poster"
+                      src="{{ poster | image_url: width: 1200 }}"
+                      alt=""
+                      loading="lazy"
+                    >
+                  {% endif %}
+
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      class: 'video-card__media',
+                      autoplay: false,
+                      loop: true,
+                      muted: true,
+                      playsinline: true,
+                      controls: false,
+                      preload: 'none'
+                  }}
+                </div>
+              {% elsif block.settings.youtube_url != blank %}
+                {% assign yt_url = block.settings.youtube_url %}
+                {% assign yt_id = '' %}
+
+                {% if yt_url contains 'v=' %}
+                  {% assign yt_parts = yt_url | split: 'v=' %}
+                  {% assign yt_id_part = yt_parts[1] %}
+                  {% assign yt_amp_parts = yt_id_part | split: '&' %}
+                  {% assign yt_id = yt_amp_parts[0] %}
+                {% elsif yt_url contains 'youtu.be/' %}
+                  {% assign yt_parts = yt_url | split: 'youtu.be/' %}
+                  {% assign yt_id_part = yt_parts[1] %}
+                  {% assign yt_slash_parts = yt_id_part | split: '?' %}
+                  {% assign yt_id = yt_slash_parts[0] %}
+                {% endif %}
+
+                <div class="video-card__media-wrap">
+                  {% if block.settings.poster_image != blank %}
+                    <img
+                      class="video-card__poster"
+                      src="{{ block.settings.poster_image | image_url: width: 1200 }}"
+                      alt=""
+                      loading="lazy"
+                    >
+                  {% elsif yt_id != '' %}
+                    <img
+                      class="video-card__poster"
+                      src="https://img.youtube.com/vi/{{ yt_id }}/hqdefault.jpg"
+                      alt=""
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'video-card__placeholder' }}
+                  {% endif %}
+                </div>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'video-card__placeholder' }}
+              {% endif %}
+
+              {% if block.settings.video != blank or block.settings.youtube_url != blank %}
+                <button class="video-card__play" type="button" aria-label="Play video">
+                  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.667 31.487V12.512C14.667 11.9926 14.8503 11.5572 15.217 11.2058C15.5837 10.8544 16.0114 10.6787 16.5003 10.6787C16.6531 10.6787 16.8135 10.7016 16.9816 10.7475C17.1496 10.7933 17.31 10.862 17.4628 10.9537L32.4045 20.4412C32.6795 20.6245 32.8857 20.8537 33.0232 21.1287C33.1607 21.4037 33.2295 21.694 33.2295 21.9995C33.2295 22.3051 33.1607 22.5954 33.0232 22.8704C32.8857 23.1454 32.6795 23.3745 32.4045 23.5579L17.4628 33.0454C17.31 33.137 17.1496 33.2058 16.9816 33.2516C16.8135 33.2975 16.6531 33.3204 16.5003 33.3204C16.0114 33.3204 15.5837 33.1447 15.217 32.7933C14.8503 32.4419 14.667 32.0065 14.667 31.487Z" fill="currentColor"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<div class="video-modal" id="video-modal-{{ section.id }}" aria-hidden="true">
+  <div class="video-modal__backdrop" data-video-modal-close></div>
+  <div class="video-modal__dialog" role="dialog" aria-modal="true">
+    <button
+      class="video-modal__close"
+      type="button"
+      aria-label="Close video"
+      data-video-modal-close
+    >
+      &times;
+    </button>
+    <div class="video-modal__content">
+      <div class="video-modal__iframe-wrap"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const sectionId = '{{ section.id }}';
+    const section = document.querySelector(`#video-section-${sectionId}`);
+    if (!section) return;
+
+    const swiperEl = section.querySelector('.video-swiper');
+    const modal = document.querySelector(`#video-modal-${sectionId}`);
+    const modalIframeWrap = modal ? modal.querySelector('.video-modal__iframe-wrap') : null;
+
+    new Swiper(swiperEl, {
+      slidesPerView: 4,
+      spaceBetween: 16,
+      loop: true,
+      speed: 800,
+      mousewheel: {
+        forceToAxis: true,
+        sensitivity: 1,
+      },
+      breakpoints: {
+        0: { slidesPerView: 1.2, spaceBetween: 16 },
+        768: { slidesPerView: 2.2, spaceBetween: 32 },
+        1024: { slidesPerView: 4, spaceBetween: 32 },
+      },
+    });
+
+    const openModalWithYoutube = (url) => {
+      if (!modal || !modalIframeWrap || !url) return;
+
+      let videoId = url;
+
+      try {
+        const ytUrl = new URL(url);
+        if (ytUrl.hostname.includes('youtube.com')) {
+          videoId = ytUrl.searchParams.get('v') || '';
+        } else if (ytUrl.hostname.includes('youtu.be')) {
+          videoId = ytUrl.pathname.replace('/', '');
+        }
+      } catch (e) {}
+
+      if (!videoId || videoId.includes('http')) {
+        let embedUrl = url.replace('watch?v=', 'embed/').replace('youtu.be/', 'www.youtube.com/embed/');
+        embedUrl = embedUrl.replace('autoplay=1', '');
+        url = embedUrl;
+      } else {
+        url = `https://www.youtube.com/embed/${videoId}?rel=0`;
+      }
+
+      modalIframeWrap.innerHTML = `
+        <iframe
+          src="${url}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      `;
+
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('is-visible');
+      document.documentElement.classList.add('video-modal-open');
+    };
+
+    const closeModal = () => {
+      if (!modal || !modalIframeWrap) return;
+      modal.setAttribute('aria-hidden', 'true');
+      modal.classList.remove('is-visible');
+      document.documentElement.classList.remove('video-modal-open');
+      modalIframeWrap.innerHTML = '';
+    };
+
+    if (modal) {
+      modal.querySelectorAll('[data-video-modal-close]').forEach((el) => {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-visible')) {
+          closeModal();
+        }
+      });
+    }
+
+    section.querySelectorAll('.video-card').forEach((card) => {
+      const video = card.querySelector('video');
+      const playButton = card.querySelector('.video-card__play');
+      const poster = card.querySelector('.video-card__poster');
+      const youtubeUrl = card.dataset.youtubeUrl;
+
+      if (!playButton) return;
+
+      if (youtubeUrl) {
+        playButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openModalWithYoutube(youtubeUrl);
+        });
+
+        return;
+      }
+
+      if (!video) return;
+
+      playButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        video.play().catch(() => {});
+        card.classList.add('is-playing');
+        playButton.style.opacity = '0';
+        playButton.style.visibility = 'hidden';
+        if (poster) poster.style.opacity = '0';
+      });
+
+      card.addEventListener('click', () => {
+        if (!video.paused) {
+          video.pause();
+        }
+      });
+
+      video.addEventListener('pause', () => {
+        playButton.style.opacity = '1';
+        playButton.style.visibility = 'visible';
+        card.classList.remove('is-playing');
+        if (poster) poster.style.opacity = '1';
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Video See Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "See What Others Say"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video card",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (Shopify file)"
+        },
+        {
+          "type": "text",
+          "id": "youtube_url",
+          "label": "YouTube URL",
+          "info": "Paste a full YouTube or youtu.be link. If filled, this will be used instead of the Shopify video."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster image (for YouTube)",
+          "info": "Optional preview image for the YouTube video."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video See Slider"
+    }
+  ]
+}
+{% endschema %}

@@ -19,7 +19,7 @@
 	assign disable_top_spacing = section.settings.disable_top_spacing
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 -%}
-<div class="toggle-boxes section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="toggle-boxes section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 	<div class="row">
 		<div class="small-12 columns">
 			{%- render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style -%}
@@ -33,7 +33,7 @@
 					assign ratio = block.settings.image.aspect_ratio
 				endif
 			-%}
-			<toggle-box class="toggle-box"{% if block.settings.open %} open{%- endif -%}>
+			<toggle-box class="toggle-box" {{ block.shopify_attributes }}{% if block.settings.open %} open{%- endif -%}>
 				<figure class="toggle-box--image aspect-ratio aspect-ratio--{{ image_ratio }}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
 					{%- if block.settings.image_link != blank -%}
 					<a href="{{ block.settings.image_link }}">
@@ -44,8 +44,9 @@
 						-%}
 						{%- render 'responsive-image', image: block.settings.image, sizes: sizes -%}
 					{%- else -%}
+						{% assign index = forloop.index | modulo: 4 | plus: 1 %}
 						<div class="thb-placeholder">
-							{{ 'image' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+							{{ 'product-apparel-' | append: index| placeholder_svg_tag: 'placeholder_svg_tag' }}
 						</div>
 					{%- endif -%}
 					{%- if block.settings.image_link != blank -%}
@@ -72,38 +73,6 @@
     "name": "Toggle boxes",
 		"class": "section-toggle-boxes",
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          } 
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },      
 			{
 				"type": "text",
 				"id": "heading",
@@ -330,6 +299,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

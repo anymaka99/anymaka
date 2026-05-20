@@ -1,0 +1,198 @@
+{{ 'collection-built.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .built-section {
+      background-color: {{ section.settings.bg_color }};
+    }
+  #shopify-section-{{ section.id }} .built-section {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .built-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="product-section built-section">
+  <div class="product-header">
+    <h2 class="product-title">
+      {{ section.settings.title }}
+      {% if section.settings.show_line and section.settings.curve_image != blank %}
+        <img
+          class="text__curve text__curve-desktop"
+          src="{{ section.settings.curve_image | image_url: width: 400 }}"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        >
+      {% endif %}
+      {% if section.settings.show_line %}
+        <svg
+          class="text__curve text-curve-mobile"
+          width="183"
+          height="19"
+          viewBox="0 0 183 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M182 5.72378C170.611 9.42612 162.881 17.7574 149.554 17.1731C135.309 16.5484 129.898 0.640171 116.295 1.00622C101.196 1.41255 95.7342 15.0055 80.816 17.5449C59.4263 21.186 47.9728 1.67392 26.5658 5.19568C16.1531 6.90873 10.2587 9.03895 1.00001 14.4351" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      {% endif %}
+    </h2>
+
+    {% if section.settings.description != blank %}
+      <p class="product-description">
+        {{ section.settings.description }}
+      </p>
+    {% endif %}
+  </div>
+
+  {% if section.settings.main_image != blank %}
+    <div class="product-image">
+      {{
+        section.settings.main_image
+        | image_url: width: 1600
+        | image_tag: class: 'product-image__desktop', loading: 'lazy'
+      }}
+
+      {% if section.settings.mobile_image != blank %}
+        {{
+          section.settings.mobile_image
+          | image_url: width: 900
+          | image_tag: class: 'product-image__mobile', loading: 'lazy'
+        }}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="features">
+      {% for block in section.blocks %}
+        <div class="feature-card" {{ block.shopify_attributes }}>
+          <div class="feature-number">
+            {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Collection Built",
+  "class": "product-features-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Built to Last"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show curve under title",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "curve_image",
+      "label": "Curve image"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "No rust, no fading, no cracking — just reliable performance."
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main product image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Main product image (mobile)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature title",
+          "default": "Top-Notch Materials"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Feature text",
+          "default": "It won't rust. Won't fade. Won't crack."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Built"
+    }
+  ]
+}
+{% endschema %}

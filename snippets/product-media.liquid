@@ -48,6 +48,7 @@
         endif
 
         assign alt = media.preview_image.alt | split: '#' | first
+
       -%}
       <div class="product-single__media product-single__media-image aspect-ratio aspect-ratio--{{ media_aspect_ratio }}" id="Media-Thumbnails-{{ section.id }}-{{ media.id }}" style="--padding-bottom: {{ 1 | divided_by: ratio | times: 100 }}%;">
         {%- if section.settings.lightbox != blank -%}
@@ -66,7 +67,7 @@
           data-index="{{ image_index }}"
         >{% render 'svg-icons' with 'zoom' %}</a>
         {%- endif -%}
-        {%- render 'responsive-image', image: media.preview_image, sizes: sizes -%}
+        {%- render 'responsive-image', image: media.preview_image, sizes: sizes, priority: priority -%}
         {%- if alt != blank and display_captions -%}
         <span class="figcaption">{{ alt }}</span>
         {%- endif -%}

@@ -13,21 +13,16 @@ if (!customElements.get('scrolling-content')) {
     }
 
     connectedCallback() {
-      this.images = Array.from(this.querySelectorAll('.scrolling-content--image'));
+      this.images_container = Array.from(this.querySelectorAll('.scrolling-content--image'));
       this.first_image = this.querySelector('.scrolling-content--image.active');
       this.sections = Array.from(this.querySelectorAll('.scrolling-content--content'));
       this.dots = this.first_image.querySelectorAll('.dot');
       this.offset = '-50% 0% -50% 0%';
       this.selectedIndex = this.selectedIndex;
-      this.images_content = [];
       this.intersectionOptions = {
         rootMargin: this.offset,
         threshold: 0
       };
-
-      this.images.forEach((image, i) => {
-        this.images_content[i] = image.querySelector('.scrolling-content--image-inner').innerHTML;
-      });
 
       this.sections.forEach((section, i) => {
         let observer = new IntersectionObserver(
@@ -40,7 +35,7 @@ if (!customElements.get('scrolling-content')) {
       if (this.dots.length) {
         let sections = this.sections;
         this.dots.forEach((dot, i) => {
-          dot.addEventListener('click', function(e) {
+          dot.addEventListener('click', function (e) {
             let h_height = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10);
             let scrollTop = sections[i].getBoundingClientRect().top + window.scrollY - h_height;
             window.scrollTo({
@@ -56,13 +51,10 @@ if (!customElements.get('scrolling-content')) {
     handleIntersectionCallback(entries) {
       let largest = 0;
       entries.forEach((entry, i) => {
-        //  if (entry.intersectionRatio >= 0.5) {
         let index = this.sections.indexOf(entry.target);
         if (index !== this.selectedIndex) {
           this.selectedIndex = index;
-          this.first_image.querySelector('.scrolling-content--image-inner').innerHTML = this.images_content[index];
         }
-        //}
       });
 
     }
@@ -75,7 +67,7 @@ if (!customElements.get('scrolling-content')) {
     attributeChangedCallback(name, oldValue, newValue) {
       if (name === "selected-index" && oldValue !== null && oldValue !== newValue) {
         if (this.dots.length) {
-          [].forEach.call(this.dots, function(el) {
+          [].forEach.call(this.dots, function (el) {
             el.classList.remove('is-selected');
           });
           this.dots[newValue].classList.add('is-selected');

@@ -29,6 +29,7 @@
 {% schema %}
   {
     "name": "Page",
+		"class": "section-page",
     "settings": [
 			{
 	      "type": "page",
@@ -63,6 +64,12 @@
       {
         "name": "Page"
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

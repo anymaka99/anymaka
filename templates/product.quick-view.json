@@ -27,7 +27,8 @@
         },
         "e196b5f8-d86c-4dcd-8840-980aac4eb6de": {
           "type": "description",
-          "settings": {}
+          "settings": {
+          }
         },
         "variant_picker": {
           "type": "variant_picker",

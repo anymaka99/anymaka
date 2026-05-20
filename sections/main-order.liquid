@@ -2,12 +2,20 @@
 <div class="section-spacing-bottom">
 	<div class="row">
 	  <div class="small-12 large-8 columns myaccount-content">
+
 	    {%- assign order_date = order.created_at | time_tag: format: "date_at_time" -%}
-	    <p>{{ 'customer.order.date_html' | t: date: order_date }}</p>
+			<div class="form-notification success">
+				{% render 'svg-icons' with 'thb-success' %} <div>{{ 'customer.order.date_html' | t: date: order_date }}</div>
+			</div>
 	    {%- if order.cancelled -%}
 	      {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
-	      <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
-	      <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+				<div class="form-notification error">
+					{% render 'svg-icons' with 'thb-error' %}
+					<div>
+						<p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+						<p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+					</div>
+				</div>
 	    {%- endif -%}
 
 	    <table role="table" class="order-details no-borders">
@@ -234,9 +242,15 @@
 	            <td headers="RowTax" role="cell" data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">{{ tax_line.price | money }}</td>
 	          </tr>
 	        {%- endfor -%}
+					{%- if order.note -%}
+						<tr role="row">
+	            <td id="RowNote" role="rowheader" scope="row" colspan="4">{{ 'sections.cart.note' | t }}</td>
+	            <td headers="RowNote" role="cell" data-label="{{ 'sections.cart.note' | t }}">{{ order.note }}</td>
+	          </tr>
+					{%- endif -%}
 	        <tr role="row">
-	          <td id="RowTotal" role="rowheader" scope="row" colspan="3">{{ 'customer.order.total' | t }}</td>
-	          <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money_with_currency }}</td>
+	          <td id="RowTotal" role="rowheader" scope="row" colspan="3"><strong>{{ 'customer.order.total' | t }}</strong></td>
+	          <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}"><strong>{{ order.total_price | money_with_currency }}</strong></td>
 	        </tr>
 	      </tfoot>
 	    </table>

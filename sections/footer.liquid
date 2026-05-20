@@ -8,28 +8,28 @@
 
 <link rel="stylesheet" href="{{ 'footer.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'footer.css' | asset_url | stylesheet_tag }}</noscript>
-<theme-footer class="footer {{ section.settings.footer_content_font }}" id="footer">
+<theme-footer class="footer" id="footer">
   <div class="row">
     {%- for block in section.blocks -%}
       {% if block.type == 'text' %}
         {%- liquid
-          assign column_class = 'small-12 medium-2 large-2'
+          assign column_class = 'small-12 medium-4 large-2'
           case block.settings.column_size
             when 'medium'
               assign column_class = 'small-12 medium-3'
             when 'large'
-              assign column_class = 'small-12 medium-2'
+              assign column_class = 'small-12 medium-4'
           endcase
         -%}
         <div class="{{ column_class | escape }} columns" {{ block.shopify_attributes }}>
           <div class="widget widget--text text-{{ block.settings.text_alignment }}">
             {%- if block.settings.title != blank -%}
-              <div class="thb-widget-title {{ section.settings.block_heading_font }}">{{ block.settings.title }}</div>
+              <div class="thb-widget-title">{{ block.settings.title }}</div>
             {%- endif -%}
             {%- if block.settings.image != blank -%}
               {% assign image = block.settings.image %}
               {% assign master_width = image.src.width | append: 'x' | append: image.src.height %}
-              {%- render 'responsive-image', image: image, sizes: master_width, retina: 1 -%}
+              {%- render 'responsive-image', image: image, sizes: master_width, retina: 1, priority: 'low' -%}
             {%- endif -%}
             {%- if block.settings.text != blank -%}
               <div class="rte text-size--{{ block.settings.text_size }}">
@@ -47,17 +47,17 @@
       {% endif %}
       {%- if block.type == 'menu' -%}
         {%- liquid
-          assign column_class = 'small-12 medium-2 large-2'
+          assign column_class = 'small-12 medium-4 large-2'
           case block.settings.column_size
             when 'medium'
               assign column_class = 'small-12 medium-3'
             when 'large'
-              assign column_class = 'small-12 medium-2'
+              assign column_class = 'small-12 medium-4'
           endcase
         -%}
         <div class="{{ column_class | escape }} columns widget--menu-column" {{ block.shopify_attributes }}>
           <div class="widget widget--menu">
-            <button class="thb-widget-title collapsible {{ section.settings.block_heading_font }}" tabindex="0">
+            <button class="thb-widget-title collapsible" tabindex="0">
               {{ block.settings.title }}
               <span>{%- render 'svg-icons' with 'thb-collapsible-arrow' -%}</span>
             </button>
@@ -137,96 +137,74 @@
               assign column_class = 'small-12 medium-4'
           endcase
         -%}
-        <div
-          class="{{ column_class | escape }} columns gap-right-{{ block.settings.gap_to_right }}"
-          {{ block.shopify_attributes }}
-        >
+        <div class="{{ column_class | escape }} columns" {{ block.shopify_attributes }}>
           <div class="widget widget--signup">
-            {%- if block.settings.logo -%}
-              <a class="" href="{{ routes.root_url }}">
-                <img
-                  src="{{ block.settings.logo | image_url }}"
-                  class="logoimg"
-                  alt="{{ block.settings.logo.alt | default: shop.name | escape }}"
-                  width="240"
-                  height="auto"
-                >
-              </a>
-            {%- endif -%}
             {% if block.settings.title != blank %}
-              <div class="thb-widget-title {{ section.settings.block_heading_font }}">{{ block.settings.title }}</div>
+              <div class="thb-widget-title">{{ block.settings.title }}</div>
             {% endif %}
             {% if block.settings.text != blank %}
               {{ block.settings.text }}
             {% endif %}
             {% render 'email-signup-form' %}
-
-            {%- if block.settings.show_social -%}
-              <div class="line-social-wrap">
-                {% render 'social-links', show_label: false %}
-              </div>
-            {%- endif -%}
           </div>
         </div>
       {%- endif -%}
       {%- if block.type == 'social' -%}
         {%- liquid
-          assign column_class = 'small-6 medium-2 large-2'
+          assign column_class = 'small-6 medium-4 large-2'
           case block.settings.column_size
             when 'medium'
               assign column_class = 'small-12 medium-3'
             when 'large'
-              assign column_class = 'small-12 medium-2'
+              assign column_class = 'small-12 medium-4'
           endcase
         -%}
         <div class="{{ column_class | escape }} columns" {{ block.shopify_attributes }}>
           <div class="widget widget--social">
             {% if block.settings.title != blank %}
-              <div class="thb-widget-title {{ section.settings.block_heading_font }}">{{ block.settings.title }}</div>
+              <div class="thb-widget-title">{{ block.settings.title }}</div>
             {% endif %}
             {% render 'social-links', show_label: true %}
           </div>
         </div>
       {%- endif -%}
       {%- if block.type == 'custom_liquid' -%}
-        {%- liquid
-          assign column_class = 'small-6 medium-2 large-2'
-          case block.settings.column_size
-            when 'medium'
-              assign column_class = 'small-12 medium-3'
-            when 'large'
-              assign column_class = 'small-12 medium-6'
-          endcase
-        -%}
-        <div class="{{ column_class | escape }} columns" {{ block.shopify_attributes }}>
-          <div class="widget widget--custom">
-            {% if block.settings.title != blank %}
-              <div class="thb-widget-title {{ section.settings.block_heading_font }}">{{ block.settings.title }}</div>
-            {% endif %}
-            {{ block.settings.custom_liquid }}
-          </div>
-        </div>
+				{%- liquid
+					assign column_class = 'small-6 medium-4 large-2'
+					case block.settings.column_size
+						when 'medium'
+							assign column_class = 'small-12 medium-3'
+						when 'large'
+							assign column_class = 'small-12 medium-6'
+					endcase
+				-%}
+				<div class="{{ column_class | escape }} columns" {{ block.shopify_attributes }}>
+					<div class="widget widget--custom">
+						{% if block.settings.title != blank %}
+							<div class="thb-widget-title">{{ block.settings.title }}</div>
+						{% endif %}
+						{{ block.settings.custom_liquid }}
+					</div>
+				</div>
       {%- endif -%}
     {%- endfor -%}
   </div>
   <div class="sub-footer">
     <div class="row">
-      <div class="small-12 columns only-desktop"><hr></div>
+      <div class="small-12 columns"><hr></div>
       <div class="small-12 medium-8 columns">
-        <p class="copyright-text">
-          &copy; {{ 'now' | date: '%Y' }}
-          {{ shop.name }}. {{ copyright_text }}
-        </p>
+        {% render 'localization',
+          id: 'FooterLocalization',
+          show_language_switcher: show_language_switcher,
+          show_currency_switcher: show_currency_switcher,
+          open_top: true
+        %}
       </div>
       <div class="small-12 medium-4 columns">
         {%- if show_payment_icons -%}
           <div class="footer-payment-icons">
             {%- unless shop.enabled_payment_types == empty -%}
-              {% assign enabled_payment_types = 'visa,master,american_express,paypal,diners_club,discover,jcb'
-                | remove: ' '
-                | split: ','
-              %}
-              {% for type in enabled_payment_types %}
+              {%- for type in shop.enabled_payment_types -%}
                 <figure>{{ type | payment_type_svg_tag: class: 'payment-icons__icon' }}</figure>
               {%- endfor -%}
             {%- endunless -%}
@@ -234,12 +212,16 @@
         {%- endif -%}
       </div>
       <div class="small-12 columns">
-        {% render 'localization',
-          id: 'FooterLocalization',
-          show_language_switcher: show_language_switcher,
-          show_currency_switcher: show_currency_switcher,
-          open_top: true
-        %}
+        <p>
+          &copy; {{ 'now' | date: '%Y' }}
+          {{ shop.name }}, {{ copyright_text }}
+          {{ powered_by_link }}
+        </p>
+        {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+          <div class="footer--follow-on-shop">
+            {{ shop | login_button: action: 'follow' }}
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -284,90 +266,17 @@
       "default": true,
       "info": "By default your theme shows the icons that are associated with the payment gateway you have enabled in the [payment settings](/admin/settings/payments)."
     },
-      {
-	      "type": "header",
-	      "content": "Footer content font"
-	    },
-      {
-	      "type": "select",
-	      "id": "block_heading_font",
-	      "options": [
-	      	{
-	          "value": "",
-	          "label": "System Font"
-	        },
-	        {
-	          "value": "swiss",
-	          "label": "swiss"
-	        },
-	        {
-	          "value": "swisBold",
-	          "label": "swis Bold"
-	        },
-	        {
-	          "value": "OPPOSansL",
-	          "label": "OPPOSansL"
-	        },
-	        {
-	          "value": "OPPOSansR",
-	          "label": "OPPOSansR"
-	        },
-	        {
-	          "value": "OPPOSansM",
-	          "label": "OPPOSansM"
-	        },
-	        {
-	          "value": "OPPOSansB",
-	          "label": "OPPOSansB"
-	        },
-	        {
-	          "value": "OPPOSansH",
-	          "label": "OPPOSansH"
-	        }
-	      ],
-	      "default": "",
-	      "label": "Title Font"
-	    },
-        {
-  	      "type": "select",
-  	      "id": "footer_content_font",
-  	      "options": [
-  	      	{
-  	          "value": "",
-  	          "label": "System Font"
-  	        },
-  	        {
-  	          "value": "swiss",
-  	          "label": "swiss"
-  	        },
-  	        {
-  	          "value": "swisBold",
-  	          "label": "swis Bold"
-  	        },
-  	        {
-  	          "value": "OPPOSansL",
-  	          "label": "OPPOSansL"
-  	        },
-  	        {
-  	          "value": "OPPOSansR",
-  	          "label": "OPPOSansR"
-  	        },
-  	        {
-  	          "value": "OPPOSansM",
-  	          "label": "OPPOSansM"
-  	        },
-  	        {
-  	          "value": "OPPOSansB",
-  	          "label": "OPPOSansB"
-  	        },
-  	        {
-  	          "value": "OPPOSansH",
-  	          "label": "OPPOSansH"
-  	        }
-  	      ],
-  	      "default": "",
-  	      "label": "Content Font"
-  	    }
+    {
+      "type": "header",
+      "content": "Follow on Shop",
+      "info": "To allow customers to follow your store on the Shop app from your storefront, Shop Pay must be enabled. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_follow_on_shop",
+      "default": true,
+      "label": "Enable Follow on Shop"
+    }
   ],
   "blocks": [
     {
@@ -533,23 +442,6 @@
           "default": "small"
         },
         {
-          "type": "select",
-          "id": "gap_to_right",
-          "label": "Gap to Right",
-          "options": [
-            { "value": "z", "label": "None" },
-            { "value": "small", "label": "Small" },
-            { "value": "large", "label": "Large" }
-          ],
-          "default": "z"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo",
-          "label": "Logo image",
-          "info": "400 x 68 px .png recommended."
-        },
-        {
           "id": "title",
           "type": "text",
           "label": "Title"
@@ -559,12 +451,6 @@
           "id": "text",
           "label": "Text",
           "default": "<p>Add a text to attract more customers to <strong>sign up!</strong></p>"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_social",
-          "label": "Show Social?",
-          "default": true
         }
       ]
     },

@@ -4,7 +4,7 @@
 
 .progress-bars {
   padding: 0 15px;
-  max-width: 1380px;
+  max-width: var(--grid-width-row, 1380px);
   margin-left: auto;
   margin-right: auto; }
   @media only screen and (min-width: 768px) {
@@ -15,14 +15,14 @@
   display: block; }
   .progress-bars--inner {
     display: grid;
-    grid-gap: 30px; }
+    gap: 30px; }
     @media only screen and (min-width: 768px) {
       .progress-bars--inner {
         grid-template-columns: repeat(var(--columns, 2), 1fr); } }
   .progress-bars--heading {
     display: block;
     margin-bottom: 13px;
-    font-weight: 500; }
+    font-weight: var(--font-body-medium-weight, 500); }
   .progress-bars--progress {
     height: 14px;
     position: relative;
@@ -46,5 +46,6 @@
       transform: translateX(-50%);
       position: absolute;
       font-size: 0.8125rem;
-      font-weight: 500;
-      line-height: 1; }
+      font-weight: var(--font-body-medium-weight, 500);
+      line-height: 1;
+      white-space: nowrap; }

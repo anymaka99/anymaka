@@ -17,7 +17,6 @@
           "settings": {
             "image": "",
             "mobile_image": "",
-            "slide_link": "",
             "video_background": true,
             "subheading": "Add a tagline",
             "heading": "DISCOVER THE PERFECT ACCESSORY FOR YOUR STYLE",
@@ -36,11 +35,8 @@
             "overlay_gradient": "",
             "button_1_text": "Shop Now",
             "button_1_color": "white",
-            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         },
@@ -48,7 +44,6 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "slide_link": "",
             "video_background": false,
             "subheading": "NEW COLLECTION",
             "heading": "EVERY PIECE IS A UNIQUE, ONE OF A KIND MASTERPIECE",
@@ -67,11 +62,8 @@
             "overlay_gradient": "",
             "button_1_text": "Shop the collection",
             "button_1_color": "white",
-            "button_1_link": "",
             "use_text_button_1": false,
-            "button_2_text": "",
             "button_2_color": "white",
-            "button_2_link": "",
             "use_text_button_2": false
           }
         }
@@ -106,9 +98,7 @@
             "link_label": "Shop Sale",
             "content_position": "bottom-left",
             "text_alignment": "left",
-            "link": "",
             "use_text_button": true,
-            "block_link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -124,9 +114,7 @@
             "link_label": "Shop Sale",
             "content_position": "bottom-left",
             "text_alignment": "left",
-            "link": "",
             "use_text_button": false,
-            "block_link": "",
             "overlay_color": "#000000",
             "overlay_opacity": 10
           }
@@ -156,11 +144,9 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
             "title": "BESPOKE ENGAGEMENT RINGS",
             "text": "<p>Looking to get the perfect engagement ring? Browse hundreds of ring styles find the perfect engagement ring today.</p>",
-            "link_label": "Browse Rings",
-            "link": ""
+            "link_label": "Browse Rings"
           }
         },
         "template--18092558516542__f3c4ec0d-1c6a-4481-a38f-15524a566d65-16781968370f460859-1": {
@@ -168,11 +154,9 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
             "title": "DANGLE & DROP EARRINGS",
             "text": "<p>These are simple enough for everyday wear and an iconic symbol you’ll want to show off for years to come.</p>",
-            "link_label": "Browse Earrings",
-            "link": ""
+            "link_label": "Browse Earrings"
           }
         }
       },
@@ -181,7 +165,6 @@
         "template--18092558516542__f3c4ec0d-1c6a-4481-a38f-15524a566d65-16781968370f460859-1"
       ],
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "columns_desktop": 2,
@@ -205,7 +188,6 @@
           "settings": {
             "image": "",
             "text": "Jewelryize me",
-            "link": "",
             "outline_text": false
           }
         },
@@ -214,7 +196,6 @@
           "settings": {
             "image": "",
             "text": "You’ll love it",
-            "link": "",
             "outline_text": true
           }
         },
@@ -223,7 +204,6 @@
           "settings": {
             "image": "",
             "text": "Shop the latest trends",
-            "link": "",
             "outline_text": false
           }
         },
@@ -232,7 +212,6 @@
           "settings": {
             "image": "",
             "text": "A Personal Touch",
-            "link": "",
             "outline_text": true
           }
         }
@@ -269,7 +248,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 1,
@@ -277,8 +255,6 @@
             "subheading": "",
             "heading": "Bracelets",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -293,7 +269,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 1,
@@ -301,8 +276,6 @@
             "subheading": "",
             "heading": "Necklaces",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -317,7 +290,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 1,
@@ -325,8 +297,6 @@
             "subheading": "",
             "heading": "Earrings",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -341,7 +311,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 1,
@@ -349,8 +318,6 @@
             "subheading": "",
             "heading": "Diamonds",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -365,7 +332,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,
@@ -373,8 +339,6 @@
             "subheading": "",
             "heading": "Pearls",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -389,7 +353,6 @@
           "type": "media",
           "settings": {
             "image": "",
-            "slide_link": "",
             "use_video": false,
             "video_autoplay": true,
             "column": 2,
@@ -397,8 +360,6 @@
             "subheading": "",
             "heading": "Rings",
             "heading_size": "h4",
-            "button_text": "",
-            "button_link": "",
             "content_position": "bottom-left",
             "text_alignment": "left",
             "color_bg": "#ffffff",
@@ -422,9 +383,6 @@
         "desktop_height": 300,
         "mobile_height": 180,
         "column_spacing": "small",
-        "color_bg": "#ffffff",
-        "color_text": "#2c2d2e",
-        "color_link": "#3f72e5",
         "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }
@@ -484,7 +442,6 @@
     "eb920df2-e1ec-4571-8292-63cfe33d5ad9": {
       "type": "featured-collection",
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "collection": "rings",
@@ -777,11 +734,7 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "title": ""
           }
         },
         "template--18092558516542__a1877c39-a91f-41d8-9903-63ef4face773-16782930055f3edf2b-1": {
@@ -789,11 +742,7 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "title": ""
           }
         },
         "template--18092558516542__a1877c39-a91f-41d8-9903-63ef4face773-16782930055f3edf2b-2": {
@@ -801,11 +750,7 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "title": ""
           }
         },
         "template--18092558516542__a1877c39-a91f-41d8-9903-63ef4face773-16782930055f3edf2b-3": {
@@ -813,11 +758,7 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "title": ""
           }
         },
         "89ebca51-61fd-48e8-a708-e3f1f840e190": {
@@ -825,11 +766,7 @@
           "settings": {
             "image": "",
             "image_full_width": false,
-            "image_link": "",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "title": ""
           }
         }
       },

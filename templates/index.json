@@ -9,191 +9,115 @@
  */
 {
   "sections": {
+    "top-spacer": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 15,
+        "spacer_desktop": 0,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3": {
       "type": "slideshow",
       "blocks": {
-        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2": {
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-0": {
           "type": "slide",
           "settings": {
-            "slide_link": "",
-            "video_background": true,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "video_hosted": "shopify://files/videos/网页banner-4k（4.2）.mp4",
-            "video_hosted_mobile": "shopify://files/videos/5_7_Mobile_Banner.mp4",
-            "content_width": 750,
-            "content_width_mobile": 120,
-            "badge_text": "",
-            "subheading": "",
-            "heading": "Unwind Anywhere, Hammocking Made Easy.",
-            "heading_size": "h1",
-            "heading_size_mobile": 29,
-            "content": "",
-            "description_size": "large",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "content_size": "large",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(NaN, NaN, NaN, 1), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
-            "button_1_color": "white",
-            "button_1_link": "",
-            "use_text_button_1": true,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        },
-        "slide_nAbbmH": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/banner-pc_1x_fe9216c2-d8a3-4ec1-ab67-942361efc085.webp",
-            "mobile_image": "shopify://shop_images/banner-_1x_dc7a0e2a-545e-421b-96c3-a4c4778c0677.webp",
-            "slide_link": "",
             "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "mobile-height-500",
-            "content_width": 750,
-            "content_width_mobile": 120,
-            "badge_text": "",
-            "subheading": "",
-            "heading": "",
+            "subheading": "Add a tagline",
+            "heading": "Slide Heading",
             "heading_size": "h1",
-            "heading_size_mobile": 29,
-            "content": "",
-            "description_size": "large",
-            "content_position": "bottom-center",
+            "content": "Add descriptive text for your slide here.",
+            "description_size": "medium",
+            "content_position": "middle-center",
             "text_alignment": "center",
-            "content_size": "large",
-            "color_slidebg": "rgba(0,0,0,0)",
+            "content_size": "medium",
+            "color_slidebg": "transparent",
             "color_slidebg_opacity": 0,
             "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(NaN, NaN, NaN, 1), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "Sign Up Now",
-            "button_1_color": "regular",
-            "button_1_link": "https://swingchair.anymaka.com",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        }
-      },
-      "block_order": [
-        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2",
-        "slide_nAbbmH"
-      ],
-      "custom_css": [
-        "/* 默认显示桌面图，隐藏移动图 */.slideshow-image--mobile {display: none;}",
-        "@media only screen and (max-width: 767px) {.slideshow-image--desktop {display: none !important; } .slideshow-image--mobile {display: block !important; }}"
-      ],
-      "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-full",
-        "mobile_height": "mobile-height-full",
-        "full_width": true,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "slide",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": true,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
-    "slideshow_DMDA3h": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_WmUBxd": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner-pc_1x-2_3b32d2c3-a0f9-43ba-9f2e-11be2973ee37.webp",
-            "mobile_image": "shopify://shop_images/banner-_1x_12ce8d4d-ed04-4721-a329-416838656e4e.webp",
-            "slide_link": "",
-            "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "video_hosted": "shopify://files/videos/网页banner-4k（4.2）.mp4",
-            "video_hosted_mobile": "shopify://files/videos/5_7_Mobile_Banner.mp4",
-            "content_width": 750,
-            "content_width_mobile": 120,
-            "badge_text": "",
-            "subheading": "",
-            "heading": "",
-            "heading_size": "h1",
-            "heading_size_mobile": 29,
-            "content": "",
-            "description_size": "large",
-            "content_position": "bottom-center",
-            "text_alignment": "center",
-            "content_size": "large",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "rgba(0,0,0,0)",
+            "color_text": "#2c2d2e",
+            "overlay_color": "#000000",
             "overlay_opacity": 0,
             "overlay_gradient": "",
             "button_1_text": "Shop Now",
             "button_1_color": "accent",
-            "button_1_link": "https://www.kickstarter.com/projects/anymaka/anymaka-portable-swing-chair-set-up-in-3s-unwind-all-day?ref=czlaw8",
             "use_text_button_1": false,
-            "button_2_text": "",
+            "button_2_text": "Shop Now",
             "button_2_color": "white",
-            "button_2_link": "",
+            "use_text_button_2": false
+          }
+        },
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-1": {
+          "type": "slide",
+          "settings": {
+            "video_background": false,
+            "subheading": "Add a tagline",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "content": "Add descriptive text for your slide here.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "transparent",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
+            "use_text_button_2": false
+          }
+        },
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2": {
+          "type": "slide",
+          "settings": {
+            "video_background": false,
+            "subheading": "Add a tagline",
+            "heading": "Slide Heading",
+            "heading_size": "h1",
+            "content": "Add descriptive text for your slide here.",
+            "description_size": "medium",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "content_size": "medium",
+            "color_slidebg": "transparent",
+            "color_slidebg_opacity": 0,
+            "color_slidebg_blur": 0,
+            "color_text": "#2c2d2e",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "overlay_gradient": "",
+            "button_1_text": "Shop Now",
+            "button_1_color": "accent",
+            "use_text_button_1": false,
+            "button_2_text": "Shop Now",
+            "button_2_color": "white",
             "use_text_button_2": false
           }
         }
       },
       "block_order": [
-        "slide_WmUBxd"
-      ],
-      "disabled": true,
-      "custom_css": [
-        "/* 默认显示桌面图，隐藏移动图 */.slideshow-image--mobile {display: none;}",
-        "@media only screen and (max-width: 767px) {.slideshow-image--desktop {display: none !important; } .slideshow-image--mobile {display: block !important; }}"
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-0",
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-1",
+        "template--17993467625754__8ba47ba3-de7f-4f0a-b30d-6f2a540748c3-16787035832bb7b6a4-2"
       ],
       "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-image",
-        "mobile_height": "mobile-height-image",
-        "full_width": true,
-        "scale_clip": false,
-        "autoplay": false,
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-400",
+        "full_width": false,
+        "autoplay": true,
         "autoplay_length": 5,
-        "transition": "slide",
+        "transition": "zoom",
         "controls": "arrows-with-numbers",
-        "slide_arrow": false,
         "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "",
-        "block_link_font": ""
+        "disable_bottom_spacing": true
       }
     },
     "8f6ed916-ced8-44f6-9ef8-b60fd327ae31": {
@@ -205,1359 +129,939 @@
         "border_separator_full": false
       }
     },
-    "pagefly_section_yUBXR3": {
-      "type": "pagefly-section",
-      "disabled": true,
-      "name": "PageFly Section",
-      "settings": {
-        "section_id": "pf-4d8dd78d"
-      }
-    },
-    "rich_text_WApnjB": {
-      "type": "rich-text",
+    "a7802e0a-30f4-4485-bf29-8868a637ca3e": {
+      "type": "promotion-blocks",
       "blocks": {
-        "heading_iqeDWW": {
-          "type": "heading",
+        "55f7c68a-a8a2-4a5c-9d22-c648f5a90b07": {
+          "type": "promotion",
           "settings": {
-            "text": "A Portable Hammock Stand that Sets Up in 3 Seconds.",
-            "marker_style": "style1",
-            "size": "h2",
-            "marker_color": "#fd6262"
+            "title": "Promotion heading",
+            "button_text": "Explore"
           }
         },
-        "subheading_LEpide": {
-          "type": "subheading",
+        "dbbd21fc-6396-4bee-a3ca-7cd24590466d": {
+          "type": "promotion",
           "settings": {
-            "text": "Verified by 30,000+ Hammock Loungers"
+            "title": "Promotion heading",
+            "button_text": "Explore"
+          }
+        },
+        "7cae9ac6-8561-43db-a978-8a801d66a423": {
+          "type": "promotion",
+          "settings": {
+            "title": "Promotion heading",
+            "button_text": "Explore"
           }
         }
       },
       "block_order": [
-        "heading_iqeDWW",
-        "subheading_LEpide"
+        "55f7c68a-a8a2-4a5c-9d22-c648f5a90b07",
+        "dbbd21fc-6396-4bee-a3ca-7cd24590466d",
+        "7cae9ac6-8561-43db-a978-8a801d66a423"
       ],
       "settings": {
-        "content_for_tab": "",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#000",
-        "color_text": "#ff8321",
-        "color_links": "#2c2d2e",
-        "disable_top_spacing": false,
+        "mobile_swipe": true,
+        "image_ratio": "adapt",
+        "column_spacing": "large",
+        "color_bg": "#ffffff",
+        "color_text": "#303c43",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": true,
         "disable_bottom_spacing": true
       }
     },
-    "multicolumn_XPdtxg": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_dFgtWE": {
-          "type": "column",
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/3_9e80d924-c199-48e5-bdea-a981aec85e82.png",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "center",
-            "title": "anymaka Hammock Set",
-            "text": "<p>Ample space to share, with full-body support.</p>",
-            "link_label": "Learn More",
-            "link": "shopify://products/anymaka-hammock-set"
-          }
-        },
-        "column_Re6dq6": {
-          "type": "column",
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/3.12_combos-_3.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "center",
-            "title": "anymaka Full Pack",
-            "text": "<p>Shaded from the sun, keep stuff handy.</p>",
-            "link_label": "Learn More",
-            "link": "shopify://products/anymaka-hammock-full-pack"
-          }
-        },
-        "column_FEVQ3U": {
-          "type": "column",
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/Full_Pack_Enhanced_814x_crop_center_f1a9cc1c-0cdc-4e43-9565-053da029b224.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "center",
-            "title": "anymaka Full Pack Enhanced",
-            "text": "<p>Bug-free, sun glare-free, and hassle-free.</p>",
-            "link_label": "Learn More",
-            "link": ""
-          }
-        },
-        "column_d8GQn7": {
-          "type": "column",
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/2_0fc2f852-0a2d-4809-951d-16f9f61de563.png",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "center",
-            "title": "anymaka Hammock Stand",
-            "text": "<p>No trees needed, one snap to swing.</p>",
-            "link_label": "Learn More",
-            "link": "shopify://products/anymaka-portable-hammock-stand"
-          }
-        }
-      },
-      "block_order": [
-        "column_dFgtWE",
-        "column_Re6dq6",
-        "column_FEVQ3U",
-        "column_d8GQn7"
-      ],
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "section_id": "slide-next-screen",
-        "layout_grid": false,
-        "no_margin": false,
-        "enable_carousel": true,
-        "slide_arrow": true,
-        "heading": "",
-        "color_section_heading": "#2c2d2e",
-        "heading_width": 500,
-        "heading_font": "swisBold",
-        "marker_style": "style1",
-        "description": "",
-        "color_section_desc": "#2c2d2e",
-        "description_font": "swiss",
-        "link_label": "",
-        "link": "",
-        "columns_desktop": 3,
-        "mobile_swipe": false,
-        "image_ratio": "square",
-        "text_alignment": "center",
-        "heading_size": "h5",
-        "link_style": "button",
-        "button_size": "medium",
-        "color_heading": "#000000",
-        "marker_color": "#fd6262",
-        "color_text": "#2c2d2e",
-        "color_links": "#ff8321",
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": false,
-        "multicolum_padding_pc": 15,
-        "multicolum_padding_mobile": 4,
-        "block_heading_font": "swisBold",
-        "block_description_font": "swiss",
-        "block_link_font": "swisBold"
-      }
-    },
-    "custom_liquid_rpyxf9": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "Custom liquid",
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<div class=\"bf-banner-desktop\">\n  <a href=\"https://www.anymaka.com/pages/early-black-friday-sale\">\n    <img \n      src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/US_9f78365a-cf9a-4c47-a0a3-614ac1b84715.webp?v=1765772236\" \n      alt=\"Black Friday Banner - Desktop\"\n      class=\"bf-desktop-img\"\n    >\n  </a>\n</div>\n\n<div class=\"bf-banner-mobile\">\n  <a href=\"https://www.anymaka.com/pages/early-black-friday-sale\">\n    <img \n      src=\"你的手机竖版Banner图片URL\" \n      alt=\"Black Friday Banner - Mobile\"\n      class=\"bf-mobile-img\"\n    >\n  </a>\n</div>\n\n<style>\n  /* PC 默认显示 desktop */\n  .bf-banner-mobile {\n    display: none;\n  }\n\n  /* --- PC 图片居中 --- */\n  .bf-banner-desktop {\n    text-align: center;         /* 关键：让图片在容器内水平居中 */\n    margin: 20px 0;\n  }\n\n  .bf-desktop-img {\n    width: 65%;\n    max-width: 100%;\n    height: auto;\n    display: inline-block;      /* 让 text-align:center 生效 */\n  }\n\n  /* 手机端显示 mobile 图片且已居中 */\n  @media (max-width: 768px) {\n    .bf-banner-desktop {\n      display: none;\n    }\n\n    .bf-banner-mobile {\n      display: block;\n      text-align: center;\n      margin: 20px 0;\n    }\n\n    .bf-mobile-img {\n      width: 90%;\n      max-width: 100%;\n      height: auto;\n    }\n  }\n</style>"
-      }
-    },
-    "spacer_bqWbYn": {
+    "8670c6b1-68f6-405f-bfff-2c6ff1e89099": {
       "type": "spacer",
-      "disabled": true,
       "settings": {
-        "spacer_mobile": 20,
+        "spacer_mobile": 30,
         "spacer_desktop": 50,
         "border_separator": false,
         "border_separator_full": false
       }
     },
-    "testimonials_LKpURE": {
-      "type": "testimonials",
+    "16614195534fb74bc3": {
+      "type": "collection-tabs",
       "blocks": {
-        "quote_ibbLy4": {
-          "type": "quote",
+        "62cb3915-bc43-41ce-b3f3-2e48c9eefdd2": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/Kickstarter.webp",
-            "stars": "",
-            "text": "“Over $1.8 million funded, this <br>hammock stand reigns supreme in crowdfunding!”",
-            "author": ""
-          }
-        },
-        "quote_qKmjHz": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/yahoo_92b56138-65a7-4826-b633-4831e3b3f819.webp",
-            "stars": "",
-            "text": "\"Your ultimate summer sidekick for relaxation on the go! Wherever you wander, unwind with ease.\"",
-            "author": ""
-          }
-        },
-        "quote_hNLd36": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/Medium_5ef8be50-a37b-4f44-9d8d-71caeb06a0b8.webp",
-            "stars": "",
-            "text": "“anymaka is a game-changer for hammock lovers. Relaxation without hassle. Win-win!”",
-            "author": ""
-          }
-        },
-        "quote_6jEzRA": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/Mens_Gear_8faa4e08-2b14-492b-8c28-a83a84f1b147.webp",
-            "stars": "",
-            "text": "“This setup's faster than a blink! Rapid assembly means more chill time.”",
-            "author": ""
-          }
-        },
-        "quote_Qg7gx6": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/3.19-if_2f456faa-a7c3-4ecf-bd57-45bc70ef7fe9.webp",
-            "stars": "",
-            "text": "”Style and function combined! Elevate your outdoor adventures with this go-to for camping or RVing.“",
-            "author": ""
-          }
-        },
-        "quote_TCpLMF": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/3.19-Gold_Award_1.webp",
-            "stars": "",
-            "text": "\"An excellent choice <br>for embracing the hammocking lifestyle.\"",
-            "author": ""
-          }
-        },
-        "quote_7TxC9C": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/3.20.webp",
-            "stars": "",
-            "text": "“Sets up in seconds, turning <br>hassle into breeze! Talk about convenient!”",
-            "author": ""
-          }
-        },
-        "quote_biDw98": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/4.8.webp",
-            "stars": "",
-            "text": "\"Groundbreaking engineering redefines the essence of hammock stand function.\"",
-            "author": ""
-          }
-        },
-        "quote_qVmnRA": {
-          "type": "quote",
-          "settings": {
-            "image": "shopify://shop_images/The_Gadgeteer.webp",
-            "stars": "",
-            "text": "“It's an absolutely brilliant concept, and they really pulled it off.”",
-            "author": ""
-          }
-        }
-      },
-      "block_order": [
-        "quote_ibbLy4",
-        "quote_qKmjHz",
-        "quote_hNLd36",
-        "quote_6jEzRA",
-        "quote_Qg7gx6",
-        "quote_TCpLMF",
-        "quote_7TxC9C",
-        "quote_biDw98",
-        "quote_qVmnRA"
-      ],
-      "custom_css": [
-        ".testimonials img,.testimonial img {max-width: none !important; width: 200px !important; height: auto !important; transform: scale(1.5); margin: 20px auto !important; display: block !important;}"
-      ],
-      "settings": {
-        "content_for_tab": "",
-        "heading": "AS SEEN IN",
-        "color_heading": "#9fa3a7",
-        "full_width": true,
-        "text_size": "medium",
-        "font_family": "heading",
-        "pagination": "logos",
-        "autoplay": true,
-        "autoplay_length": 2,
-        "color_bg": "#f5f5f5",
-        "color_text": "#000000",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false,
-        "block_text_font": "swisBold",
-        "block_author_font": "swiss"
-      }
-    },
-    "slideshow_MVx8ym": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_7CUaWV": {
-          "type": "slide",
-          "settings": {
-            "slide_link": "",
-            "video_background": true,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "video_hosted": "shopify://files/videos/打开.mp4",
-            "video_hosted_mobile": "shopify://files/videos/2_打开-mob.mp4",
-            "badge_text": "",
-            "subheading": "",
-            "heading": "Set up and fold down instantly",
-            "heading_size": "h1",
-            "heading_size_mobile": 34,
-            "content": "",
-            "description_max_width": 300,
-            "description_size": "large",
-            "content_position": "top-center",
-            "text_alignment": "center",
-            "content_size": "medium",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
+            "collection": "",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "use_text_button": false,
             "overlay_color": "#000000",
-            "overlay_opacity": 100,
-            "overlay_gradient": "linear-gradient(325deg, rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
-            "button_1_color": "accent",
-            "button_1_link": "",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        }
-      },
-      "block_order": [
-        "slide_7CUaWV"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-full",
-        "mobile_height": "mobile-height-full",
-        "full_width": false,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "slide",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": false,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "swisBold",
-        "block_description_font": "swiss",
-        "block_link_font": ""
-      }
-    },
-    "gallery_R8y4FM": {
-      "type": "gallery",
-      "blocks": {
-        "image_fB3EfM": {
-          "type": "image",
-          "settings": {
-            "enable_gallery_video": true,
-            "video_hosted": "shopify://files/videos/1.mp4",
-            "enable_hover_play": false,
-            "ratio_percent": "56",
-            "mobile_ratio_percent": "150",
-            "subheading": "",
-            "title": "Set up and <br>fold down instantly.",
-            "marker_style": "style1",
-            "text": "",
-            "desc_position": "",
-            "content_max_width": 550,
-            "link_label": "",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
+            "overlay_opacity": 70
           }
         },
-        "image_7qVAry": {
-          "type": "image",
+        "daf43de1-d4e8-41d4-b6ee-0d3a6da11a2e": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/1.18_Portable_Size.webp",
-            "mobile_image": "shopify://shop_images/portable_size-3.png",
-            "enable_gallery_video": true,
-            "video_hosted": "shopify://files/videos/4.mp4",
-            "enable_hover_play": false,
-            "ratio_percent": "56",
-            "mobile_ratio_percent": "150",
-            "subheading": "",
-            "title": "Unmatched stability and enduring durability.",
-            "marker_style": "style1",
-            "text": "Holds up to 550 lbs / 250 kg without wobbling",
-            "desc_position": "top-center",
-            "content_max_width": 950,
-            "content_max_width_mobile": 110,
-            "description_max_width": 1000,
-            "link_label": "",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#ffffff"
-          }
-        },
-        "image_Ub9bjF": {
-          "type": "image",
-          "settings": {
-            "enable_gallery_video": true,
-            "video_hosted": "shopify://files/videos/2.18 - Part3-PC.mp4",
-            "video_hosted_mobile": "shopify://files/videos/2.18-Part3 - Mob.mp4",
-            "enable_hover_play": false,
-            "ratio_percent": "56",
-            "mobile_ratio_percent": "150",
-            "subheading": "",
-            "title": "Limitless adjustments for the comfiest hang.",
-            "marker_style": "style1",
-            "text": "Compatible with hammocks up to 12’",
-            "desc_position": "top-center",
-            "content_max_width": 600,
-            "content_max_width_mobile": 1083,
-            "description_max_width": 1200,
-            "link_label": "",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#ffffff"
-          }
-        },
-        "image_8G9jqB": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/hang_4d247c99-c42e-4e88-ad76-aa0b57a9a3e6.webp",
-            "mobile_image": "shopify://shop_images/hang-2_4d6c24b7-8c17-4052-8049-788a1190033f.webp",
-            "enable_gallery_video": true,
-            "video_hosted": "shopify://files/videos/2.mp4",
-            "enable_hover_play": false,
-            "ratio_percent": "56",
-            "mobile_ratio_percent": "150",
-            "subheading": "",
-            "title": "Flexibility on the go <br> and travel-friendly.",
-            "marker_style": "style1",
-            "text": "Lightweight design (23 lbs / 10.4 kg) & car camping friendly",
-            "desc_position": "top-center",
-            "content_max_width": 1500,
-            "description_max_width": 300,
-            "link_label": "",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
-          }
-        },
-        "image_YywCKw": {
-          "type": "image",
-          "settings": {
-            "enable_gallery_video": true,
-            "video_hosted": "shopify://files/videos/5.mp4",
-            "video_hosted_mobile": "shopify://files/videos/Part5-mob-阴影版2.mp4",
-            "enable_hover_play": false,
-            "ratio_percent": "56",
-            "mobile_ratio_percent": "150",
-            "subheading": "",
-            "title": "Handy accessories for upgraded experience.",
-            "marker_style": "style1",
-            "text": "",
-            "desc_position": "",
-            "content_max_width": 950,
-            "content_max_width_mobile": 100,
-            "description_max_width": 950,
-            "link_label": "",
-            "link": "",
-            "use_text_button": false,
-            "block_link": "",
-            "marker_color": "#fd6262"
-          }
-        }
-      },
-      "block_order": [
-        "image_fB3EfM",
-        "image_7qVAry",
-        "image_Ub9bjF",
-        "image_8G9jqB",
-        "image_YywCKw"
-      ],
-      "custom_css": [
-        ".description-max-image_Ub9bjF p {white-space: nowrap; /* 让文本不换行 */}"
-      ],
-      "settings": {
-        "content_for_tab": "",
-        "columns_desktop": 1,
-        "full_width": true,
-        "mobile_swipe": false,
-        "sticky_gallery": false,
-        "image_ratio": "adapt",
-        "content_position": "bottom-center",
-        "text_alignment": "center",
-        "column_spacing": "none",
-        "heading_size": "h1",
-        "heading_size_mobile": 29,
-        "description_size": "large",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": false,
-        "block_heading_font": "swisBold",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
-    "reviews_new_49wXQ7": {
-      "type": "reviews-new",
-      "blocks": {
-        "review_yyekKw": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">“Super easy to set up and so comfy!”</a>",
-            "text": "It is incredibly simple to set up and feels like a dream to relax in. Whether you’re sitting or lying down, it’s the perfect spot to unwind.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Instagrammer@outdooradventure",
-            "author_image": "shopify://shop_images/KS_Upate.webp"
-          }
-        },
-        "review_rd3QWm": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">“Perfect for a chill day outside!”</a>",
-            "text": "It’s really easy to set up, and feels sturdy. It’s so lightweight and comfortable—I’ve even napped in it during the afternoon sun.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Instagrammer@torylynnnnn",
-            "author_image": "shopify://shop_images/555.webp"
-          }
-        },
-        "review_zj8XDn": {
-          "type": "review",
-          "disabled": true,
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"It gets me into the hammocking vibe instantly!\".</a>",
-            "text": "It helps me to rewind and get recovered after daily training. Sometime I also use it as a portable sofa bed at home.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Norris Federick - Long Jump Team USA",
-            "author_image": "shopify://shop_images/3.7.webp"
-          }
-        },
-        "review_94V9Mk": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"My daughter and I can stay in it all day.\".</a>",
-            "text": "It's very comfortable for my daughter and me, if you‘re looking for a deep connection with nature, anymaka is a reliable companion!\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Katie Wright - Yoga Instructor",
-            "author_image": "shopify://shop_images/1_d46862ba-fe1d-412e-8c6d-21fb1fa70ded.webp"
-          }
-        },
-        "review_9NEmKh": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"It changed how I perceived go-anywhere hammocking.\"</a>",
-            "text": "It's crazy convenient to use, I can quickly set up the stand to lie down. Unlike other stands that require complicated set-ups or trees.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Marcus Trufant - NFL Member",
-            "author_image": "shopify://shop_images/3_963fc14c-9162-40d1-a3ca-6cabc413c27b.webp"
-          }
-        },
-        "review_aLWdUp": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"anymaka is the world's coolest hammock stand!\"</a>",
-            "text": "It's an experience like no other. It's not just about holding up your hammock; it's about creating the perfect spot for relaxation and adventure.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Instagrammer@viktoriawanders",
-            "author_image": "shopify://shop_images/33_6047e6b5-7c4e-4fed-8458-e633dd79b642.webp"
-          }
-        },
-        "review_FBTAjC": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"It's pretty stable and quite handy.\"</a>",
-            "text": "It's super super strong, sort of like parachute material. The space is enough for 2 people to sit on it. I will try to sleep on it for sure!\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Youtuber @Boris The Defender",
-            "author_image": "shopify://shop_images/2_1d650b57-84dd-410d-8402-8873fb3fdaeb.webp"
-          }
-        },
-        "review_FNjdjk": {
-          "type": "review",
-          "settings": {
-            "stars": "",
-            "heading": "<a href=\"https://www.anymaka.com/pages/customers-reviews\">\"Setting it up is a breeze.\"</a>",
-            "text": "Setting it up was incredibly easy, and the moment it was ready, I knew I had something special. The build quality and attention to detail are outstanding.\n\n<a href=\"https://www.anymaka.com/pages/customers-reviews\">View more ></a>",
-            "author": "Instagrammer@wildrnss",
-            "author_image": "shopify://shop_images/wildrnss.webp"
-          }
-        }
-      },
-      "block_order": [
-        "review_yyekKw",
-        "review_rd3QWm",
-        "review_zj8XDn",
-        "review_94V9Mk",
-        "review_9NEmKh",
-        "review_aLWdUp",
-        "review_FBTAjC",
-        "review_FNjdjk"
-      ],
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "heading": "",
-        "description": "",
-        "mobile_height": 600,
-        "columns": 3,
-        "show_nav_mobile": true,
-        "autoplay": false,
-        "autoplay_length": 4,
-        "color_bg": "#ffffff",
-        "review_color_bg": "#f5f5f5",
-        "color_heading": "#1a1c1d",
-        "color_text": "#2c2d2e",
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": false,
-        "block_heading_font": "swisBold",
-        "block_description_font": "swiss",
-        "block_name_font": "swiss"
-      }
-    },
-    "slideshow_x3xDFT": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_6qCRGa": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/2_Outdoor.webp",
-            "mobile_image": "shopify://shop_images/Tailor_Your_Experience_Indoors_or_Outdoors..webp",
-            "slide_link": "",
-            "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "content_width": 600,
-            "content_width_mobile": 0,
-            "badge_text": "",
-            "subheading": "",
-            "heading": "Tailor Your Experience,\nIndoors or Outdoors.",
-            "heading_size": "h2",
-            "heading_size_mobile": 29,
-            "content": "Select the accessories that best suit your hammocking vibe, whether you're kicking back inside or heading for the wild.",
-            "description_max_width": 420,
-            "description_size": "large",
-            "content_position": "top-left",
+            "collection": "",
+            "enable_promotion": false,
+            "title": "Promotion",
+            "text": "Advertise a promotion or a sale",
+            "link_label": "Explore",
+            "content_position": "bottom-left",
             "text_alignment": "left",
-            "content_size": "small",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#ffffff",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
+            "use_text_button": false,
             "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "Shop anymaka",
-            "button_1_color": "accent",
-            "button_1_link": "shopify://products/anymaka-hammock-set",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
+            "overlay_opacity": 70
           }
         }
       },
       "block_order": [
-        "slide_6qCRGa"
+        "62cb3915-bc43-41ce-b3f3-2e48c9eefdd2",
+        "daf43de1-d4e8-41d4-b6ee-0d3a6da11a2e"
       ],
-      "custom_css": [],
       "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-550",
-        "mobile_height": "mobile-height-500",
-        "full_width": true,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "zoom",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": false,
-        "disable_top_spacing": true,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
-    "multicolumn_CwhDeq": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_8i66FC": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/7_34df2e1a-a0a0-4788-a948-b72e177841f1.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_FG3Kt9": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/10_e9bb9fb9-675d-4773-83fe-52e3b860d6ee.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_Q8D6gr": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_DQJpdp": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/11_e5f5c0a1-cae7-42ed-81d4-4c1ff1b30696.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NbQyJL": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/2_8e63ec84-f82f-4ea3-9b31-f9366ec1e145.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_pPPRUN": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/8_2.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_6DaMpn": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_fVPmHb": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/4_30844557-5d78-4fb8-a142-fc6daf7d7642.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_rY4jLq": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/1_432f7874-40fd-493a-9036-f18dd5605532.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_xyhBTj": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_VrEMq8": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/6_4e03a2f5-bb75-470c-9bc2-931ca20410df.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_HY9WFj": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/5_b2281a78-fe31-4fc7-be10-852cf4e33203.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_adeNAC": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_k47rwJ": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/12.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_GQbAWd": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/9.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NQjFCa": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/3_7f0c99da-535b-4ba3-819e-b09f60b7b560.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_mnhNLG": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_3fznLW": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/222_928116e5-811a-4e92-b85a-c3447082c4e9.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_WQHkLf": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 4,
-            "image": "shopify://shop_images/4_22a82276-c0ac-4742-93e1-e969d74681b2.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_CGaEdM": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/review-3.png",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_bxEkhq": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": false,
-            "columns_mobile": 3,
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_DgpVmG": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": true,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/7_bd20abd0-f8df-4be9-9e66-552cdda41f35.webp",
-            "image_full_width": true,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_GbPJQP": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "only_mobile": true,
-            "columns_mobile": 3,
-            "image": "shopify://shop_images/1_0f0e5c52-42ed-4188-84a5-fe50c03f4dd8.webp",
-            "image_full_width": false,
-            "image_link": "",
-            "text_alignment": "left",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_8i66FC",
-        "column_FG3Kt9",
-        "column_Q8D6gr",
-        "column_DQJpdp",
-        "column_NbQyJL",
-        "column_pPPRUN",
-        "column_6DaMpn",
-        "column_fVPmHb",
-        "column_rY4jLq",
-        "column_xyhBTj",
-        "column_VrEMq8",
-        "column_HY9WFj",
-        "column_adeNAC",
-        "column_k47rwJ",
-        "column_GQbAWd",
-        "column_NQjFCa",
-        "column_mnhNLG",
-        "column_3fznLW",
-        "column_WQHkLf",
-        "column_CGaEdM",
-        "column_bxEkhq",
-        "column_DgpVmG",
-        "column_GbPJQP"
-      ],
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "section_id": "",
-        "layout_grid": true,
-        "no_margin": true,
-        "enable_carousel": false,
-        "slide_arrow": false,
-        "heading": "Share Your #anymaka Moments",
-        "color_section_heading": "#2c2d2e",
-        "heading_width": 700,
-        "heading_font": "",
+        "heading": "Collection tabs",
         "marker_style": "style1",
-        "description": "<p>We're all about making your hammock time awesome! Share your best #anymaka moments by tagging @anymaka in your posts. Let's spread the good vibes together!<br/></p>",
-        "color_section_desc": "#1a1c1d",
-        "description_font": "swiss",
-        "link_label": "Follow Us",
-        "link": "https://www.instagram.com/anymakaofficial/",
-        "columns_desktop": 4,
-        "mobile_swipe": false,
-        "image_ratio": "square",
-        "text_alignment": "left",
-        "heading_size": "h4",
-        "link_style": "button",
-        "button_size": "medium",
-        "color_heading": "#1a1c1d",
+        "description": "<p>Collection tabs description</p>",
+        "product_limit": 8,
+        "columns_desktop": 5,
+        "show_progress_bar": true,
         "marker_color": "#fd6262",
-        "color_text": "#2c2d2e",
-        "color_links": "#2c2d2e",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true,
-        "multicolum_padding_pc": 15,
-        "multicolum_padding_mobile": 0,
-        "block_heading_font": "",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
-    "rich_text_bHHXCG": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_6MKYgz": {
-          "type": "heading",
-          "settings": {
-            "text": "Talk about your brand",
-            "marker_style": "style1",
-            "size": "h3",
-            "marker_color": "#fd6262"
-          }
-        },
-        "text_zLhfRY": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "size": "text-size-small"
-          }
-        }
-      },
-      "block_order": [
-        "heading_6MKYgz",
-        "text_zLhfRY"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "medium",
-        "text_position": "left",
-        "text_alignment": "left",
-        "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#1a1c1d",
-        "color_text": "#dddddd",
-        "color_links": "#2c2d2e",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true
-      }
-    },
-    "custom_liquid_x4MgCm": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<style>\n  /* 添加字体样式 */\n  @font-face {\n    font-family: 'Swiss 721 Bold';\n    src: url('{{ 'swiss-721-bold.woff' | asset_url }}') format('woff');\n    /* 添加其他字体格式，如果有的话 */\n  }\n\n  /* 添加其他样式 */\n  .custom-section {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: flex-start; /* 上下居中 */\n  }\n\n  .text-section {\n    flex: 1;\n    padding: 20px; /* 根据需要调整间距 */\n    box-sizing: border-box;\n  }\n\n  .text-section h2, .text-section p {\n    font-family: 'Swiss 721 Bold', sans-serif; /* 使用Swiss 721 Bold字体 */\n    /* 添加其他文案的样式 */\n  }\n\n  .button-section {\n    text-align: right;\n    padding: 20px; /* 根据需要调整间距 */\n    box-sizing: border-box;\n  }\n\n  .image-section {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n  }\n\n  .image-section img {\n    width: calc(20% - 5px); /* 图片比例为1:1，考虑到边距，总宽度为20% */\n    margin-bottom: 5px; /* 图片间距，根据需要调整 */\n  }\n\n  /* 针对左边上下4个格子 */\n  .image-section img:nth-child(-n+4) {\n    width: calc(40% - 5px); /* 图片比例为1:1，考虑到边距，总宽度为40% */\n  }\n</style>\n\n<div class=\"custom-section\">\n  <div class=\"text-section\">\n    <h2>Your Title</h2>\n    <p>Your Description</p>\n  </div>\n  <div class=\"button-section\">\n    <a href=\"#\" class=\"button\">Your Button</a>\n  </div>\n</div>\n\n<div class=\"image-section\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/4_22a82276-c0ac-4742-93e1-e969d74681b2.webp?v=1706667338\" alt=\"Image 1\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/3_500fc626-5933-47de-afc3-51f8559c5fe8.webp?v=1706667337\" alt=\"Image 2\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/2_0c7382e6-ac82-447c-9adc-2bcb27d823bc.webp?v=1706667338\" alt=\"Image 3\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/1_f8e7bf5c-133c-4ad4-8e8c-4161ca9d8771.webp?v=1706667337\" alt=\"Image 4\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/6_ca925642-d74a-40b3-989d-903317404334.webp?v=1706667337\" alt=\"Image 5\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/5_e693966b-00f0-46ad-a099-46786d7f6bd3.webp?v=1706667337\" alt=\"Image 6\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0747/3440/3866/files/7_bd20abd0-f8df-4be9-9e66-552cdda41f35.webp?v=1706667337\" alt=\"Image 7\">\n</div>"
-      }
-    },
-    "custom_liquid_8gkkXf": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "text_width": "full_width",
-        "custom_liquid": "<img src=\"https://cdn.shopifycdn.net/s/files/1/0747/3440/3866/files/3.8-_Review.webp?v=1709893173\" alt=\"Review Image\" style=\"width: 100%; height: auto;\">"
-      }
-    },
-    "slideshow_XyTerR": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_CiWa8t": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/kol_-3.8-2.webp",
-            "slide_link": "",
-            "video_background": false,
-            "custom_desktop_height": "",
-            "custom_mobile_height": "",
-            "badge_text": "",
-            "subheading": "",
-            "heading": "",
-            "heading_size": "h1",
-            "heading_size_mobile": 34,
-            "content": "",
-            "description_size": "large",
-            "content_position": "middle-center",
-            "text_alignment": "center",
-            "content_size": "large",
-            "color_slidebg": "rgba(0,0,0,0)",
-            "color_slidebg_opacity": 0,
-            "color_slidebg_blur": 0,
-            "color_text": "#2c2d2e",
-            "color_badge_bg": "#3f72e5",
-            "color_badge_text": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "overlay_gradient": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.4) 100%)",
-            "button_1_text": "",
-            "button_1_color": "accent",
-            "button_1_link": "",
-            "use_text_button_1": false,
-            "button_2_text": "",
-            "button_2_color": "white",
-            "button_2_link": "",
-            "use_text_button_2": false
-          }
-        }
-      },
-      "block_order": [
-        "slide_CiWa8t"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "desktop_height": "desktop-height-full",
-        "mobile_height": "mobile-height-500",
-        "full_width": false,
-        "scale_clip": false,
-        "autoplay": false,
-        "autoplay_length": 5,
-        "transition": "zoom",
-        "controls": "arrows-with-numbers",
-        "slide_arrow": false,
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true,
-        "block_badge_font": "",
-        "block_subheading_font": "",
-        "block_heading_font": "",
-        "block_description_font": "",
-        "block_link_font": ""
-      }
-    },
-    "171072788289576312": {
-      "type": "apps",
-      "blocks": {
-        "xo_gallery_xo_gallery_D94eKY": {
-          "type": "shopify://apps/xo-gallery/blocks/xo-gallery/e61dfbaa-1a75-4e4e-bffc-324f17325251",
-          "settings": {
-            "id": 1,
-            "mid": ""
-          }
-        }
-      },
-      "block_order": [
-        "xo_gallery_xo_gallery_D94eKY"
-      ],
-      "custom_css": [
-        ".imagebox__title {font-size: 15px;}"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "single_image_hGQWY8": {
-      "type": "single-image",
-      "disabled": true,
-      "settings": {
-        "content_for_tab": "",
-        "image": "shopify://shop_images/kol_-3.8-2.webp",
-        "full_width": false,
         "disable_top_spacing": true,
         "disable_bottom_spacing": false
       }
     },
-    "text_with_icons_kg7Kxm": {
-      "type": "text-with-icons",
+    "b6a221e5-6cbb-4160-83a7-a387a8f98553": {
+      "type": "rich-text",
       "blocks": {
-        "icon_dP8EtN": {
-          "type": "icon",
+        "template--17918041129242__b6a221e5-6cbb-4160-83a7-a387a8f98553-16764607056c9a15f5-1": {
+          "type": "heading",
           "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/1_ac520478-6e9d-4791-ad39-4a019421a30f.webp",
-            "heading": "FAST SHIPPING",
-            "text": "<p>We offer fast shipping, ensuring your order reaches you within just 7 days.</p>"
+            "text": "Rich |text|",
+            "marker_style": "style1",
+            "size": "h1",
+            "marker_color": "#fd6b62"
           }
         },
-        "icon_j7TENy": {
-          "type": "icon",
+        "template--17918041129242__b6a221e5-6cbb-4160-83a7-a387a8f98553-16764607056c9a15f5-2": {
+          "type": "text",
           "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/2_d8a2c0f5-ff99-4b92-9e87-ef423ae2fc2e.webp",
-            "heading": "30-DAY RETURN",
-            "text": "<p>If for any reason you are not satisfied with your purchase, you may return any item within 30 days.</p>"
-          }
-        },
-        "icon_qBAyiH": {
-          "type": "icon",
-          "settings": {
-            "icon": "ruler",
-            "image": "shopify://shop_images/3_768289bf-e0ca-4c74-8809-13bf1def17ef.webp",
-            "heading": "WARRANTY SUPPORT",
-            "text": "<p>We stand behind everything we make and offer warranty coverage for your outdoor adventures.</p>"
+            "text": "<p><strong>Add a section description here</strong></p>",
+            "size": "text-size-large"
           }
         }
       },
       "block_order": [
-        "icon_dP8EtN",
-        "icon_j7TENy",
-        "icon_qBAyiH"
+        "template--17918041129242__b6a221e5-6cbb-4160-83a7-a387a8f98553-16764607056c9a15f5-1",
+        "template--17918041129242__b6a221e5-6cbb-4160-83a7-a387a8f98553-16764607056c9a15f5-2"
       ],
       "settings": {
-        "content_for_tab": "",
+        "text_width": "large",
+        "text_position": "center",
         "text_alignment": "center",
-        "icon_position": "top",
-        "icon_size": "xlarge",
-        "heading_size": "large",
-        "mobile_row": false,
-        "mobile_swipe": false,
         "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#1a1c1d",
-        "color_text": "#2c2d2e",
-        "disable_top_spacing": false,
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#ffffff",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "f896bcf0-40bd-4c23-8c79-b4d0863d7715": {
+      "type": "media-grid",
+      "blocks": {
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-0": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "Subheading",
+            "heading": "Block heading",
+            "heading_size": "h2",
+            "button_text": "Learn more",
+            "content_position": "top-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#252f35",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-1": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Subheading",
+            "heading": "Add your block<br>description",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#252f35",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-2": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Block Heading",
+            "heading_size": "h4",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "linear-gradient(180deg, rgba(247, 177, 168, 1), rgba(63, 114, 229, 1) 99%)",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "3963f5c5-4bf4-4cd9-b70a-a4a9e5283569": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "Block Heading",
+            "heading_size": "h4",
+            "button_text": "Explore",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#ffffff",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-0",
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-1",
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-2",
+        "3963f5c5-4bf4-4cd9-b70a-a4a9e5283569"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 220,
+        "column_spacing": "medium",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1661426105a80f3333": {
+      "type": "scrolling-text",
+      "blocks": {
+        "1ca83ea2-5e93-4db4-a6e6-8fcf06ee541b": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "outline_text": false
+          }
+        },
+        "26518d78-5502-4bdf-a933-0020b59a8d9e": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "outline_text": false
+          }
+        },
+        "c2cf6d75-da2e-4ba7-9791-6b681127eeff": {
+          "type": "text",
+          "settings": {
+            "text": "Add campaign text here.",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "1ca83ea2-5e93-4db4-a6e6-8fcf06ee541b",
+        "26518d78-5502-4bdf-a933-0020b59a8d9e",
+        "c2cf6d75-da2e-4ba7-9791-6b681127eeff"
+      ],
+      "settings": {
+        "height": "height-auto",
+        "full_width": false,
+        "direction": "left",
+        "speed": "50s",
+        "rotation": 0,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 48,
+        "text_uppercase": false,
+        "image_size": "small",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "#adb3bb",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "60ed2e7d-3f50-428a-b546-03274d862db0": {
+      "type": "collection-list",
+      "settings": {
+        "marker_style": "style1",
+        "description": "",
+        "heading_size": "small",
+        "collection_list": [],
+        "image_ratio": "adapt",
+        "collection_layout": "grid",
+        "style": "style2",
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "show_progress_bar": true,
+        "mobile_swipe": true,
+        "heading_position": "bottom-center",
+        "marker_color": "#fd6262",
+        "text_color": "#252f35",
+        "overlay_color": "rgba(0,0,0,0)",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "09fbaadd-eaad-4e04-9edb-42de8cc123f0": {
+      "type": "scrolling-content",
+      "blocks": {
+        "7dd63451-9849-436a-8d6f-6e1568fd6a0d": {
+          "type": "section",
+          "settings": {
+            "badge": "badge",
+            "subheading": "subheading",
+            "heading": "Heading",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Add a descriptive text here for your slide.</p>",
+            "description_size": "medium",
+            "button_text": "Shop Now",
+            "marker_color": "#FD6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        },
+        "d364e04b-f192-401b-be30-5647164998ad": {
+          "type": "section",
+          "settings": {
+            "badge": "badge",
+            "subheading": "subheading",
+            "heading": "Heading",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Add a descriptive text here for your slide.</p>",
+            "description_size": "medium",
+            "button_text": "Shop Now",
+            "marker_color": "#FD6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        },
+        "e7712faa-4bb2-424d-af95-93d14e9c13fd": {
+          "type": "section",
+          "settings": {
+            "badge": "badge",
+            "subheading": "subheading",
+            "heading": "Heading",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Add a descriptive text here for your slide.</p>",
+            "description_size": "medium",
+            "button_text": "Shop Now",
+            "marker_color": "#FD6262",
+            "color_bg_badge": "#3f72e5",
+            "color_badge": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "7dd63451-9849-436a-8d6f-6e1568fd6a0d",
+        "d364e04b-f192-401b-be30-5647164998ad",
+        "e7712faa-4bb2-424d-af95-93d14e9c13fd"
+      ],
+      "settings": {
+        "desktop_layout": "text_first",
+        "mobile_swipe": true,
+        "dots": true,
+        "color_bg": "#f5f5f5",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#3f72e5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "6b1d3b5d-a0fa-4928-834a-d82c491bc99d": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 40,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "166366563622039b3e": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Featured Collection",
+        "marker_style": "style1",
+        "description": "<p>Best dresses for the upcoming fall season</p>",
+        "collection": "",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "556906e3-ee46-444a-a732-18a7ad8ace3c": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 10,
+        "spacer_desktop": 40,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "66e51d40-1da7-4a8a-8d7c-2e5b727c5f4c": {
+      "type": "image-with-text-slideshow",
+      "blocks": {
+        "8704fc3b-3e7d-4b1c-8a79-1bb391f43862": {
+          "type": "slide",
+          "settings": {
+            "subheading": "subheading",
+            "heading": "Slide Heading",
+            "heading_size": "h3",
+            "content": "Add a descriptive text here for your slide.",
+            "button_text": "Shop Now",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "color_button": "#2c2d2e"
+          }
+        },
+        "e940c5a6-8515-4c8c-86bf-1520e1cb699b": {
+          "type": "slide",
+          "settings": {
+            "subheading": "subheading",
+            "heading": "Slide Heading",
+            "heading_size": "h3",
+            "content": "Add a descriptive text here for your slide.",
+            "button_text": "Shop Now",
+            "color_bg": "#ffffff",
+            "color_text": "#2c2d2e",
+            "color_button": "#2c2d2e"
+          }
+        }
+      },
+      "block_order": [
+        "8704fc3b-3e7d-4b1c-8a79-1bb391f43862",
+        "e940c5a6-8515-4c8c-86bf-1520e1cb699b"
+      ],
+      "settings": {
+        "mobile_height": "mobile-height-400",
+        "desktop_height": "desktop-height-650",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "content_position": "text-center",
+        "autoplay": true,
+        "autoplay_length": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "f8f12940-5782-4827-9b55-eab9b8fc3988": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 30,
+        "spacer_desktop": 55,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "e64d388d-d7ce-40d4-9265-98b1b32fb9de": {
+      "type": "logo-list",
+      "blocks": {
+        "015b7f2c-d077-4360-869a-deb290cf98df": {
+          "type": "logo",
+          "settings": {}
+        },
+        "501a786d-9e75-45cb-99b1-08fc64a35c48": {
+          "type": "logo",
+          "settings": {}
+        },
+        "6eb74203-63cb-4fb2-9c50-eb2c064aa1cc": {
+          "type": "logo",
+          "settings": {}
+        },
+        "6d12a7aa-afd3-41e7-a2da-879bc622f8d9": {
+          "type": "logo",
+          "settings": {}
+        },
+        "3a029d3b-2084-4892-8f9c-c95b609a06d2": {
+          "type": "logo",
+          "settings": {}
+        },
+        "4d6d52f7-06ce-4647-90a2-68910d743f50": {
+          "type": "logo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "015b7f2c-d077-4360-869a-deb290cf98df",
+        "501a786d-9e75-45cb-99b1-08fc64a35c48",
+        "6eb74203-63cb-4fb2-9c50-eb2c064aa1cc",
+        "6d12a7aa-afd3-41e7-a2da-879bc622f8d9",
+        "3a029d3b-2084-4892-8f9c-c95b609a06d2",
+        "4d6d52f7-06ce-4647-90a2-68910d743f50"
+      ],
+      "settings": {
+        "heading": "Logo list",
+        "marker_style": "style1",
+        "description": "<p>Add a short description for this section</p>",
+        "columns": 6,
+        "mobile_swipe": true,
+        "center_align": true,
+        "disable_top_spacing": true,
         "disable_bottom_spacing": false,
-        "block_heading_font": "",
-        "block_description_font": ""
+        "color_logo_bg": "#ffffff",
+        "marker_color": "#fd6262"
+      }
+    },
+    "41985d74-e833-4bbd-b6df-f14039d7d1e4": {
+      "type": "rich-text",
+      "blocks": {
+        "8887e9cc-ea48-4e00-b3b5-2c62eecc0054": {
+          "type": "image",
+          "settings": {}
+        },
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Rich text |heading|",
+            "marker_style": "style2",
+            "size": "h1",
+            "marker_color": "#3f72e5"
+          }
+        },
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Add your own section description here.</strong></p>",
+            "size": "text-size-large"
+          }
+        },
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-3": {
+          "type": "button",
+          "settings": {
+            "link_label": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "8887e9cc-ea48-4e00-b3b5-2c62eecc0054",
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-1",
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-2",
+        "template--17918041129242__41985d74-e833-4bbd-b6df-f14039d7d1e4-1676471079e61edf02-3"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "color_links": "#151515",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "d569a596-bbbd-43f5-bc5d-eea42d9c524a": {
+      "type": "toggle-boxes",
+      "blocks": {
+        "1e5c0d75-7532-420a-9a92-88d46599e5c9": {
+          "type": "box",
+          "settings": {
+            "open": false,
+            "heading": "Heading",
+            "text": "<p>Pair text with an image to focus on your chosen image</p>"
+          }
+        },
+        "1b94bcae-91ef-43d1-bd0a-fa1e9c96b1ac": {
+          "type": "box",
+          "settings": {
+            "open": false,
+            "heading": "Heading",
+            "text": "<p>Pair text with an image to focus on your chosen image</p>"
+          }
+        },
+        "99de1703-57d2-4815-a2dd-cca209d274d4": {
+          "type": "box",
+          "settings": {
+            "open": false,
+            "heading": "Heading",
+            "text": "<p>Pair text with an image to focus on your chosen image</p>"
+          }
+        },
+        "8feaed6f-9110-479d-92cd-57e771e3383c": {
+          "type": "box",
+          "settings": {
+            "open": false,
+            "heading": "Heading",
+            "text": "<p>Pair text with an image to focus on your chosen image</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1e5c0d75-7532-420a-9a92-88d46599e5c9",
+        "1b94bcae-91ef-43d1-bd0a-fa1e9c96b1ac",
+        "99de1703-57d2-4815-a2dd-cca209d274d4",
+        "8feaed6f-9110-479d-92cd-57e771e3383c"
+      ],
+      "settings": {
+        "marker_style": "style1",
+        "description": "",
+        "columns_desktop": 4,
+        "column_spacing": "medium",
+        "image_ratio": "adapt",
+        "mobile_swipe": true,
+        "text_alignment": "left",
+        "color_bg": "#ffffff",
+        "color_heading": "#252f35",
+        "marker_color": "#fd6262",
+        "color_text": "#303c43",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a": {
+      "type": "media-with-tabs",
+      "blocks": {
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-0": {
+          "type": "badge",
+          "settings": {
+            "text": "Badge heading",
+            "color_bg": "#665755",
+            "color_text": "#ffffff"
+          }
+        },
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Heading",
+            "heading_size": "h2"
+          }
+        },
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Section description</p>"
+          }
+        },
+        "deb1116b-786d-453d-921e-1a6dca696afc": {
+          "type": "tab",
+          "settings": {
+            "use_video": false,
+            "heading_icon": "ruler",
+            "heading": "Tab",
+            "description": "Add a short description for this tab",
+            "video_autoplay": true
+          }
+        },
+        "5a8f54e1-b110-495f-aa71-0d1f32872c4c": {
+          "type": "tab",
+          "settings": {
+            "use_video": false,
+            "heading_icon": "ruler",
+            "heading": "Tab",
+            "description": "Add a short description for this tab",
+            "video_autoplay": true
+          }
+        },
+        "5c68e7c6-17e9-4dd0-8ebe-002ab7f3955c": {
+          "type": "tab",
+          "settings": {
+            "use_video": false,
+            "heading_icon": "ruler",
+            "heading": "Tab",
+            "description": "Add a short description for this tab",
+            "video_autoplay": true
+          }
+        }
+      },
+      "block_order": [
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-0",
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-1",
+        "template--17918041129242__bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a-167784477850e4393b-2",
+        "deb1116b-786d-453d-921e-1a6dca696afc",
+        "5a8f54e1-b110-495f-aa71-0d1f32872c4c",
+        "5c68e7c6-17e9-4dd0-8ebe-002ab7f3955c"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "height": "adapt",
+        "desktop_layout": "text_first",
+        "color_bg": "#746461",
+        "color_text": "#ffffff",
+        "color_link": "#ffffff",
+        "color_border": "#827471",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "bbe1b14c-ffcc-46f3-8d0a-a83a6122cbc4": {
+      "type": "customer-reviews",
+      "blocks": {
+        "5085031f-e213-46e9-8fad-837c9d5408f7": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "",
+            "heading": "Review heading",
+            "text": "Add your customer review here to showcase them.",
+            "author": "Review author"
+          }
+        },
+        "bb2ca63a-1470-47a5-b774-d5b7d1e70308": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "",
+            "heading": "Review heading",
+            "text": "Add your customer review here to showcase them.",
+            "author": "Review author"
+          }
+        },
+        "018af719-2b38-43f2-8174-9d7e9dd734a7": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "",
+            "heading": "Review heading",
+            "text": "Add your customer review here to showcase them.",
+            "author": "Review author"
+          }
+        },
+        "8701e09a-7c91-460f-9ec4-4b761f9b8bd0": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "",
+            "heading": "Review heading",
+            "text": "Add your customer review here to showcase them.",
+            "author": "Review author"
+          }
+        },
+        "c1ccdfb8-f6fe-4c44-aa08-c5541cd20d26": {
+          "type": "review",
+          "settings": {
+            "product_handle": "",
+            "stars": "",
+            "heading": "Review heading",
+            "text": "Add your customer review here to showcase them.",
+            "author": "Review author"
+          }
+        }
+      },
+      "block_order": [
+        "5085031f-e213-46e9-8fad-837c9d5408f7",
+        "bb2ca63a-1470-47a5-b774-d5b7d1e70308",
+        "018af719-2b38-43f2-8174-9d7e9dd734a7",
+        "8701e09a-7c91-460f-9ec4-4b761f9b8bd0",
+        "c1ccdfb8-f6fe-4c44-aa08-c5541cd20d26"
+      ],
+      "settings": {
+        "heading": "Loved by Customers",
+        "description": "",
+        "columns": 4,
+        "autoplay": true,
+        "autoplay_length": 5,
+        "color_bg": "#ffffff",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "b41c8677-3d35-4893-895f-bca590f9e711": {
+      "type": "media-grid",
+      "blocks": {
+        "template--17918041129242__b41c8677-3d35-4893-895f-bca590f9e711-1676811591c8bdc557-0": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Subheading",
+            "heading": "Heading",
+            "heading_size": "h4",
+            "button_text": "Learn more",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#69679c",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--17918041129242__b41c8677-3d35-4893-895f-bca590f9e711-1676811591c8bdc557-1": {
+          "type": "media",
+          "settings": {
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 1,
+            "subheading": "Subheading",
+            "heading": "Heading",
+            "heading_size": "h4",
+            "button_text": "Learn more",
+            "content_position": "top-left",
+            "text_alignment": "left",
+            "color_bg": "#69679c",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--17918041129242__b41c8677-3d35-4893-895f-bca590f9e711-1676811591c8bdc557-0",
+        "template--17918041129242__b41c8677-3d35-4893-895f-bca590f9e711-1676811591c8bdc557-1"
+      ],
+      "settings": {
+        "desktop_height": 300,
+        "mobile_height": 250,
+        "column_spacing": "large",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "1647955648d6a0baee": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Featured blog",
+        "marker_style": "style1",
+        "description": "<p>Blog posts description</p>",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "mobile_swipe": true,
+        "image_ratio": "landscape",
+        "show_date": true,
+        "show_excerpt": true,
+        "show_read_more": true,
+        "show_view_all": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "16620983071df6eb29": {
+      "type": "text-with-icons",
+      "blocks": {
+        "1662098307788ca717-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Heading",
+            "text": "<p>Text with icons description</p>"
+          }
+        },
+        "1662098307788ca717-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Heading",
+            "text": "<p>Text with icons description</p>"
+          }
+        },
+        "1662098307788ca717-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Heading",
+            "text": "<p>Text with icons description</p>"
+          }
+        },
+        "2c4a636c-cb89-4faf-82e6-13a0e7241006": {
+          "type": "icon",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Heading",
+            "text": "<p>Text with icons description</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1662098307788ca717-0",
+        "1662098307788ca717-1",
+        "1662098307788ca717-2",
+        "2c4a636c-cb89-4faf-82e6-13a0e7241006"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "icon_position": "top",
+        "icon_size": "medium",
+        "heading_size": "medium",
+        "mobile_swipe": true,
+        "color_bg": "#ededed",
+        "color_heading": "#252f35",
+        "color_text": "#303c43",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
       }
     }
   },
   "order": [
+    "top-spacer",
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
-    "slideshow_DMDA3h",
     "8f6ed916-ced8-44f6-9ef8-b60fd327ae31",
-    "pagefly_section_yUBXR3",
-    "rich_text_WApnjB",
-    "multicolumn_XPdtxg",
-    "custom_liquid_rpyxf9",
-    "spacer_bqWbYn",
-    "testimonials_LKpURE",
-    "slideshow_MVx8ym",
-    "gallery_R8y4FM",
-    "reviews_new_49wXQ7",
-    "slideshow_x3xDFT",
-    "multicolumn_CwhDeq",
-    "rich_text_bHHXCG",
-    "custom_liquid_x4MgCm",
-    "custom_liquid_8gkkXf",
-    "slideshow_XyTerR",
-    "171072788289576312",
-    "single_image_hGQWY8",
-    "text_with_icons_kg7Kxm"
+    "a7802e0a-30f4-4485-bf29-8868a637ca3e",
+    "8670c6b1-68f6-405f-bfff-2c6ff1e89099",
+    "16614195534fb74bc3",
+    "b6a221e5-6cbb-4160-83a7-a387a8f98553",
+    "f896bcf0-40bd-4c23-8c79-b4d0863d7715",
+    "1661426105a80f3333",
+    "60ed2e7d-3f50-428a-b546-03274d862db0",
+    "09fbaadd-eaad-4e04-9edb-42de8cc123f0",
+    "6b1d3b5d-a0fa-4928-834a-d82c491bc99d",
+    "166366563622039b3e",
+    "556906e3-ee46-444a-a732-18a7ad8ace3c",
+    "66e51d40-1da7-4a8a-8d7c-2e5b727c5f4c",
+    "f8f12940-5782-4827-9b55-eab9b8fc3988",
+    "e64d388d-d7ce-40d4-9265-98b1b32fb9de",
+    "41985d74-e833-4bbd-b6df-f14039d7d1e4",
+    "d569a596-bbbd-43f5-bc5d-eea42d9c524a",
+    "bd5ac47b-89ee-4ca4-8b29-9399f29dcc4a",
+    "bbe1b14c-ffcc-46f3-8d0a-a83a6122cbc4",
+    "b41c8677-3d35-4893-895f-bca590f9e711",
+    "1647955648d6a0baee",
+    "16620983071df6eb29"
   ]
 }

@@ -1,57 +1,120 @@
 {{- 'product-grid.css' | asset_url | stylesheet_tag -}}
+{{ 'product-recommendations.css' | asset_url | stylesheet_tag -}}
+
+<style>
+  #shopify-section-{{ section.id }} .recom-custom {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .recom-custom {
+  	padding-top: {{ section.settings.padding_top_mobile }}px;
+  	padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
 {%- liquid
-	assign section_heading = section.settings.heading
-	assign section_description = section.settings.description
-	assign product_limit = section.settings.product_limit
-	assign columns_desktop = section.settings.columns_desktop
-	assign mobile_swipe = section.settings.mobile_swipe
+  assign section_heading = section.settings.heading
+  assign section_description = section.settings.description
+  assign product_limit = section.settings.product_limit
+  assign columns_desktop = section.settings.columns_desktop
+  assign mobile_swipe = section.settings.mobile_swipe
 
-	assign disable_top_spacing = section.settings.disable_top_spacing
-	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
-	assign product_id = product.id
-	if template contains 'cart' and cart != empty
-		assign product_id = cart.items[0].product_id
-	endif
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+  assign product_id = product.id
+  if template contains 'cart' and cart != empty
+    assign product_id = cart.items[0].product_id
+  endif
 
-	assign columns_class = 'small-6 medium-6 large-4'
-	case columns_desktop
-		when 2
-			assign columns_class = 'small-6 medium-6'
-		when 3
-			assign columns_class = 'small-6 medium-4'
-		when 4
-			assign columns_class = 'small-6 medium-6 large-3'
-		when 5
-			assign columns_class = 'small-6 medium-3 large-1/5'
-		when 6
-			assign columns_class = 'small-6 medium-3 large-2'
-	endcase
+  assign columns_class = 'small-6 medium-6 large-4'
+  case columns_desktop
+    when 2
+      assign columns_class = 'small-6 medium-6'
+    when 3
+      assign columns_class = 'small-6 medium-4'
+    when 4
+      assign columns_class = 'small-6 medium-6 large-3'
+    when 5
+      assign columns_class = 'small-6 medium-3 large-1/5'
+    when 6
+      assign columns_class = 'small-6 medium-3 large-2'
+  endcase
 -%}
+
 <div class="row">
-	<div class="small-12 columns">
-		<product-recommendations class="product-recommendations{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing-padding{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product_id }}&limit={{ product_limit }}">
-			{% if recommendations.performed and recommendations.products_count > 0 %}
-				{% render 'section-header', section_heading: section_heading, section_description: section_description %}
-				<ul class="products row no-padding">
-					{% for recommendation in recommendations.products %}
-						<li class="{{ columns_class }} columns">
-							{% render 'product-card', product_card_product: recommendation %}
-						</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		</product-recommendations>
-	</div>
+  <div class="small-12 columns">
+    <product-recommendations
+      class="product-recommendations recom-custom{% if mobile_swipe %} swipe-on-mobile{% endif %} section-spacing-padding{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
+      data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product_id }}&limit={{ product_limit }}"
+    >
+      {% if recommendations.performed and recommendations.products_count > 0 %}
+        <div class="swiper recommendations-slider">
+          {% render 'section-header', section_heading: section_heading, section_description: section_description %}
+
+          <div class="swiper-wrapper">
+            {% for recommendation in recommendations.products %}
+              <div class="swiper-slide recommendations-slider-item {% if recommendations.products_count > 3 %}row-4{% endif %}">
+                {% render 'product-card', product_card_product: recommendation %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev">
+            {% render 'svg-icons' with 'carousel-prev-featured' %}
+          </div>
+          <div class="swiper-button-next">{% render 'svg-icons' with 'carousel-next-featured' %}</div>
+        </div>
+      {% endif %}
+    </product-recommendations>
+  </div>
 </div>
+
+<script>
+  (function () {
+    const targetNode = document.querySelector('body');
+
+    const observer = new MutationObserver((mutations, obs) => {
+      const slider = document.querySelector('.recommendations-slider');
+      if (slider && !slider.classList.contains('swiper-initialized')) {
+        new Swiper(slider, {
+          slidesPerView: 1.1,
+          breakpoints: {
+            750: { slidesPerView: 2 },
+            990: { slidesPerView: 3 },
+            1100: { slidesPerView: 4, spaceBetween: 30 },
+          },
+          pagination: {
+            el: slider.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: slider.querySelector('.swiper-button-next'),
+            prevEl: slider.querySelector('.swiper-button-prev'),
+          },
+        });
+
+        obs.disconnect();
+      }
+    });
+
+    observer.observe(targetNode, { childList: true, subtree: true });
+  })();
+</script>
+
 {% schema %}
-	{
-		"name": "Product recommendations",
-		"settings": [
-		{
-			"type": "paragraph",
-			"content": "Customize product recommendations with Search and Discovery app. [Learn more](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)."
-		},
-		{
+{
+  "name": "Product recommendations",
+  "class": "section-product-recommendations",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Customize product recommendations with Search and Discovery app. [Learn more](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations)."
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
@@ -63,46 +126,98 @@
       "label": "Description",
       "default": "<p>Describe your featured collection here</p>"
     },
-		{
-			"type": "checkbox",
-			"id": "mobile_swipe",
-			"default": true,
-			"label": "Enable swipe on mobile"
-		},
-		{
-			"type": "range",
-			"id": "product_limit",
-			"min": 2,
-			"max": 6,
-			"step": 1,
-			"label": "Maximum products to show",
-			"default": 4
-		},
-		{
-			"type": "range",
-			"id": "columns_desktop",
-			"min": 2,
-			"max": 6,
-			"step": 1,
-			"default": 4,
-			"label": "Number of columns on desktop"
-		},
- 		{
-       "type": "header",
-       "content": "Spacing"
-     },
- 		{
- 			"type": "checkbox",
- 			"id": "disable_top_spacing",
- 			"default": false,
- 			"label": "Remove top spacing"
- 		},
- 		{
- 			"type": "checkbox",
- 			"id": "disable_bottom_spacing",
- 			"default": false,
- 			"label": "Remove bottom spacing"
- 		}
-		]
-	}
+    {
+      "type": "checkbox",
+      "id": "product_description",
+      "label": "Show product description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_selector",
+      "label": "Show selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_swipe",
+      "default": true,
+      "label": "Enable swipe on mobile"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Maximum products to show",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_top_spacing",
+      "default": false,
+      "label": "Remove top spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_bottom_spacing",
+      "default": false,
+      "label": "Remove bottom spacing"
+    }
+  ]
+}
 {% endschema %}

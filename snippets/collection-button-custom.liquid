@@ -1,0 +1,84 @@
+{%- assign sticky_btn_url = collection.metafields.custom.button_url.value -%}
+{%- assign sticky_btn_text = collection.metafields.custom.button_text -%}
+
+{% if sticky_btn_text != blank %}
+  <div class="sticky-btn-section">
+    <a
+      href="{{ sticky_btn_url }}"
+      class="sticky-btn button accent"
+    >
+      {{ sticky_btn_text | default: 'Shop Now' }}
+    </a>
+  </div>
+{% endif %}
+<style>
+  .sticky-btn-section {
+    position: fixed;
+    bottom: 24px;
+    right: 30px;
+    left: auto;
+    transform: translateX(-50%);
+    z-index: 88;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sticky-btn-section.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sticky-btn {
+    height: 56px;
+    width: 164px;
+    max-width: 100%;
+    padding: 0;
+  }
+  .sticky-btn-section.on-footer a:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    .sticky-btn-section {
+      left: 50%;
+      right: auto;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const section = document.querySelector('.sticky-btn-section');
+    const triggers = Array.prototype.slice.call(document.querySelectorAll('.section-background-video'));
+
+    const footer = document.querySelector('footer');
+
+    if (!section || !triggers.length) return;
+
+    const trigger = triggers[Math.min(1, triggers.length - 1)];
+
+    function checkPosition() {
+      const triggerBottom = trigger.getBoundingClientRect().bottom;
+
+      const shouldShow = triggerBottom < -300;
+      section.classList.toggle('show', shouldShow);
+
+      if (footer) {
+        const btnRect = section.getBoundingClientRect();
+        const footerRect = footer.getBoundingClientRect();
+
+        const isOverFooter = btnRect.bottom > footerRect.top && btnRect.top < footerRect.bottom;
+
+        section.classList.toggle('on-footer', isOverFooter);
+      }
+    }
+
+    window.addEventListener('scroll', checkPosition, { passive: true });
+    window.addEventListener('resize', checkPosition, { passive: true });
+    checkPosition();
+  })();
+</script>

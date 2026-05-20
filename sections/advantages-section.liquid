@@ -1,0 +1,176 @@
+{{ 'advantages-dnc.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .advantages-blocks .direction-horizontal {
+    flex-direction: row;
+  }
+
+  #shopify-section-{{ section.id }}.advantages-section {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }}.advantages-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
+  {% if template.name == 'collection' %}
+    @media (max-width: 1020px) {
+        .advantages-blocks .advantages-blocks-container.direction-horizontal {
+            gap: 15px;
+        }
+        .advantages-blocks .direction-horizontal .advantages-block-title {
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .advantages-blocks .direction-horizontal .advantages-block-text p {
+            font-size: 11px;
+            line-height: 18px;
+        }
+    }
+  {% endif %}
+</style>
+
+<section class="advantages-blocks {{ template.name }}">
+  {%- if section.settings.section_title != blank -%}
+    <h1 class="advantages-blocks__title">{{ section.settings.section_title }}</h1>
+  {%- endif -%}
+  <div class="advantages-blocks-container {% if section.settings.direction_block == 'horizontal' %}direction-horizontal{% endif %}">
+    {% for block in section.blocks %}
+      <div class="advantages-block-item" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | image_url: width: 500 }}"
+            alt="{{ block.settings.title }}"
+            class="advantages-block-image"
+          >
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+        <h3 class="advantages-block-title">{{ block.settings.title }}</h3>
+        <div class="advantages-block-text">{{ block.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages Section",
+  "class": "advantages-section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Heading",
+      "default": "Our Advantages"
+    },
+    {
+      "type": "select",
+      "id": "direction_block",
+      "label": "Direction of blocks",
+      "default": "horizontal",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_block",
+      "name": "Item Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Item Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Item Text",
+          "default": "<p>Description of your awesome feature goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advantages Section",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "info_block"
+        },
+        {
+          "type": "info_block"
+        },
+        {
+          "type": "info_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

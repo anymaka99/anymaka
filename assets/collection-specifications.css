@@ -1,0 +1,241 @@
+.specs {
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.specs__head {
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    margin: 0 auto;
+}
+
+.specs__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0;
+
+}
+
+.specs-products .specs__curve {
+    margin-bottom: 48px;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 110%;
+    height: 100%;
+    object-fit: contain;
+    z-index: -1;
+}
+.specs-products .specs__curve-mobile {
+    display: none;
+}
+
+.specs__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.specs__slider {
+    position: relative;
+}
+
+.specs__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.spec-card {
+    background: #F5F5F6;
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.spec-card--tall {
+    grid-row: span 2;
+}
+
+.spec-card__head {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.spec-card__icon {
+    width: 128px;
+    height: 128px;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    background: #ffffff;
+}
+
+.spec-card__title {
+    margin: 0;
+    font-family: "Noto Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.spec-list {
+    margin: 0;
+    padding: 0;
+}
+
+.spec-list__row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 16px 0;
+    border-bottom: 1px solid #CED0D3;
+    font-size: 16px;
+}
+
+.spec-list__row:last-child {
+    border-bottom: none;
+    padding-bottom: 4px;
+}
+
+.spec-list__row:first-child {
+    border-top: 1px solid #CED0D3;
+}
+
+.spec-list dt {
+    margin: 0;
+    font-weight: 600;
+    flex: 1 1 50%;
+}
+
+.spec-list dd {
+    margin: 0;
+    text-align: left;
+    color: #575A63;
+    font-weight: 400;
+    flex: 1 1 50%;
+}
+.spec-list dd ul {
+    list-style: none;
+    margin-left: 0px;
+}
+
+
+
+.pagination {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .specs {
+        padding: 0 16px;
+        margin-bottom: 80px;
+    }
+
+    .spec-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .spec-card__icon{
+        width: 56px;
+        height: 56px;
+    }
+    .specs__track {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-card--tall {
+        grid-row: auto;
+    }
+
+    .specs__title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .specs__subtitle {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 32px;
+    }
+
+    .spec-card__title {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .spec-list__row {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .specs__slider {
+        padding-bottom: 0;
+    }
+
+    .specs__track {
+        display: flex;
+        gap: 0;
+    }
+
+    .spec-card {
+        height: 75dvh;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .pagination {
+        gap: 12px;
+        margin: 32px auto 0;
+        position: static;
+        justify-content: center;
+        display: flex;
+    }
+
+    .pagination .swiper-pagination-bullet {
+        position: relative;
+        width: 32px;
+        height: 20px;
+        margin: 0 !important;
+        opacity: 1;
+        background: transparent;
+    }
+
+    .pagination .swiper-pagination-bullet::before {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        opacity: 0.32;
+        background: #f79009;
+        clip-path: path(" M2 0 H22 C24 0 24 2 23 4 C20 10 14 12 12 12 C10 12 4 10 1 4 C0 2 0 0 2 0 Z ");
+    }
+
+    .pagination .swiper-pagination-bullet-active::before {
+        opacity: 1;
+    }
+    .specs-products .specs__curve {
+        display: none;
+    }
+    .specs-products .specs__curve-mobile {
+        display: block;
+        position: absolute;
+        top: 4px;
+        z-index: -1;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

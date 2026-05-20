@@ -1,0 +1,148 @@
+{{ 'product-gallery-image.css' | asset_url | stylesheet_tag }}
+
+<section class="showcase-dnc-section product-gallery" id="{{ section.settings.custom_id }}">
+  <div class="showcase-dnc-container">
+    {% if section.settings.heading %}
+      <h1 class="showcase-dnc-section__title">{{ section.settings.heading }}</h1>
+    {% endif %}
+    {% assign total_blocks_count = section.blocks.size %}
+    <div class="showcase-dnc-grid{%- if is_even == 0 -%}{{ ' ' }}even{%- endif -%}">
+      {% for block in section.blocks %}
+        <div
+          class="showcase-dnc-item product-gallery-item {% if block.settings.full_item == 'true' %}product-gallery-full{% endif %} showcase-dnc-item--{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.image != blank -%}
+            <img
+              width="1200"
+              height="1200"
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="showcase-dnc-image product-gallery-image image-size-{{ block.settings.image_size }}"
+              loading="lazy"
+            >
+          {%- endif -%}
+          {%- if block.settings.image_mobile != blank -%}
+            <img
+              width="550"
+              height="550"
+              src="{{ block.settings.image_mobile | image_url: width: 1200 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="showcase-dnc-image product-gallery-image__mobile"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <div class="showcase-dnc-shading"></div>
+          <div class="showcase-dnc-content content-alignment-{{ block.settings.column_alignment }}">
+            <h2 class="showcase-dnc-title">{{ block.settings.title }}</h2>
+
+            {%- if block.settings.description != blank -%}
+              <p class="showcase-dnc-description">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product gallery image",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase_item",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Item Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile image"
+        },
+        {
+          "type": "select",
+          "id": "full_item",
+          "label": "Full width",
+          "options": [
+            {
+              "value": "true",
+              "label": "Yes"
+            },
+            {
+              "value": "false",
+              "label": "No"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "image_size",
+          "label": "Image size",
+          "options": [
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "cover",
+              "label": "Cover"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "column_alignment",
+          "label": "Content alignment",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product gallery image"
+    }
+  ]
+}
+{% endschema %}

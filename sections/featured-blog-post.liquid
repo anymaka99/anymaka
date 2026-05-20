@@ -16,7 +16,7 @@
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 
 -%}
-<div class="row{% if full_width %} full-width-row{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="row{% if full_width %} full-width-row{% endif %}">
 	<div class="small-12 columns">
 		<div class="blog-posts section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}">
 			{% render 'section-header', section_heading: section_heading, section_description: section_description, marker_color: marker_color, marker_style: marker_style %}
@@ -28,6 +28,7 @@
 {% schema %}
   {
     "name": "Featured blog post",
+  	"class": "section-featured-blog-post",
     "settings": [
       {
         "type": "text",
@@ -161,7 +162,12 @@
       {
         "name": "Featured blog post"
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
-
 {% endschema %}

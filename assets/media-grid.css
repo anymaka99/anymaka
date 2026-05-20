@@ -15,7 +15,7 @@
 
 .media-grid--inner {
   padding: 0 15px;
-  max-width: 1380px;
+  max-width: var(--grid-width-row, 1380px);
   margin-left: auto;
   margin-right: auto; }
   @media only screen and (min-width: 768px) {
@@ -31,6 +31,18 @@
   @media only screen and (min-width: 768px) {
     .media-grid--inner {
       grid: auto-flow dense var(--desktop-height)/repeat(4, minmax(0, 1fr)); } }
+  @media only screen and (max-width: 767px) {
+    .media-grid--inner.swipe-on-mobile {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(var(--mobile-swipe-width), 1fr);
+      overflow-x: auto;
+      grid-template-columns: repeat(auto-fill, minmax(var(--mobile-swipe-width), 1fr));
+      scroll-snap-type: x mandatory;
+      grid-template-rows: var(--desktop-height);
+      padding-bottom: 10px; }
+      .media-grid--inner.swipe-on-mobile .media-grid--item {
+        scroll-snap-align: center;
+        grid-area: auto; } }
 
 .media-grid--item {
   background: var(--color-bg-gradient, var(--color-bg, #fff));

@@ -1,4 +1,8 @@
 config/settings_data.json
+templates/*.json
+sections/*.json
+package.json
+
 shopify.theme.toml
 .DS_Store
 .env

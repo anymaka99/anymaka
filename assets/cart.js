@@ -159,7 +159,7 @@ class Cart {
 
     removes.forEach((remove) => {
       remove.addEventListener('click', (event) => {
-        this.updateQuantity(event.target.dataset.index, '0');
+        this.updateQuantity(event.currentTarget.dataset.index, '0');
 
         event.preventDefault();
       });
@@ -177,13 +177,12 @@ class Cart {
         elementToReplace.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
       }
 
-      this.removeProductEvent();
-
       if (line && this.container.querySelector(`#CartItem-${line}`)) {
         this.container.querySelector(`#CartItem-${line}`).classList.remove('loading');
       }
       this.termsCheckbox();
     }));
+    this.removeProductEvent();
   }
 }
 window.addEventListener('load', () => {

@@ -1,0 +1,428 @@
+{{ 'collection-specifications.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .specs {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .specs {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="specs specs-products" aria-labelledby="specs-title">
+  <div class="specs__head">
+    {%- if section.settings.section_title -%}
+      <h2 id="specs-title" class="specs__title">{{ section.settings.section_title }}</h2>
+      {%- if section.settings.show_line -%}
+        <svg
+          class="specs__curve"
+          width="370"
+          height="36"
+          viewBox="0 0 370 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M369 10.4476C345.845 17.8522 330.127 34.5148 303.033 33.3462C274.071 32.0969 263.069 0.280343 235.412 1.01244C204.713 1.82511 193.609 29.0109 163.278 34.0899C119.789 41.3721 96.5027 2.34783 52.9791 9.39136C31.8084 12.8175 19.8243 17.0779 1 27.8703" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg
+          class="specs__curve-mobile"
+          width="209"
+          height="22"
+          viewBox="0 0 209 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M208 6.55739C194.975 10.9131 186.134 20.7146 170.894 20.0272C154.602 19.2923 148.414 0.576672 132.857 1.00732C115.588 1.48536 109.342 17.477 92.2813 20.4646C67.8191 24.7483 54.7203 1.79284 30.2382 5.93609C18.3297 7.95144 11.5887 10.4576 1 16.806" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  {%- if section.settings.section_subtitle -%}
+    <p class="specs__subtitle">{{ section.settings.section_subtitle }}</p>
+  {%- endif -%}
+
+  <div class="specs__slider swiper">
+    <div class="specs__track swiper-wrapper">
+      {% for block in section.blocks %}
+        {% assign p = block.settings.product %}
+
+        {% if p %}
+          <article class="spec-card swiper-slide {% if block.settings.tall %}spec-card--tall{% endif %}">
+            <div class="spec-card__head">
+              {% if p.featured_image %}
+                <img
+                  class="spec-card__icon"
+                  width="200"
+                  height="200"
+                  src="{{ p.featured_image | image_url: width: 200 }}"
+                  alt="{{ p.featured_image.alt | escape }}"
+                >
+              {% endif %}
+              <h3 class="spec-card__title">{{ p.title }}</h3>
+            </div>
+
+            <dl class="spec-list">
+              {% if p.metafields.custom.folded_dimensions.value %}
+                <div class="spec-list__row">
+                  {%- if settings.folded_dimensions -%}
+                    <dt>{{ settings.folded_dimensions }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.folded_dimensions.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.packed_dimensions.value %}
+                <div class="spec-list__row">
+                  {%- if settings.packed_dimensions -%}
+                    <dt>{{ settings.packed_dimensions }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.packed_dimensions.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.stand_weight.value %}
+                <div class="spec-list__row">
+                  {%- if settings.stand_weight -%}
+                    <dt>{{ settings.stand_weight }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.stand_weight.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.total_packed_weight.value %}
+                <div class="spec-list__row">
+                  {%- if settings.total_packed_weight -%}
+                    <dt>{{ settings.total_packed_weight }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.total_packed_weight.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.footprint.value %}
+                <div class="spec-list__row">
+                  {%- if settings.footprint -%}
+                    <dt>{{ settings.footprint }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.footprint.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.ridgeline.value %}
+                <div class="spec-list__row">
+                  {%- if settings.ridgeline -%}
+                    <dt>{{ settings.ridgeline }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.ridgeline.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_height.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_height -%}
+                    <dt>{{ settings.spec_height }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_height.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.max_weight_capacity.value %}
+                <div class="spec-list__row">
+                  {%- if settings.max_weight_capacity -%}
+                    <dt>{{ settings.max_weight_capacity }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.max_weight_capacity.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_capacity.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_capacity -%}
+                    <dt>{{ settings.spec_capacity }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_capacity.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.frame_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.frame_materials -%}
+                    <dt>{{ settings.frame_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.frame_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.hub_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.hub_materials -%}
+                    <dt>{{ settings.hub_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.hub_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_screws.value %}
+                <div class="spec-list__row">
+                  {%- if settings.screws -%}
+                    <dt>{{ settings.screws }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_screws.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_bolts.value %}
+                <div class="spec-list__row">
+                  {%- if settings.bolts -%}
+                    <dt>{{ settings.bolts }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_bolts.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.travel_bag_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.travel_bag_materials -%}
+                    <dt>{{ settings.travel_bag_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.travel_bag_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_weight.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_weight -%}
+                    <dt>{{ settings.spec_weight }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_weight.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.unpacked_dimensions.value %}
+                <div class="spec-list__row">
+                  {%- if settings.unpacked_dimensions -%}
+                    <dt>{{ settings.unpacked_dimensions }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.unpacked_dimensions.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_materials -%}
+                    <dt>{{ settings.spec_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.tarp_dimensions.value %}
+                <div class="spec-list__row">
+                  {%- if settings.tarp_dimensions -%}
+                    <dt>{{ settings.tarp_dimensions }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.tarp_dimensions.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.pole_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.pole_materials -%}
+                    <dt>{{ settings.pole_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.pole_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.tarp_materials.value %}
+                <div class="spec-list__row">
+                  {%- if settings.tarp_materials -%}
+                    <dt>{{ settings.tarp_materials }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.tarp_materials.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_dimensions.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_dimensions -%}
+                    <dt>{{ settings.spec_dimensions }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_dimensions.value }}</dd>
+                </div>
+              {% endif %}
+
+              {% if p.metafields.custom.spec_included.value %}
+                <div class="spec-list__row">
+                  {%- if settings.spec_included -%}
+                    <dt>{{ settings.spec_included }}</dt>
+                  {%- endif -%}
+                  <dd>{{ p.metafields.custom.spec_included | metafield_tag }}</dd>
+                </div>
+              {% endif %}
+            </dl>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper-pagination pagination" aria-hidden="true"></div>
+</section>
+
+<script>
+  (function () {
+    const sectionId = '{{ section.id }}';
+    const section = document.querySelector('#shopify-section-' + sectionId);
+    if (!section) return;
+
+    const slider = section.querySelector('.specs__slider');
+    const pagination = section.querySelector('.pagination');
+    if (!slider) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 1024px)');
+    let sliderInstance = null;
+
+    function initSlider() {
+      if (sliderInstance) return;
+
+      sliderInstance = new Swiper(slider, {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        centeredSlides: false,
+        pagination: {
+          el: pagination,
+          clickable: true,
+        },
+      });
+    }
+
+    function destroySlider() {
+      if (!sliderInstance) return;
+      sliderInstance.destroy(true, true);
+      sliderInstance = null;
+    }
+
+    function handleBreakpoint(e) {
+      if (e.matches) {
+        initSlider();
+      } else {
+        destroySlider();
+      }
+    }
+
+    handleBreakpoint(mobileQuery);
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', handleBreakpoint);
+    } else {
+      mobileQuery.addListener(handleBreakpoint);
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail.sectionId === sectionId) {
+        handleBreakpoint(mobileQuery);
+      }
+    });
+
+    document.addEventListener('shopify:section:unload', function (event) {
+      if (event.detail.sectionId === sectionId) {
+        destroySlider();
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product Specifications",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Specifications"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Everything you need to know."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show line title",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select product"
+        },
+        {
+          "type": "checkbox",
+          "id": "tall",
+          "label": "Make this card tall",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Specifications"
+    }
+  ]
+}
+{% endschema %}

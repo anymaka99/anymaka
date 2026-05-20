@@ -5,7 +5,6 @@
 	assign section_description = section.settings.description
 	assign badge_text = section.settings.badge_text
 	assign image_position = section.settings.image_position
-    assign mobile_image_position = section.settings.mobile_image_position
 
 	assign desktop_height = section.settings.desktop_height
 	assign mobile_height = section.settings.mobile_height
@@ -34,11 +33,11 @@
 			assign mobile_image_height = 500
 	endcase
 -%}
-<div class="row {% if section.settings.content_for_tab != blank %}product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="row">
 	<div class="small-12 columns">
-		<div class="before-after-image {% if section.settings.column_spacing %} no-spacing{% endif %} image-position--{{ image_position }} mobile-image-position--{{ mobile_image_position }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--percent:{{ initial_position }}%; --color-line: {{ line_color }};">
-			<div class="before-after-image--text description-max-{{ section.id }}">
-				{%- if badge_text != blank -%}
+		<div class="before-after-image image-position--{{ image_position }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--percent:{{ initial_position }}%; --color-line: {{ line_color }};">
+			<div class="before-after-image--text">
+				{%- if badge_text -%}
 				<div>
 					<span class="inline-badge" style="--badge-bg: {{ color_bg_badge }}; --badge-text: {{ color_badge }};">{{ badge_text }}</span>
 				</div>
@@ -107,92 +106,44 @@
 		</div>
 	</div>
 </div>
-
-<style>
-    {%- if section.settings.description_max_width > 0 -%}
-    @media only screen and (min-width: 768px) {
-        .description-max-{{ section.id }} > div, .description-max-{{ section.id }} > h3{
-          max-width: {{ section.settings.description_max_width }}px;
-        }
-    }
-  {%- endif -%}
-</style>
 <script src="{{ 'before-after-image.js' | asset_url }}" defer="defer"></script>
 {% schema %}
   {
     "name": "Before/after image",
-    "class": "section-before-after",
-    "max_blocks": 2,
+		"class": "section-before-after",
+		"max_blocks": 2,
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-          {
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          }
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      }, 
-      {
-        "type": "checkbox",
-        "id": "column_spacing",
-        "label": "No Spacing",
-        "default": false
-      },
-      {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Image Comparison",
-          "info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
-      },
-        {
-            "type": "select",
-            "id": "marker_style",
-            "options": [
-                {
-                    "value": "style1",
-                    "label": "Basic"
-                },
-                {
-                    "value": "style2",
-                    "label": "Double"
-                },
-                {
-                    "value": "style3",
-                    "label": "Squiggle"
-                },
-                {
-                    "value": "style4",
-                    "label": "Zigzag"
-                }
-            ],
-            "default": "style1",
-            "label": "Marker"
-        },
+			{
+				"type": "text",
+				"id": "heading",
+				"label": "Heading",
+				"default": "Image Comparison",
+				"info": "Wrap your text between | to add animated markers. For example: Animated |marker| will underline marker text."
+			},
+			{
+				"type": "select",
+				"id": "marker_style",
+				"options": [
+					{
+						"value": "style1",
+						"label": "Basic"
+					},
+					{
+						"value": "style2",
+						"label": "Double"
+					},
+					{
+						"value": "style3",
+						"label": "Squiggle"
+					},
+					{
+						"value": "style4",
+						"label": "Zigzag"
+					}
+				],
+				"default": "style1",
+				"label": "Marker"
+			},
 			{
 				"type": "select",
 				"id": "heading_size",
@@ -223,12 +174,6 @@
 				"label": "Description",
 				"default": "<p>Add a short description for your image comparison</p>"
 			},
-            {
-                "type": "number",
-                "id": "description_max_width",
-                "label": "Content max widht on desktop",
-                "info": "px"
-            },        
 			{
 				"type": "text",
 				"id": "badge_text",
@@ -236,41 +181,25 @@
 				"default": "Badge"
 			},
 			{
-    	      "type": "select",
-    	      "id": "image_position",
-    	      "options": [
-    	        {
-    	          "value": "image_first",
-    	          "label": "Image first"
-    	        },
-    	        {
-    	          "value": "text_first",
-    	          "label": "Image second"
-    	        },
-    	        {
-    	          "value": "image_top",
-    	          "label": "Image bottom"
-    	        }
-    	      ],
-    	      "default": "image_first",
-    	      "label": "Desktop image placement"
-    	    },
-			{
-    	      "type": "select",
-    	      "id": "mobile_image_position",
-    	      "options": [
-    	        {
-    	          "value": "image_first",
-    	          "label": "Image first"
-    	        },
-    	        {
-    	          "value": "text_first",
-    	          "label": "Image second"
-    	        }
-    	      ],
-    	      "default": "image_first",
-    	      "label": "Mobile image placement"
-    	    },      
+	      "type": "select",
+	      "id": "image_position",
+	      "options": [
+	        {
+	          "value": "image_first",
+	          "label": "Image first"
+	        },
+	        {
+	          "value": "text_first",
+	          "label": "Image second"
+	        },
+	        {
+	          "value": "image_top",
+	          "label": "Image bottom"
+	        }
+	      ],
+	      "default": "image_first",
+	      "label": "Desktop image placement"
+	    },
 			{
 				"type": "select",
 				"id": "desktop_height",
@@ -486,6 +415,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

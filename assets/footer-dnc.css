@@ -1,0 +1,211 @@
+#footer {
+    background-color: #242528;
+    color: #FFFFFF;
+    font-family: "Noto Sans", sans-serif;
+}
+.footer-dnc__inner {
+    padding: 120px 64px 64px 64px;
+    gap: 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.footer-dnc__logo {
+    display: block;
+    margin-bottom: 56px;
+}
+.footer-dnc__logo-img {
+    width: auto;
+    height: 36px;
+    display: inline-block;
+}
+.footer-dnc__red_dot_award {
+    margin-bottom: 48px;
+}
+.footer-dnc__red_dot_award_imge {
+    width: 98px;
+    height: auto;
+}
+.footer-dnc__left {
+    flex: 0 0 calc(50% - 16px);
+}
+.footer-dnc__menu_wrp {
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 calc(50% - 16px);
+}
+.footer-dnc__mid {
+    flex: 0 0 calc(50% - 16px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.footer-dnc__right {
+    flex: 0 0 calc(50% - 16px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.footer-dnc__col {
+    margin-bottom: 64px;
+}
+.footer-dnc__col:last-child {
+    margin-bottom: 0;
+}
+.footer-dnc__links {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.footer-dnc__links li {
+    padding: 0;
+}
+.footer-dnc__links li a {
+    color: #81868F;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    transition: color .3s;
+}
+.footer-dnc__links li a:hover {
+    color: #F79009;
+}
+
+.footer-dnc__text {
+    max-width: 390px;
+}
+.footer-dnc__text p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+.footer-dnc__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.footer-dnc__signup {
+    margin-bottom: 70px;
+}
+.footer-dnc__signup fieldset {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 28px;
+    border: 1px solid #FFF;
+    width: 462px;
+    max-width: 100%;
+}
+.footer-dnc__signup input[type="email"] {
+    border: none;
+    color: #FFFFFF;
+    font-family: inherit;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 28px 0 0 28px;
+    margin: 0;
+}
+.footer-dnc__signup input[type="email"]::placeholder {
+    color: #81868F;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+}
+.footer-dnc__signup input[type="email"]:focus {
+    border: none;
+    outline: none;
+}
+.footer-dnc__signup .submit.button {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #242528;
+    background-color: #fff;
+    padding: 13px 24px;
+    border-radius: 26px;
+    transition: all .3s;
+}
+.footer-dnc__signup .submit.button:hover {
+    background-color: #F79009;
+    color: #FFFFFF;
+}
+.footer-dnc__bottom {
+    display: flex;
+    gap: 32px;
+}
+.footer-dnc__bottom-right {
+    display: flex;
+    gap: 32px;
+}
+.footer-dnc__bottom-right a {
+    color: #81868F;
+    font-size: 16px;
+    transition: color .3s;
+}
+.footer-dnc__bottom-right a:hover {
+    color: #FFFFFF;
+}
+.footer-dnc__bottom-left {
+    color: #81868F;
+    font-size: 16px;
+}
+@media only screen and (max-width: 1260px) {
+    .footer-dnc__bottom {
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .footer-dnc__inner {
+        flex-wrap: wrap;
+    }
+    .footer-dnc__left {
+        flex: 0 0 100%;
+    }
+    .footer-dnc__menu_wrp {
+        flex: 0 0 100%;
+    }
+    .footer-dnc__signup fieldset {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .footer-dnc__inner {
+        padding: 80px 16px 120px 16px;
+        position: relative;
+    }
+    .footer-dnc__signup {
+        margin-bottom: 0px;
+    }
+    .footer-dnc__title {
+        font-size: 16px;
+    }
+    .footer-dnc__links li a {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .footer-dnc__signup fieldset .field {
+        max-width: 60%;
+    }
+    .footer-dnc__bottom {
+        gap: 16px;
+        position: absolute;
+        bottom: 16px;
+        width: calc(100% - 32px);
+    }
+    .footer-dnc__signup .submit.button {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 13px 20px;
+    }
+    .footer-dnc__bottom-left,
+    .footer-dnc__bottom-right a {
+        font-size: 14px;
+    }
+}

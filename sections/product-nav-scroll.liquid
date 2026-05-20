@@ -1,0 +1,374 @@
+{{- 'product-scroll-nav.css' | asset_url | stylesheet_tag -}}
+<script src="{{ 'product-nav-scroll.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  .product-nav-scroll-section {
+      background-color: {{ settings.color_body_bg }};
+  }
+  .product-nav-scroll__inner {
+    padding: {{ section.settings.padding_desktop }}px 0px;
+  }
+  .product-nav-scroll__link {
+    font-size: {{ section.settings.font_size_link }}px;
+  }
+
+  @media (max-width: 1024px) {
+    .product-nav-scroll__inner {
+        padding: {{ section.settings.padding_mobile }}px 0px;
+      }
+    .product-nav-scroll__link {
+        font-size: {{ section.settings.font_size_link_mobile }}px;
+      }
+    }
+</style>
+
+{%- liquid
+  assign disable_top_spacing = section.settings.disable_top_spacing
+  assign disable_bottom_spacing = section.settings.disable_bottom_spacing
+  assign color_bg = section.settings.color_bg | downcase
+  assign color_text = section.settings.color_text
+  assign color_tabs = section.settings.color_tabs
+  assign color_body_bg = settings.color_body_bg | downcase
+
+  assign has_bg = true
+  if color_body_bg == color_bg or color_bg == 'transparent' or color_bg == 'rgba(0,0,0,0)'
+    assign has_bg = false
+  endif
+-%}
+
+<div class="row" id="product-tab-switch">
+  <div class="small-12 columns">
+    <div
+      class="product-nav-scroll-wrapper {% if has_bg -%}product-nav-scroll--has-bg{% endif %} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}"
+      data-product-nav-scroll
+      style="--product-nav-bg: {{ color_bg }}; --product-nav-text: {{ color_text }}; --product-nav-links: {{ color_tabs.rgb | replace: ' ' , ',' }};"
+    >
+      <nav class="product-nav-scroll" aria-label="Product sections">
+        <div class="product-nav-scroll__inner">
+          {%- for block in section.blocks -%}
+            {%- assign label = block.settings.tab_label -%}
+            {%- assign target_id = block.settings.target_selector | default: block.settings.tab_label | handle -%}
+            {%- if label != blank and target_id != blank -%}
+              <a
+                class="product-nav-scroll__link{% if forloop.index == 1 %} is-active{%- endif -%}"
+                href="#{{ target_id }}"
+                data-target-id="{{ target_id }}"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.icon != blank and block.settings.icon != 'none' %}
+                  {% render 'svg-icons-inline', icon: block.settings.icon %}
+                {% endif %}
+                <span>{{ label }}</span>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Prodct Scroll Nav",
+  "class": "product-nav-scroll-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_body_bg",
+      "label": "Section background"
+    },
+    {
+      "type": "header",
+      "content": "Height and size"
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "label": "Padding navigation (desktop)",
+      "min": 4,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Padding navigation (mobile)",
+      "min": 4,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "font_size_link",
+      "label": "Font size link (desktop)",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "font_size_link_mobile",
+      "label": "Font size link (mobile)",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "color_tabs",
+      "label": "Tabs",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text",
+      "default": "#2c2d2e"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_top_spacing",
+      "default": false,
+      "label": "Remove top spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_bottom_spacing",
+      "default": false,
+      "label": "Remove bottom spacing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "default": "Tab label",
+          "label": "Label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "apple",
+              "label": "Apple"
+            },
+            {
+              "value": "banana",
+              "label": "Banana"
+            },
+            {
+              "value": "bottle",
+              "label": "Bottle"
+            },
+            {
+              "value": "box",
+              "label": "Box"
+            },
+            {
+              "value": "carrot",
+              "label": "Carrot"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "Chat bubble"
+            },
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "clipboard",
+              "label": "Clipboard"
+            },
+            {
+              "value": "dairy",
+              "label": "Dairy"
+            },
+            {
+              "value": "dairy_free",
+              "label": "Dairy free"
+            },
+            {
+              "value": "dryer",
+              "label": "Dryer"
+            },
+            {
+              "value": "eye",
+              "label": "Eye"
+            },
+            {
+              "value": "fire",
+              "label": "Fire"
+            },
+            {
+              "value": "gluten_free",
+              "label": "Gluten free"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "iron",
+              "label": "Iron"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "leather",
+              "label": "Leather"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "Lightning bolt"
+            },
+            {
+              "value": "lipstick",
+              "label": "Lipstick"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "map_pin",
+              "label": "Map pin"
+            },
+            {
+              "value": "nut_free",
+              "label": "Nut free"
+            },
+            {
+              "value": "pants",
+              "label": "Pants"
+            },
+            {
+              "value": "paw_print",
+              "label": "Paw print"
+            },
+            {
+              "value": "pepper",
+              "label": "Pepper"
+            },
+            {
+              "value": "perfume",
+              "label": "Perfume"
+            },
+            {
+              "value": "plane",
+              "label": "Plane"
+            },
+            {
+              "value": "plant",
+              "label": "Plant"
+            },
+            {
+              "value": "price_tag",
+              "label": "Price tag"
+            },
+            {
+              "value": "question_mark",
+              "label": "Question mark"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "ruler",
+              "label": "Ruler"
+            },
+            {
+              "value": "serving_dish",
+              "label": "Serving dish"
+            },
+            {
+              "value": "shirt",
+              "label": "Shirt"
+            },
+            {
+              "value": "shoe",
+              "label": "Shoe"
+            },
+            {
+              "value": "silhouette",
+              "label": "Silhouette"
+            },
+            {
+              "value": "snowflake",
+              "label": "Snowflake"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "stopwatch",
+              "label": "Stopwatch"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "washing",
+              "label": "Washing"
+            }
+          ],
+          "default": "none",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "target_selector",
+          "label": "Target ID selector (CSS)",
+          "info": "ID section"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Prodct Scroll Nav"
+    }
+  ]
+}
+{% endschema %}

@@ -9,7 +9,7 @@
 	assign disable_bottom_spacing = section.settings.disable_bottom_spacing
 	assign size = section.blocks.size | plus: 0
 -%}
-<div class="scrolling-images section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}" id="scrolling-images-{{ section.id }}">
+<div class="scrolling-images section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" id="scrolling-images-{{ section.id }}">
 	<div class="scrolling-images--inner scrolling-images--{{ image_alignment }} direction-{{ direction }} scrolling-images--spacing-{{ column_spacing }}" style="--marquee-speed: {{ speed }}">
 		{% capture scrolling_text %}
 			<div>
@@ -68,38 +68,6 @@
     "name": "Scrolling images",
 		"class": "section-scrolling-images",
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          } 
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },      
 			{
 				"type": "select",
 				"id": "image_ratio",
@@ -276,6 +244,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

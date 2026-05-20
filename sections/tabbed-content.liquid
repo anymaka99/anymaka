@@ -32,20 +32,20 @@
 				<scroll-shadow class="tabbed-content--scroll">
 					<div class="tabbed-content--tabs tabs-{{ tab_alignment }}">
 						{%- for block in section.blocks -%}
-						<button class="{% if forloop.index == 1 %} active{%- endif -%}" {{ block.shopify_attributes }} data-target="{{ block.settings.tab_label | handle }}">
-                          {% render 'svg-icons-inline', icon: block.settings.icon %} {{ block.settings.tab_label }}
-                        </button>
+						<button class="{% if forloop.index == 1 %} active{%- endif -%}" {{ block.shopify_attributes }}>{% render 'svg-icons-inline', icon: block.settings.icon %} {{ block.settings.tab_label }}</button>
 						{%- endfor -%}
 					</div>
 				</scroll-shadow>
-                
-                {%- for block in section.blocks -%}
-                    <div class="tabbed-content--content text-{{ text_alignment }}{% if forloop.index == 1 %} active{%- endif -%}" style="--columns: {{ block.settings.text_columns }};">
-                        {{ block.settings.text | newline_to_br }}
-                        {{ block.settings.page.content }}
-                    </div>
-                {%- endfor -%}
-                
+				{%- for block in section.blocks -%}
+					<div class="tabbed-content--content text-{{ text_alignment }}{% if forloop.index == 1 %} active{%- endif -%}" style="--columns: {{ block.settings.text_columns }};">
+						{%- if block.type == 'specification' -%}
+							{%- render 'product-specification-table', block: block -%}
+						{%- endif -%}
+						{{ block.settings.text | newline_to_br }}
+						{{ block.settings.page.content }}
+						{{ block.settings.custom_liquid }}
+					</div>
+				{%- endfor -%}
 			</tabbed-content>
 		</div>
 	</div>
@@ -54,14 +54,8 @@
 {% schema %}
   {
     "name": "Tabbed content",
-    "class": "section-tabbed-content",
+		"class": "section-tabbed-content",
     "settings": [
-            {
-				"type": "checkbox",
-				"id": "product_tabs",
-				"label": "Product tabs?",
-				"default": false
-			},
 			{
 				"type": "text",
 				"id": "heading",
@@ -159,11 +153,11 @@
 				],
 				"default": "left"
 			},
-      {
-        "type": "header",
-        "content": "Colors"
-      },
-      {
+			{
+	      "type": "header",
+	      "content": "Colors"
+	    },
+			{
         "type": "color",
         "id": "color_bg",
         "label": "Background",
@@ -175,34 +169,34 @@
         "label": "Tabs",
         "default": "#2c2d2e"
       },
-      {
+			{
         "type": "color",
         "id": "color_text",
         "label": "Text",
         "default": "#2c2d2e"
       },
-      {
-          "type": "color",
-          "id": "marker_color",
-          "label": "Marker",
-          "default": "#FD6262"
-      },
-      {
-        "type": "header",
-        "content": "Spacing"
-      },
-      {
-          "type": "checkbox",
-          "id": "disable_top_spacing",
-          "default": false,
-          "label": "Remove top spacing"
-      },
-      {
-          "type": "checkbox",
-          "id": "disable_bottom_spacing",
-          "default": false,
-          "label": "Remove bottom spacing"
-      }      
+			{
+				"type": "color",
+				"id": "marker_color",
+				"label": "Marker",
+				"default": "#FD6262"
+			},
+			{
+	      "type": "header",
+	      "content": "Spacing"
+	    },
+			{
+				"type": "checkbox",
+				"id": "disable_top_spacing",
+				"default": false,
+				"label": "Remove top spacing"
+			},
+			{
+				"type": "checkbox",
+				"id": "disable_bottom_spacing",
+				"default": false,
+				"label": "Remove bottom spacing"
+			}
     ],
     "blocks": [
       {
@@ -429,7 +423,223 @@
 	          "type": "page",
 		        "id": "page",
 	          "label": "Tab content from page"
-	        }
+	        },
+					{
+						"type": "liquid",
+						"id": "custom_liquid",
+						"label": "Custom liquid",
+						"info": "Add app snippets or other Liquid code to create advanced customizations. For product description, you can use {{ product.description }}"
+					}
+        ]
+      },
+			{
+        "type": "specification",
+        "name": "Specifications",
+				"limit": 1,
+        "settings": [
+					{
+						"type": "text",
+						"id": "tab_label",
+						"default": "Specifications",
+						"label": "Label"
+					},
+					{
+						"type": "select",
+						"id": "icon",
+						"options": [
+							{
+								"value": "none",
+								"label": "None"
+							},
+							{
+								"value": "apple",
+								"label": "Apple"
+							},
+							{
+								"value": "banana",
+								"label": "Banana"
+							},
+							{
+								"value": "bottle",
+								"label": "Bottle"
+							},
+							{
+								"value": "box",
+								"label": "Box"
+							},
+							{
+								"value": "carrot",
+								"label": "Carrot"
+							},
+							{
+								"value": "chat_bubble",
+								"label": "Chat bubble"
+							},
+							{
+								"value": "check_mark",
+								"label": "Check mark"
+							},
+							{
+								"value": "clipboard",
+								"label": "Clipboard"
+							},
+							{
+								"value": "dairy",
+								"label": "Dairy"
+							},
+							{
+								"value": "dairy_free",
+								"label": "Dairy free"
+							},
+							{
+								"value": "dryer",
+								"label": "Dryer"
+							},
+							{
+								"value": "eye",
+								"label": "Eye"
+							},
+							{
+								"value": "fire",
+								"label": "Fire"
+							},
+							{
+								"value": "gluten_free",
+								"label": "Gluten free"
+							},
+							{
+								"value": "heart",
+								"label": "Heart"
+							},
+							{
+								"value": "iron",
+								"label": "Iron"
+							},
+							{
+								"value": "leaf",
+								"label": "Leaf"
+							},
+							{
+								"value": "leather",
+								"label": "Leather"
+							},
+							{
+								"value": "lightning_bolt",
+								"label": "Lightning bolt"
+							},
+							{
+								"value": "lipstick",
+								"label": "Lipstick"
+							},
+							{
+								"value": "lock",
+								"label": "Lock"
+							},
+							{
+								"value": "map_pin",
+								"label": "Map pin"
+							},
+							{
+								"value": "nut_free",
+								"label": "Nut free"
+							},
+							{
+								"value": "pants",
+								"label": "Pants"
+							},
+							{
+								"value": "paw_print",
+								"label": "Paw print"
+							},
+							{
+								"value": "pepper",
+								"label": "Pepper"
+							},
+							{
+								"value": "perfume",
+								"label": "Perfume"
+							},
+							{
+								"value": "plane",
+								"label": "Plane"
+							},
+							{
+								"value": "plant",
+								"label": "Plant"
+							},
+							{
+								"value": "price_tag",
+								"label": "Price tag"
+							},
+							{
+								"value": "question_mark",
+								"label": "Question mark"
+							},
+							{
+								"value": "recycle",
+								"label": "Recycle"
+							},
+							{
+								"value": "return",
+								"label": "Return"
+							},
+							{
+								"value": "ruler",
+								"label": "Ruler"
+							},
+							{
+								"value": "serving_dish",
+								"label": "Serving dish"
+							},
+							{
+								"value": "shirt",
+								"label": "Shirt"
+							},
+							{
+								"value": "shoe",
+								"label": "Shoe"
+							},
+							{
+								"value": "silhouette",
+								"label": "Silhouette"
+							},
+							{
+								"value": "snowflake",
+								"label": "Snowflake"
+							},
+							{
+								"value": "star",
+								"label": "Star"
+							},
+							{
+								"value": "stopwatch",
+								"label": "Stopwatch"
+							},
+							{
+								"value": "truck",
+								"label": "Truck"
+							},
+							{
+								"value": "washing",
+								"label": "Washing"
+							}
+						],
+						"default": "none",
+						"label": "Icon"
+					},
+					{
+						"type": "textarea",
+						"id": "content",
+						"label": "Metafields",
+						"info": "Include a list of labels and product metafield keys below, separated by a colon, one per line. Example: Color:custom.color"
+					},
+					{
+						"type": "text",
+						"id": "empty_field_label",
+						"default": "N/A",
+						"label": "Empty field text",
+						"info": "Text to use for empty fields"
+					}
         ]
       }
     ],
@@ -448,6 +658,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

@@ -1,0 +1,234 @@
+{{ 'logos-slider.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .logos-slider-section {
+      {% if section.settings.bg_section != blank %}
+          background-color: {{ section.settings.bg_section }};
+      {% endif %}
+  }
+
+  .logo-content p {
+    color: {{ section.settings.color_text }}
+  }
+  .logo-content-author p {
+    color: {{ section.settings.color_text_author }}
+  }
+
+  #shopify-section-{{ section.id }} .logos-slider-section {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .logos-slider-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="logos-slider-section">
+  <div class="logos-slider-section__wrapper">
+    <div class="swiper logos-thumbs">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            {% if block.settings.logo %}
+              <img
+                src="{{ block.settings.logo | image_url: width: 200 }}"
+                alt=""
+                loading="lazy"
+                style="--logo-scale: {{ block.settings.logo_scale | divided_by: 100.0 }}; --logo-scale-mobile: {{ block.settings.logo_scale_mobile | divided_by: 100.0 }};"
+              >
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="swiper logos-content">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="logo-content">
+              {{ block.settings.text }}
+              <div class="logo-content-author">
+                {{ block.settings.text_author }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section) return;
+
+      const thumbsEl = section.querySelector('.logos-thumbs');
+      const mainEl = section.querySelector('.logos-content');
+
+      if (!thumbsEl || !mainEl) return;
+
+      const thumbs = new Swiper(thumbsEl, {
+        spaceBetween: 64,
+        slidesPerView: 5,
+        breakpoints: {
+          320: { slidesPerView: 3, spaceBetween: 32 },
+          768: { slidesPerView: 4, spaceBetween: 48 },
+          1080: { slidesPerView: 8, spaceBetween: 64 },
+        },
+      });
+
+      const main = new Swiper(mainEl, {
+        spaceBetween: 20,
+        navigation: {
+          nextEl: section.querySelector('.swiper-button-next'),
+          prevEl: section.querySelector('.swiper-button-prev'),
+        },
+        thumbs: {
+          swiper: thumbs,
+        },
+        {% if section.settings.autoplay %}
+        autoplay: {
+          delay: {{ section.settings.autoplay_delay }},
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        {% endif %}
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Logos slider with text",
+  "class": "section-logos-slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_section",
+      "label": "Background image section"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "color_text_author",
+      "label": "Text author color"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 1000,
+      "max": 5000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay delay",
+      "default": 3000
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Logo + Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "range",
+          "id": "logo_scale",
+          "min": 50,
+          "max": 180,
+          "step": 2,
+          "unit": "%",
+          "label": "Logo scale",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "logo_scale_mobile",
+          "min": 50,
+          "max": 180,
+          "step": 2,
+          "unit": "%",
+          "label": "Logo scale (mobile)",
+          "default": 100
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "richtext",
+          "id": "text_author",
+          "label": "Text Author"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logos slider"
+    }
+  ]
+}
+{% endschema %}

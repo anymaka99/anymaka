@@ -30,8 +30,15 @@
 		else
 			assign mobile_image_height = 900
 	endcase
+
+	assign priority = false
+	assign heading_tag = 'h3'
+	if section.index == 1
+		assign priority = 'high'
+	assign heading_tag = 'h1'
+	endif
 -%}
-<div class="row {% if full_width %}full-width-row-full{% endif %} {% if section.settings.content_for_tab != blank %} product-tabs-content js-product-tabs-content-{{ section.settings.content_for_tab }}{% endif %}">
+<div class="row {% if full_width %}full-width-row-full{% endif %}">
 	<div class="small-12 columns">
 		<image-with-text-overlay class="image-with-text-overlay image-with-text-overlay--full-width-{{ full_width }} text-{{ text_alignment }} {{ mobile_height }} {{ desktop_height }} section-spacing{% if disable_top_spacing %} section-spacing--disable-top{% endif %}{% if disable_bottom_spacing %} section-spacing--disable-bottom{% endif %}" style="--text-color: {{ text_color }}; --overlay-color-rgb: {{ overlay_color.rgb | replace: ' ' , ',' }}; --overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }}">
 			<div class="image-with-text-overlay--bg parallax--{{ image_parallax }}">
@@ -50,9 +57,9 @@
 							assign class = class | append: ' image-with-text-overlay--desktop'
 						endif
 					-%}
-					{%- render 'responsive-image', image: image, sizes: width, class: class -%}
+					{%- render 'responsive-image', image: image, sizes: width, class: class, priority: priority -%}
 				{% else %}
-					{{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+					{{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder_svg_tag' }}
 				{% endif %}
 				{%- if mobile_image -%}
 					{%- liquid
@@ -66,7 +73,7 @@
 						endif
 
 						assign class = class | append: ' image-with-text-overlay--mobile'
-						render 'responsive-image', image: image, sizes: width, class: class
+						render 'responsive-image', image: image, sizes: width, class: class, priority: priority
 					-%}
 				{%- endif -%}
 			</div>
@@ -76,13 +83,13 @@
 					{% for block in section.blocks %}
 						{%- case block.type -%}
 							{%- when 'badge' -%}
-								<div>
+								<div {{ block.shopify_attributes }}>
 									<span class="inline-badge" style="--badge-bg: {{ block.settings.color_bg }};--badge-text: {{ block.settings.color_text }}">{{ block.settings.text }}</span>
 								</div>
 							{%- when 'subheading' -%}
 								<p class="subheading" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
 							{%- when 'heading' -%}
-								<h3 class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}</h3>
+								<{{ heading_tag }} class="{{ block.settings.heading_size }} image-with-text-overlay--heading" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}</{{ heading_tag }}>
 							{%- when 'text' -%}
 								<div class="rte description-size--{{ block.settings.description_size }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 							{%- when 'button' -%}
@@ -104,38 +111,6 @@
     "name": "Image with text overlay",
 		"class": "section-image-with-text-overlay",
     "settings": [
-      {
-        "type": "select",
-        "id": "content_for_tab",
-        "options": [
-        	{
-            "value": "",
-            "label": "None"
-          },
-          {
-            "value": "detail",
-            "label": "Detail"
-          },
-          {
-            "value": "tech",
-            "label": "Tech Specs"
-          },
-          {
-            "value": "review",
-            "label": "Reviews"
-          },
-          {
-            "value": "faqs",
-            "label": "FAQs"
-          },
-          {
-            "value": "installation",
-            "label": "Installation"
-          } 
-        ],
-        "default": "",
-        "label": "In which product tab is the content displayed?"
-      },      
 			{
 				"type": "image_picker",
 				"id": "image",
@@ -505,6 +480,12 @@
 					}
 				]
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
 {% endschema %}

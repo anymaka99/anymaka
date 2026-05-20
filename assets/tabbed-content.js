@@ -8,11 +8,10 @@ if (!customElements.get('tabbed-content')) {
 	    return ['selected-index'];
 	  }
 	  constructor() {
-          super();
+			super();
 	  }
 
-      connectedCallback() {
-            
+		connectedCallback() {
 			this.selectedIndex = this.selectedIndex;
 			this.animations_enabled = document.body.classList.contains('animations-true') && typeof gsap !== 'undefined';
 			this.scroller = this.querySelector('.tabbed-content--scroll');
@@ -30,19 +29,19 @@ if (!customElements.get('tabbed-content')) {
 					this.selectedIndex = index;
 				});
 			});
-          if (Shopify.designMode) {
-            this.addEventListener('shopify:block:select', (event) => {
-              this.selectedIndex = this.buttons.indexOf(event.target);
-            });
+			if (Shopify.designMode) {
+	      this.addEventListener('shopify:block:select', (event) => {
+					this.selectedIndex = this.buttons.indexOf(event.target);
+				});
 	    }
-      }
-      get selectedIndex() {
+		}
+		get selectedIndex() {
 	    return parseInt(this.getAttribute('selected-index')) || 0;
 	  }
 	  set selectedIndex(index) {
 	    this.setAttribute('selected-index', index);
 	  }
-      attributeChangedCallback(name, oldValue, newValue) {
+		attributeChangedCallback(name, oldValue, newValue) {
 	    if (name === "selected-index" && oldValue !== null && oldValue !== newValue) {
 				this.buttons[oldValue].classList.remove('active');
 				this.buttons[newValue].classList.add('active');
@@ -55,16 +54,16 @@ if (!customElements.get('tabbed-content')) {
 
 	    }
 	  }
-      transitionFromTo(oldPanel, newPanel) {
-          this.tl
-              .clear()
-              .to(oldPanel, { autoAlpha: 0, duration: 0.25 })
-              .set(oldPanel, { className:"-=active" })
-              .set(newPanel, { className:"+=active" })
-              .to(newPanel, { autoAlpha: 1, duration: 0.25 });
+		transitionFromTo(oldPanel, newPanel) {
+			this.tl
+				.clear()
+				.to(oldPanel, { autoAlpha: 0, duration: 0.25 })
+				.set(oldPanel, { className:"-=active" })
+				.set(newPanel, { className:"+=active" })
+				.to(newPanel, { autoAlpha: 1, duration: 0.25 });
 
-          this.tl.play();
-      }
+			this.tl.play();
+		}
 	}
 	customElements.define('tabbed-content', TabbedContent);
 }

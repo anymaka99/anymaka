@@ -1,0 +1,213 @@
+
+.how-used-video {
+    position: relative;
+}
+.how-used-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding: 0px 64px;
+}
+  .how-used__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 0px;
+    color: #242528;
+    position: relative;
+    max-width: max-content;
+    z-index: 2;
+  }
+  .how-used__title svg {
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    z-index: -1;
+  }
+  .how-used__slide {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .how-used__video-wrap {
+    position: relative;
+    aspect-ratio: auto;
+    height: 600px;
+    display: flex;
+    background: rgba(0, 0, 0, .2);
+  }
+  .how-used__video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .how-used__video-wrap {
+    aspect-ratio: auto;
+    height: 600px;
+  }
+  .line-mob {
+    display: none;
+  }
+
+  .how-used-video .top-icon {
+    position: absolute;
+    top: -55px;
+    right: 55px;
+  }
+  
+  .how-used__video-wrap video,
+.how-used__video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-used__video-poster {
+  z-index: 2;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.how-used__slide.is-playing .how-used__video-poster {
+  opacity: 0;
+}
+
+.how-used__video-wrap video {
+  z-index: 1;
+}
+
+.how-used__video-toggle {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+  backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .2s;
+}
+.how-used__video-toggle-icon {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 18px solid #242528;
+}
+
+.how-used__video-toggle:hover {
+  background-color: #F79009;
+  border: 1px solid #F79009;
+}
+.how-used__video-toggle:hover .how-used__video-toggle-icon {
+  border-left-color: white;
+}
+
+.how-used__slide.is-playing .how-used__video-toggle-icon {
+  width: 14px;
+  height: 18px;
+  margin-left: 0;
+  border: 0;
+  background:
+    linear-gradient(to right, #242528 0 5px, transparent 5px 9px, #242528 9px 14px);
+}
+
+.how-used__slide.is-playing .how-used__video-toggle:hover .how-used__video-toggle-icon {
+  background:
+    linear-gradient(to right, #fff 0 5px, transparent 5px 9px, #fff 9px 14px);
+}
+
+.used__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.used__nav-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #F79009;
+  background: transparent;
+  color: #D9D9D9;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .2s;
+}
+.used__nav-btn:hover {
+  background-color: #F79009;
+}
+.used__nav-btn:hover svg path {
+  fill: white;
+}
+.used__nav-btn--next {
+  transform: rotate(180deg);
+}
+
+  @media (max-width: 1500px) {
+    .how-used__video-wrap {
+      height: auto;
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .how-used__video-wrap {
+      aspect-ratio: 4 / 5;
+      height: auto;
+    }
+    .line-desktop {
+        display: none;
+    }
+    .line-mob {
+        display: block;
+    }
+    .how-used-wrapper {
+      padding: 0px 16px; 
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .how-used__title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .how-used__title svg {
+        max-width: 174px;
+        left: 0px;
+        top: 0px;
+    }
+    .how-used-video .top-icon {
+        top: -32px;
+        right: 13px;
+    }
+    .how-used-video .top-icon img {
+        max-width: 120px;
+    }
+    .used__actions {
+      display: none;
+    }
+    .how-used__video-toggle {
+      width: 56px;
+      height: 56px;
+    }
+    .how-used__video-toggle-icon {
+      border-top-width: 8px;
+      border-bottom-width: 8px;
+      border-left-width: 14px;
+    }
+  }

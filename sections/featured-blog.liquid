@@ -59,6 +59,7 @@
 {% schema %}
   {
     "name": "Blog posts",
+  "class": "section-featured-blog",
     "settings": [
       {
         "type": "text",
@@ -205,7 +206,12 @@
       {
         "name": "Blog posts"
       }
-    ]
+    ],
+		"enabled_on": {
+			"templates": ["*"],
+			"groups": [
+				"header", "footer"
+			]
+		}
   }
-
 {% endschema %}

@@ -1,0 +1,119 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+    "sections": {
+      "image_with_text_overlay_8a7aRb": {
+        "type": "image-with-text-overlay",
+        "blocks": {
+          "heading_HYqtd3": {
+            "type": "heading",
+            "settings": {
+              "text": "anymaka Referral Program",
+              "heading_size": "h1-large"
+            }
+          }
+        },
+        "block_order": [
+          "heading_HYqtd3"
+        ],
+        "settings": {
+          "content_for_tab": "",
+          "image": "shopify://shop_images/Banner_-pc.webp",
+          "mobile_image": "shopify://shop_images/Banner_1e0e6353-b168-4a22-a8dc-329427ba7cfc.webp",
+          "image_parallax": false,
+          "desktop_height": "desktop-height-550",
+          "mobile_height": "mobile-height-350",
+          "full_width": true,
+          "content_width": "large",
+          "content_position": "middle-center",
+          "text_alignment": "center",
+          "text_color": "#ffffff",
+          "overlay_color": "#000000",
+          "overlay_opacity": 20,
+          "disable_top_spacing": true,
+          "disable_bottom_spacing": true
+        }
+      },
+      "main": {
+        "type": "main-page",
+        "custom_css": [
+          "/* styles.css */.post-title h1 {display: none;}",
+          " /* styles.css */#cf_ram_guest_heading {font-size: 34px;}",
+          " /* styles.css */.cf_ram_submit_wrapper {display: flex; flex-direction: column; align-items: flex-start;}",
+          ".cf_ram_guest_input_container {margin-bottom: 10px;}",
+          ".cf_ram_guest_input_container,.cf_ram_guest_submit_button_container {border-radius: 0;}",
+          ".cf_ram_user_input_container,.cf_ram_user_input_field,.cf_ram_user_copy_button,.cf_ram_user_form,.cf_ram_user_submit_button_container input {border-radius: 0 !important;}"
+        ],
+        "settings": {}
+      },
+      "featured_product_N9MpXV": {
+        "type": "featured-product",
+        "blocks": {
+          "title_yzQUW6": {
+            "type": "title",
+            "settings": {
+              "show_products_rating": true
+            }
+          },
+          "variant_picker_bmqhPa": {
+            "type": "variant_picker",
+            "settings": {
+              "picker_type": "button",
+              "color_picker": true,
+              "color_picker_use_variants": false,
+              "variant_is_disabled": true,
+              "sizing_guide_text": "Sizing guide",
+              "sizing_guide_icon": "ruler",
+              "sizing_guide_page": ""
+            }
+          },
+          "quantity_gfmaEg": {
+            "type": "quantity",
+            "settings": {}
+          },
+          "buy_buttons_HtHgTD": {
+            "type": "buy_buttons",
+            "settings": {
+              "show_dynamic_checkout": true
+            }
+          }
+        },
+        "block_order": [
+          "title_yzQUW6",
+          "variant_picker_bmqhPa",
+          "quantity_gfmaEg",
+          "buy_buttons_HtHgTD"
+        ],
+        "name": "Featured product",
+        "settings": {
+          "heading": "Featured product",
+          "marker_style": "style1",
+          "description": "<p>Add a short description for this featured product</p>",
+          "product": "anymaka-canopy-kit",
+          "show_taxes_included": true,
+          "thumbnail_position": "left",
+          "media_aspect_ratio": "adapt",
+          "display_captions": true,
+          "hide_variants": false,
+          "lightbox": true,
+          "enable_video_looping": false,
+          "marker_color": "#FD6262",
+          "disable_top_spacing": false,
+          "disable_bottom_spacing": false
+        }
+      }
+    },
+    "order": [
+      "image_with_text_overlay_8a7aRb",
+      "main",
+      "featured_product_N9MpXV"
+    ]
+  }
+  

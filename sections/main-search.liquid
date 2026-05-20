@@ -3,17 +3,21 @@
 {%- liquid
 	assign enable_filtering = section.settings.enable_filtering
 	assign enable_sorting = section.settings.enable_sorting
+	assign show_counts = section.settings.show_counts
+	assign filter_color_swatches = section.settings.filter_color_swatches
+	assign filters_collapsed = section.settings.filters_collapsed
 	assign pagination_type = section.settings.pagination_type
 	assign products_per_page = section.settings.products_per_page
 	assign columns_desktop = section.settings.columns_desktop
 	assign facets_desktop = section.settings.facets_desktop
+	assign box_filter_list = section.settings.box_filter_list
 
 	assign show_date = section.settings.show_date
 	assign show_excerpt = section.settings.show_excerpt
 	assign image_ratio = section.settings.image_ratio
 -%}
 {%- if search.performed -%}
-	{%- render 'facets-mobile', results: search, enable_filtering: enable_filtering, enable_sorting: enable_sorting -%}
+	{%- render 'facets-mobile', results: search, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches, filters_collapsed: filters_collapsed, box_filter_list: box_filter_list -%}
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="collection-container section-spacing-bottom">
@@ -31,7 +35,7 @@
 								<div id="ProductGridContainer">
 									<div class="sidebar-container facets--{{ facets_desktop }} results--{{ collection.products.size }}">
 										{%- if facets_desktop == 'sidebar' -%}
-											{%- render 'facets-desktop', results: search, enable_filtering: enable_filtering, enable_sorting: enable_sorting -%}
+											{%- render 'facets-desktop', results: search, enable_filtering: enable_filtering, enable_sorting: enable_sorting, show_counts: show_counts, filter_color_swatches: filter_color_swatches, filters_collapsed: filters_collapsed, box_filter_list: box_filter_list -%}
 										{%- endif -%}
 										<div>
 											{%- render 'facets-bar', results: search, enable_filtering: enable_filtering, enable_sorting: enable_sorting -%}
@@ -48,6 +52,11 @@
 														{%- endcase -%}
 													</li>
 												{%- endfor -%}
+												<li class="loading-overlay">
+													<div class="loading-overlay--sticky">
+														{% render 'svg-icons' with 'thb-loading' %}
+													</div>
+												</li>
 											</ul>
 											{% render 'pagination', paginate: paginate, pagination_type: pagination_type, id: section.id %}
 										</div>
@@ -66,7 +75,7 @@
 	<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 	{%- endif -%}
 {%- endif -%}
-
+{% render 'compare-drawer' %}
 {% schema %}
   {
     "name": "Product grid",
@@ -128,6 +137,24 @@
 	      "label": "Enable sorting"
 	    },
 			{
+	      "type": "checkbox",
+	      "id": "show_counts",
+	      "default": true,
+	      "label": "Show filter values count"
+	    },
+			{
+				"type": "checkbox",
+				"id": "filter_color_swatches",
+				"default": true,
+				"label": "Show color swatches"
+			},
+			{
+	      "type": "checkbox",
+	      "id": "filters_collapsed",
+	      "default": false,
+	      "label": "Collapse filters by default"
+	    },
+			{
 	      "type": "select",
 	      "id": "facets_desktop",
 	      "options": [
@@ -144,6 +171,18 @@
 	      "label": "Desktop position",
 	      "info": "Position of filters on desktop"
 	    },
+	    {
+	      "type": "header",
+	      "content": "Filter boxes",
+				"info": "Show some filter options as boxes instead of checkboxes. Recommended only for very short filter labels."
+	    },
+			{
+				"type": "textarea",
+				"id": "box_filter_list",
+        "placeholder": "Size: 4",
+				"label": "Product options to box",
+				"info": "Follow the format: <Filter name>: <Columns>. Example: Size: 2. Each filter name should be in a new line. Enter the name of the option as it appears in the admin area."
+			},
 			{
 	      "type": "header",
 	      "content": "Blog card"

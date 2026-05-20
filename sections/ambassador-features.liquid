@@ -1,0 +1,174 @@
+{{ 'ambassador-features.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .ambassador-features-section {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    @media (max-width: 1067px) {
+      #shopify-section-{{ section.id }} .ambassador-features-section {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+</style>
+
+<section class="ambassador-features-section">
+  <div class="ambassador-features-container">
+    {% if section.settings.intro_title != blank or section.settings.intro_text != blank %}
+      <div class="ambassador-intro">
+        {% if section.settings.intro_title != blank %}
+          <h2 class="ambassador-intro__title">
+            {{ section.settings.intro_title }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.intro_text != blank %}
+          <div class="ambassador-features-intro__text rte">
+            {{ section.settings.intro_text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ambassador-features">
+      {% if section.settings.title != blank %}
+        <h2 class="ambassador-features__title">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      <div class="ambassador-features__list">
+        {% for block in section.blocks %}
+          <article class="ambassador-feature" {{ block.shopify_attributes }}>
+            <div class="ambassador-feature__icon">
+              {% if block.settings.icon != blank %}
+                {{
+                  block.settings.icon
+                  | image_url: width: 200
+                  | image_tag: loading: 'lazy', widths: '64, 100, 150, 200', sizes: '64px', alt: block.settings.icon.alt
+                  | escape
+                }}
+              {% endif %}
+            </div>
+
+            <div class="ambassador-feature__body">
+              {% if block.settings.title != blank %}
+                <h3 class="ambassador-feature__title">{{ forloop.index }}. {{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div class="ambassador-feature__text rte">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ambassador Features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "intro_title",
+      "label": "Intro title",
+      "default": "Where May We Feature Our Ambassadors?"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "<p>We showcase our ambassadors' content across various channels, including websites, social media, and advertisements.</p>"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Features title",
+      "default": "How to Join?"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (desktop)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (desktop)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Step description</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Ambassador Features",
+      "blocks": [{ "type": "feature" }, { "type": "feature" }, { "type": "feature" }]
+    }
+  ]
+}
+{% endschema %}

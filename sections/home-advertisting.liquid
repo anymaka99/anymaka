@@ -1,0 +1,200 @@
+{{ 'advertisting.css' | asset_url | stylesheet_tag }}
+
+{{ 'advertisting.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .advertising {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .advertising {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .advertising {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="advertising">
+  {% if section.blocks.size > 0 %}
+    <div class="swiper advertising__slider">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <article
+            class="swiper-slide advertising__slide advertising__slide--{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.image != blank %}
+              <img
+                class="advertising__image"
+                src="{{ block.settings.image | image_url: width: 2000 }}"
+                srcset="
+                  {{ block.settings.image | image_url: width: 800 }} 800w,
+                  {{ block.settings.image | image_url: width: 1200 }} 1200w,
+                  {{ block.settings.image | image_url: width: 2000 }} 2000w
+                "
+                sizes="100vw"
+                alt="{{ block.settings.title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {% endif %}
+
+            <div class="advertising__overlay"></div>
+
+            <div class="advertising__content">
+              <div class="advertising__text">
+                {% if block.settings.title != blank %}
+                  <h2 class="advertising__title">{{ block.settings.title }}</h2>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <div class="advertising__desc rte">
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                <a href="{{ block.settings.button_link }}" class="advertising__cta">
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination advertising__pagination"></div>
+    </div>
+  {% endif %}
+</section>
+
+<script>
+  (function () {
+    const initAdvertisingSwiper = () => {
+      document.querySelectorAll('.advertising__slider').forEach((el) => {
+        if (!el || typeof Swiper === 'undefined') return;
+
+        if (el.swiper) {
+          el.swiper.destroy(true, true);
+        }
+
+        new Swiper(el, {
+          slidesPerView: 1,
+          loop: true,
+          speed: 700,
+          pagination: {
+            el: el.querySelector('.advertising__pagination'),
+            clickable: true,
+          },
+        });
+      });
+    };
+
+    initAdvertisingSwiper();
+
+    document.addEventListener('shopify:section:load', initAdvertisingSwiper);
+    document.addEventListener('shopify:section:reorder', initAdvertisingSwiper);
+    document.addEventListener('shopify:section:select', initAdvertisingSwiper);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advertisting Section",
+  "class": "advertisting-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Image item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertisting Section"
+    }
+  ]
+}
+{% endschema %}

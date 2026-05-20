@@ -1,0 +1,248 @@
+{{ 'product-specifications.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .product-spec {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .product-spec {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="product-spec specs-products" id="{{ section.settings.custom_id }}">
+  <div class="specs__head">
+    {%- if section.settings.section_title -%}
+      <h2 id="specs-title" class="specs__title">{{ section.settings.section_title }}</h2>
+      {%- if section.settings.show_line -%}
+        <svg
+          class="specs__curve"
+          width="370"
+          height="36"
+          viewBox="0 0 370 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M369 10.4476C345.845 17.8522 330.127 34.5148 303.033 33.3462C274.071 32.0969 263.069 0.280343 235.412 1.01244C204.713 1.82511 193.609 29.0109 163.278 34.0899C119.789 41.3721 96.5027 2.34783 52.9791 9.39136C31.8084 12.8175 19.8243 17.0779 1 27.8703" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg
+          class="specs__curve-mobile"
+          width="209"
+          height="22"
+          viewBox="0 0 209 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M208 6.55739C194.975 10.9131 186.134 20.7146 170.894 20.0272C154.602 19.2923 148.414 0.576672 132.857 1.00732C115.588 1.48536 109.342 17.477 92.2813 20.4646C67.8191 24.7483 54.7203 1.79284 30.2382 5.93609C18.3297 7.95144 11.5887 10.4576 1 16.806" stroke="#F79009" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  {%- if section.settings.section_subtitle -%}
+    <div class="specs__subtitle">{{ section.settings.section_subtitle }}</div>
+  {%- endif -%}
+
+  <div class="specs-grid">
+    {% for block in section.blocks %}
+      {% assign has_specs = false %}
+
+      {% for i in (1..8) %}
+        {% assign field_key = 'field_' | append: i %}
+        {% assign field = block.settings[field_key] %}
+
+        {% if field != blank %}
+          {% assign value = product.metafields.custom[field] %}
+          {% if value != blank %}
+            {% assign has_specs = true %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_specs %}
+        <div class="spec-group" {{ block.shopify_attributes }}>
+          <h3 class="spec-group__title">
+            {{ block.settings.title }}
+          </h3>
+
+          <ul class="spec-list">
+            {% for i in (1..8) %}
+              {% assign label_key = 'label_' | append: i %}
+              {% assign field_key = 'field_' | append: i %}
+
+              {% assign label = block.settings[label_key] %}
+              {% assign field = block.settings[field_key] %}
+
+              {% if field != blank %}
+                {% assign value = product.metafields.custom[field] %}
+
+                {% if value != blank %}
+                  <li class="spec-row">
+                    <span class="spec-label">{{ label }}</span>
+                    <span class="spec-value">{{ value }}</span>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Specifications",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Title",
+      "default": "Specifications"
+    },
+    {
+      "type": "richtext",
+      "id": "section_subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show line title",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (mobile)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding top (desktop)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding bottom (desktop)",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Specification group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Group title"
+        },
+
+        { "type": "text", "id": "label_1", "label": "Row 1 label" },
+        {
+          "type": "text",
+          "id": "field_1",
+          "label": "Row 1 metafield key",
+          "info": "Enter the metafield key. For example: 'stand_weight'"
+        },
+
+        { "type": "text", "id": "label_2", "label": "Row 2 label" },
+        {
+          "type": "text",
+          "id": "field_2",
+          "label": "Row 2 metafield key",
+          "info": "Enter the metafield key. For example: 'adjustable_points_per_arms'"
+        },
+
+        { "type": "text", "id": "label_3", "label": "Row 3 label" },
+        {
+          "type": "text",
+          "id": "field_3",
+          "label": "Row 3 metafield key",
+          "info": "Enter the metafield key. For example: 'frame_materials'"
+        },
+
+        { "type": "text", "id": "label_4", "label": "Row 4 label" },
+        {
+          "type": "text",
+          "id": "field_4",
+          "label": "Row 4 metafield key",
+          "info": "Enter the metafield key. For example: 'folded_dimensions'"
+        },
+
+        { "type": "text", "id": "label_5", "label": "Row 5 label" },
+        {
+          "type": "text",
+          "id": "field_5",
+          "label": "Row 5 metafield key",
+          "info": "Enter the metafield key. For example: 'packed_dimensions'"
+        },
+
+        { "type": "text", "id": "label_6", "label": "Row 6 label" },
+        {
+          "type": "text",
+          "id": "field_6",
+          "label": "Row 6 metafield key",
+          "info": "Enter the metafield key. For example: 'total_packed_weight'"
+        },
+
+        { "type": "text", "id": "label_7", "label": "Row 7 label" },
+        {
+          "type": "text",
+          "id": "field_7",
+          "label": "Row 7 metafield key",
+          "info": "Enter the metafield key. For example: 'travel_bag_materials'"
+        },
+
+        { "type": "text", "id": "label_8", "label": "Row 8 label" },
+        {
+          "type": "text",
+          "id": "field_8",
+          "label": "Row 8 metafield key",
+          "info": "Enter the metafield key. For example: 'spec_capacity'"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Product Specifications"
+    }
+  ]
+}
+{% endschema %}

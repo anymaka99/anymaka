@@ -33,3 +33,8 @@
 .js .recipient-email-label.required,
 .no-js .recipient-email-label.optional {
   display: inline; }
+
+.max-characters {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px !important; }

@@ -1,0 +1,181 @@
+.faq-content .section-header--title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: -0.02em;
+    color: #242528;
+    margin-bottom: 16px;
+}
+.faq-content {
+    gap: 32px;
+}
+
+.collapsible-faq__item summary span {
+    z-index: 4 !important;
+}
+
+.collapsible-faq__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    border-radius: 40px;
+    border: none;
+    background: #F79009;
+    border: 1px solid #F79009;
+    color: #fff !important;
+    max-width: 200px;
+    width: 100%;
+    opacity: 1;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.collapsible-faq__button:hover {
+    background-color: transparent;
+    color: #242528 !important;
+}
+
+.collapsible-faq__mob_icon{
+    display: none;
+}
+
+.collapsible-faq__right {
+    min-height: 1px;
+}
+
+.collapsible-faq__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 16px;
+    width: 100%;
+}
+
+.collapsible-faq__item {
+    width: 100%;
+    background: #F6F6F6;
+    border-radius: 20px;
+    border: 1px solid #EFEFEF;
+    overflow: hidden;
+    transition: max-height 260ms ease;
+}
+
+.collapsible-faq__item summary {
+    padding: 22px 56px 22px 28px !important;
+    text-align: left;
+    width: 100%;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    color: #2A2A2A !important;
+}
+.collapsible-faq__item summary span {
+    right: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+.collapsible-faq__item summary span svg {
+    width: 24px;
+    height: 24px;
+}
+.collapsible-content__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.collapsible-faq__item .minus-icon {
+    display: none;
+}
+.collapsible-faq__item details[open] .plus-icon {
+    display: none;
+}
+.collapsible-faq__item details[open] .minus-icon {
+    display: block;
+}
+
+.collapsible-faq__content {
+    color: #242528;
+    font-size: 16px !important;
+    line-height: 24px;
+    padding: 0px 28px 24px 28px !important;
+    max-width: 90%;
+}
+.collapsible-faq__item:hover summary {
+    color: #F79009 !important;
+}
+.collapsible-faq__item:hover summary span svg path {
+    stroke: #F79009 !important;
+}
+.collapsible-faq-block {
+    display: flex;
+    flex-direction: column;
+}
+.collapsible-faq-block p {
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+}
+
+@media screen and (max-width: 1067px) {
+    .faq-content .section-header--title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .collapsible-faq-block__image {
+        display: none;
+    }
+    .collapsible-faq-block__image img {
+        max-width: 120px;
+    }
+    .collapsible-faq-block__image.show {
+        display: block;
+        margin-bottom: 16px;
+    }
+    .collapsible-faq{
+        padding: 16px;
+    }
+    .collapsible-faq__button {
+        padding-left: 0px;
+        margin-top: 8px;
+        margin-bottom: 0px;
+        font-size: 16px !important;
+        background: transparent;
+        color: #F79009 !important;
+        justify-content: flex-start;
+        border: none;
+        max-width: 100%;
+    }
+    .collapsible-faq__mob_icon{
+        display: block;
+        margin-left: 8px;
+    }
+
+    .collapsible-faq__item summary {
+        font-weight: 600 !important;
+        font-size: 18px !important;
+        line-height: 28px !important;
+        letter-spacing: 0;
+        vertical-align: middle;
+        padding: 16px 64px 16px 16px !important;
+    }
+
+    .collapsible-faq__content {
+        font-size: 14px !important;
+        line-height: 16px;
+        padding: 0 16px 16px !important;
+    }
+    .collapsible-faq-block p {
+        margin-bottom: 32px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

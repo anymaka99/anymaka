@@ -1,0 +1,117 @@
+.logos-slider-section {
+    padding: 0px 64px;
+    font-family: "Noto Sans", sans-serif;
+  }
+  .logos-slider-section .swiper-wrapper {
+    padding: 0px 30px;
+  }
+  .logos-slider-section__wrapper {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .logo-content {
+    text-align: center;
+    padding: 48px 0px 0px 0px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo-content>p {
+    font-size: 48px;
+    line-height: 60px;
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+
+  .logo-content-author p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .logos-thumbs .swiper-slide {
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  .logos-thumbs .swiper-slide img {
+    filter: grayscale(100%);
+    opacity: .4;
+    transition: all .3s;
+  }
+  .logos-thumbs .swiper-slide:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .logos-thumbs .swiper-slide-thumb-active img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  .logos-thumbs .swiper-slide-thumb-active:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  .logos-thumbs img {
+    width: 100%;
+    height: 65px;
+    object-fit: contain;
+    transform: scale(var(--logo-scale, 1));
+  }
+
+  @media (max-width: 1700px) {
+    .logos-slider-section .swiper-wrapper {
+      padding: 0px;
+    }
+    .logos-thumbs .swiper-slide:first-child img {
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 1520px) {
+    .logo-content>p {
+      font-size: 32px;
+      line-height: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 80%;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .logos-thumbs .swiper-slide:first-child img {
+      margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .logo-content>p {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 0px;
+      }
+      .logo-content-author {
+        margin-top: 32px;
+      }
+      .logo-content-author p {
+        margin-bottom: 0px;
+      }
+      .logos-slider-section {
+        padding: 0px 16px;
+      }
+      .logo-content {
+        padding: 32px 0px 0px 0px;
+      }
+      .logos-thumbs img {
+        height: 48px;
+        transform: scale(var(--logo-scale-mobile, var(--logo-scale, 1)));
+      }
+      .logos-thumbs .swiper-slide:first-child img {
+        margin-left: 20px;
+      }
+  }
+  @media (max-width: 425px) {
+    .logos-thumbs .swiper-slide:first-child img {
+      margin-left: 14px;
+    }
+  }

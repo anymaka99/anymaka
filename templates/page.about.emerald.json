@@ -206,7 +206,6 @@
           "settings": {
             "image": "",
             "text": "EARRINGS",
-            "link": "",
             "outline_text": false
           }
         },
@@ -215,7 +214,6 @@
           "settings": {
             "image": "",
             "text": "NECKLACES",
-            "link": "",
             "outline_text": false
           }
         },
@@ -224,7 +222,6 @@
           "settings": {
             "image": "",
             "text": "RINGS",
-            "link": "",
             "outline_text": false
           }
         },
@@ -233,7 +230,6 @@
           "settings": {
             "image": "",
             "text": "BRACELETS",
-            "link": "",
             "outline_text": false
           }
         }
@@ -354,9 +350,7 @@
             "image_full_width": true,
             "image_link": "#",
             "title": "",
-            "text": "",
-            "link_label": "Our Sustainability",
-            "link": ""
+            "link_label": "Our Sustainability"
           }
         },
         "template--18092514083134__91c423cc-cfc3-4e79-bbb6-e23a1e99733d-1678786116dabcde39-1": {
@@ -366,7 +360,6 @@
             "image_full_width": false,
             "image_link": "#",
             "title": "",
-            "text": "",
             "link_label": "Our Approach",
             "link": "#"
           }
@@ -378,7 +371,6 @@
             "image_full_width": false,
             "image_link": "#",
             "title": "",
-            "text": "",
             "link_label": "Our Stores",
             "link": "#"
           }
@@ -390,7 +382,6 @@
         "template--18092514083134__91c423cc-cfc3-4e79-bbb6-e23a1e99733d-1678786116dabcde39-2"
       ],
       "settings": {
-        "heading": "",
         "marker_style": "style1",
         "description": "",
         "columns_desktop": 3,

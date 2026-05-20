@@ -41,9 +41,7 @@
       ],
       "settings": {
         "article_show_date": true,
-        "article_show_author": false,
-        "article_show_nav": true,
-        "article_show_sharing": true
+        "article_show_author": true
       }
     }
   },
